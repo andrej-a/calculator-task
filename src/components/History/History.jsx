@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
-import { HistoryWrapper, TitleWrapper, Title, ItemsWrapper, HistoryItemWrapper, HistoryItem } from './components'
+import { HistoryWrapper, TitleWrapper, Title, ItemsWrapper, HistoryItemWrapper, HistoryItem, Border } from './components'
 import { HISTORY_TITLE } from '@/constants'
 export const History = props => {
   const { historyData } = props
@@ -14,16 +14,19 @@ export const History = props => {
   })
 
   return (
-    <HistoryWrapper>
-      <TitleWrapper>
-        <Title>
-          {HISTORY_TITLE}
-        </Title>
-      </TitleWrapper>
+    <React.Fragment>
+      <Border />
+      <HistoryWrapper>
+        <TitleWrapper>
+          <Title>
+            {HISTORY_TITLE}
+          </Title>
+        </TitleWrapper>
 
-      <ItemsWrapper>
-        {historyItems}
-      </ItemsWrapper>
-    </HistoryWrapper>
+        <ItemsWrapper>
+          {historyItems}
+        </ItemsWrapper>
+      </HistoryWrapper>
+    </React.Fragment>
   )
 }

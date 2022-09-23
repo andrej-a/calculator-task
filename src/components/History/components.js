@@ -38,3 +38,10 @@ font-size: 30px;
 letter-spacing: 0px;
 color: #000000;
 `
+export const Border = styled.div `
+margin-top: 25px;
+width: 2px;
+height: 100%;
+max-height: 910px;
+background: #707070;
+`
