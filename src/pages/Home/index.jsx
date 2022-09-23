@@ -1,18 +1,12 @@
 import React from 'react'
 
-import { PageLayout } from '@/layouts'
-
-import Loader from '@/components/Loader'
-
-import { Card, Heading } from './components'
-
+import { HoumeWrapper } from './components'
+import { History } from '@/components/History'
+import { historyData } from '@/constants/fakeHistoryData'
 export default () => {
   return (
-    <PageLayout>
-      <Card>
-        <Heading id="welcome">Welcome!</Heading>
-        <Loader />
-      </Card>
-    </PageLayout>
+    <HoumeWrapper>
+      <History historyData={historyData} />
+    </HoumeWrapper>
   )
 }
