@@ -22,7 +22,7 @@ font-size: 32px;
 export const ItemsWrapper = styled.div `
 width: 100%;
 min-width: 400px;
-max-height: 840px;
+max-height: 1050px;
 overflow-y: auto;
 overflow-x: hidden;
 
@@ -42,6 +42,6 @@ export const Border = styled.div `
 margin-top: 25px;
 width: 2px;
 height: 100%;
-max-height: 910px;
+max-height: 1050px;
 background: #707070;
 `
