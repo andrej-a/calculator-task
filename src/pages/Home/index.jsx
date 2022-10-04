@@ -1,18 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
+/* STYLES */
+import { HoumeWrapper, DisplayKeypadWrapper } from './components'
+/* COMPONENTS */
+import History from '@/components/History/History'
+import { historyData } from '@/constants/fakeHistoryData'
+import Display from '@/components/Display/Display'
+import Keypad from '@/components/Keypad/Keypad'
 
-import { PageLayout } from '@/layouts'
+const fakeDisplayValue = '123456.4343'
 
-import Loader from '@/components/Loader'
-
-import { Card, Heading } from './components'
-
-export default () => {
+const Houme = ({ theme }) => {
   return (
-    <PageLayout>
-      <Card>
-        <Heading id="welcome">Welcome!</Heading>
-        <Loader />
-      </Card>
-    </PageLayout>
+    <HoumeWrapper theme={theme}>
+      <DisplayKeypadWrapper>
+        <Display value={fakeDisplayValue} />
+        <Keypad />
+      </DisplayKeypadWrapper>
+      <History historyData={historyData} />
+    </HoumeWrapper>
   )
 }
+
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme,
+  }
+}
+
+export default connect(mapStateToProps)(Houme)

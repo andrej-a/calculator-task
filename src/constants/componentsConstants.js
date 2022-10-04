@@ -1,0 +1,8 @@
+export const HEADER_TITLE = 'Calculator App'
+export const HOME_LINK = 'Home'
+export const SETTINGS_LINK = 'Settings'
+export const HISTORY_TITLE = 'History'
+export const SETTINGS_TITLE = 'Settings'
+export const LABEL_TITLE = 'Switch Theme'
+export const CLEAR_HISTORY_BUTTON = 'Clear All History'
+export const DEFAULT_THEME_VALUE = 'Light theme'

@@ -1,20 +1,17 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
-  width: 100%;
-  height: 100%;
-
-  background-color: ${({ theme }) => theme.colors.white};
-
-  border-radius: 32px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  box-shadow: ${({ theme }) => theme.boxShadows[0]};
-
-  padding: ${({ theme }) => theme.spaces[4]}px;
+export const HoumeWrapper = styled.div `
+width: 100%;
+max-width: 1920px;
+max-height: 960px;
+height: auto;
+background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+display: flex;
 `
-
-export const Heading = styled.h3``
+export const DisplayKeypadWrapper = styled.div `
+width: 100%;
+max-height: 960px;
+height: auto;
+display: flex;
+flex-direction: column;
+`

@@ -48,6 +48,7 @@
       }
     ],
     "react/prop-types": "off",
+    "react/no-unused-prop-types": "off",
     "react/jsx-fragments": [1, "element"]
   },
   "overrides": [

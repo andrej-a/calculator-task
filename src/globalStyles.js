@@ -1,14 +1,23 @@
-import { createGlobalStyle } from 'styled-components'
+import {
+  createGlobalStyle,
+} from 'styled-components'
 
 import theme from './theme'
 
-export default createGlobalStyle`
+export default createGlobalStyle `
+
+  @font-face {
+    font-family: 'HelveticaNeue Regular';
+    src: url("./src/assets/fonts/HelveticaNeueRegular.ttf");
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-    font-family: ${theme.font};
+    font-family: 'HelveticaNeue Regular';
+    font-weight: 400;
   }
 
   html, body {
@@ -20,6 +29,7 @@ export default createGlobalStyle`
     & > #root {
       width: 100%;
       height: 100%;
+      min-height: 1080px;
     }
   }
 
@@ -31,6 +41,28 @@ export default createGlobalStyle`
 
   #root {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(to bottom, #c06c84da, #6c5b7bda);
+
   }
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #434343 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #434343;
+  border-radius: 8px;
+}
 `
