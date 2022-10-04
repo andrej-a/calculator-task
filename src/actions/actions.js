@@ -8,6 +8,8 @@ import {
   CHANGE_THEME_VALUE,
   ADD_ITEM_TO_HISTORY,
   CHANGE_DISPLAY_VALUE,
+  SET_OWN_VALUE,
+  SET_DEFAULT_VALUE,
 } from "./actionTypes"
 
 export const changeTheme = theme => ({
@@ -28,4 +30,13 @@ export const addItemToHistory = historyItem => ({
 export const changeDisplayValue = displayValue => ({
   type: CHANGE_DISPLAY_VALUE,
   display: displayValue,
+})
+
+export const setOwnValue = ownValue => ({
+  type: SET_OWN_VALUE,
+  ownValue: ownValue,
+})
+
+export const setDefaultValue = () => ({
+  type: SET_DEFAULT_VALUE,
 })

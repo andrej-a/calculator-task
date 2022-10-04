@@ -2,8 +2,6 @@ import {
   createGlobalStyle,
 } from 'styled-components'
 
-import theme from './theme'
-
 export default createGlobalStyle `
 
   @font-face {
@@ -17,7 +15,6 @@ export default createGlobalStyle `
     box-sizing: border-box;
 
     font-family: 'HelveticaNeue Regular';
-    font-weight: 400;
   }
 
   html, body {

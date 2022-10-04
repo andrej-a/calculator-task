@@ -9,7 +9,7 @@ import SelectComponent from './SelectComponent/Select'
 
 class Settings extends React.Component {
   render() {
-    const { theme } = this.props
+    const { theme, history } = this.props
     return (
       <SettingsWrapper theme={theme}>
         <TitleWrapper>
@@ -21,15 +21,17 @@ class Settings extends React.Component {
         </LabelWrapper>
 
         <SelectComponent />
-        <ClearHistoryButton theme={theme} className="clear">{CLEAR_HISTORY_BUTTON}</ClearHistoryButton>
+        <ClearHistoryButton disabled={!history.length} theme={theme}
+          className="clear">{CLEAR_HISTORY_BUTTON}
+        </ClearHistoryButton>
       </SettingsWrapper>
     )
   }
 }
 
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, history }) => {
   return {
-    theme,
+    theme, history,
   }
 }
 

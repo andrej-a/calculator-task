@@ -11,6 +11,8 @@ import {
   CHANGE_THEME_VALUE,
   ADD_ITEM_TO_HISTORY,
   CHANGE_DISPLAY_VALUE,
+  SET_OWN_VALUE,
+  SET_DEFAULT_VALUE,
 } from '@/actions/actionTypes'
 
 const INITIAL_STATE = {
@@ -43,11 +45,23 @@ const reducer = (state = INITIAL_STATE, action) => {
           case CHANGE_DISPLAY_VALUE:
             return {
               ...state,
-              display: state.display + action.displayValue,
+              display: state.display + action.display,
             }
 
-            default:
-              return state
+            case SET_OWN_VALUE:
+              return {
+                ...state,
+                display: action.ownValue,
+              }
+
+              case SET_DEFAULT_VALUE:
+                return {
+                  ...state,
+                  display: DEFAULT_DISPLAY_VALUE,
+                }
+
+                default:
+                  return state
   }
 }
 export default reducer

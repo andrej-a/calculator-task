@@ -9,12 +9,6 @@ max-height: 960px;
 background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 display: flex;
 flex-direction: column;
-
-.clear:hover{
--webkit-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
--moz-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
-}
 `
 export const TitleWrapper = styled.div `
 margin-top: 61px;
@@ -57,4 +51,17 @@ font-size: 32px;
 letter-spacing: 0px;
 font-weight: 700;
 color: ${props => props.theme.CLEAR_HISTORY_BUTTON_COLOR};
+
+&:hover{
+-webkit-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
+-moz-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
+box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
+}
+
+&:disabled{
+  cursor: not-allowed;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 `
