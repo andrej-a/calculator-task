@@ -15,9 +15,10 @@ margin: 32px 149px 50px 149px;
 `
 
 export const Title = styled.h2 `
-color: #000000;
+color: ${props => props.theme.FONT_COLOR};
 letter-spacing: 0px;
 font-size: 32px;
+font-weight: 700;
 `
 export const ItemsWrapper = styled.div `
 width: 100%;
@@ -35,13 +36,14 @@ margin-left: 32px;
 export const HistoryItem = styled.p `
 margin-bottom: 32px;
 font-size: 30px;
+font-weight: 700;
 letter-spacing: 0px;
-color: #000000;
+color: ${props => props.theme.FONT_COLOR};
 `
 export const Border = styled.div `
 margin-top: 25px;
 width: 2px;
 height: 100%;
-max-height: 1050px;
-background: #707070;
+min-height: 910px;
+background: ${props => props.theme.BORDER_COLOR};
 `

@@ -1,13 +1,17 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
+import { connect } from "react-redux"
+/* STYLES */
 import { HistoryWrapper, TitleWrapper, Title, ItemsWrapper, HistoryItemWrapper, HistoryItem, Border } from './components'
+/* CONSTANTS */
 import { HISTORY_TITLE } from '@/constants'
-export const History = props => {
-  const { historyData } = props
+
+const History = props => {
+  const { historyData, theme } = props
 
   const historyItems = historyData.map((item, i) => {
     return <HistoryItemWrapper key={i}>
-      <HistoryItem>
+      <HistoryItem theme={theme}>
         {item}
       </HistoryItem>
     </HistoryItemWrapper>
@@ -15,10 +19,10 @@ export const History = props => {
 
   return (
     <React.Fragment>
-      <Border />
+      <Border theme={theme} />
       <HistoryWrapper>
         <TitleWrapper>
-          <Title>
+          <Title theme={theme}>
             {HISTORY_TITLE}
           </Title>
         </TitleWrapper>
@@ -30,3 +34,11 @@ export const History = props => {
     </React.Fragment>
   )
 }
+
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme,
+  }
+}
+
+export default connect(mapStateToProps)(History)

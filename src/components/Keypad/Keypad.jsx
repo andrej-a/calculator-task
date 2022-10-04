@@ -1,30 +1,38 @@
 import React from 'react'
 import { Wrapper, Key } from './components'
+import { connect } from "react-redux"
 
-export const Keypad = () => {
-
+const Keypad = props => {
+  const { theme } = props
   return (
     <Wrapper>
-      <Key> C </Key>
-      <Key> 7 </Key>
-      <Key> 8 </Key>
-      <Key> 9 </Key>
-      <Key> * </Key>
-      <Key> - </Key>
-      <Key> 4 </Key>
-      <Key> 5 </Key>
-      <Key> 6 </Key>
-      <Key> / </Key>
-      <Key> + </Key>
-      <Key> 1 </Key>
-      <Key> 2 </Key>
-      <Key> 3 </Key>
-      <Key> = </Key>
-      <Key> . </Key>
-      <Key> ( </Key>
-      <Key> 0 </Key>
-      <Key> ) </Key>
-      <Key> CE </Key>
+      <Key theme={theme}> C </Key>
+      <Key theme={theme}> 7 </Key>
+      <Key theme={theme}> 8 </Key>
+      <Key theme={theme}> 9 </Key>
+      <Key theme={theme}> * </Key>
+      <Key theme={theme}> - </Key>
+      <Key theme={theme}> 5 </Key>
+      <Key theme={theme}> 4 </Key>
+      <Key theme={theme}> 6 </Key>
+      <Key theme={theme}> / </Key>
+      <Key theme={theme}> + </Key>
+      <Key theme={theme}> 1 </Key>
+      <Key theme={theme}> 2 </Key>
+      <Key theme={theme}> 3 </Key>
+      <Key theme={theme}> = </Key>
+      <Key theme={theme}> . </Key>
+      <Key theme={theme}> ( </Key>
+      <Key theme={theme}> 0 </Key>
+      <Key theme={theme}> ) </Key>
+      <Key theme={theme}> CE </Key>
     </Wrapper>
   )
 }
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme,
+  }
+}
+
+export default connect(mapStateToProps)(Keypad)

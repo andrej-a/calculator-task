@@ -1,14 +1,18 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+/* STYLES */
 import { HoumeWrapper, DisplayKeypadWrapper } from './components'
-import { History } from '@/components/History'
+/* COMPONENTS */
+import History from '@/components/History/History'
 import { historyData } from '@/constants/fakeHistoryData'
-import { Display } from '@/components/Display'
-import { Keypad } from '@/components/Keypad'
+import Display from '@/components/Display/Display'
+import Keypad from '@/components/Keypad/Keypad'
+
 const fakeDisplayValue = '123456.4343'
-export default () => {
+
+const Houme = ({ theme }) => {
   return (
-    <HoumeWrapper>
+    <HoumeWrapper theme={theme}>
       <DisplayKeypadWrapper>
         <Display value={fakeDisplayValue} />
         <Keypad />
@@ -17,3 +21,11 @@ export default () => {
     </HoumeWrapper>
   )
 }
+
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme,
+  }
+}
+
+export default connect(mapStateToProps)(Houme)

@@ -6,8 +6,8 @@ export const Wrapper = styled.div `
 
   width: 100%;
   height: 100%;
-  background: #434343;
-  border: 1px solid #707070;
+  background: ${props => props.theme.MAIN_COLOR};
+  border: 1px solid ${props => props.theme.BORDER_COLOR};
 
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@ export const TitleWrapper = styled.div `
 export const Title = styled.h1 `
 font-size: 32px;
 letter-spacing: 0px;
-color: #FFFFFF;
+color: ${props => props.theme.SECOND_FONT_COLOR};
 `
 export const LinksWrapper = styled.div `
 width: auto;
@@ -31,9 +31,19 @@ margin-top: 42px;
 margin-right: 32px;
 display: flex;
 gap: 32px;
+
+a {
+  text-decoration: none;
+}
+.non-active {
+    opacity: 0.7;
+}
+.activeLink .link{
+  border-bottom: 2px solid ${props => props.theme.SECOND_FONT_COLOR};
+}
 `
-export const Link = styled.p `
+export const PageLink = styled.p `
 font-size: 32px;
 letter-spacing: 0px;
-color: #FFFFFF;
+color: ${props => props.theme.SECOND_FONT_COLOR};
 `

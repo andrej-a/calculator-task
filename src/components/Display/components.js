@@ -18,12 +18,12 @@ export const Value = styled.p `
 font: normal normal normal 64px/77px Helvetica Neue;
 font-weight: 600;
 letter-spacing: 0px;
-color: #000000;
+color: ${props => props.theme.FONT_COLOR};
 `
 export const Border = styled.div `
 width: 100%;
 max-width: 1443px;
 height: 2px;
-background: #707070;
+background: ${props => props.theme.BORDER_COLOR};
 margin-right: 25px;
 `

@@ -1,17 +1,25 @@
 import React from 'react'
+import { connect } from "react-redux"
 import { DisplayWrapper, ValueWrapper, Value, Border } from './components'
-export const Display = props => {
-  const { value } = props
+const Display = props => {
+  const { value, theme } = props
   return (
     <React.Fragment>
       <DisplayWrapper>
         <ValueWrapper>
-          <Value>
+          <Value theme={theme}>
             {value}
           </Value>
         </ValueWrapper>
-        <Border />
+        <Border theme={theme} />
       </DisplayWrapper>
     </React.Fragment>
   )
 }
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme,
+  }
+}
+
+export default connect(mapStateToProps)(Display)
