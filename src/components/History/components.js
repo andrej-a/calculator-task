@@ -7,11 +7,12 @@ height: auto;
 min-height: 960px;
 display: flex;
 flex-direction: column;
+align-items: center;
 `
 export const TitleWrapper = styled.div `
 width: auto;
 height: auto;
-margin: 32px 149px 50px 149px;
+margin-top: 32px;
 `
 
 export const Title = styled.h2 `

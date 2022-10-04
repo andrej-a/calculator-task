@@ -4,12 +4,12 @@ import { connect } from "react-redux"
 /* STYLES */
 import { HistoryWrapper, TitleWrapper, Title, ItemsWrapper, HistoryItemWrapper, HistoryItem, Border } from './components'
 /* CONSTANTS */
-import { HISTORY_TITLE } from '@/constants'
+import { HISTORY_TITLE, EMPTY_HISTORY_TITLE } from '@/constants'
 
 const History = props => {
-  const { historyData, theme } = props
+  const { history, theme } = props
 
-  const historyItems = historyData.map((item, i) => {
+  const historyItems = history.map((item, i) => {
     return <HistoryItemWrapper key={i}>
       <HistoryItem theme={theme}>
         {item}
@@ -23,7 +23,7 @@ const History = props => {
       <HistoryWrapper>
         <TitleWrapper>
           <Title theme={theme}>
-            {HISTORY_TITLE}
+            {history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}
           </Title>
         </TitleWrapper>
 
@@ -35,9 +35,9 @@ const History = props => {
   )
 }
 
-const mapStateToProps = ({ theme }) => {
+const mapStateToProps = ({ theme, history }) => {
   return {
-    theme,
+    theme, history,
   }
 }
 
