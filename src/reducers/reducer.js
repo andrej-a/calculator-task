@@ -39,7 +39,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case ADD_ITEM_TO_HISTORY:
           return {
             ...state,
-            history: [...state.history, action.historyItem],
+            history: [...state.history, action.history],
           }
 
           case CHANGE_DISPLAY_VALUE:

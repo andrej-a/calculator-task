@@ -16,6 +16,7 @@ import {
 import {
   DEFAULT_DISPLAY_VALUE,
   UNCORRECT_BRACKETS_MESSAGE,
+  UNCORRECT_OPERAND_MESSAGE,
 } from "@/constants"
 /* UTILS */
 import {
@@ -72,9 +73,8 @@ export const controller = ({
 
     const array = copy.split(' ')
     if (array[array.length - 1].match(/\(/)) {
-      return
+      return warningMessage(display, UNCORRECT_OPERAND_MESSAGE)
     }
-
     return copy[copy.length - 1].match(/[*-/+/.]/) ? replacePreviousOperator(display, value) : changeDisplay(value)
   }
 
