@@ -5,10 +5,10 @@ import {
 import {
   bindActionCreators,
 } from "redux"
-/* ACTIONS */
+
 import {
-  setOwnValue,
   changeDisplayValue,
+  setOwnValue,
 } from "@/actions/actions"
 
 const {
@@ -16,15 +16,17 @@ const {
 } = store
 
 const {
-  ownValue,
   changeDisplay,
+  ownValue,
 } = bindActionCreators({
-  ownValue: setOwnValue,
   changeDisplay: changeDisplayValue,
+  ownValue: setOwnValue,
 }, dispatch)
 
 
-export const firstCorrectInput = value => {
-  ownValue('')
-  changeDisplay(value)
+export const replacePreviousOpertor = (display, value) => {
+  let copyDisplay = display
+  copyDisplay = copyDisplay.trim()
+  copyDisplay = copyDisplay.slice(0, copyDisplay.length - 1)
+  ownValue(`${copyDisplay} ${value}`)
 }

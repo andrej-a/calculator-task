@@ -15,17 +15,25 @@ import {
 /* CONSTANTS */
 import {
   DEFAULT_DISPLAY_VALUE,
+  UNCORRECT_BRACKETS_MESSAGE,
 } from "@/constants"
 /* UTILS */
 import {
-  firstCorrectInput,
-} from "./firstCorrectInput"
-import {
-  replacePreviousOperand,
-} from "./replacePreviousOperand"
+  replacePreviousOperator,
+} from "./replacePreviousOperator"
 import {
   deleteLastItem,
 } from './deleteLastItem'
+import {
+  checkCorrectBrakcets,
+} from "./checkCorrectBrakcets"
+import {
+  warningMessage,
+} from "./warningMessage"
+import {
+  getResult,
+} from "./getResult"
+/* VARYABLES */
 const {
   dispatch,
 } = store
@@ -49,7 +57,7 @@ export const controller = ({
   if (value.match(/[0123456789]/i)) {
 
     if (display === DEFAULT_DISPLAY_VALUE) {
-      return firstCorrectInput(value)
+      return ownValue(value)
     } else {
       let copy = display
       copy = copy.trim()
@@ -61,20 +69,33 @@ export const controller = ({
   if (value.match(/[*\-/+]/)) {
     let copy = display
     copy = copy.trim()
+
     const array = copy.split(' ')
     if (array[array.length - 1].match(/\(/)) {
       return
     }
-    return copy[copy.length - 1].match(/[*-/+/.]/) ? replacePreviousOperand(display, value) : changeDisplay(value)
+
+    return copy[copy.length - 1].match(/[*-/+/.]/) ? replacePreviousOperator(display, value) : changeDisplay(value)
   }
 
   if (value.match(/\(/)) {
     let copy = display
     copy = copy.trim()
-    return copy[copy.length - 1].match(/[0-9]/) ? ownValue(`${display} * ${value}`) : changeDisplay(value)
+
+    if (copy[copy.length - 1].match(/[0-9]/)) {
+      return ownValue(`${display} * ${value}`)
+    }
+    if (copy[copy.length - 1].match(/[*-/+/(]/))
+      return changeDisplay(value)
   }
 
   if (value.match(/\)/)) {
+    let copy = display
+    copy = copy.trim()
+
+    if (copy[copy.length - 1].match(/[*-/+/(]/)) {
+      return
+    }
     return changeDisplay(value)
   }
 
@@ -97,6 +118,14 @@ export const controller = ({
 
   if (value.match(/ce/i)) {
     ownValue(deleteLastItem(display))
+  }
+
+  if (value.match(/=/i)) {
+    if (!checkCorrectBrakcets(display)) {
+      return warningMessage(display, UNCORRECT_BRACKETS_MESSAGE)
+    }
+
+    getResult(display)
   }
 
 }

@@ -8,3 +8,5 @@ export const CLEAR_HISTORY_BUTTON = 'Clear All History'
 export const DEFAULT_THEME_VALUE = 'Light theme'
 export const EMPTY_HISTORY_TITLE = 'History is empty'
 export const DEFAULT_DISPLAY_VALUE = '0'
+export const UNCORRECT_BRACKETS_MESSAGE = 'Error: check your brackets!'
+export const WARNING_MESSAGE_TIMEOUT = 2000
