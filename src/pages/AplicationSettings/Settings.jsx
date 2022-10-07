@@ -6,10 +6,12 @@ import { SettingsWrapper, TitleWrapper, Title, LabelWrapper, ClearHistoryButton 
 import { SETTINGS_TITLE, LABEL_TITLE, CLEAR_HISTORY_BUTTON } from '@/constants'
 /* COMPONENTS */
 import SelectComponent from './SelectComponent/Select'
+/* ACTIONS */
+import * as actions from '@/actions/actions'
 
 class Settings extends React.Component {
   render() {
-    const { theme, history } = this.props
+    const { theme, history, clearAllData } = this.props
     return (
       <SettingsWrapper theme={theme}>
         <TitleWrapper>
@@ -22,6 +24,7 @@ class Settings extends React.Component {
 
         <SelectComponent />
         <ClearHistoryButton disabled={!history.length} theme={theme}
+          onClick={() => clearAllData()}
           className="clear">{CLEAR_HISTORY_BUTTON}
         </ClearHistoryButton>
       </SettingsWrapper>
@@ -35,4 +38,4 @@ const mapStateToProps = ({ theme, history }) => {
   }
 }
 
-export default connect(mapStateToProps)(Settings)
+export default connect(mapStateToProps, actions)(Settings)

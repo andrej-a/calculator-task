@@ -2,6 +2,7 @@ import {
   DarkTheme,
   LightTheme,
   DEFAULT_THEME_VALUE,
+  DEFAULT_DISPLAY_VALUE,
 } from "@/constants"
 import {
   CHANGE_THEME_OBJECT,
@@ -10,6 +11,7 @@ import {
   CHANGE_DISPLAY_VALUE,
   SET_OWN_VALUE,
   SET_DEFAULT_VALUE,
+  CLEAR_ALL_DATA,
 } from "./actionTypes"
 
 export const changeTheme = theme => ({
@@ -39,4 +41,12 @@ export const setOwnValue = ownValue => ({
 
 export const setDefaultValue = () => ({
   type: SET_DEFAULT_VALUE,
+})
+
+export const clearAllData = () => ({
+  type: CLEAR_ALL_DATA,
+  defaultDataObject: {
+    display: DEFAULT_DISPLAY_VALUE,
+    history: [],
+  },
 })

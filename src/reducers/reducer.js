@@ -13,6 +13,7 @@ import {
   CHANGE_DISPLAY_VALUE,
   SET_OWN_VALUE,
   SET_DEFAULT_VALUE,
+  CLEAR_ALL_DATA,
 } from '@/actions/actionTypes'
 
 const INITIAL_STATE = {
@@ -60,8 +61,16 @@ const reducer = (state = INITIAL_STATE, action) => {
                   display: DEFAULT_DISPLAY_VALUE,
                 }
 
-                default:
-                  return state
+                case CLEAR_ALL_DATA:
+                  return {
+                    ...state,
+                    display: action.defaultDataObject.display,
+                      history: action.defaultDataObject.history,
+                  }
+
+
+                  default:
+                    return state
   }
 }
 export default reducer
