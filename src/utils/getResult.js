@@ -30,7 +30,6 @@ const {
 } = bindActionCreators({
   ownValue: setOwnValue,
 }, dispatch)
-let counter = 0
 export const getResult = display => {
   const copyString = display
   let processedArray = doCorrectValue(copyString.split(' '))
@@ -38,31 +37,34 @@ export const getResult = display => {
   let numberStack = []
   let operatorsStack = []
 
-  for (let i = 0; i <= processedArray.length;) {
-    counter += 1
-    if (counter > 1000) {
-      alert('ERROR')
-    }
+  for (let i = 0; i <= processedArray.length + 1;) {
     console.log('PROCESS')
-    if (i === processedArray.length) {
+    if (i >= processedArray.length) {
       const previousOperator = operatorsStack[operatorsStack.length - 1]
       const previousOperand = +numberStack[numberStack.length - 2]
       const lastOperand = +numberStack[numberStack.length - 1]
       numberStack = numberStack.splice(0, numberStack.length - 2)
       operatorsStack = operatorsStack.splice(0, operatorsStack.length - 1)
-
       switch (previousOperator) {
         case '/':
-          ownValue(division(previousOperand, lastOperand).toString())
+          numberStack.length ?
+            numberStack.push(division(previousOperand, lastOperand).toString()) :
+            ownValue(division(previousOperand, lastOperand).toString())
           break
         case '*':
-          ownValue(multiplication(previousOperand, lastOperand).toString())
+          numberStack.length ?
+            numberStack.push(multiplication(previousOperand, lastOperand).toString()) :
+            ownValue(multiplication(previousOperand, lastOperand).toString())
           break
         case '+':
-          ownValue(addition(previousOperand, lastOperand).toString())
+          numberStack.length ?
+            numberStack.push(addition(previousOperand, lastOperand).toString()) :
+            ownValue(addition(previousOperand, lastOperand).toString())
           break
         case '-':
-          ownValue(subtraction(previousOperand, lastOperand).toString())
+          numberStack.length ?
+            numberStack.push(subtraction(previousOperand, lastOperand).toString()) :
+            ownValue(subtraction(previousOperand, lastOperand).toString())
           break
 
         default:

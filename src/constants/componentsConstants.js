@@ -10,4 +10,6 @@ export const EMPTY_HISTORY_TITLE = 'History is empty'
 export const DEFAULT_DISPLAY_VALUE = '0'
 export const UNCORRECT_BRACKETS_MESSAGE = 'Error: check your brackets!'
 export const WARNING_MESSAGE_TIMEOUT = 2000
-export const UNCORRECT_OPERAND_MESSAGE = 'Error: operand can not be after open bracket'
+export const UNCORRECT_OPERATOR_MESSAGE = 'Error: operator can`t be after an open bracket'
+export const UNCORRECT_INPUT_MESSAGE = 'Error: uncorrect input!'
+export const UNCORRECT_DOT_INPUT = 'Error: a dot can`t be after a dot'
