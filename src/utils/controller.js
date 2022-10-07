@@ -72,7 +72,7 @@ export const controller = ({
 
   }
 
-  if (value.match(/[*\-/+]/)) {
+  if (value.match(/[*\-/+%]/)) {
     let copy = display
     copy = copy.trim()
 
@@ -80,7 +80,7 @@ export const controller = ({
     if (array[array.length - 1].match(/\(/)) {
       return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE)
     }
-    return copy[copy.length - 1].match(/[*-/+/.]/) ? replacePreviousOperator(display, value) : changeDisplay(value)
+    return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value)
   }
 
   if (value.match(/\(/)) {
@@ -90,7 +90,7 @@ export const controller = ({
     if (copy[copy.length - 1].match(/[0-9]/)) {
       return ownValue(`${display} * ${value}`)
     }
-    if (copy[copy.length - 1].match(/[*-/+/(]/))
+    if (copy[copy.length - 1].match(/[*-/+/(%]/))
       return changeDisplay(value)
   }
 
@@ -98,7 +98,7 @@ export const controller = ({
     let copy = display
     copy = copy.trim()
 
-    if (copy[copy.length - 1].match(/[*-/+/(]/)) {
+    if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
     return changeDisplay(value)

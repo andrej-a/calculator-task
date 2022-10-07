@@ -34,3 +34,8 @@ export const subtraction = (previousOperand, lastOperand) => {
   addHistoryItem(`${previousOperand} - ${lastOperand}`)
   return previousOperand - lastOperand
 }
+
+export const modulo = (previousOperand, lastOperand) => {
+  addHistoryItem(`${previousOperand} % ${lastOperand}`)
+  return previousOperand % lastOperand
+}

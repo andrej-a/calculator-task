@@ -62,4 +62,8 @@ export const buttonsObject = [{
   {
     value: 'CE',
   },
+  {
+    value: ' % ',
+    priority: 2,
+  },
 ]

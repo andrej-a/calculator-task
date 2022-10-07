@@ -20,6 +20,7 @@ import {
   multiplication,
   addition,
   subtraction,
+  modulo,
 } from "./calculations"
 const {
   dispatch,
@@ -66,6 +67,11 @@ export const getResult = display => {
             numberStack.push(subtraction(previousOperand, lastOperand).toString()) :
             ownValue(subtraction(previousOperand, lastOperand).toString())
           break
+        case '%':
+          numberStack.length ?
+            numberStack.push(modulo(previousOperand, lastOperand).toString()) :
+            ownValue(modulo(previousOperand, lastOperand).toString())
+          break
 
         default:
           break
@@ -92,7 +98,7 @@ export const getResult = display => {
       //  то смотрим предыдущий оператор
       const previousOperator = operatorsStack[operatorsStack.length - 1]
       //  если это знак, то выполняем, пока не встретим открывающую скобку
-      if (previousOperator.match(/[*-/+/]/)) {
+      if (previousOperator.match(/[*-/+/%]/)) {
         const previousOperand = +numberStack[numberStack.length - 2]
         const lastOperand = +numberStack[numberStack.length - 1]
         numberStack = numberStack.splice(0, numberStack.length - 2)
@@ -110,6 +116,9 @@ export const getResult = display => {
           case '-':
             numberStack.push(subtraction(previousOperand, lastOperand).toString())
             break
+          case '%':
+            numberStack.push(modulo(previousOperand, lastOperand).toString())
+            break
 
           default:
             console.log(previousOperator.trim())
@@ -124,7 +133,7 @@ export const getResult = display => {
     }
 
     // если оператор -- проверяем
-    if (item.match(/[*-/+/]/)) {
+    if (item.match(/[*-/+/%]/)) {
       if (!operatorsStack.length) { //  стек пуст? пушим в стек
         operatorsStack.push(item)
         i++
@@ -161,6 +170,9 @@ export const getResult = display => {
               break
             case '-':
               numberStack.push(subtraction(previousOperand, lastOperand).toString())
+              break
+            case '%':
+              numberStack.push(modulo(previousOperand, lastOperand).toString())
               break
 
             default:
