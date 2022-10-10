@@ -5,7 +5,9 @@ import Header from '@/components/Header/Header'
 import Home from '@/pages/Home'
 import Settings from '@/pages/AplicationSettings/Settings'
 import { ApplicationWrapper } from './components'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 export default () => (
+  <ErrorBoundary>
     <ApplicationWrapper>
       <Header />
       <Routes>
@@ -13,4 +15,5 @@ export default () => (
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </ApplicationWrapper>
+  </ErrorBoundary>
 )

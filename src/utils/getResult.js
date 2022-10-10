@@ -37,7 +37,6 @@ export const getResult = display => {
   processedArray = processedArray.filter(item => item)
   let numberStack = []
   let operatorsStack = []
-
   for (let i = 0; i <= processedArray.length + 1;) {
     console.log('PROCESS')
     if (i >= processedArray.length) {
