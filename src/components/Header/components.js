@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div `
   max-width: 1920px;
-  max-height: 120px;
+  min-height: 120px;
 
   width: 100%;
-  height: 100%;
+  height: auto;
   background: ${props => props.theme.MAIN_COLOR};
   border: 1px solid ${props => props.theme.BORDER_COLOR};
 

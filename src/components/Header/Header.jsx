@@ -1,12 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink } from './components'
-import { HEADER_TITLE, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants'
-import * as actions from '@/actions/actions'
 import { connect } from "react-redux"
+import PropTypes from 'prop-types'
 
-const Header = props => {
-  const { theme } = props
+/* STYLES */
+import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink } from './components'
+/* CONSTANTS */
+import { HEADER_TITLE, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants'
+/* ACTIONS */
+import * as actions from '@/actions/actions'
+
+const Header = ({ theme }) => {
   return (
     <Wrapper theme={theme}>
       <TitleWrapper>
@@ -35,6 +39,21 @@ const Header = props => {
     </Wrapper>
   )
 }
+
+Header.propTypes = {
+  theme: PropTypes.exact({
+    MAIN_BACKGROUND_COLOR: PropTypes.string,
+    MAIN_COLOR: PropTypes.string,
+    BORDER_COLOR: PropTypes.string,
+    SECOND_BORDER_COLOR: PropTypes.string,
+    FONT_COLOR: PropTypes.string,
+    SECOND_FONT_COLOR: PropTypes.string,
+    BUTTON_BACKGROUND_COLOR: PropTypes.string,
+    BUTTON_COLOR: PropTypes.string,
+    CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
+  }),
+}
+
 
 const mapStateToProps = ({ theme }) => {
   return {

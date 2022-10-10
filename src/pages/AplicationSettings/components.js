@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const SettingsWrapper = styled.div `
 position: relative;
 width: 100%;
-max-width: 1920px;
-height: 100%;
-max-height: 960px;
+height: auto;
+min-height: 960px;
 background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 display: flex;
 flex-direction: column;

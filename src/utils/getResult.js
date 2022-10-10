@@ -50,27 +50,27 @@ export const getResult = display => {
         case '/':
           numberStack.length ?
             numberStack.push(division(previousOperand, lastOperand).toString()) :
-            ownValue(division(previousOperand, lastOperand).toString())
+            ownValue((+division(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '*':
           numberStack.length ?
             numberStack.push(multiplication(previousOperand, lastOperand).toString()) :
-            ownValue(multiplication(previousOperand, lastOperand).toString())
+            ownValue((+multiplication(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '+':
           numberStack.length ?
             numberStack.push(addition(previousOperand, lastOperand).toString()) :
-            ownValue(addition(previousOperand, lastOperand).toString())
+            ownValue((+addition(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '-':
           numberStack.length ?
             numberStack.push(subtraction(previousOperand, lastOperand).toString()) :
-            ownValue(subtraction(previousOperand, lastOperand).toString())
+            ownValue((+subtraction(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '%':
           numberStack.length ?
             numberStack.push(modulo(previousOperand, lastOperand).toString()) :
-            ownValue(modulo(previousOperand, lastOperand).toString())
+            ownValue((+modulo(previousOperand, lastOperand).toFixed(3)).toString())
           break
 
         default:

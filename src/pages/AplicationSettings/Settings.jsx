@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 /* STYLES */
 import { SettingsWrapper, TitleWrapper, Title, LabelWrapper, ClearHistoryButton } from './components'
 /* CONSTANTS */
@@ -31,6 +32,23 @@ class Settings extends React.Component {
     )
   }
 }
+
+Settings.propTypes = {
+  theme: PropTypes.exact({
+    MAIN_BACKGROUND_COLOR: PropTypes.string,
+    MAIN_COLOR: PropTypes.string,
+    BORDER_COLOR: PropTypes.string,
+    SECOND_BORDER_COLOR: PropTypes.string,
+    FONT_COLOR: PropTypes.string,
+    SECOND_FONT_COLOR: PropTypes.string,
+    BUTTON_BACKGROUND_COLOR: PropTypes.string,
+    BUTTON_COLOR: PropTypes.string,
+    CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
+  }),
+  history: PropTypes.arrayOf(PropTypes.string),
+  clearAllData: PropTypes.func,
+}
+
 
 const mapStateToProps = ({ theme, history }) => {
   return {

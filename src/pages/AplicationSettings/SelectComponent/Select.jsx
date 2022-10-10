@@ -1,8 +1,13 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
+/* ACTIONS */
 import * as actions from '@/actions/actions'
+/* STYLES */
 import { SelectWrapper, SelectTitleBox, OptionsWrapper, Options } from './components'
+/* CONSTANTS */
 import { fakeThemeData } from '@/constants'
 
 const SelectComponent = ({ changeTheme, changeThemeValue, themeValue }) => {
@@ -35,6 +40,13 @@ const SelectComponent = ({ changeTheme, changeThemeValue, themeValue }) => {
     </SelectWrapper>
   )
 }
+
+SelectComponent.propTypes = {
+  changeTheme: PropTypes.func,
+  changeThemeValue: PropTypes.func,
+  themeValue: PropTypes.string,
+}
+
 
 const mapStateToProps = ({ theme, themeValue }) => {
   return {

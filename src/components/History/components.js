@@ -4,7 +4,6 @@ export const HistoryWrapper = styled.div `
 width: 100%;
 max-width: 400px;
 height: auto;
-min-height: 960px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -12,7 +11,7 @@ align-items: center;
 export const TitleWrapper = styled.div `
 width: auto;
 height: auto;
-margin-top: 32px;
+margin: 32px 32px;
 `
 
 export const Title = styled.h2 `
@@ -23,8 +22,7 @@ font-weight: 700;
 `
 export const ItemsWrapper = styled.div `
 width: 100%;
-min-width: 400px;
-max-height: 1050px;
+max-height: 960px;
 overflow-y: auto;
 overflow-x: hidden;
 
@@ -43,8 +41,8 @@ color: ${props => props.theme.FONT_COLOR};
 `
 export const Border = styled.div `
 margin-top: 25px;
+margin-bottom: 25px;
 width: 2px;
-height: 100%;
 min-height: 910px;
 background: ${props => props.theme.BORDER_COLOR};
 `
