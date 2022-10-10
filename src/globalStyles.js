@@ -27,7 +27,7 @@ export default createGlobalStyle `
   body {
     & > #root {
       width: 100%;
-      min-height: 1080px;
+      min-height: 100vh;
       height: auto;
     }
   }

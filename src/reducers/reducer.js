@@ -18,9 +18,9 @@ import {
 
 const INITIAL_STATE = {
   themeValue: DEFAULT_THEME_VALUE,
-  theme: LightTheme,
+  theme: DarkTheme,
   history: [],
-  display: DEFAULT_DISPLAY_VALUE,
+  display: '7 - 7 + 11 + 1 + 1 + 4 + 4 + 41 + 51 + 4 + 4 + 4 + 4 + 4 + 44 + 4',
 }
 
 const reducer = (state = INITIAL_STATE, action) => {

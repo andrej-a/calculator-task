@@ -1,12 +1,25 @@
 import styled from 'styled-components'
+import {
+  size,
+} from '@/sizes'
 
 export const HistoryWrapper = styled.div `
-width: 100%;
-max-width: 400px;
+width: 20%;
 height: auto;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+@media(max-width: ${size.tablet}) {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+  left: -3600px;
+}
+
 `
 export const TitleWrapper = styled.div `
 width: auto;
@@ -19,12 +32,14 @@ color: ${props => props.theme.FONT_COLOR};
 letter-spacing: 0px;
 font-size: 32px;
 font-weight: 700;
+text-align: center;
 `
+
 export const ItemsWrapper = styled.div `
 width: 100%;
 max-height: 960px;
 overflow-y: auto;
-overflow-x: hidden;
+overflow-x: auto;
 
 display: flex;
 flex-direction: column;

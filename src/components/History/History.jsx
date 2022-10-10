@@ -21,7 +21,7 @@ const History = ({ history, theme }) => {
   return (
     <React.Fragment>
       <Border theme={theme} />
-      <HistoryWrapper>
+      <HistoryWrapper theme={theme}>
         <TitleWrapper>
           <Title theme={theme}>
             {history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}

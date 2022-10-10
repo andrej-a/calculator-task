@@ -1,38 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 /* STYLES */
-import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink } from './components'
+import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink, BurgerWrapper, Burger } from './components'
 /* CONSTANTS */
 import { HEADER_TITLE, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants'
 /* ACTIONS */
 import * as actions from '@/actions/actions'
 
 const Header = ({ theme }) => {
+  const [showMenu, setShowMenu] = useState(false)
+  const onSetShowMenu = value => {
+    setShowMenu(value)
+  }
   return (
     <Wrapper theme={theme}>
       <TitleWrapper>
-        <Title theme={theme}>
-          {HEADER_TITLE}
-        </Title>
+        <Title theme={theme}>{HEADER_TITLE}</Title>
       </TitleWrapper>
 
-      <LinksWrapper theme={theme}>
+      <BurgerWrapper onClick={() => onSetShowMenu(!showMenu)}>
+        <Burger />
+      </BurgerWrapper>
+
+      <LinksWrapper className={showMenu ? 'activeBurgerMenu' : ''} theme={theme}>
         <NavLink to="/" className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
-          end>
+          end onClick={() => onSetShowMenu(!showMenu)}>
           <div className="link">
-            <PageLink theme={theme}>
-              {HOME_LINK}
-            </PageLink>
+            <PageLink theme={theme}>{HOME_LINK}</PageLink>
           </div>
         </NavLink>
-        <NavLink to="/settings" className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}>
+        <NavLink to="/settings" className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
+          onClick={() => onSetShowMenu(!showMenu)}>
           <div className="link">
-            <PageLink theme={theme}>
-              {SETTINGS_LINK}
-            </PageLink>
+            <PageLink theme={theme}>{SETTINGS_LINK}</PageLink>
           </div>
         </NavLink>
       </LinksWrapper>
@@ -54,11 +57,13 @@ Header.propTypes = {
   }),
 }
 
-
 const mapStateToProps = ({ theme }) => {
   return {
     theme,
   }
 }
 
-export default connect(mapStateToProps, actions)(Header)
+export default connect(
+  mapStateToProps,
+  actions,
+)(Header)
