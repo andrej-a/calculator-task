@@ -1,37 +1,46 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
-import { Wrapper, Key } from './components'
 import { connect } from "react-redux"
+import PropTypes from 'prop-types'
 
-const Keypad = props => {
-  const { theme } = props
+/* STYLES */
+import { Wrapper, Key } from './components'
+/* CONSTANTS */
+import { buttonsObject } from '@/constants'
+/* UTILS */
+import { controller } from '@/utils/controller'
+
+const Keypad = ({ theme, display }) => {
+  const keypad = buttonsObject.map(button => {
+    return <Key onClick={() => { controller(button, display) }} key={button.value}
+      theme={theme}> {button.value}
+    </Key>
+  })
   return (
     <Wrapper>
-      <Key theme={theme}> C </Key>
-      <Key theme={theme}> 7 </Key>
-      <Key theme={theme}> 8 </Key>
-      <Key theme={theme}> 9 </Key>
-      <Key theme={theme}> * </Key>
-      <Key theme={theme}> - </Key>
-      <Key theme={theme}> 5 </Key>
-      <Key theme={theme}> 4 </Key>
-      <Key theme={theme}> 6 </Key>
-      <Key theme={theme}> / </Key>
-      <Key theme={theme}> + </Key>
-      <Key theme={theme}> 1 </Key>
-      <Key theme={theme}> 2 </Key>
-      <Key theme={theme}> 3 </Key>
-      <Key theme={theme}> = </Key>
-      <Key theme={theme}> . </Key>
-      <Key theme={theme}> ( </Key>
-      <Key theme={theme}> 0 </Key>
-      <Key theme={theme}> ) </Key>
-      <Key theme={theme}> CE </Key>
+      {keypad}
     </Wrapper>
   )
 }
-const mapStateToProps = ({ theme }) => {
+
+Keypad.propTypes = {
+  display: PropTypes.string,
+  theme: PropTypes.exact({
+    MAIN_BACKGROUND_COLOR: PropTypes.string,
+    MAIN_COLOR: PropTypes.string,
+    BORDER_COLOR: PropTypes.string,
+    SECOND_BORDER_COLOR: PropTypes.string,
+    FONT_COLOR: PropTypes.string,
+    SECOND_FONT_COLOR: PropTypes.string,
+    BUTTON_BACKGROUND_COLOR: PropTypes.string,
+    BUTTON_COLOR: PropTypes.string,
+    CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
+  }),
+}
+
+const mapStateToProps = ({ theme, display }) => {
   return {
-    theme,
+    theme, display,
   }
 }
 

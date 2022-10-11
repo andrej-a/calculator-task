@@ -1,7 +1,7 @@
 {
   "jsxBracketSameLine": true,
   "semi": false,
-  "printWidth": 60,
+  "printWidth": 1000,
   "singleQuote": true,
   "trailingComma": "all",
   "parser": "babel",

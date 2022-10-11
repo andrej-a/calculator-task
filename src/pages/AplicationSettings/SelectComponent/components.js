@@ -1,6 +1,11 @@
 import styled from 'styled-components'
+import {
+  size,
+} from '@/sizes'
 
 export const SelectWrapper = styled.div `
+width: auto;
+height: auto;
 margin-top: 7px;
 margin-left: 91px;
 .select-box:hover {
@@ -8,6 +13,15 @@ margin-left: 91px;
 -moz-box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
 box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
 }
+
+@media (max-width: ${size.mobileL}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    width: 100%;
+}
+
 `
 export const SelectTitleBox = styled.div `
 position: relative;
@@ -35,17 +49,28 @@ transition: all .3s ease;
   right: 25px;
   top: 38px;
 }
+
+@media (max-width: ${size.mobileL}) {
+    max-width: none;
+    width: 80%;
+}
+
 `
 export const OptionsWrapper = styled.div `
 position: relative;
 width: 401px;
-min-height: 200px;
 height: auto;
 border: 2px solid #707070;
 z-index: 2;
 .options:hover{
   background: #707070;
   color: #fff;
+}
+@media (max-width: ${size.mobileL}) {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 `
@@ -62,4 +87,9 @@ font-weight: 900;
 color: #000000;
 cursor: pointer;
 transition: all .3s ease;
+
+@media (max-width: ${size.mobileL}) {
+    width: 100%;
+}
+
 `
