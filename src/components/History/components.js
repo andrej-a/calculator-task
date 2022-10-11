@@ -37,7 +37,7 @@ text-align: center;
 
 export const ItemsWrapper = styled.div `
 width: 100%;
-max-height: 960px;
+max-height: 70%;
 overflow-y: auto;
 overflow-x: auto;
 
@@ -60,4 +60,8 @@ margin-bottom: 25px;
 width: 2px;
 min-height: 910px;
 background: ${props => props.theme.BORDER_COLOR};
+
+@media(max-width: ${size.tablet}) {
+  display: none;
+}
 `

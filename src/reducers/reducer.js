@@ -20,7 +20,7 @@ const INITIAL_STATE = {
   themeValue: DEFAULT_THEME_VALUE,
   theme: DarkTheme,
   history: [],
-  display: '7 - 7 + 11 + 1 + 1 + 4 + 4 + 41 + 51 + 4 + 4 + 4 + 4 + 4 + 44 + 4',
+  display: DEFAULT_DISPLAY_VALUE,
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
