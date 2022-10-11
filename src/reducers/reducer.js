@@ -18,7 +18,7 @@ import {
 
 const INITIAL_STATE = {
   themeValue: DEFAULT_THEME_VALUE,
-  theme: DarkTheme,
+  theme: LightTheme,
   history: [],
   display: DEFAULT_DISPLAY_VALUE,
 }

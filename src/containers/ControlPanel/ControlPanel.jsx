@@ -18,7 +18,7 @@ export const ControlPanel = () => {
   return (
     <React.Fragment>
       <Header showMenu={showMenu} onSetShowMenu={onSetShowMenu}
-        onSetShowHistory={onSetShowHistory} />
+        onSetShowHistory={onSetShowHistory} showHistory={showHistory} />
       <Routes>
         <Route path="/" element={<Home showHistory={showHistory} />} />
         <Route path="/settings" element={<Settings />} />

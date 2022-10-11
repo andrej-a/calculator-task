@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 /* STYLES */
 import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink, BurgerWrapper, Burger, ShowHistory } from './components'
 /* CONSTANTS */
-import { HEADER_TITLE, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants'
+import { HEADER_TITLE, HIDE_HISTORY, HOME_LINK, SETTINGS_LINK, SHOW_HISTORY } from '@/constants/componentsConstants'
 /* ACTIONS */
 import * as actions from '@/actions/actions'
 
-const Header = ({ theme, showMenu, onSetShowMenu, onSetShowHistory }) => {
+const Header = ({ theme, showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => {
   return (
     <Wrapper theme={theme}>
       <TitleWrapper>
@@ -37,7 +37,7 @@ const Header = ({ theme, showMenu, onSetShowMenu, onSetShowHistory }) => {
         <ShowHistory theme={theme} onClick={() => {
           onSetShowMenu(!showMenu)
           onSetShowHistory()
-        }}>Show history
+        }}>{showHistory ? HIDE_HISTORY : SHOW_HISTORY}
         </ShowHistory>
       </LinksWrapper>
     </Wrapper>
@@ -59,6 +59,7 @@ Header.propTypes = {
   showMenu: PropTypes.bool,
   onSetShowMenu: PropTypes.func,
   onSetShowHistory: PropTypes.func,
+  showHistory: PropTypes.bool,
 }
 
 const mapStateToProps = ({ theme }) => {

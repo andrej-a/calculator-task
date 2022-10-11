@@ -14,3 +14,5 @@ export const UNCORRECT_OPERATOR_MESSAGE = 'Error: operator can`t be after an ope
 export const UNCORRECT_INPUT_MESSAGE = 'Error: uncorrect input!'
 export const UNCORRECT_DOT_INPUT = 'Error: a dot can`t be after a dot'
 export const ERROR_TITLE = 'Something went wrong!'
+export const SHOW_HISTORY = 'Show history'
+export const HIDE_HISTORY = 'Hide history'
