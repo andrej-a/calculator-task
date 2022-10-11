@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 /* STYLES */
-import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink, BurgerWrapper, Burger } from './components'
+import { Wrapper, TitleWrapper, Title, LinksWrapper, PageLink, BurgerWrapper, Burger, ShowHistory } from './components'
 /* CONSTANTS */
 import { HEADER_TITLE, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants'
 /* ACTIONS */
 import * as actions from '@/actions/actions'
 
-const Header = ({ theme }) => {
-  const [showMenu, setShowMenu] = useState(false)
-  const onSetShowMenu = value => {
-    setShowMenu(value)
-  }
+const Header = ({ theme, showMenu, onSetShowMenu, onSetShowHistory }) => {
   return (
     <Wrapper theme={theme}>
       <TitleWrapper>
@@ -38,6 +34,11 @@ const Header = ({ theme }) => {
             <PageLink theme={theme}>{SETTINGS_LINK}</PageLink>
           </div>
         </NavLink>
+        <ShowHistory theme={theme} onClick={() => {
+          onSetShowMenu(!showMenu)
+          onSetShowHistory()
+        }}>Show history
+        </ShowHistory>
       </LinksWrapper>
     </Wrapper>
   )
@@ -55,6 +56,9 @@ Header.propTypes = {
     BUTTON_COLOR: PropTypes.string,
     CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
   }),
+  showMenu: PropTypes.bool,
+  onSetShowMenu: PropTypes.func,
+  onSetShowHistory: PropTypes.func,
 }
 
 const mapStateToProps = ({ theme }) => {

@@ -8,7 +8,7 @@ import { HistoryWrapper, TitleWrapper, Title, ItemsWrapper, HistoryItemWrapper, 
 /* CONSTANTS */
 import { HISTORY_TITLE, EMPTY_HISTORY_TITLE } from '@/constants'
 
-const History = ({ history, theme }) => {
+const History = ({ history, theme, showHistory }) => {
 
   const historyItems = history.map((item, i) => {
     return <HistoryItemWrapper key={i}>
@@ -21,7 +21,7 @@ const History = ({ history, theme }) => {
   return (
     <React.Fragment>
       <Border theme={theme} />
-      <HistoryWrapper theme={theme}>
+      <HistoryWrapper className={showHistory ? "historyActive" : ''} theme={theme}>
         <TitleWrapper>
           <Title theme={theme}>
             {history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}
@@ -49,6 +49,7 @@ History.propTypes = {
     BUTTON_COLOR: PropTypes.string,
     CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
   }),
+  showHistory: PropTypes.bool,
 }
 
 

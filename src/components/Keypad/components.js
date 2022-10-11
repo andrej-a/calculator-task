@@ -27,6 +27,7 @@ column-gap: 128px;
   padding: 0;
   padding-top: 20px;
   gap: 0;
+  align-items: center;
 }
 
 

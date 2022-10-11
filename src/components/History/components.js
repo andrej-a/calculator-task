@@ -20,6 +20,10 @@ align-items: center;
   left: -3600px;
 }
 
+&.historyActive {
+  left: 0;
+}
+
 `
 export const TitleWrapper = styled.div `
 width: auto;

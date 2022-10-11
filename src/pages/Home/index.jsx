@@ -8,14 +8,14 @@ import History from '@/components/History/History'
 import Display from '@/components/Display/Display'
 import Keypad from '@/components/Keypad/Keypad'
 
-const Houme = ({ theme }) => {
+const Houme = ({ theme, showHistory }) => {
   return (
     <HoumeWrapper theme={theme}>
       <DisplayKeypadWrapper>
         <Display />
         <Keypad />
       </DisplayKeypadWrapper>
-      <History />
+      <History showHistory={showHistory} />
     </HoumeWrapper>
   )
 }
@@ -32,6 +32,7 @@ Houme.propTypes = {
     BUTTON_COLOR: PropTypes.string,
     CLEAR_HISTORY_BUTTON_COLOR: PropTypes.string,
   }),
+  showHistory: PropTypes.bool,
 }
 
 const mapStateToProps = ({ theme }) => {
