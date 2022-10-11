@@ -38,7 +38,6 @@ export const getResult = display => {
   let numberStack = []
   let operatorsStack = []
   for (let i = 0; i <= processedArray.length + 1;) {
-    console.log('PROCESS')
     if (i >= processedArray.length) {
       const previousOperator = operatorsStack[operatorsStack.length - 1]
       const previousOperand = +numberStack[numberStack.length - 2]
