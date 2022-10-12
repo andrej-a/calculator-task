@@ -1,4 +1,4 @@
-import { DarkTheme, LightTheme, UNCORRECT_DOT_INPUT, UNCORRECT_INPUT_MESSAGE, UNCORRECT_OPERATOR_MESSAGE, WARNING_MESSAGE_TIMEOUT } from '@/constants'
+import { DarkTheme, LightTheme, UNCORRECT_BRACKETS_MESSAGE, UNCORRECT_DOT_INPUT, UNCORRECT_INPUT_MESSAGE, UNCORRECT_OPERATOR_MESSAGE, WARNING_MESSAGE_TIMEOUT } from '@/constants'
 import { expressions } from '../expressions/expressions'
 
 const {
@@ -84,8 +84,8 @@ describe('Brackets', () => {
       cy.getBySel(item).click()
     })
     cy.wait(500)
-    cy.getBySel('display').should('have.text', 'Error: check your brackets!')
-    cy.wait(2000)
+    cy.getBySel('display').should('have.text', UNCORRECT_BRACKETS_MESSAGE)
+    cy.wait(WARNING_MESSAGE_TIMEOUT)
     cy.getBySel('display').should('have.text', '2 +  ( 6 * 8 +  ( 4 + 2 ) ')
     cy.getBySel('C').click()
   })
@@ -94,8 +94,8 @@ describe('Brackets', () => {
       cy.getBySel(item).click()
     })
     cy.wait(500)
-    cy.getBySel('display').should('have.text', 'Error: check your brackets!')
-    cy.wait(2000)
+    cy.getBySel('display').should('have.text', UNCORRECT_BRACKETS_MESSAGE)
+    cy.wait(WARNING_MESSAGE_TIMEOUT)
     cy.getBySel('display').should('have.text', '0 *  ( 56 + 88')
     cy.getBySel('C').click()
   })
@@ -104,8 +104,8 @@ describe('Brackets', () => {
       cy.getBySel(item).click()
     })
     cy.wait(500)
-    cy.getBySel('display').should('have.text', 'Error: check your brackets!')
-    cy.wait(2000)
+    cy.getBySel('display').should('have.text', UNCORRECT_BRACKETS_MESSAGE)
+    cy.wait(WARNING_MESSAGE_TIMEOUT)
     cy.getBySel('display').should('have.text', '0 *  (  (  ( 60 / 6 ) ')
     cy.getBySel('C').click()
   })
