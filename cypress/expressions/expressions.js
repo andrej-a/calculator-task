@@ -1,0 +1,16 @@
+export const expressions = {
+  adding: '12+35='.split(''),
+  subtraction: '101-50='.split(''),
+  division: '101/50='.split(''),
+  multiplication: '101*50='.split(''),
+  modulo: '101%50='.split(''),
+  complexExpression: '10-48+56/15*44-800%4+.5-50(54+48)89+60='.split(''),
+  correctBracketsInput: '2+(6*8+(4+2))='.split(''),
+  unCorrectBracketsInput: '2+(6*8+(4+2)='.split(''),
+  unCorrectBracketsInputTwo: '(56+88='.split(''),
+  unCorrectBracketsInputThree: '(((60/6)='.split(''),
+  uncorrectInputOne: '2*(+'.split(''),
+  uncorrectDotInput: '2..'.split(''),
+  uncorrectInputTwo: '2.('.split(''),
+  uncorrectInputThree: '4+(59*)'.split(''),
+}

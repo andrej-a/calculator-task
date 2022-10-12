@@ -25,13 +25,13 @@ const Header = ({ theme, showMenu, onSetShowMenu, onSetShowHistory, showHistory 
         <NavLink to="/" className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
           end onClick={() => onSetShowMenu(!showMenu)}>
           <div className="link">
-            <PageLink theme={theme}>{HOME_LINK}</PageLink>
+            <PageLink data-test="home" theme={theme}>{HOME_LINK}</PageLink>
           </div>
         </NavLink>
         <NavLink to="/settings" className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
           onClick={() => onSetShowMenu(!showMenu)}>
           <div className="link">
-            <PageLink theme={theme}>{SETTINGS_LINK}</PageLink>
+            <PageLink data-test="settings" theme={theme}>{SETTINGS_LINK}</PageLink>
           </div>
         </NavLink>
         <ShowHistory theme={theme} onClick={() => {

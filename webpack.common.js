@@ -23,8 +23,7 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -37,8 +36,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
+        use: [{
             loader: 'babel-loader',
           },
           {

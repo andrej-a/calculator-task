@@ -8,7 +8,7 @@ const Display = ({ display, theme }) => {
     <React.Fragment>
       <DisplayWrapper>
         <ValueWrapper>
-          <Value theme={theme}>
+          <Value data-test="display" theme={theme}>
             {display}
           </Value>
         </ValueWrapper>

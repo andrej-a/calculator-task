@@ -24,7 +24,8 @@ class Settings extends React.Component {
         </LabelWrapper>
 
         <SelectComponent />
-        <ClearHistoryButton disabled={!history.length} theme={theme}
+        <ClearHistoryButton data-test="clearHistory" disabled={!history.length}
+          theme={theme}
           onClick={() => clearAllData()}
           className="clear">{CLEAR_HISTORY_BUTTON}
         </ClearHistoryButton>
