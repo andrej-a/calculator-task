@@ -16,11 +16,12 @@ const SelectComponent = ({ changeTheme, changeThemeValue, themeValue }) => {
     setIsOpen(!isOpen)
   }
   const options = fakeThemeData.map(option => {
-    return <Options onClick={e => {
+    return <Options data-test={option.value} onClick={e => {
       changeTheme(option.value)
       changeThemeValue(option.value)
       onSetIsOpen()
-    }} className="options"
+    }}
+      className="options"
       key={option.id}>
       {option.value}
     </Options>
@@ -28,9 +29,10 @@ const SelectComponent = ({ changeTheme, changeThemeValue, themeValue }) => {
   })
   return (
     <SelectWrapper>
-      <SelectTitleBox className="select-box" onClick={() => {
-        onSetIsOpen()
-      }}>
+      <SelectTitleBox data-test="select" className="select-box"
+        onClick={() => {
+          onSetIsOpen()
+        }}>
         <div className="triangle" />
         {themeValue}
       </SelectTitleBox>

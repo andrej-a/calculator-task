@@ -12,7 +12,8 @@ import { controller } from '@/utils/controller'
 
 const Keypad = ({ theme, display }) => {
   const keypad = buttonsObject.map(button => {
-    return <Key onClick={() => { controller(button, display) }} key={button.value}
+    return <Key data-test={button.value.trim()} onClick={() => { controller(button, display) }}
+      key={button.value}
       theme={theme}> {button.value}
     </Key>
   })

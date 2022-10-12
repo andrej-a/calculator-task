@@ -87,11 +87,15 @@ export const controller = ({
     let copy = display
     copy = copy.trim()
 
+    if (copy[copy.length - 1].match(/\./)) {
+      return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
+    }
     if (copy[copy.length - 1].match(/[0-9]/)) {
       return ownValue(`${display} * ${value}`)
     }
     if (copy[copy.length - 1].match(/[*-/+/(%]/))
       return changeDisplay(value)
+
   }
 
   if (value.match(/\)/)) {
