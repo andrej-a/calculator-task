@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 import {
   size,
-} from '@/sizes'
+} from '@/constants/sizes'
 
 export const HoumeWrapper = styled.div`
-width: 100vw;
-max-width: 1920px;
+width: 100%;
+min-height: 100vh;
 height: auto;
 background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 display: flex;

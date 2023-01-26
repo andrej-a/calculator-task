@@ -7,13 +7,12 @@ import { controller } from '@/utils/controller'
 
 import { Key, Wrapper } from './components'
 
-const Keypad = ({ theme, display }) => {
+const Keypad = ({ display }) => {
   const keypad = buttonsObject.map(button => (
     <Key
       data-test={button.value.trim()} onClick={() => { controller(button, display) }}
       key={button.value}
-      theme={theme}>
-      {' '}
+    >
       {button.value}
     </Key>
   ))
@@ -39,8 +38,8 @@ Keypad.propTypes = {
   }),
 }
 
-const mapStateToProps = ({ theme, display }) => ({
-  theme, display,
+const mapStateToProps = ({ display }) => ({
+  display,
 })
 
 export default connect(mapStateToProps)(Keypad)

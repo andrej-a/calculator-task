@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {
   size,
-} from '@/sizes'
+} from '@/constants/sizes'
 
 export const HistoryWrapper = styled.div`
 width: 20%;

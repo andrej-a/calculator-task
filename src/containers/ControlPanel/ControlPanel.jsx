@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
 /* COMPONENTS */
 import Header from '@/components/Header/Header'
@@ -7,6 +9,7 @@ import Settings from '@/pages/AplicationSettings/Settings'
 import Home from '@/pages/Home'
 
 export const ControlPanel = () => {
+  const theme = useSelector(state => state.theme)
   const [showMenu, setShowMenu] = useState(false)
   const onSetShowMenu = value => {
     setShowMenu(value)
@@ -17,7 +20,7 @@ export const ControlPanel = () => {
   }
 
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <Header
         showMenu={showMenu} onSetShowMenu={onSetShowMenu}
         onSetShowHistory={onSetShowHistory} showHistory={showHistory} />
@@ -25,6 +28,6 @@ export const ControlPanel = () => {
         <Route path='/' element={<Home showHistory={showHistory} />} />
         <Route path='/settings' element={<Settings />} />
       </Routes>
-    </React.Fragment>
+    </ThemeProvider>
   )
 }

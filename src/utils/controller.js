@@ -87,11 +87,13 @@ export const controller = ({
   if (value.match(/\(/)) {
     let copy = display
     copy = copy.trim()
-
     if (copy[copy.length - 1].match(/\./)) {
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
-    if (copy[copy.length - 1].match(/[0-9]/)) {
+    if (copy.length >= 1 && !copy.match(/[*-/+/(%]/gi) || copy.match(/\./gi)) {
+      return ownValue(value)
+    }
+    if (copy[copy.length - 1].match(/[0-9]/) && copy.length > 1) {
       return ownValue(`${display} * ${value}`)
     }
     if (copy[copy.length - 1].match(/[*-/+/(%]/)) return changeDisplay(value)
@@ -113,7 +115,7 @@ export const controller = ({
 
     const array = copy.split(' ')
     if (array[array.length - 1].match(/\./)) {
-      return warningMessage(display, UNCORRECT_DOT_INPUT)
+      return
     }
     if (array[array.length - 1].match(/\)/)) {
       return ownValue(`${display} * 0${value}`)

@@ -9,19 +9,17 @@ import { ThemeProvider } from 'styled-components'
 import Application from '@/components/App'
 import GlobalStyles from '@/globalStyles'
 import { store } from '@/store'
-import theme from '@/theme'
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Application />
-        <GlobalStyles />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Application />
+      <GlobalStyles />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 )
+
 if (window.Cypress) {
   window.store = store
 }

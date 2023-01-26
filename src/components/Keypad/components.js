@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {
   size,
-} from '@/sizes'
+} from '@/constants/sizes'
 
 export const Wrapper = styled.div`
 width: 100%;

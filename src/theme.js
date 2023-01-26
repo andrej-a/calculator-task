@@ -1,5 +1,6 @@
-import { css } from 'styled-components'
-
+import {
+  css,
+} from 'styled-components'
 // const font = 'sans-serif'
 
 // Color palette
@@ -15,10 +16,13 @@ const boxShadows = [
 ]
 
 const size = {
-  xs: 550,
-  small: 768,
-  med: 992,
-  large: 1200,
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '1920px',
 }
 
 const above = Object.keys(size).reduce((acc, label) => {

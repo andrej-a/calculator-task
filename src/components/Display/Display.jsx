@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 /* STYLES */
 import { Border, DisplayWrapper, Value, ValueWrapper } from './components'
 
-const Display = ({ display, theme }) => (
+const Display = ({ display }) => (
   <React.Fragment>
     <DisplayWrapper>
       <ValueWrapper>
-        <Value data-test='display' theme={theme}>
+        <Value data-test='display'>
           {display}
         </Value>
       </ValueWrapper>
-      <Border theme={theme} />
+      <Border />
     </DisplayWrapper>
   </React.Fragment>
 )
@@ -33,8 +33,8 @@ Display.propTypes = {
   }),
 }
 
-const mapStateToProps = ({ theme, display }) => ({
-  theme, display,
+const mapStateToProps = ({ display }) => ({
+  display,
 })
 
 export default connect(mapStateToProps)(Display)
