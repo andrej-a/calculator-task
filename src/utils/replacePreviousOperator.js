@@ -1,14 +1,13 @@
 import {
-  store,
-} from "@/store"
-
-import {
   bindActionCreators,
-} from "redux"
+} from 'redux'
 
 import {
   setOwnValue,
-} from "@/actions/actions"
+} from '@/actions/actions'
+import {
+  store,
+} from '@/store'
 
 const {
   dispatch,
@@ -19,7 +18,6 @@ const {
 } = bindActionCreators({
   ownValue: setOwnValue,
 }, dispatch)
-
 
 export const replacePreviousOperator = (display, value) => {
   let copyDisplay = display

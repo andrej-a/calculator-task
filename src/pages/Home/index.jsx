@@ -1,24 +1,24 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-/* STYLES */
-import { HoumeWrapper, DisplayKeypadWrapper } from './components'
+
+import Display from '@/components/Display/Display'
 /* COMPONENTS */
 import History from '@/components/History/History'
-import Display from '@/components/Display/Display'
 import Keypad from '@/components/Keypad/Keypad'
 
-const Houme = ({ theme, showHistory }) => {
-  return (
-    <HoumeWrapper theme={theme}>
-      <DisplayKeypadWrapper>
-        <Display />
-        <Keypad />
-      </DisplayKeypadWrapper>
-      <History showHistory={showHistory} />
-    </HoumeWrapper>
-  )
-}
+/* STYLES */
+import { DisplayKeypadWrapper, HoumeWrapper } from './components'
+
+const Houme = ({ theme, showHistory }) => (
+  <HoumeWrapper theme={theme}>
+    <DisplayKeypadWrapper>
+      <Display />
+      <Keypad />
+    </DisplayKeypadWrapper>
+    <History showHistory={showHistory} />
+  </HoumeWrapper>
+)
 
 Houme.propTypes = {
   theme: PropTypes.exact({
@@ -35,10 +35,8 @@ Houme.propTypes = {
   showHistory: PropTypes.bool,
 }
 
-const mapStateToProps = ({ theme }) => {
-  return {
-    theme,
-  }
-}
+const mapStateToProps = ({ theme }) => ({
+  theme,
+})
 
 export default connect(mapStateToProps)(Houme)

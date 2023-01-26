@@ -1,18 +1,19 @@
 import {
   DarkTheme,
-  LightTheme,
-  DEFAULT_THEME_VALUE,
   DEFAULT_DISPLAY_VALUE,
-} from "@/constants"
+  DEFAULT_THEME_VALUE,
+  LightTheme,
+} from '@/constants'
+
 import {
-  CHANGE_THEME_OBJECT,
-  CHANGE_THEME_VALUE,
   ADD_ITEM_TO_HISTORY,
   CHANGE_DISPLAY_VALUE,
-  SET_OWN_VALUE,
-  SET_DEFAULT_VALUE,
+  CHANGE_THEME_OBJECT,
+  CHANGE_THEME_VALUE,
   CLEAR_ALL_DATA,
-} from "./actionTypes"
+  SET_DEFAULT_VALUE,
+  SET_OWN_VALUE,
+} from './actionTypes'
 
 export const changeTheme = theme => ({
   type: CHANGE_THEME_OBJECT,
@@ -21,7 +22,7 @@ export const changeTheme = theme => ({
 
 export const changeThemeValue = themeValue => ({
   type: CHANGE_THEME_VALUE,
-  themeValue: themeValue,
+  themeValue,
 })
 
 export const addItemToHistory = historyItem => ({
@@ -36,7 +37,7 @@ export const changeDisplayValue = displayValue => ({
 
 export const setOwnValue = ownValue => ({
   type: SET_OWN_VALUE,
-  ownValue: ownValue,
+  ownValue,
 })
 
 export const setDefaultValue = () => ({

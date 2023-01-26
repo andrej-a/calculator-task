@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 import {
   size,
 } from '@/sizes'
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
   width: 100vw;
   max-width: ${size.desktop};
   min-height: 120px;
@@ -24,7 +25,7 @@ export const Wrapper = styled.div `
   }
 
 `
-export const TitleWrapper = styled.div `
+export const TitleWrapper = styled.div`
   width: auto;
   height: auto;
   margin-top: 42px;
@@ -37,12 +38,12 @@ export const TitleWrapper = styled.div `
     z-index: 4;
   }
 `
-export const Title = styled.h1 `
+export const Title = styled.h1`
 font-size: 32px;
 letter-spacing: 0px;
 color: ${props => props.theme.SECOND_FONT_COLOR};
 `
-export const LinksWrapper = styled.div `
+export const LinksWrapper = styled.div`
 width: auto;
 height: auto;
 margin-top: 42px;
@@ -79,7 +80,7 @@ a {
     background: ${props => props.theme.MAIN_COLOR};
   }
 `
-export const PageLink = styled.p `
+export const PageLink = styled.p`
 font-size: 32px;
 letter-spacing: 0px;
 color: ${props => props.theme.SECOND_FONT_COLOR};
@@ -88,7 +89,7 @@ color: ${props => props.theme.SECOND_FONT_COLOR};
 font-size: 44px;
 }
 `
-export const BurgerWrapper = styled.div `
+export const BurgerWrapper = styled.div`
 position: relative;
 z-index: 4;
 width: auto;
@@ -105,7 +106,7 @@ display: none;
 display: flex;
 }
 `
-export const Burger = styled.div `
+export const Burger = styled.div`
 width: 50px;
 height: 2px;
 background: #fff;
@@ -130,7 +131,7 @@ background: #fff;
   background: #fff;
 }
 `
-export const ShowHistory = styled.p `
+export const ShowHistory = styled.p`
 font-size: 32px;
 letter-spacing: 0px;
 color: ${props => props.theme.SECOND_FONT_COLOR};

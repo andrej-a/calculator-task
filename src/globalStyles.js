@@ -2,7 +2,7 @@ import {
   createGlobalStyle,
 } from 'styled-components'
 
-export default createGlobalStyle `
+export default createGlobalStyle`
 
   @font-face {
     font-family: 'HelveticaNeue Regular';

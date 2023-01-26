@@ -1,6 +1,7 @@
 import {
   DEFAULT_DISPLAY_VALUE,
-} from "@/constants"
+} from '@/constants'
+
 export const deleteLastItem = display => {
   let copy = display
   copy = copy.trim()

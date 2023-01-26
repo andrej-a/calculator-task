@@ -1,48 +1,55 @@
 import {
-  store,
-} from "@/store"
-
-import {
   bindActionCreators,
-} from "redux"
+} from 'redux'
 
 /* ACTIONS */
 import {
+  addItemToHistory,
   changeDisplayValue,
-  setOwnValue,
   setDefaultValue,
-} from "@/actions/actions"
+  setOwnValue,
+} from '@/actions/actions'
 /* CONSTANTS */
 import {
   DEFAULT_DISPLAY_VALUE,
   UNCORRECT_BRACKETS_MESSAGE,
-  UNCORRECT_OPERATOR_MESSAGE,
-  UNCORRECT_INPUT_MESSAGE,
   UNCORRECT_DOT_INPUT,
-} from "@/constants"
-/* UTILS */
+  UNCORRECT_INPUT_MESSAGE,
+  UNCORRECT_OPERATOR_MESSAGE,
+} from '@/constants'
 import {
-  replacePreviousOperator,
-} from "./replacePreviousOperator"
+  store,
+} from '@/store'
+
+import {
+  checkCorrectBrakcets,
+} from './checkCorrectBrakcets'
+import {
+  checkCorrectOperators,
+} from './checkCorrectOperators'
 import {
   deleteLastItem,
 } from './deleteLastItem'
 import {
-  checkCorrectBrakcets,
-} from "./checkCorrectBrakcets"
+  getResult,
+} from './getResult'
+/* UTILS */
+import {
+  replacePreviousOperator,
+} from './replacePreviousOperator'
 import {
   warningMessage,
-} from "./warningMessage"
-import {
-  getResult,
-} from "./getResult"
-import {
-  checkCorrectOperators,
-} from "./checkCorrectOperators"
+} from './warningMessage'
 /* VARYABLES */
 const {
   dispatch,
 } = store
+
+const {
+  addHistoryItem,
+} = bindActionCreators({
+  addHistoryItem: addItemToHistory,
+}, dispatch)
 
 const {
   changeDisplay,
@@ -54,22 +61,16 @@ const {
   setDefault: setDefaultValue,
 }, dispatch)
 
-
-
 export const controller = ({
   value,
 }, display) => {
-
   if (value.match(/[0123456789]/i)) {
-
     if (display === DEFAULT_DISPLAY_VALUE) {
       return ownValue(value)
-    } else {
-      let copy = display
-      copy = copy.trim()
-      return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value)
     }
-
+    let copy = display
+    copy = copy.trim()
+    return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value)
   }
 
   if (value.match(/[*\-/+%]/)) {
@@ -93,9 +94,7 @@ export const controller = ({
     if (copy[copy.length - 1].match(/[0-9]/)) {
       return ownValue(`${display} * ${value}`)
     }
-    if (copy[copy.length - 1].match(/[*-/+/(%]/))
-      return changeDisplay(value)
-
+    if (copy[copy.length - 1].match(/[*-/+/(%]/)) return changeDisplay(value)
   }
 
   if (value.match(/\)/)) {
@@ -141,8 +140,7 @@ export const controller = ({
     if (!checkCorrectOperators(display)) {
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
-
+    addHistoryItem(display)
     getResult(display)
   }
-
 }

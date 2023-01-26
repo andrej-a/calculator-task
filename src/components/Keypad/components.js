@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 import {
   size,
 } from '@/sizes'
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
 width: 100%;
 height: auto;
 padding: 32px 20px 32px 130px;
@@ -32,7 +33,7 @@ column-gap: 128px;
 
 
 `
-export const Key = styled.button `
+export const Key = styled.button`
 width: 150px;
 height: 150px;
 background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
@@ -52,7 +53,6 @@ box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
 
 @media (max-width: ${size.desktop}) {
   width: 18%;
-  height: 20%;
   border-radius: 0;
 }
 
@@ -61,7 +61,4 @@ box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
   height: 25%;
   font-size: 32px;
 }
-
-
-
 `

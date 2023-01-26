@@ -4,9 +4,8 @@ export const doCorrectValue = array => {
       const firstPart = array.slice(0, i)
       const secondPart = array.slice(i + 1)
       return doCorrectValue([...firstPart, array[i], ' * ', '1', ...secondPart])
-    } else {
-      continue
     }
+    continue
   }
   return array
 }

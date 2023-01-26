@@ -1,17 +1,19 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-/* STYLES */
-import { SettingsWrapper, TitleWrapper, Title, LabelWrapper, ClearHistoryButton } from './components'
-/* CONSTANTS */
-import { SETTINGS_TITLE, LABEL_TITLE, CLEAR_HISTORY_BUTTON } from '@/constants'
-/* COMPONENTS */
-import SelectComponent from './SelectComponent/Select'
+
 /* ACTIONS */
 import * as actions from '@/actions/actions'
+/* CONSTANTS */
+import { CLEAR_HISTORY_BUTTON, LABEL_TITLE, SETTINGS_TITLE } from '@/constants'
+
+/* STYLES */
+import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './components'
+/* COMPONENTS */
+import SelectComponent from './SelectComponent/Select'
 
 class Settings extends React.Component {
-  render() {
+  render () {
     const { theme, history, clearAllData } = this.props
     return (
       <SettingsWrapper theme={theme}>
@@ -20,14 +22,16 @@ class Settings extends React.Component {
         </TitleWrapper>
 
         <LabelWrapper theme={theme}>
-          <label htmlFor="theme">{LABEL_TITLE}</label>
+          <label htmlFor='theme'>{LABEL_TITLE}</label>
         </LabelWrapper>
 
         <SelectComponent />
-        <ClearHistoryButton data-test="clearHistory" disabled={!history.length}
+        <ClearHistoryButton
+          data-test='clearHistory' disabled={!history.length}
           theme={theme}
           onClick={() => clearAllData()}
-          className="clear">{CLEAR_HISTORY_BUTTON}
+          className='clear'>
+          {CLEAR_HISTORY_BUTTON}
         </ClearHistoryButton>
       </SettingsWrapper>
     )
@@ -50,11 +54,8 @@ Settings.propTypes = {
   clearAllData: PropTypes.func,
 }
 
-
-const mapStateToProps = ({ theme, history }) => {
-  return {
-    theme, history,
-  }
-}
+const mapStateToProps = ({ theme, history }) => ({
+  theme, history,
+})
 
 export default connect(mapStateToProps, actions)(Settings)

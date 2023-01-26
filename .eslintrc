@@ -1,6 +1,6 @@
 {
-  "extends": ["standard", "standard-react", "prettier", "prettier/react"],
-  "plugins": ["prettier", "react-hooks", "cypress"],
+  "extends": ["airbnb", "standard", "standard-react"],
+  "plugins": ["simple-import-sort", "cypress"],
   "parser": "babel-eslint",
   "env": {
     "node": true,
@@ -9,6 +9,11 @@
     "cypress/globals": true
   },
   "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "arrow-parens": ["error", "as-needed"],
     "semi": "error",
     "prefer-destructuring": "error",
@@ -38,7 +43,6 @@
         "extensions": [".jsx"]
       }
     ],
-    "jsx-quotes": ["error", "prefer-double"],
     "comma-dangle": [2, "always-multiline"],
     "prefer-const": [
       "error",
@@ -51,18 +55,16 @@
     "react/no-unused-prop-types": "off",
     "react/jsx-fragments": [1, "element"]
   },
-  "overrides": [
-    {
-      "files": ["src/index.js"],
-      "rules": {
-        "react/jsx-filename-extension": "off",
-        "prettier/prettier": [
-          "error",
-          {
-            "singleQuote": true
-          }
-        ]
-      }
+  "overrides": [{
+    "files": ["src/index.js"],
+    "rules": {
+      "react/jsx-filename-extension": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true
+        }
+      ]
     }
-  ]
+  }]
 }

@@ -1,8 +1,10 @@
 import React from 'react'
-/* COMPONENTS */
-import { ControlPanel } from '@/containers/ControlPanel'
-import { ApplicationWrapper } from './components'
+
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { ControlPanel } from '@/containers/ControlPanel'
+
+import { ApplicationWrapper } from './components'
+
 export default () => (
   <ErrorBoundary>
     <ApplicationWrapper>

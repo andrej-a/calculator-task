@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 import {
   size,
 } from '@/sizes'
 
-export const DisplayWrapper = styled.div `
+export const DisplayWrapper = styled.div`
 width: 100%;
 height: 200px;
 overflow-y: auto;
@@ -16,7 +17,7 @@ align-items: flex-end;
 }
 
 `
-export const ValueWrapper = styled.div `
+export const ValueWrapper = styled.div`
 width: 100%;
 height: 200;
 overflow-x: auto;
@@ -36,7 +37,7 @@ justify-content: flex-end;
 
 `
 
-export const Value = styled.p `
+export const Value = styled.p`
 width: 100%;
 height: auto;
 text-align: right;
@@ -50,7 +51,7 @@ color: ${props => props.theme.FONT_COLOR};
 }
 
 `
-export const Border = styled.div `
+export const Border = styled.div`
 width: 95%;
 height: 2px;
 background: ${props => props.theme.BORDER_COLOR};

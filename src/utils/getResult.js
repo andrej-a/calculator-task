@@ -1,27 +1,29 @@
 import {
-  store,
-} from "@/store"
-import {
   bindActionCreators,
-} from "redux"
-import {
-  setOwnValue,
-} from "@/actions/actions"
+} from 'redux'
 
 import {
-  doCorrectValue,
-} from "./doCorrectValue"
+  setOwnValue,
+} from '@/actions/actions'
 import {
-  checkPriority,
-} from "./checkPriority"
+  store,
+} from '@/store'
+
 /* UTILS */
 import {
-  division,
-  multiplication,
   addition,
-  subtraction,
+  division,
   modulo,
-} from "./calculations"
+  multiplication,
+  subtraction,
+} from './calculations'
+import {
+  checkPriority,
+} from './checkPriority'
+import {
+  doCorrectValue,
+} from './doCorrectValue'
+
 const {
   dispatch,
 } = store
@@ -46,29 +48,29 @@ export const getResult = display => {
       operatorsStack = operatorsStack.splice(0, operatorsStack.length - 1)
       switch (previousOperator) {
         case '/':
-          numberStack.length ?
-            numberStack.push(division(previousOperand, lastOperand).toString()) :
-            ownValue((+division(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(division(previousOperand, lastOperand).toString())
+            : ownValue((+division(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '*':
-          numberStack.length ?
-            numberStack.push(multiplication(previousOperand, lastOperand).toString()) :
-            ownValue((+multiplication(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(multiplication(previousOperand, lastOperand).toString())
+            : ownValue((+multiplication(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '+':
-          numberStack.length ?
-            numberStack.push(addition(previousOperand, lastOperand).toString()) :
-            ownValue((+addition(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(addition(previousOperand, lastOperand).toString())
+            : ownValue((+addition(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '-':
-          numberStack.length ?
-            numberStack.push(subtraction(previousOperand, lastOperand).toString()) :
-            ownValue((+subtraction(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(subtraction(previousOperand, lastOperand).toString())
+            : ownValue((+subtraction(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '%':
-          numberStack.length ?
-            numberStack.push(modulo(previousOperand, lastOperand).toString()) :
-            ownValue((+modulo(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(modulo(previousOperand, lastOperand).toString())
+            : ownValue((+modulo(previousOperand, lastOperand).toFixed(3)).toString())
           break
 
         default:

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+
 import {
   size,
 } from '@/sizes'
 
-export const SelectWrapper = styled.div `
+export const SelectWrapper = styled.div`
 width: auto;
 height: auto;
 margin-top: 7px;
@@ -23,7 +24,7 @@ box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
 }
 
 `
-export const SelectTitleBox = styled.div `
+export const SelectTitleBox = styled.div`
 position: relative;
 width: 100%;
 max-width: 401px;
@@ -56,7 +57,7 @@ transition: all .3s ease;
 }
 
 `
-export const OptionsWrapper = styled.div `
+export const OptionsWrapper = styled.div`
 position: relative;
 width: 401px;
 height: auto;
@@ -74,7 +75,7 @@ z-index: 2;
 }
 
 `
-export const Options = styled.div `
+export const Options = styled.div`
 width: 100%;
 height: 80px;
 border: 2px solid #707070;

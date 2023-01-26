@@ -1,22 +1,22 @@
-import React from 'react'
-import { connect } from "react-redux"
 import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+
 /* STYLES */
-import { DisplayWrapper, ValueWrapper, Value, Border } from './components'
-const Display = ({ display, theme }) => {
-  return (
-    <React.Fragment>
-      <DisplayWrapper>
-        <ValueWrapper>
-          <Value data-test="display" theme={theme}>
-            {display}
-          </Value>
-        </ValueWrapper>
-        <Border theme={theme} />
-      </DisplayWrapper>
-    </React.Fragment>
-  )
-}
+import { Border, DisplayWrapper, Value, ValueWrapper } from './components'
+
+const Display = ({ display, theme }) => (
+  <React.Fragment>
+    <DisplayWrapper>
+      <ValueWrapper>
+        <Value data-test='display' theme={theme}>
+          {display}
+        </Value>
+      </ValueWrapper>
+      <Border theme={theme} />
+    </DisplayWrapper>
+  </React.Fragment>
+)
 
 Display.propTypes = {
   display: PropTypes.string,
@@ -33,10 +33,8 @@ Display.propTypes = {
   }),
 }
 
-const mapStateToProps = ({ theme, display }) => {
-  return {
-    theme, display,
-  }
-}
+const mapStateToProps = ({ theme, display }) => ({
+  theme, display,
+})
 
 export default connect(mapStateToProps)(Display)

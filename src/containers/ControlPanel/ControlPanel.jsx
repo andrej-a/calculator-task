@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+
 /* COMPONENTS */
 import Header from '@/components/Header/Header'
-import Home from '@/pages/Home'
 import Settings from '@/pages/AplicationSettings/Settings'
+import Home from '@/pages/Home'
 
 export const ControlPanel = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -17,11 +18,12 @@ export const ControlPanel = () => {
 
   return (
     <React.Fragment>
-      <Header showMenu={showMenu} onSetShowMenu={onSetShowMenu}
+      <Header
+        showMenu={showMenu} onSetShowMenu={onSetShowMenu}
         onSetShowHistory={onSetShowHistory} showHistory={showHistory} />
       <Routes>
-        <Route path="/" element={<Home showHistory={showHistory} />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path='/' element={<Home showHistory={showHistory} />} />
+        <Route path='/settings' element={<Settings />} />
       </Routes>
     </React.Fragment>
   )
