@@ -8,6 +8,7 @@ import {
   changeDisplayValue,
   setDefaultValue,
   setOwnValue,
+  setExtension
 } from '@/actions/actions'
 /* CONSTANTS */
 import {
@@ -46,19 +47,17 @@ const {
 } = store
 
 const {
-  addHistoryItem,
-} = bindActionCreators({
-  addHistoryItem: addItemToHistory,
-}, dispatch)
-
-const {
   changeDisplay,
   ownValue,
   setDefault,
+  addHistoryItem,
+  SET_EXTENSION,
 } = bindActionCreators({
   changeDisplay: changeDisplayValue,
   ownValue: setOwnValue,
   setDefault: setDefaultValue,
+  addHistoryItem: addItemToHistory,
+  SET_EXTENSION: setExtension,
 }, dispatch)
 
 export const controller = ({
@@ -128,6 +127,7 @@ export const controller = ({
 
   if (value.match(/c/i)) {
     setDefault()
+    SET_EXTENSION('')
   }
 
   if (value.match(/ce/i)) {
@@ -143,6 +143,7 @@ export const controller = ({
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
     addHistoryItem(display)
+    SET_EXTENSION(display)
     getResult(display)
   }
 }

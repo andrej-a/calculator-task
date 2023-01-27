@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 /* COMPONENTS */
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Settings from '@/pages/AplicationSettings/Settings'
 import Home from '@/pages/Home'
 

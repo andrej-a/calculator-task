@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { ErrorBoundary } from '@/components/ErrorBoundary'
-import { ControlPanel } from '@/containers/ControlPanel/ControlPanel'
+import { ControlPanel } from '@/containers/ControlPanel'
 
-import { ApplicationWrapper } from './components'
+import { ApplicationWrapper } from './styles'
 
 export default () => (
   <ErrorBoundary>

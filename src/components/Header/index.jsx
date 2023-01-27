@@ -2,11 +2,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-/* CONSTANTS */
 import { HEADER_TITLE, HIDE_HISTORY, HOME_LINK, SETTINGS_LINK, SHOW_HISTORY } from '@/constants/componentsConstants'
 
-/* STYLES */
-import { Burger, BurgerWrapper, LinksWrapper, PageLink, ShowHistory, Title, TitleWrapper, Wrapper } from './components'
+import { Burger, BurgerWrapper, LinksWrapper, PageLink, Title, TitleWrapper, Wrapper } from './styles'
+import { HistoryToggler } from './HistoryToggler'
 
 const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => (
   <Wrapper>
@@ -33,15 +32,15 @@ const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => (
           <PageLink data-test='settings'>{SETTINGS_LINK}</PageLink>
         </div>
       </NavLink>
-      <ShowHistory
-        onClick={() => {
-          onSetShowMenu(!showMenu)
-          onSetShowHistory()
-        }}>
-        {showHistory ? HIDE_HISTORY : SHOW_HISTORY}
-      </ShowHistory>
+
+      <HistoryToggler
+        showHistory={showHistory}
+        showMenu={showMenu}
+        onSetShowMenu={onSetShowMenu}
+        onSetShowHistory={onSetShowHistory}
+      />
     </LinksWrapper>
-  </Wrapper>
+  </Wrapper >
 )
 
 Header.propTypes = {

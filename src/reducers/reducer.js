@@ -1,5 +1,3 @@
-/* CONSTANTS */
-/* ACTION TYPES */
 import {
   ADD_ITEM_TO_HISTORY,
   CHANGE_DISPLAY_VALUE,
@@ -8,7 +6,9 @@ import {
   CLEAR_ALL_DATA,
   SET_DEFAULT_VALUE,
   SET_OWN_VALUE,
-} from '@/actions/actionTypes'
+  SET_EXTENSION,
+} from '@/actions/actionTypes';
+
 import {
   DarkTheme,
   DEFAULT_DISPLAY_VALUE,
@@ -21,6 +21,7 @@ const INITIAL_STATE = {
   theme: LightTheme,
   history: [],
   display: DEFAULT_DISPLAY_VALUE,
+  extension: '',
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -31,45 +32,51 @@ const reducer = (state = INITIAL_STATE, action) => {
         theme: action.theme,
       }
 
-    case CHANGE_THEME_VALUE:
-      return {
-        ...state,
-        themeValue: action.themeValue,
-      }
+      case CHANGE_THEME_VALUE:
+        return {
+          ...state,
+          themeValue: action.themeValue,
+        }
 
-    case ADD_ITEM_TO_HISTORY:
-      return {
-        ...state,
-        history: [action.history, ...state.history],
-      }
+        case ADD_ITEM_TO_HISTORY:
+          return {
+            ...state,
+            history: [action.history, ...state.history],
+          }
 
-    case CHANGE_DISPLAY_VALUE:
-      return {
-        ...state,
-        display: state.display + action.display,
-      }
+          case CHANGE_DISPLAY_VALUE:
+            return {
+              ...state,
+              display: state.display + action.display,
+            }
 
-    case SET_OWN_VALUE:
-      return {
-        ...state,
-        display: action.ownValue,
-      }
+            case SET_OWN_VALUE:
+              return {
+                ...state,
+                display: action.ownValue,
+              }
 
-    case SET_DEFAULT_VALUE:
-      return {
-        ...state,
-        display: DEFAULT_DISPLAY_VALUE,
-      }
+              case SET_DEFAULT_VALUE:
+                return {
+                  ...state,
+                  display: DEFAULT_DISPLAY_VALUE,
+                }
 
-    case CLEAR_ALL_DATA:
-      return {
-        ...state,
-        display: action.defaultDataObject.display,
-        history: action.defaultDataObject.history,
-      }
+                case CLEAR_ALL_DATA:
+                  return {
+                    ...state,
+                    display: action.defaultDataObject.display,
+                      history: action.defaultDataObject.history,
+                  }
 
-    default:
-      return state
+                  case SET_EXTENSION:
+                    return {
+                      ...state,
+                      extension: action.extensionValue,
+                    }
+
+                    default:
+                      return state
   }
 }
 export default reducer

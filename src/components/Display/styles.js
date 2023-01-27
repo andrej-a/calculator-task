@@ -4,40 +4,31 @@ import {
   size,
 } from '@/constants/sizes'
 
-export const DisplayWrapper = styled.div`
+export const DisplayWrapper = styled.div `
 width: 100%;
-height: 200px;
+height: auto;
+margin-bottom: 50px;
 overflow-y: auto;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-
-@media(max-width: ${size.tablet}) {
-  height: 250px;
-}
-
 `
-export const ValueWrapper = styled.div`
+
+export const ValueWrapper = styled.div `
 width: 100%;
-height: 200;
+max-height: 250px;
 overflow-x: auto;
-padding: 25px 106px 32px 64px;
+overflow-y: auto;
+padding: 0px 106px 10px 64px;
 display: flex;
 justify-content: flex-end;
 
 @media(max-width: ${size.laptop}) {
-  padding: 20px;
+  padding: 10px;
 }
-
-
-@media(max-width: ${size.tablet}) {
-  height: 250px;
-  overflow-y: auto;
-}
-
 `
 
-export const Value = styled.p`
+export const Value = styled.p `
 width: 100%;
 height: auto;
 text-align: right;
@@ -49,9 +40,23 @@ color: ${props => props.theme.FONT_COLOR};
 @media(max-width: ${size.mobileL}) {
   font-size: 36px;
 }
-
 `
-export const Border = styled.div`
+export const ExtensionWrapper = styled(ValueWrapper)
+`
+min-height: 70px;
+padding-top: 0;
+padding-bottom: 0;
+`
+
+export const Extension = styled(Value)
+`
+font-size: 35px;
+opacity: .3;
+`
+
+
+
+export const Border = styled.div `
 width: 95%;
 height: 2px;
 background: ${props => props.theme.BORDER_COLOR};

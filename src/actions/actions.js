@@ -13,7 +13,13 @@ import {
   CLEAR_ALL_DATA,
   SET_DEFAULT_VALUE,
   SET_OWN_VALUE,
+  SET_EXTENSION
 } from './actionTypes'
+
+export const setExtension = payload => ({
+  type: SET_EXTENSION,
+  extensionValue: payload
+})
 
 export const changeTheme = theme => ({
   type: CHANGE_THEME_OBJECT,
