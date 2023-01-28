@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { store } from '@/store'
-import { changeTheme, changeThemeValue } from '@/actions/actions'
+import { useSelector, useDispatch } from 'react-redux'
+import { changeTheme, changeThemeValue } from '@/redux/actions/actions'
 import { fakeThemeData } from '@/constants'
 
 import { Options, OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles'
 
-const { dispatch } = store;
 
 const SelectComponent = () => {
+  const dispatch = useDispatch();
   const { themeValue } = useSelector((state) => state);
   const [isOpen, setIsOpen] = useState(false);
 

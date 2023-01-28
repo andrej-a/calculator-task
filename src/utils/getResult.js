@@ -4,7 +4,7 @@ import {
 
 import {
   setOwnValue,
-} from '@/actions/actions'
+} from '@/redux/actions/actions'
 import {
   store,
 } from '@/store'
@@ -121,7 +121,6 @@ export const getResult = display => {
             break
 
           default:
-            console.log(previousOperator.trim())
             break
         }
         continue
@@ -176,7 +175,6 @@ export const getResult = display => {
               break
 
             default:
-              console.log(previousOperator.trim())
               break
           }
         } else { // если приоритет больше, то кладем в массив

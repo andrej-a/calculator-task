@@ -5,7 +5,7 @@ import {
 /* ACTIONS */
 import {
   setOwnValue,
-} from '@/actions/actions'
+} from '@/redux/actions/actions'
 /* CONSTANTS */
 import {
   WARNING_MESSAGE_TIMEOUT,

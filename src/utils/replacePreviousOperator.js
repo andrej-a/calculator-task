@@ -4,7 +4,7 @@ import {
 
 import {
   setOwnValue,
-} from '@/actions/actions'
+} from '@/redux/actions/actions'
 import {
   store,
 } from '@/store'

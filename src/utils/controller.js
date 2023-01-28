@@ -10,7 +10,7 @@ import {
   setDefaultValue,
   setOwnValue,
   setExtension
-} from '@/actions/actions'
+} from '@/redux/actions/actions'
 import {
   DEFAULT_DISPLAY_VALUE,
   UNCORRECT_BRACKETS_MESSAGE,

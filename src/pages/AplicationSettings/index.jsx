@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import * as actions from '@/actions/actions'
+import * as actions from '@/redux/actions/actions'
 import { CLEAR_HISTORY_BUTTON, LABEL_TITLE, SETTINGS_TITLE } from '@/constants'
 
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles'

@@ -7,7 +7,7 @@ import {
   SET_DEFAULT_VALUE,
   SET_OWN_VALUE,
   SET_EXTENSION,
-} from '@/actions/actionTypes';
+} from '@/redux/actions/actionTypes';
 
 import {
   DarkTheme,
