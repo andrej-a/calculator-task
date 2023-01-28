@@ -7,7 +7,7 @@ import { Border, DisplayWrapper, Value, ValueWrapper, ExtensionWrapper, Extensio
 const Display = () => {
   const { display, extension } = useSelector((state) => state);
   return (
-    <DisplayWrapper>
+    < DisplayWrapper >
       <ExtensionWrapper>
         <Extension>
           {extension}
@@ -19,7 +19,7 @@ const Display = () => {
         </Value>
       </ValueWrapper>
       <Border />
-    </DisplayWrapper>
+    </DisplayWrapper >
   )
 }
 

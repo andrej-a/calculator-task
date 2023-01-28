@@ -67,6 +67,7 @@ const reducer = (state = INITIAL_STATE, action) => {
                     ...state,
                     display: action.defaultDataObject.display,
                       history: action.defaultDataObject.history,
+                      extension: action.defaultDataObject.extension
                   }
 
                   case SET_EXTENSION:

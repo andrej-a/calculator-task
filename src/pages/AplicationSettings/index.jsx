@@ -2,18 +2,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 
-/* ACTIONS */
 import * as actions from '@/actions/actions'
-/* CONSTANTS */
 import { CLEAR_HISTORY_BUTTON, LABEL_TITLE, SETTINGS_TITLE } from '@/constants'
 
-/* STYLES */
-import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './components'
-/* COMPONENTS */
-import SelectComponent from './SelectComponent/Select'
+import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles'
+import SelectComponent from './SelectComponent'
 
 class Settings extends React.Component {
-  render () {
+  render() {
     const { history, clearAllData } = this.props
     return (
       <SettingsWrapper>
@@ -28,8 +24,8 @@ class Settings extends React.Component {
         <SelectComponent />
         <ClearHistoryButton
           data-test='clearHistory' disabled={!history.length}
-          onClick={() => clearAllData()}
-          className='clear'>
+          onClick={clearAllData}
+        >
           {CLEAR_HISTORY_BUTTON}
         </ClearHistoryButton>
       </SettingsWrapper>

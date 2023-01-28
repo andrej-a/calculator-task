@@ -1,8 +1,9 @@
 import {
   bindActionCreators,
 } from 'redux'
-
-/* ACTIONS */
+import {
+  v4 as uuidv4
+} from 'uuid';
 import {
   addItemToHistory,
   changeDisplayValue,
@@ -10,7 +11,6 @@ import {
   setOwnValue,
   setExtension
 } from '@/actions/actions'
-/* CONSTANTS */
 import {
   DEFAULT_DISPLAY_VALUE,
   UNCORRECT_BRACKETS_MESSAGE,
@@ -21,7 +21,6 @@ import {
 import {
   store,
 } from '@/store'
-
 import {
   checkCorrectBrakcets,
 } from './checkCorrectBrakcets'
@@ -34,16 +33,15 @@ import {
 import {
   getResult,
 } from './getResult'
-/* UTILS */
 import {
   replacePreviousOperator,
 } from './replacePreviousOperator'
 import {
   warningMessage,
 } from './warningMessage'
-/* VARYABLES */
 const {
   dispatch,
+  getState
 } = store
 
 const {
@@ -60,9 +58,10 @@ const {
   SET_EXTENSION: setExtension,
 }, dispatch)
 
-export const controller = ({
-  value,
-}, display) => {
+export const controller = (value, display) => {
+  if (getState().extension) {
+    SET_EXTENSION('');
+  }
   if (value.match(/[0123456789]/i)) {
     if (display === DEFAULT_DISPLAY_VALUE) {
       return ownValue(value)
@@ -142,7 +141,10 @@ export const controller = ({
     if (!checkCorrectOperators(display)) {
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
-    addHistoryItem(display)
+    addHistoryItem({
+      id: uuidv4(),
+      display
+    })
     SET_EXTENSION(display)
     getResult(display)
   }

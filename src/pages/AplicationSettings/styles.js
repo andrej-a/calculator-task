@@ -4,7 +4,7 @@ import {
   size,
 } from '@/constants/sizes'
 
-export const SettingsWrapper = styled.div`
+export const SettingsWrapper = styled.div `
 position: relative;
 width: 100%;
 height: auto;
@@ -18,7 +18,7 @@ flex-direction: column;
   }
 
 `
-export const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div `
 margin-top: 61px;
 margin-left: 84px;
 
@@ -27,14 +27,14 @@ margin-left: 84px;
 }
 
 `
-export const Title = styled.h2`
+export const Title = styled.h2 `
 font-size: 64px;
 line-height: 77px;
 letter-spacing: 0px;
 font-weight: 700;
 color: ${props => props.theme.FONT_COLOR};
 `
-export const LabelWrapper = styled.div`
+export const LabelWrapper = styled.div `
 margin-top: 46px;
 margin-left: 94px;
 
@@ -50,7 +50,7 @@ color: ${props => props.theme.FONT_COLOR};
 }
 
 `
-export const ClearHistoryButton = styled.button`
+export const ClearHistoryButton = styled.button `
 position: absolute;
 width: 401px;
 height: 93px;
@@ -88,5 +88,4 @@ box-shadow: 15px 20px 31px -1px rgba(112,112,112,1);
   padding-left: 10px;
   width: 80%;
 }
-
 `

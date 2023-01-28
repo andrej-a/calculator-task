@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import Display from '@/components/Display'
-import History from '@/components/History/History'
-import Keypad from '@/components/Keypad/Keypad'
+import History from '@/components/History'
+import Keypad from '@/components/Keypad'
 
 import { DisplayKeypadWrapper, HoumeWrapper } from './components'
 

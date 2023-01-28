@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 
 /* COMPONENTS */
 import Header from '@/components/Header'
-import Settings from '@/pages/AplicationSettings/Settings'
+import Settings from '@/pages/AplicationSettings'
 import Home from '@/pages/Home'
 
 export const ControlPanel = () => {

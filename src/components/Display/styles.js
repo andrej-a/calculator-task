@@ -43,7 +43,7 @@ color: ${props => props.theme.FONT_COLOR};
 `
 export const ExtensionWrapper = styled(ValueWrapper)
 `
-min-height: 70px;
+min-height: 80px;
 padding-top: 0;
 padding-bottom: 0;
 `

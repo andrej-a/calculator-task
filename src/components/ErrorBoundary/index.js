@@ -1,4 +1,4 @@
 export {
   ErrorBoundary,
 }
-  from './ErrorBoundary'
+from './index.jsx'
