@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 
 import { HEADER_TITLE, HIDE_HISTORY, HOME_LINK, SETTINGS_LINK, SHOW_HISTORY } from '@/constants/componentsConstants'
 
-import { Burger, BurgerWrapper, LinksWrapper, PageLink, Title, TitleWrapper, Wrapper } from './styles'
 import { HistoryToggler } from './HistoryToggler'
+import { Burger, BurgerWrapper, LinksWrapper, PageLink, Title, TitleWrapper, Wrapper } from './styles'
 
 const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => (
   <Wrapper>
@@ -34,13 +34,10 @@ const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => (
       </NavLink>
 
       <HistoryToggler
-        showHistory={showHistory}
-        showMenu={showMenu}
-        onSetShowMenu={onSetShowMenu}
-        onSetShowHistory={onSetShowHistory}
-      />
+        showHistory={showHistory} showMenu={showMenu}
+        onSetShowMenu={onSetShowMenu} onSetShowHistory={onSetShowHistory} />
     </LinksWrapper>
-  </Wrapper >
+  </Wrapper>
 )
 
 Header.propTypes = {

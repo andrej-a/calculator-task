@@ -6568,10 +6568,10 @@
   dependencies:
     "fast-diff" "^1.1.2"
 
-"prettier@^1.18.2", "prettier@>= 1.13.0":
-  "integrity" "sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw=="
-  "resolved" "https://registry.npmjs.org/prettier/-/prettier-1.18.2.tgz"
-  "version" "1.18.2"
+"prettier@^1.19.1", "prettier@>= 1.13.0":
+  "integrity" "sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew=="
+  "resolved" "https://registry.npmjs.org/prettier/-/prettier-1.19.1.tgz"
+  "version" "1.19.1"
 
 "pretty-error@^2.0.2":
   "integrity" "sha1-X0+HyPkeWuPzuoerTPXgOxoX8aM= sha512-FjthfAXdfqTrBLus270RxrQIdxGOY9qYO/MMTg3T1stG56EGWbNc9cUT4J3ov6aYSn5XwdRjBBvVKPmnUGl2Cg=="

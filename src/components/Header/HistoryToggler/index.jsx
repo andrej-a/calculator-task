@@ -1,10 +1,12 @@
-import React from "react";
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { ShowHistory } from "./styles";
-import { HIDE_HISTORY, SHOW_HISTORY } from "@/constants";
-export const HistoryToggler = (props) => {
-  const { onSetShowMenu, onSetShowHistory, showMenu, showHistory } = props;
+import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants'
+
+import { ShowHistory } from './styles'
+
+export const HistoryToggler = props => {
+  const { onSetShowMenu, onSetShowHistory, showMenu, showHistory } = props
   return (
     <ShowHistory
       onClick={() => {

@@ -1,6 +1,4 @@
-import {
-  size,
-} from './sizes'
+import { size } from './sizes'
 
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,

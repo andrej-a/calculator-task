@@ -1,16 +1,6 @@
-import {
-  bindActionCreators,
-} from 'redux'
-import {
-  v4 as uuidv4
-} from 'uuid';
-import {
-  addItemToHistory,
-  changeDisplayValue,
-  setDefaultValue,
-  setOwnValue,
-  setExtension
-} from '@/redux/actions/actions'
+import { bindActionCreators } from 'redux'
+import { v4 as uuidv4 } from 'uuid'
+
 import {
   DEFAULT_DISPLAY_VALUE,
   UNCORRECT_BRACKETS_MESSAGE,
@@ -18,49 +8,32 @@ import {
   UNCORRECT_INPUT_MESSAGE,
   UNCORRECT_OPERATOR_MESSAGE,
 } from '@/constants'
-import {
-  store,
-} from '@/store'
-import {
-  checkCorrectBrakcets,
-} from './checkCorrectBrakcets'
-import {
-  checkCorrectOperators,
-} from './checkCorrectOperators'
-import {
-  deleteLastItem,
-} from './deleteLastItem'
-import {
-  getResult,
-} from './getResult'
-import {
-  replacePreviousOperator,
-} from './replacePreviousOperator'
-import {
-  warningMessage,
-} from './warningMessage'
-const {
-  dispatch,
-  getState
-} = store
+import { addItemToHistory, changeDisplayValue, setDefaultValue, setExtension, setOwnValue } from '@/redux/actions/actions'
+import { store } from '@/store'
 
-const {
-  changeDisplay,
-  ownValue,
-  setDefault,
-  addHistoryItem,
-  SET_EXTENSION,
-} = bindActionCreators({
-  changeDisplay: changeDisplayValue,
-  ownValue: setOwnValue,
-  setDefault: setDefaultValue,
-  addHistoryItem: addItemToHistory,
-  SET_EXTENSION: setExtension,
-}, dispatch)
+import { checkCorrectBrakcets } from './checkCorrectBrakcets'
+import { checkCorrectOperators } from './checkCorrectOperators'
+import { deleteLastItem } from './deleteLastItem'
+import { getResult } from './getResult'
+import { replacePreviousOperator } from './replacePreviousOperator'
+import { warningMessage } from './warningMessage'
+
+const { dispatch, getState } = store
+
+const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = bindActionCreators(
+  {
+    changeDisplay: changeDisplayValue,
+    ownValue: setOwnValue,
+    setDefault: setDefaultValue,
+    addHistoryItem: addItemToHistory,
+    SET_EXTENSION: setExtension,
+  },
+  dispatch,
+)
 
 export const controller = (value, display) => {
   if (getState().extension) {
-    SET_EXTENSION('');
+    SET_EXTENSION('')
   }
   if (value.match(/[0123456789]/i)) {
     if (display === DEFAULT_DISPLAY_VALUE) {
@@ -88,7 +61,7 @@ export const controller = (value, display) => {
     if (copy[copy.length - 1].match(/\./)) {
       return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
     }
-    if (copy.length >= 1 && !copy.match(/[*-/+/(%]/gi) || copy.match(/\./gi)) {
+    if ((copy.length >= 1 && !copy.match(/[*-/+/(%]/gi)) || copy.match(/\./gi)) {
       return ownValue(value)
     }
     if (copy[copy.length - 1].match(/[0-9]/) && copy.length > 1) {
@@ -143,7 +116,7 @@ export const controller = (value, display) => {
     }
     addHistoryItem({
       id: uuidv4(),
-      display
+      display,
     })
     SET_EXTENSION(display)
     getResult(display)

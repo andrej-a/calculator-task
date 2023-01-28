@@ -1,38 +1,21 @@
-import {
-  bindActionCreators,
-} from 'redux'
+import { bindActionCreators } from 'redux'
 
-import {
-  setOwnValue,
-} from '@/redux/actions/actions'
-import {
-  store,
-} from '@/store'
+import { setOwnValue } from '@/redux/actions/actions'
+import { store } from '@/store'
 
 /* UTILS */
-import {
-  addition,
-  division,
-  modulo,
-  multiplication,
-  subtraction,
-} from './calculations'
-import {
-  checkPriority,
-} from './checkPriority'
-import {
-  doCorrectValue,
-} from './doCorrectValue'
+import { addition, division, modulo, multiplication, subtraction } from './calculations'
+import { checkPriority } from './checkPriority'
+import { doCorrectValue } from './doCorrectValue'
 
-const {
+const { dispatch } = store
+
+const { ownValue } = bindActionCreators(
+  {
+    ownValue: setOwnValue,
+  },
   dispatch,
-} = store
-
-const {
-  ownValue,
-} = bindActionCreators({
-  ownValue: setOwnValue,
-}, dispatch)
+)
 export const getResult = display => {
   const copyString = display
   let processedArray = doCorrectValue(copyString.split(' '))
@@ -48,29 +31,29 @@ export const getResult = display => {
       operatorsStack = operatorsStack.splice(0, operatorsStack.length - 1)
       switch (previousOperator) {
         case '/':
-          numberStack.length ?
-            numberStack.push(division(previousOperand, lastOperand).toString()) :
-            ownValue((+division(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(division(previousOperand, lastOperand).toString())
+            : ownValue((+division(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '*':
-          numberStack.length ?
-            numberStack.push(multiplication(previousOperand, lastOperand).toString()) :
-            ownValue((+multiplication(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(multiplication(previousOperand, lastOperand).toString())
+            : ownValue((+multiplication(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '+':
-          numberStack.length ?
-            numberStack.push(addition(previousOperand, lastOperand).toString()) :
-            ownValue((+addition(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(addition(previousOperand, lastOperand).toString())
+            : ownValue((+addition(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '-':
-          numberStack.length ?
-            numberStack.push(subtraction(previousOperand, lastOperand).toString()) :
-            ownValue((+subtraction(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(subtraction(previousOperand, lastOperand).toString())
+            : ownValue((+subtraction(previousOperand, lastOperand).toFixed(3)).toString())
           break
         case '%':
-          numberStack.length ?
-            numberStack.push(modulo(previousOperand, lastOperand).toString()) :
-            ownValue((+modulo(previousOperand, lastOperand).toFixed(3)).toString())
+          numberStack.length
+            ? numberStack.push(modulo(previousOperand, lastOperand).toString())
+            : ownValue((+modulo(previousOperand, lastOperand).toFixed(3)).toString())
           break
 
         default:
@@ -133,10 +116,12 @@ export const getResult = display => {
 
     // если оператор -- проверяем
     if (item.match(/[*-/+/%]/)) {
-      if (!operatorsStack.length) { //  стек пуст? пушим в стек
+      if (!operatorsStack.length) {
+        //  стек пуст? пушим в стек
         operatorsStack.push(item)
         i++
-      } else { // иначе
+      } else {
+        // иначе
         // получаем предыдущее значение в массиве операторов
         const previousOperator = operatorsStack[operatorsStack.length - 1]
         //  если скобка, то кладем оператор в стек
@@ -177,7 +162,8 @@ export const getResult = display => {
             default:
               break
           }
-        } else { // если приоритет больше, то кладем в массив
+        } else {
+          // если приоритет больше, то кладем в массив
           operatorsStack.push(item)
           i++
         }

@@ -1,8 +1,5 @@
-import {
-  css,
-} from 'styled-components'
+import { css } from 'styled-components'
 // const font = 'sans-serif'
-
 // Color palette
 const black = '#000000'
 const white = '#ffffff'
@@ -11,9 +8,7 @@ const primary = '#c06c84'
 const secondary = '#6c5b7b'
 const secondaryLight = '#6a6b7b'
 
-const boxShadows = [
-  'box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)',
-]
+const boxShadows = ['box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)']
 
 const size = {
   mobileS: '320px',
@@ -27,19 +22,19 @@ const size = {
 
 const above = Object.keys(size).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (min-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `
+        @media (min-width: ${size[label]}px) {
+            ${css(...args)}
+        }
+    `
   return acc
 }, {})
 
 const below = Object.keys(size).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (max-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `
+        @media (max-width: ${size[label]}px) {
+            ${css(...args)}
+        }
+    `
   return acc
 }, {})
 

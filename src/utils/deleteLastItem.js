@@ -1,6 +1,4 @@
-import {
-  DEFAULT_DISPLAY_VALUE,
-} from '@/constants'
+import { DEFAULT_DISPLAY_VALUE } from '@/constants'
 
 export const deleteLastItem = display => {
   let copy = display

@@ -1,28 +1,19 @@
-import {
-  bindActionCreators,
-} from 'redux'
+import { bindActionCreators } from 'redux'
 
-/* ACTIONS */
-import {
-  setOwnValue,
-} from '@/redux/actions/actions'
 /* CONSTANTS */
-import {
-  WARNING_MESSAGE_TIMEOUT,
-} from '@/constants'
-import {
-  store,
-} from '@/store'
+import { WARNING_MESSAGE_TIMEOUT } from '@/constants'
+/* ACTIONS */
+import { setOwnValue } from '@/redux/actions/actions'
+import { store } from '@/store'
 /* VARYABLES */
-const {
-  dispatch,
-} = store
+const { dispatch } = store
 
-const {
-  ownValue,
-} = bindActionCreators({
-  ownValue: setOwnValue,
-}, dispatch)
+const { ownValue } = bindActionCreators(
+  {
+    ownValue: setOwnValue,
+  },
+  dispatch,
+)
 
 export const warningMessage = (display, message) => {
   ownValue(message)

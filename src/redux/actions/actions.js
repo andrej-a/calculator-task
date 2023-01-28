@@ -1,9 +1,4 @@
-import {
-  DarkTheme,
-  DEFAULT_DISPLAY_VALUE,
-  DEFAULT_THEME_VALUE,
-  LightTheme,
-} from '@/constants'
+import { DarkTheme, DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE, LightTheme } from '@/constants'
 
 import {
   ADD_ITEM_TO_HISTORY,
@@ -12,13 +7,13 @@ import {
   CHANGE_THEME_VALUE,
   CLEAR_ALL_DATA,
   SET_DEFAULT_VALUE,
+  SET_EXTENSION,
   SET_OWN_VALUE,
-  SET_EXTENSION
 } from './actionTypes'
 
 export const setExtension = payload => ({
   type: SET_EXTENSION,
-  extensionValue: payload
+  extensionValue: payload,
 })
 
 export const changeTheme = theme => ({

@@ -2,25 +2,21 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { Border, DisplayWrapper, Value, ValueWrapper, ExtensionWrapper, Extension } from './styles'
+import { Border, DisplayWrapper, Extension, ExtensionWrapper, Value, ValueWrapper } from './styles'
 
 const Display = () => {
-  const { display, extension } = useSelector((state) => state);
+  const { display, extension } = useSelector(state => state)
   return (
-    < DisplayWrapper >
+    <DisplayWrapper>
       <ExtensionWrapper>
-        <Extension>
-          {extension}
-        </Extension>
+        <Extension>{extension}</Extension>
       </ExtensionWrapper>
       <ValueWrapper>
-        <Value data-test='display'>
-          {display}
-        </Value>
+        <Value data-test='display'>{display}</Value>
       </ValueWrapper>
       <Border />
-    </DisplayWrapper >
+    </DisplayWrapper>
   )
 }
 
-export default Display;
+export default Display
