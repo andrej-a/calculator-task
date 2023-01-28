@@ -1,14 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { size } from '@/constants/sizes'
+import { size } from '@/constants/sizes';
 
 export const Wrapper = styled.div`
     width: 100vw;
     max-width: ${size.desktop};
     min-height: 120px;
     height: auto;
-    background: ${props => props.theme.MAIN_COLOR};
-    border: 1px solid ${props => props.theme.BORDER_COLOR};
+    background: ${(props) => props.theme.MAIN_COLOR};
+    border: 1px solid ${(props) => props.theme.BORDER_COLOR};
 
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     .activeBurgerMenu {
         left: 0;
     }
-`
+`;
 export const TitleWrapper = styled.div`
     width: auto;
     height: auto;
@@ -34,12 +34,12 @@ export const TitleWrapper = styled.div`
         position: relative;
         z-index: 4;
     }
-`
+`;
 export const Title = styled.h1`
     font-size: 32px;
     letter-spacing: 0px;
-    color: ${props => props.theme.SECOND_FONT_COLOR};
-`
+    color: ${(props) => props.theme.SECOND_FONT_COLOR};
+`;
 export const LinksWrapper = styled.div`
     width: auto;
     height: auto;
@@ -56,7 +56,7 @@ export const LinksWrapper = styled.div`
         opacity: 0.7;
     }
     .activeLink .link {
-        border-bottom: 2px solid ${props => props.theme.SECOND_FONT_COLOR};
+        border-bottom: 2px solid ${(props) => props.theme.SECOND_FONT_COLOR};
     }
 
     @media (max-width: ${size.laptop}) {
@@ -74,18 +74,18 @@ export const LinksWrapper = styled.div`
         position: absolute;
         z-index: 3;
         left: -3600px;
-        background: ${props => props.theme.MAIN_COLOR};
+        background: ${(props) => props.theme.MAIN_COLOR};
     }
-`
+`;
 export const PageLink = styled.p`
     font-size: 32px;
     letter-spacing: 0px;
-    color: ${props => props.theme.SECOND_FONT_COLOR};
+    color: ${(props) => props.theme.SECOND_FONT_COLOR};
 
     @media (max-width: ${size.tablet}) {
         font-size: 44px;
     }
-`
+`;
 export const BurgerWrapper = styled.div`
     position: relative;
     z-index: 4;
@@ -102,7 +102,7 @@ export const BurgerWrapper = styled.div`
     @media (max-width: ${size.tablet}) {
         display: flex;
     }
-`
+`;
 export const Burger = styled.div`
     width: 50px;
     height: 2px;
@@ -127,4 +127,4 @@ export const Burger = styled.div`
         height: 2px;
         background: #fff;
     }
-`
+`;

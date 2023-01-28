@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { size } from '@/constants/sizes'
+import { size } from '@/constants/sizes';
 
 export const SelectWrapper = styled.div`
     width: auto;
@@ -20,7 +20,7 @@ export const SelectWrapper = styled.div`
         margin-left: 20px;
         width: 100%;
     }
-`
+`;
 export const SelectTitleBox = styled.div`
     position: relative;
     width: 100%;
@@ -52,7 +52,7 @@ export const SelectTitleBox = styled.div`
         max-width: none;
         width: 80%;
     }
-`
+`;
 export const OptionsWrapper = styled.div`
     position: relative;
     width: 401px;
@@ -69,7 +69,7 @@ export const OptionsWrapper = styled.div`
         flex-direction: column;
         align-items: center;
     }
-`
+`;
 export const Options = styled.div`
     width: 100%;
     height: 80px;
@@ -87,4 +87,4 @@ export const Options = styled.div`
     @media (max-width: ${size.mobileL}) {
         width: 100%;
     }
-`
+`;

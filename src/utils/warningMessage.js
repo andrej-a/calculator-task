@@ -1,24 +1,24 @@
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 /* CONSTANTS */
-import { WARNING_MESSAGE_TIMEOUT } from '@/constants'
+import { WARNING_MESSAGE_TIMEOUT } from '@/constants';
 /* ACTIONS */
-import { setOwnValue } from '@/redux/actions/actions'
-import { store } from '@/store'
+import { setOwnValue } from '@/redux/actions/actions';
+import { store } from '@/redux/store';
 /* VARYABLES */
-const { dispatch } = store
+const { dispatch } = store;
 
 const { ownValue } = bindActionCreators(
-  {
-    ownValue: setOwnValue,
-  },
-  dispatch,
-)
+    {
+        ownValue: setOwnValue
+    },
+    dispatch
+);
 
 export const warningMessage = (display, message) => {
-  ownValue(message)
+    ownValue(message);
 
-  setTimeout(() => {
-    ownValue(display)
-  }, WARNING_MESSAGE_TIMEOUT)
-}
+    setTimeout(() => {
+        ownValue(display);
+    }, WARNING_MESSAGE_TIMEOUT);
+};

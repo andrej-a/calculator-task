@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { size } from '@/constants/sizes'
+import { size } from '@/constants/sizes';
 
 export const DisplayWrapper = styled.div`
     width: 100%;
@@ -10,7 +10,7 @@ export const DisplayWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-`
+`;
 
 export const ValueWrapper = styled.div`
     width: 100%;
@@ -24,7 +24,7 @@ export const ValueWrapper = styled.div`
     @media (max-width: ${size.laptop}) {
         padding: 10px;
     }
-`
+`;
 
 export const Value = styled.p`
     width: 100%;
@@ -33,27 +33,27 @@ export const Value = styled.p`
     font: normal normal normal 64px/77px Helvetica Neue;
     font-weight: 600;
     letter-spacing: 0px;
-    color: ${props => props.theme.FONT_COLOR};
+    color: ${(props) => props.theme.FONT_COLOR};
 
     @media (max-width: ${size.mobileL}) {
         font-size: 36px;
     }
-`
+`;
 export const ExtensionWrapper = styled(ValueWrapper)`
     min-height: 80px;
     padding-top: 0;
     padding-bottom: 0;
-`
+`;
 
 export const Extension = styled(Value)`
     font-size: 35px;
     opacity: 0.3;
-`
+`;
 
 export const Border = styled.div`
     width: 95%;
     height: 2px;
-    background: ${props => props.theme.BORDER_COLOR};
+    background: ${(props) => props.theme.BORDER_COLOR};
     margin-right: 25px;
     margin-left: 25px;
 
@@ -61,4 +61,4 @@ export const Border = styled.div`
         margin: 0;
         width: 100%;
     }
-`
+`;

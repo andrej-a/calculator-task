@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -62,4 +62,4 @@ export default createGlobalStyle`
   background-color: #434343;
   border-radius: 8px;
 }
-`
+`;

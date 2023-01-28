@@ -1,1 +1,1 @@
-export { ErrorBoundary } from './index.jsx'
+export { ErrorBoundary } from './index.jsx';
