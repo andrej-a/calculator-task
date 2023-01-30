@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import {
+  size
+} from '@/constants/sizes';
 
-export const SettingsWrapper = styled.div`
+export const SettingsWrapper = styled.div `
     position: relative;
     width: 100%;
     height: auto;
@@ -15,7 +17,7 @@ export const SettingsWrapper = styled.div`
         align-items: center;
     }
 `;
-export const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div `
     margin-top: 61px;
     margin-left: 84px;
 
@@ -23,14 +25,14 @@ export const TitleWrapper = styled.div`
         margin-left: 0;
     }
 `;
-export const Title = styled.h2`
+export const Title = styled.h2 `
     font-size: 64px;
     line-height: 77px;
     letter-spacing: 0px;
     font-weight: 700;
     color: ${(props) => props.theme.FONT_COLOR};
 `;
-export const LabelWrapper = styled.div`
+export const LabelWrapper = styled.div `
     margin-top: 46px;
     margin-left: 94px;
 
@@ -45,7 +47,7 @@ export const LabelWrapper = styled.div`
         margin-left: 0;
     }
 `;
-export const ClearHistoryButton = styled.button`
+export const ClearHistoryButton = styled.button `
     position: absolute;
     width: 401px;
     height: 93px;

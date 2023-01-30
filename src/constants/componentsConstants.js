@@ -1,5 +1,6 @@
 export const HEADER_TITLE = 'Calculator App';
 export const HOME_LINK = 'Home';
+export const HOME_CLASS_LINK = 'Home Classes';
 export const SETTINGS_LINK = 'Settings';
 export const HISTORY_TITLE = 'History';
 export const SETTINGS_TITLE = 'Settings';

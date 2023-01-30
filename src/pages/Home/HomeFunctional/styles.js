@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import {
+  size
+} from '@/constants/sizes';
 
-export const HoumeWrapper = styled.div`
+export const HoumeWrapper = styled.div `
     width: 100%;
     height: auto;
     background: ${(props) => props.theme.MAIN_BACKGROUND_COLOR};
     display: flex;
 `;
-export const DisplayKeypadWrapper = styled.div`
+export const DisplayKeypadWrapper = styled.div `
     width: 80%;
     display: flex;
     flex-direction: column;
