@@ -5,8 +5,7 @@ import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
 
 import { ShowHistory } from './styles';
 
-export const HistoryToggler = (props) => {
-    const { onSetShowMenu, onSetShowHistory, showMenu, showHistory } = props;
+export const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory }) => {
     return (
         <ShowHistory
             onClick={() => {

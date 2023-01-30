@@ -1,17 +1,16 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { Border, DisplayWrapper, Extension, ExtensionWrapper, Value, ValueWrapper } from '@/components/Display/DisplayFunctional/styles';
+import { Border, DisplayWrapper, Value, ValueWrapper } from '@/components/Display/DisplayFunctional/styles';
 import { connect } from "react-redux";
+import ExpressionComponent from "./Expression";
 
-class DisplayClasses extends React.Component {
+class DisplayClasses extends React.PureComponent {
   render() {
-    const { display, extension } = this.props;
+    const { display } = this.props;
     return (
       <DisplayWrapper>
-        <ExtensionWrapper>
-          <Extension>{extension}</Extension>
-        </ExtensionWrapper>
+        <ExpressionComponent />
         <ValueWrapper>
           <Value data-test="display">{display}</Value>
         </ValueWrapper>
@@ -21,8 +20,8 @@ class DisplayClasses extends React.Component {
   }
 }
 
-const mapStateToProps = ({ display, extension }) => ({
-  display, extension
+const mapStateToProps = ({ display }) => ({
+  display
 })
 
 export default connect(mapStateToProps)(DisplayClasses);

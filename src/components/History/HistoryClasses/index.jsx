@@ -7,8 +7,12 @@ import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from '../HistoryFunctional/styles';
 
 class HistoryClasses extends React.Component {
+    constructor(props) {
+        super(props)
+        this.showHistory = this.props.showHistory;
+    }
   render() {
-    const { history, showHistory } = this.props;
+    const { history } = this.props;
 
     const historyItems = history.map((item) => {
       const { display, id } = item;
@@ -22,7 +26,7 @@ class HistoryClasses extends React.Component {
     return (
       <React.Fragment>
         <Border />
-        <HistoryWrapper className={showHistory ? 'historyActive' : ''}>
+        <HistoryWrapper className={this.showHistory ? 'historyActive' : ''}>
           <TitleWrapper>
             <Title>{history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
           </TitleWrapper>
@@ -35,13 +39,12 @@ class HistoryClasses extends React.Component {
 }
 
 HistoryClasses.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  history: PropTypes.arrayOf(PropTypes.object),
   showHistory: PropTypes.bool
 };
 
-const mapStateToProps = ({ history, showHistory }) => ({
-  history,
-  showHistory
+const mapStateToProps = ({ history }) => ({
+  history
 });
 
 export default connect(mapStateToProps)(HistoryClasses);

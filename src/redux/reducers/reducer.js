@@ -62,7 +62,7 @@ const INITIAL_STATE = {
     display: '9*9'
   }, ],
   display: DEFAULT_DISPLAY_VALUE,
-  extension: ''
+  expression: ''
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -108,13 +108,13 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         display: action.defaultDataObject.display,
           history: action.defaultDataObject.history,
-          extension: action.defaultDataObject.extension
+          expression: action.defaultDataObject.expression
       };
 
     case SET_EXTENSION:
       return {
         ...state,
-        extension: action.extensionValue
+        expression: action.extensionValue
       };
 
     default:

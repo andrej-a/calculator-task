@@ -4,7 +4,7 @@ import {
   size
 } from '@/constants/sizes';
 
-export const HoumeWrapper = styled.div `
+export const HomeWrapper = styled.div `
     width: 100%;
     height: auto;
     max-height: calc(100vh + 300px);

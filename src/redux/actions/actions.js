@@ -49,7 +49,7 @@ export const clearAllData = () => ({
     type: CLEAR_ALL_DATA,
     defaultDataObject: {
         display: DEFAULT_DISPLAY_VALUE,
-        extension: '',
+        expression: '',
         history: []
     }
 });

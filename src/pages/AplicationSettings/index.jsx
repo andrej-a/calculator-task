@@ -31,7 +31,7 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
-    history: PropTypes.arrayOf(PropTypes.string),
+    history: PropTypes.arrayOf(PropTypes.object),
     clearAllData: PropTypes.func
 };
 

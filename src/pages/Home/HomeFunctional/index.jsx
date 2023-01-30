@@ -5,19 +5,19 @@ import Display from '@/components/Display/DisplayFunctional';
 import History from '@/components/History/HistoryFunctional';
 import Keypad from '@/components/Keypad/KeypadFunctional';
 
-import { DisplayKeypadWrapper, HoumeWrapper } from './styles';
+import { DisplayKeypadWrapper, HomeWrapper } from './styles';
 
-const Houme = ({ showHistory }) => (
-  <HoumeWrapper>
+const home = ({ showHistory }) => (
+  <HomeWrapper>
     <DisplayKeypadWrapper>
       <Display />
       <Keypad />
     </DisplayKeypadWrapper>
     <History showHistory={showHistory} />
-  </HoumeWrapper>
+  </HomeWrapper>
 );
 
-Houme.propTypes = {
+home.propTypes = {
   showHistory: PropTypes.bool
 };
-export default Houme;
+export default home;

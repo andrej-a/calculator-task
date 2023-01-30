@@ -6,7 +6,7 @@ import { controller } from '@/utils/controller';
 
 import { Key, Wrapper } from './styles';
 
-const Keypad = () => {
+const Keypad = React.memo(() => {
     const keypad = buttonsObject.map((button) => {
         const { value } = button;
         return (
@@ -21,6 +21,6 @@ const Keypad = () => {
         );
     });
     return <Wrapper>{keypad}</Wrapper>;
-};
+})
 
 export default Keypad;

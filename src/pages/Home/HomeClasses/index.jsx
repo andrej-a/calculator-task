@@ -3,7 +3,7 @@ import React from 'react';
 import HistoryClasses from '@/components/History/HistoryClasses';
 import DisplayClasses from '@/components/Display/DisplayClasses';
 import KeypadClasses from '@/components/Keypad/KeypadClasses';
-import { DisplayKeypadWrapper, HoumeWrapper } from '../HomeFunctional/styles';
+import { DisplayKeypadWrapper, HomeWrapper } from '../HomeFunctional/styles';
 
 class HomeClassComponent extends React.Component {
   constructor(props) {
@@ -13,13 +13,13 @@ class HomeClassComponent extends React.Component {
   render() {
     const { showHistory } = this.props;
     return (
-      <HoumeWrapper>
+      <HomeWrapper>
         <DisplayKeypadWrapper>
           <DisplayClasses />
           <KeypadClasses />
         </DisplayKeypadWrapper>
-        <HistoryClasses />
-      </HoumeWrapper>
+        <HistoryClasses showHistory={showHistory} />
+      </HomeWrapper>
     );
   }
 }

@@ -37,7 +37,7 @@
         "when": "always"
       }
     ],
-    "react/jsx-filename-extension": [
+    "react/jsx-filename-expression": [
       2,
       {
         "extensions": [".jsx"]
@@ -58,7 +58,7 @@
   "overrides": [{
     "files": ["src/index.js"],
     "rules": {
-      "react/jsx-filename-extension": "off",
+      "react/jsx-filename-expression": "off",
       "prettier/prettier": [
         "error",
         {

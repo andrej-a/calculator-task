@@ -41,14 +41,14 @@ export const Value = styled.p `
         font-size: 36px;
     }
 `;
-export const ExtensionWrapper = styled(ValueWrapper)
+export const ExpressionWrapper = styled(ValueWrapper)
 `
     min-height: 80px;
     padding-top: 0;
     padding-bottom: 0;
 `;
 
-export const Extension = styled(Value)
+export const Expression = styled(Value)
 `
     font-size: 35px;
     opacity: 0.3;
