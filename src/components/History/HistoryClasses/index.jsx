@@ -35,7 +35,7 @@ class HistoryClasses extends React.Component {
 }
 
 HistoryClasses.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.string),
+  history: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
   showHistory: PropTypes.bool
 };
 

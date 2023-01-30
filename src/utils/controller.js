@@ -31,7 +31,8 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = b
     dispatch
 );
 
-export const controller = (value, display) => {
+export const controller = (value) => {
+    const display = getState().display;
     if (getState().extension) {
         SET_EXTENSION('');
     }
