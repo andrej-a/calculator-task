@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import {
+  size
+} from '@/constants/sizes';
 
-export const DisplayWrapper = styled.div`
+export const DisplayWrapper = styled.div `
     width: 100%;
     height: auto;
     margin-bottom: 50px;
@@ -12,7 +14,7 @@ export const DisplayWrapper = styled.div`
     align-items: flex-end;
 `;
 
-export const ValueWrapper = styled.div`
+export const ValueWrapper = styled.div `
     width: 100%;
     max-height: 250px;
     overflow-x: auto;
@@ -26,7 +28,7 @@ export const ValueWrapper = styled.div`
     }
 `;
 
-export const Value = styled.p`
+export const Value = styled.p `
     width: 100%;
     height: auto;
     text-align: right;
@@ -39,18 +41,20 @@ export const Value = styled.p`
         font-size: 36px;
     }
 `;
-export const ExtensionWrapper = styled(ValueWrapper)`
+export const ExtensionWrapper = styled(ValueWrapper)
+`
     min-height: 80px;
     padding-top: 0;
     padding-bottom: 0;
 `;
 
-export const Extension = styled(Value)`
+export const Extension = styled(Value)
+`
     font-size: 35px;
     opacity: 0.3;
 `;
 
-export const Border = styled.div`
+export const Border = styled.div `
     width: 95%;
     height: 2px;
     background: ${(props) => props.theme.BORDER_COLOR};

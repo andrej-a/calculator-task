@@ -7,6 +7,8 @@ import {
 export const HoumeWrapper = styled.div `
     width: 100%;
     height: auto;
+    max-height: calc(100vh + 300px);
+    overflow: hidden;
     background: ${(props) => props.theme.MAIN_BACKGROUND_COLOR};
     display: flex;
 `;

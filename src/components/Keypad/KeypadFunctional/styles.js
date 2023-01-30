@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import {
+  size
+} from '@/constants/sizes';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div `
     width: 100%;
     height: auto;
+    max-height: inherit;
     padding: 32px 20px 32px 130px;
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +32,7 @@ export const Wrapper = styled.div`
         align-items: center;
     }
 `;
-export const Key = styled.button`
+export const Key = styled.button `
     width: 150px;
     height: 150px;
     background: ${(props) => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
