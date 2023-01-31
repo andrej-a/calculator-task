@@ -45,13 +45,24 @@ export const controller = (value) => {
         return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
-    if (value.match(/[*\-/+%]/)) {
+    if (value.match(/[*\/+%]/)) {
         let copy = display;
         copy = copy.trim();
 
         const array = copy.split(' ');
         if (array[array.length - 1].match(/\(/)) {
             return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
+        }
+        return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value);
+    }
+
+    if (value.match(/[\-]/)) {
+        let copy = display;
+        copy = copy.trim();
+        let array = copy.split(' ');
+
+        if (array[array.length - 1].match(/\(/)) {
+            return changeDisplay(value.trim());
         }
         return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value);
     }

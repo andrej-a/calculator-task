@@ -17,13 +17,19 @@ const { ownValue } = bindActionCreators(
     dispatch
 );
 export const getResult = (display) => {
-    const copyString = display;
+    let copyString = display;
+    if (copyString.trim()[0] === '(') {
+        copyString = `1 * ${display}`
+    }
     let processedArray = doCorrectValue(copyString.split(' '));
     processedArray = processedArray.filter((item) => item);
+    console.log(processedArray);
     let numberStack = [];
     let operatorsStack = [];
     for (let i = 0; i <= processedArray.length + 1; ) {
         if (i >= processedArray.length) {
+            console.log(numberStack, 'NUMBERSTACK');
+
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const previousOperand = +numberStack[numberStack.length - 2];
             const lastOperand = +numberStack[numberStack.length - 1];
