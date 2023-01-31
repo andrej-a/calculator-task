@@ -4,11 +4,16 @@ import { v4 as uuidv4 } from 'uuid';
 import {
     DEFAULT_DISPLAY_VALUE,
     UNCORRECT_BRACKETS_MESSAGE,
-    UNCORRECT_DOT_INPUT,
     UNCORRECT_INPUT_MESSAGE,
     UNCORRECT_OPERATOR_MESSAGE
 } from '@/constants';
-import { addItemToHistory, changeDisplayValue, setDefaultValue, setExtension, setOwnValue } from '@/redux/actions/actions';
+import {
+    addItemToHistory,
+    changeDisplayValue,
+    setDefaultValue,
+    setExtension,
+    setOwnValue
+} from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
 import { checkCorrectBrakcets } from './checkCorrectBrakcets';
@@ -31,8 +36,8 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = b
     dispatch
 );
 
-export const controller = (value) => {
-    const display = getState().display;
+export const controller = value => {
+    const { display } = getState();
     if (getState().expression) {
         SET_EXTENSION('');
     }
@@ -49,28 +54,30 @@ export const controller = (value) => {
         let copy = display;
         copy = copy.trim();
 
-        const array = copy.split(' ').filter((item) => item);
+        const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/\(/)) {
             return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
         }
         if (array[array.length - 1].trim() === '-' && array[array.length - 2].match(/\(/)) {
-            alert()
-            replacePreviousOperator(display, '')
+            replacePreviousOperator(display, '');
             return;
         }
-        console.log(array);
-        return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value);
+        return copy[copy.length - 1].match(/[*-/+/.%]/)
+            ? replacePreviousOperator(display, value)
+            : changeDisplay(value);
     }
 
     if (value.match(/[\-]/)) {
         let copy = display;
         copy = copy.trim();
-        let array = copy.split(' ');
+        const array = copy.split(' ');
 
         if (array[array.length - 1].match(/\(/)) {
             return changeDisplay(value.trim());
         }
-        return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value);
+        return copy[copy.length - 1].match(/[*-/+/.%]/)
+            ? replacePreviousOperator(display, value)
+            : changeDisplay(value);
     }
 
     if (value.match(/\(/)) {
@@ -79,7 +86,7 @@ export const controller = (value) => {
         if (copy[copy.length - 1].match(/\./)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
-        if ((copy.length >= 1 && !copy.match(/[*-/+/(%]/gi))) {
+        if (copy.length >= 1 && !copy.match(/[*-/+/(%]/gi)) {
             return ownValue(value);
         }
         if (copy[copy.length - 1].match(/[0-9]/) && copy.length > 1) {
@@ -111,7 +118,8 @@ export const controller = (value) => {
         }
         if (array[array.length - 1].match(/[0-9]/)) {
             return ownValue(`${display.trim()}${value}`);
-        }if (array[array.length - 1].match(/\-/) && array[array.length - 2].match(/\(/)) {
+        }
+        if (array[array.length - 1].match(/\-/) && array[array.length - 2].match(/\(/)) {
             return ownValue(`${display.trim()}0${value}`);
         }
         return ownValue(`${display} 0${value}`);

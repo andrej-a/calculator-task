@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { setOwnValue } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
-/* UTILS */
 import { addition, division, modulo, multiplication, subtraction } from './calculations';
 import { checkPriority } from './checkPriority';
 import { doCorrectValue } from './doCorrectValue';
@@ -16,20 +15,17 @@ const { ownValue } = bindActionCreators(
     },
     dispatch
 );
-export const getResult = (display) => {
+export const getResult = display => {
     let copyString = display;
     if (copyString.trim()[0] === '(') {
-        copyString = `1 * ${display}`
+        copyString = `1 * ${display}`;
     }
     let processedArray = doCorrectValue(copyString.split(' '));
-    processedArray = processedArray.filter((item) => item);
-    console.log(processedArray);
+    processedArray = processedArray.filter(item => item);
     let numberStack = [];
     let operatorsStack = [];
     for (let i = 0; i <= processedArray.length + 1; ) {
         if (i >= processedArray.length) {
-            console.log(numberStack, 'NUMBERSTACK');
-
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const previousOperand = +numberStack[numberStack.length - 2];
             const lastOperand = +numberStack[numberStack.length - 1];
@@ -70,7 +66,6 @@ export const getResult = (display) => {
         }
 
         const item = processedArray[i];
-        // если число -- кладем в стек
         if (item.match(/[0-9]/)) {
             numberStack.push(item);
             i++;
@@ -82,11 +77,8 @@ export const getResult = (display) => {
             i++;
             continue;
         }
-        //  если закрывается скобка
         if (item.match(/[)]/)) {
-            //  то смотрим предыдущий оператор
             const previousOperator = operatorsStack[operatorsStack.length - 1];
-            //  если это знак, то выполняем, пока не встретим открывающую скобку
             if (previousOperator.match(/[*-/+/%]/)) {
                 const previousOperand = +numberStack[numberStack.length - 2];
                 const lastOperand = +numberStack[numberStack.length - 1];
@@ -120,34 +112,22 @@ export const getResult = (display) => {
             }
         }
 
-        // если оператор -- проверяем
         if (item.match(/[*-/+/%]/)) {
             if (!operatorsStack.length) {
-                //  стек пуст? пушим в стек
                 operatorsStack.push(item);
                 i++;
             } else {
-                // иначе
-                // получаем предыдущее значение в массиве операторов
                 const previousOperator = operatorsStack[operatorsStack.length - 1];
-                //  если скобка, то кладем оператор в стек
                 if (previousOperator.match(/[(]/)) {
                     operatorsStack.push(item);
                     i++;
                     continue;
                 }
-                // если нет, то смотрим приоритет
-                // если приоритет текущего оператора меньше или равно прошлому
-                // то выполняем последний оператор в стеке
                 if (checkPriority(item, previousOperator)) {
-                    // получаем последних 2 числа
                     const previousOperand = +numberStack[numberStack.length - 2];
                     const lastOperand = +numberStack[numberStack.length - 1];
-                    //  убираем их из массива
                     numberStack = numberStack.splice(0, numberStack.length - 2);
-                    // убираем последний оператор из массива
                     operatorsStack = operatorsStack.splice(0, operatorsStack.length - 1);
-                    //  кладем в стек результат вычисления
                     switch (previousOperator.trim()) {
                         case '/':
                             numberStack.push(division(previousOperand, lastOperand).toString());
@@ -169,7 +149,6 @@ export const getResult = (display) => {
                             break;
                     }
                 } else {
-                    // если приоритет больше, то кладем в массив
                     operatorsStack.push(item);
                     i++;
                 }

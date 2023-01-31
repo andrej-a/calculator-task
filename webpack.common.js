@@ -1,9 +1,10 @@
-const path = require('path')
+const path = require('path');
 const {
   CleanWebpackPlugin,
-} = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
+} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
 
 module.exports = {
   entry: './src/index.jsx',
@@ -14,6 +15,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new UnusedFilesWebpackPlugin({
+        patterns: ['./src/**/*.jsx', './src/**/*.js']
+    }),
     new Dotenv({
       systemvars: true,
     }),
@@ -65,4 +69,4 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-}
+};

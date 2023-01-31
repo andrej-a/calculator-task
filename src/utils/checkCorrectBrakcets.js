@@ -1,4 +1,4 @@
-export const checkCorrectBrakcets = (string) => {
+export const checkCorrectBrakcets = string => {
     const chars = string.split('');
     const stack = [];
     const open = ['('];

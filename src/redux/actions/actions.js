@@ -11,34 +11,30 @@ import {
     SET_OWN_VALUE
 } from './actionTypes';
 
-export const setExtension = (payload) => ({
-    type: SET_EXTENSION,
-    extensionValue: payload
-});
 
-export const changeTheme = (theme) => ({
+export const changeTheme = payload => ({
     type: CHANGE_THEME_OBJECT,
-    theme: theme === DEFAULT_THEME_VALUE ? LightTheme : DarkTheme
+    payload
 });
 
-export const changeThemeValue = (themeValue) => ({
+export const changeThemeValue = payload => ({
     type: CHANGE_THEME_VALUE,
-    themeValue
+    payload
 });
 
-export const addItemToHistory = (historyItem) => ({
+export const addItemToHistory = payload => ({
     type: ADD_ITEM_TO_HISTORY,
-    history: historyItem
+    payload
 });
 
-export const changeDisplayValue = (displayValue) => ({
+export const changeDisplayValue = payload => ({
     type: CHANGE_DISPLAY_VALUE,
-    display: displayValue
+    payload
 });
 
-export const setOwnValue = (ownValue) => ({
+export const setOwnValue = payload => ({
     type: SET_OWN_VALUE,
-    ownValue
+    payload
 });
 
 export const setDefaultValue = () => ({
@@ -47,9 +43,15 @@ export const setDefaultValue = () => ({
 
 export const clearAllData = () => ({
     type: CLEAR_ALL_DATA,
-    defaultDataObject: {
+    payload: {
         display: DEFAULT_DISPLAY_VALUE,
         expression: '',
         history: []
     }
 });
+
+export const setExtension = payload => ({
+    type: SET_EXTENSION,
+    payload
+});
+

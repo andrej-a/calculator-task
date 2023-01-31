@@ -1,11 +1,8 @@
 import { bindActionCreators } from 'redux';
 
-/* CONSTANTS */
 import { WARNING_MESSAGE_TIMEOUT } from '@/constants';
-/* ACTIONS */
 import { setOwnValue } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
-/* VARYABLES */
 const { dispatch } = store;
 
 const { ownValue } = bindActionCreators(

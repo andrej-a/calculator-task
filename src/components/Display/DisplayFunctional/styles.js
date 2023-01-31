@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-import {
-  size
-} from '@/constants/sizes';
+import { size } from '@/constants/sizes';
 
-export const DisplayWrapper = styled.div `
+export const DisplayWrapper = styled.div`
     width: 100%;
     height: auto;
     margin-bottom: 50px;
@@ -14,7 +12,7 @@ export const DisplayWrapper = styled.div `
     align-items: flex-end;
 `;
 
-export const ValueWrapper = styled.div `
+export const ValueWrapper = styled.div`
     width: 100%;
     max-height: 250px;
     overflow-x: auto;
@@ -28,36 +26,34 @@ export const ValueWrapper = styled.div `
     }
 `;
 
-export const Value = styled.p `
+export const Value = styled.p`
     width: 100%;
     height: auto;
     text-align: right;
     font: normal normal normal 64px/77px Helvetica Neue;
     font-weight: 600;
     letter-spacing: 0px;
-    color: ${(props) => props.theme.FONT_COLOR};
+    color: ${props => props.theme.FONT_COLOR};
 
     @media (max-width: ${size.mobileL}) {
         font-size: 36px;
     }
 `;
-export const ExpressionWrapper = styled(ValueWrapper)
-`
+export const ExpressionWrapper = styled(ValueWrapper)`
     min-height: 80px;
     padding-top: 0;
     padding-bottom: 0;
 `;
 
-export const Expression = styled(Value)
-`
+export const Expression = styled(Value)`
     font-size: 35px;
     opacity: 0.3;
 `;
 
-export const Border = styled.div `
+export const Border = styled.div`
     width: 95%;
     height: 2px;
-    background: ${(props) => props.theme.BORDER_COLOR};
+    background: ${props => props.theme.BORDER_COLOR};
     margin-right: 25px;
     margin-left: 25px;
 

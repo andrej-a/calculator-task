@@ -18,6 +18,6 @@ const home = ({ showHistory }) => (
 );
 
 home.propTypes = {
-  showHistory: PropTypes.bool
+    showHistory: PropTypes.bool
 };
 export default home;

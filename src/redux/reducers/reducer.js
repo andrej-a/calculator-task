@@ -1,124 +1,132 @@
+import { v4 } from 'uuid';
+
+import { DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE, LightTheme } from '@/constants';
 import {
-  DarkTheme,
-  DEFAULT_DISPLAY_VALUE,
-  DEFAULT_THEME_VALUE,
-  LightTheme
-} from '@/constants';
-import {
-  ADD_ITEM_TO_HISTORY,
-  CHANGE_DISPLAY_VALUE,
-  CHANGE_THEME_OBJECT,
-  CHANGE_THEME_VALUE,
-  CLEAR_ALL_DATA,
-  SET_DEFAULT_VALUE,
-  SET_EXTENSION,
-  SET_OWN_VALUE
+    ADD_ITEM_TO_HISTORY,
+    CHANGE_DISPLAY_VALUE,
+    CHANGE_THEME_OBJECT,
+    CHANGE_THEME_VALUE,
+    CLEAR_ALL_DATA,
+    SET_DEFAULT_VALUE,
+    SET_EXTENSION,
+    SET_OWN_VALUE
 } from '@/redux/actions/actionTypes';
-import {
-  v4
-} from 'uuid';
 
 const INITIAL_STATE = {
-  themeValue: DEFAULT_THEME_VALUE,
-  theme: LightTheme,
-  history: [{
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, {
-    id: v4(),
-    display: '9*9'
-  }, ],
-  display: DEFAULT_DISPLAY_VALUE,
-  expression: ''
+    themeValue: DEFAULT_THEME_VALUE,
+    theme: LightTheme,
+    history: [
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        },
+        {
+            id: v4(),
+            display: '9*9'
+        }
+    ],
+    display: DEFAULT_DISPLAY_VALUE,
+    expression: ''
 };
 
-const reducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case CHANGE_THEME_OBJECT:
-      return {
-        ...state,
-        theme: action.theme
-      };
+const reducer = (state = INITIAL_STATE, {type, payload}) => {
+    switch (type) {
+        case CHANGE_THEME_OBJECT:
+            return {
+                ...state,
+                theme: payload
+            };
 
-    case CHANGE_THEME_VALUE:
-      return {
-        ...state,
-        themeValue: action.themeValue
-      };
+        case CHANGE_THEME_VALUE:
+            return {
+                ...state,
+                themeValue: payload
+            };
 
-    case ADD_ITEM_TO_HISTORY:
-      return {
-        ...state,
-        history: [action.history, ...state.history]
-      };
+        case ADD_ITEM_TO_HISTORY:
+            return {
+                ...state,
+                history: [payload, ...state.history]
+            };
 
-    case CHANGE_DISPLAY_VALUE:
-      return {
-        ...state,
-        display: state.display + action.display
-      };
+        case CHANGE_DISPLAY_VALUE:
+            return {
+                ...state,
+                display: state.display + payload
+            };
 
-    case SET_OWN_VALUE:
-      return {
-        ...state,
-        display: action.ownValue
-      };
+        case SET_OWN_VALUE:
+            return {
+                ...state,
+                display: payload
+            };
 
-    case SET_DEFAULT_VALUE:
-      return {
-        ...state,
-        display: DEFAULT_DISPLAY_VALUE
-      };
+        case SET_DEFAULT_VALUE:
+            return {
+                ...state,
+                display: DEFAULT_DISPLAY_VALUE
+            };
 
-    case CLEAR_ALL_DATA:
-      return {
-        ...state,
-        display: action.defaultDataObject.display,
-          history: action.defaultDataObject.history,
-          expression: action.defaultDataObject.expression
-      };
+        case CLEAR_ALL_DATA:
+            return {
+                ...state,
+                display: payload.display,
+                history: payload.history,
+                expression: payload.expression
+            };
 
-    case SET_EXTENSION:
-      return {
-        ...state,
-        expression: action.extensionValue
-      };
+        case SET_EXTENSION:
+            return {
+                ...state,
+                expression: payload
+            };
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 };
 export default reducer;

@@ -4,7 +4,7 @@ export const checkPriority = (operator, previousOperator) => {
     let operatorPriority = 0;
     let previousOperatorPriority = 0;
 
-    buttonsObject.forEach((obj) => {
+    buttonsObject.forEach(obj => {
         if (obj.value.trim() === operator.trim()) {
             operatorPriority = obj.priority;
         }

@@ -5,17 +5,19 @@ import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
 
 import { ShowHistory } from './styles';
 
-export const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory }) => {
+const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory }) => {
     return (
-        <ShowHistory
-            onClick={() => {
+      <ShowHistory
+        onClick={() => {
                 onSetShowMenu(!showMenu);
                 onSetShowHistory();
             }}>
-            {showHistory ? HIDE_HISTORY : SHOW_HISTORY}
-        </ShowHistory>
+        {showHistory ? HIDE_HISTORY : SHOW_HISTORY}
+      </ShowHistory>
     );
 };
+
+export default HistoryToggler;
 
 HistoryToggler.propTypes = {
     showMenu: PropTypes.bool,

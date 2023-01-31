@@ -1,4 +1,4 @@
-export const doCorrectValue = (array) => {
+export const doCorrectValue = array => {
     for (let i = 0; i < array.length; i++) {
         if (array[i - 1] === '(' && array[i + 1] === ')') {
             const firstPart = array.slice(0, i);
