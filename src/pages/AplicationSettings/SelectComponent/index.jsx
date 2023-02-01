@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fakeThemeData } from '@/constants';
+import { DarkTheme,DEFAULT_THEME_VALUE, fakeThemeData , LightTheme } from '@/constants';
 import { changeTheme, changeThemeValue } from '@/redux/actions/actions';
 
 import { Options, OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles';
-
-import { DEFAULT_THEME_VALUE, LightTheme, DarkTheme } from '@/constants';
 
 const SelectComponent = () => {
     const dispatch = useDispatch();

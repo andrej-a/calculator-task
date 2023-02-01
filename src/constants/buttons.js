@@ -66,5 +66,13 @@ export const buttonsObject = [
     {
         value: ' % ',
         priority: 2
+    },
+    {
+        value: ' √ ',
+        priority: 3
+    },
+    {
+        value: ' ^ ',
+        priority: 3
     }
 ];

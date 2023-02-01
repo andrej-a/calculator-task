@@ -50,6 +50,20 @@ export const controller = value => {
         return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
+    if (value.match(/[√\^]/)) {
+        let copy = display;
+        copy = copy.trim();
+        const array = copy.split(' ').filter(item => item);
+        if (array[array.length - 1].match(/[0123456789]/i)) {
+            const copy = array.slice(0, array.length - 1);
+            return ownValue(`${copy.join(' ')}${value}( ${array[array.length - 1]} )`);
+        }
+
+        if (array[array.length - 1].match(/[*\-\/+%]/i)) {
+            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
+    }
+
     if (value.match(/[*\/+%]/)) {
         let copy = display;
         copy = copy.trim();

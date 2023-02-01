@@ -21,9 +21,9 @@ export class ErrorBoundary extends React.Component {
     render() {
         if (this.state.hasError) {
             return (
-                <ErrorTitleWrapper>
-                    <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
-                </ErrorTitleWrapper>
+              <ErrorTitleWrapper>
+                <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
+              </ErrorTitleWrapper>
             );
         }
 

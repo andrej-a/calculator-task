@@ -4,3 +4,5 @@ export const addition = (previousOperand, lastOperand) => previousOperand + last
 export const subtraction = (previousOperand, lastOperand) => previousOperand - lastOperand;
 
 export const modulo = (previousOperand, lastOperand) => previousOperand % lastOperand;
+export const sqrt = lastOperand => Math.sqrt(lastOperand);
+export const pow = lastOperand => Math.pow(lastOperand, 2);
