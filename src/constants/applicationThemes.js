@@ -21,3 +21,10 @@ export const LightTheme = {
     BUTTON_COLOR: '#000',
     CLEAR_HISTORY_BUTTON_COLOR: '#000'
 };
+
+export const activeStyle = {
+    borderBottom: `2px solid #fefefe`
+}
+export const nonActive = {
+    opacity: '0.7'
+}

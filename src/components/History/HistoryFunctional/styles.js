@@ -16,13 +16,11 @@ export const HistoryWrapper = styled.div`
         min-height: 100vh;
         height: auto;
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
-        left: -3600px;
-    }
-
-    &.historyActive {
-        left: 0;
+        left: ${props => props.showHistory ? '0' : '-3600px'};
     }
 `;
+
+
 export const TitleWrapper = styled.div`
     width: auto;
     height: auto;

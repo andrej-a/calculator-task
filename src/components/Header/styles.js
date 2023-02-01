@@ -17,10 +17,6 @@ export const Wrapper = styled.div`
         min-height: auto;
         height: 80px;
     }
-
-    .activeBurgerMenu {
-        left: 0;
-    }
 `;
 export const TitleWrapper = styled.div`
     width: auto;
@@ -51,12 +47,7 @@ export const LinksWrapper = styled.div`
 
     a {
         text-decoration: none;
-    }
-    .non-active {
-        opacity: 0.7;
-    }
-    .activeLink .link {
-        border-bottom: 2px solid ${props => props.theme.SECOND_FONT_COLOR};
+        height: 45px;
     }
 
     @media (max-width: ${size.laptop}) {
@@ -73,8 +64,12 @@ export const LinksWrapper = styled.div`
         align-items: center;
         position: absolute;
         z-index: 3;
-        left: -3600px;
+        left: ${props => props.showMenu ? '0' : "-3600px"};
         background: ${props => props.theme.MAIN_COLOR};
+
+        a {
+            height: 60px;
+        }
     }
 `;
 export const PageLink = styled.p`

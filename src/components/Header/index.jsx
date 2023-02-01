@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { HEADER_TITLE, HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from '@/constants/componentsConstants';
-
+import { activeStyle, nonActive } from '@/constants';
 import HistoryToggler from './HistoryToggler';
 import { Burger, BurgerWrapper, LinksWrapper, PageLink, Title, TitleWrapper, Wrapper } from './styles';
 
@@ -18,32 +18,26 @@ const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => {
           <Burger />
         </BurgerWrapper>
 
-        <LinksWrapper className={showMenu ? 'activeBurgerMenu' : ''}>
+        <LinksWrapper showMenu={showMenu}>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
+            style={({ isActive }) => (isActive ? activeStyle : nonActive)}
             end
             onClick={() => onSetShowMenu(!showMenu)}>
-            <div className="link">
-              <PageLink data-test="home">{HOME_LINK}</PageLink>
-            </div>
+            <PageLink data-test="home">{HOME_LINK}</PageLink>
           </NavLink>
           <NavLink
             to="/homeclass"
-            className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
+            style={({ isActive }) => (isActive ? activeStyle : nonActive)}
             end
             onClick={() => onSetShowMenu(!showMenu)}>
-            <div className="link">
-              <PageLink data-test="homeclass">{HOME_CLASS_LINK}</PageLink>
-            </div>
+            <PageLink data-test="homeclass">{HOME_CLASS_LINK}</PageLink>
           </NavLink>
           <NavLink
             to="/settings"
-            className={({ isActive }) => (isActive ? 'activeLink' : 'non-active')}
+            style={({ isActive }) => (isActive ? activeStyle : nonActive)}
             onClick={() => onSetShowMenu(!showMenu)}>
-            <div className="link">
-              <PageLink data-test="settings">{SETTINGS_LINK}</PageLink>
-            </div>
+            <PageLink data-test="settings">{SETTINGS_LINK}</PageLink>
           </NavLink>
 
           <HistoryToggler

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import triangle from '@/assets/image/play.png'
 import { DarkTheme,DEFAULT_THEME_VALUE, fakeThemeData , LightTheme } from '@/constants';
 import { changeTheme, changeThemeValue } from '@/redux/actions/actions';
 
@@ -26,7 +26,6 @@ const SelectComponent = () => {
                     dispatch(changeThemeValue(value));
                     onSetIsOpen();
                 }}
-            className="options"
             key={id}>
             {value}
           </Options>
@@ -36,10 +35,10 @@ const SelectComponent = () => {
     return (
       <SelectWrapper>
         <SelectTitleBox
-          data-test="select" className="select-box"
+          data-test="select"
           onClick={onSetIsOpen}>
-          <div className="triangle" />
           {themeValue}
+          <img src={triangle} alt='button'></img>
         </SelectTitleBox>
         {isOpen && <OptionsWrapper>{options}</OptionsWrapper>}
       </SelectWrapper>

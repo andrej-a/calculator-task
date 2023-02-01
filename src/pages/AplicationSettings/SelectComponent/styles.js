@@ -7,11 +7,6 @@ export const SelectWrapper = styled.div`
     height: auto;
     margin-top: 7px;
     margin-left: 91px;
-    .select-box:hover {
-        -webkit-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
-        -moz-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
-        box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
-    }
 
     @media (max-width: ${size.mobileL}) {
         display: flex;
@@ -38,7 +33,8 @@ export const SelectTitleBox = styled.div`
     color: #000000;
     cursor: pointer;
     transition: all 0.3s ease;
-    .triangle {
+
+    img {
         position: absolute;
         width: 0;
         height: 0;
@@ -46,6 +42,12 @@ export const SelectTitleBox = styled.div`
         border-top: 15px solid #707070;
         right: 25px;
         top: 38px;
+    }
+
+    &:hover {
+        -webkit-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
+        -moz-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
+        box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
     }
 
     @media (max-width: ${size.mobileL}) {
@@ -59,10 +61,7 @@ export const OptionsWrapper = styled.div`
     height: auto;
     border: 2px solid #707070;
     z-index: 2;
-    .options:hover {
-        background: #707070;
-        color: #fff;
-    }
+
     @media (max-width: ${size.mobileL}) {
         width: 80%;
         display: flex;
@@ -83,6 +82,11 @@ export const Options = styled.div`
     color: #000000;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    &:hover {
+        background: #707070;
+        color: #fff;
+    }
 
     @media (max-width: ${size.mobileL}) {
         width: 100%;

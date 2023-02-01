@@ -22,7 +22,7 @@ const History = ({ showHistory }) => {
     return (
       <React.Fragment>
         <Border />
-        <HistoryWrapper className={showHistory ? 'historyActive' : ''}>
+        <HistoryWrapper showHistory={showHistory}>
           <TitleWrapper>
             <Title>{historyItems ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
           </TitleWrapper>

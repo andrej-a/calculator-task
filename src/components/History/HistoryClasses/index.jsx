@@ -15,13 +15,8 @@ import {
 } from '../HistoryFunctional/styles';
 
 class HistoryClasses extends React.Component {
-    constructor(props) {
-        super(props);
-        this.showHistory = this.props.showHistory;
-    }
-
     render() {
-        const { history } = this.props;
+        const { history, showHistory } = this.props;
 
         const historyItems = history.map(item => {
             const { display, id } = item;
@@ -35,7 +30,7 @@ class HistoryClasses extends React.Component {
         return (
           <React.Fragment>
             <Border />
-            <HistoryWrapper className={this.showHistory ? 'historyActive' : ''}>
+            <HistoryWrapper showHistory={showHistory}>
               <TitleWrapper>
                 <Title>{history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
               </TitleWrapper>
