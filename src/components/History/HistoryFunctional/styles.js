@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 import { size } from '@/constants/sizes';
+import { NO_INDENT, SET_INDENT } from '@/constants';
 
 export const HistoryWrapper = styled.div`
-    width: 20%;
-    max-height: 1150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 20%;
+    max-height: 1150px;
 
     @media (max-width: ${size.desktop}) {
         max-height: 980px;
@@ -16,10 +18,12 @@ export const HistoryWrapper = styled.div`
     @media (max-width: ${size.tablet}) {
         position: absolute;
         z-index: 2;
+        left: ${props => props.showHistory ? NO_INDENT : SET_INDENT};
+
         width: 100%;
-        height: 100vh;
+        height: 100%;
+
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
-        left: ${props => props.showHistory ? '0' : '-3600px'};
     }
 `;
 
@@ -52,16 +56,18 @@ export const HistoryItemWrapper = styled.div`
 `;
 export const HistoryItem = styled.p`
     margin-bottom: 32px;
+
     font-size: 30px;
     font-weight: 700;
     letter-spacing: 0px;
     color: ${props => props.theme.FONT_COLOR};
 `;
 export const Border = styled.div`
-    margin-top: 25px;
-    margin-bottom: 25px;
     width: 2px;
     min-height: 910px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
     background: ${props => props.theme.BORDER_COLOR};
 
     @media (max-width: ${size.tablet}) {

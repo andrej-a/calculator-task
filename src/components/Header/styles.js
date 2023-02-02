@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { size } from '@/constants/sizes';
 
 export const Wrapper = styled.div`
-    width: 100vw;
-    max-width: ${size.desktop};
-    min-height: 120px;
-    height: auto;
-    background: ${props => props.theme.MAIN_COLOR};
-    border: 1px solid ${props => props.theme.BORDER_COLOR};
-
     display: flex;
     justify-content: space-between;
+
+    width: 100vw;
+    max-width: ${size.desktop};
+    height: auto;
+    min-height: 120px;
+    border: 1px solid ${props => props.theme.BORDER_COLOR};
+
+    background: ${props => props.theme.MAIN_COLOR};
 
     @media (max-width: ${size.laptop}) {
         min-height: auto;
@@ -25,10 +26,11 @@ export const TitleWrapper = styled.div`
     margin-left: 32px;
 
     @media (max-width: ${size.laptop}) {
+        z-index: 4;
+
         margin-top: 22px;
         margin-left: 32px;
         position: relative;
-        z-index: 4;
     }
 `;
 export const Title = styled.h1`
@@ -41,17 +43,19 @@ export const Title = styled.h1`
     }
 `;
 export const LinksWrapper = styled.div`
+    display: flex;
+    gap: 32px;
+
     width: auto;
     height: auto;
     margin-top: 42px;
     margin-right: 32px;
-    display: flex;
-    gap: 32px;
     transition: all 0.3s ease;
 
     a {
-        text-decoration: none;
         height: 45px;
+
+        text-decoration: none;
     }
 
     @media (max-width: ${size.laptop}) {
@@ -60,8 +64,6 @@ export const LinksWrapper = styled.div`
     }
 
     @media (max-width: ${size.tablet}) {
-        width: 100vw;
-        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -69,6 +71,10 @@ export const LinksWrapper = styled.div`
         position: absolute;
         z-index: 3;
         left: ${props => props.showMenu ? '0' : "-3600px"};
+
+        width: 100vw;
+        height: 100vh;
+
         background: ${props => props.theme.MAIN_COLOR};
 
         a {
@@ -88,15 +94,16 @@ export const PageLink = styled.p`
 export const BurgerWrapper = styled.div`
     position: relative;
     z-index: 4;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+
     width: auto;
     max-width: 50px;
     height: 30px;
-    flex-direction: column;
-    justify-content: center;
     margin-top: 28px;
     margin-right: 32px;
     cursor: pointer;
-    display: none;
 
     @media (max-width: ${size.tablet}) {
         display: flex;
@@ -105,6 +112,7 @@ export const BurgerWrapper = styled.div`
 export const Burger = styled.div`
     width: 50px;
     height: 2px;
+
     background: #fff;
 
     &:before {
@@ -112,8 +120,10 @@ export const Burger = styled.div`
         display: block;
         position: relative;
         top: -15px;
+
         width: 50px;
         height: 2px;
+
         background: #fff;
     }
 
@@ -122,8 +132,10 @@ export const Burger = styled.div`
         display: block;
         position: relative;
         top: 15px;
+
         width: 50px;
         height: 2px;
+
         background: #fff;
     }
 `;

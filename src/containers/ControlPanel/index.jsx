@@ -40,7 +40,8 @@ export const ControlPanel = () => {
     }, [])
 
     useEffect(() => {
-        document.documentElement.style.overflow = STOP_SCROLL : '';
+        document.documentElement.style.overflow =
+            (showMenu && width < parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
     }, [showMenu, width])
 
     const components = [

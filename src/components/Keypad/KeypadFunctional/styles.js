@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { size } from '@/constants/sizes';
 
 export const Wrapper = styled.div`
-    width: 100%;
-    height: auto;
-    max-height: inherit;
-    padding: 32px 20px 32px 130px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    width: 100%;
+    height: auto;
+    max-height: inherit;
     row-gap: 45px;
     column-gap: 128px;
+    padding: 32px 20px 32px 130px;
 
     @media (max-width: ${size.desktop}) {
         gap: 10px;
@@ -25,16 +26,17 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: ${size.mobileL}) {
-        padding: 0 20px 0 20px;
         gap: 0;
+        padding: 0 20px 0 20px;
         align-items: center;
     }
 `;
 export const Key = styled.button`
     width: 150px;
     height: 150px;
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
     border: 1px solid ${props => props.theme.BORDER_COLOR};
+
+    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
     border-radius: 32px;
     cursor: pointer;
     font: normal normal normal 64px/77px Helvetica Neue;
@@ -50,6 +52,7 @@ export const Key = styled.button`
 
     @media (max-width: ${size.desktop}) {
         width: 18%;
+
         border-radius: 0;
     }
 
@@ -60,6 +63,7 @@ export const Key = styled.button`
     @media (max-width: ${size.mobileL}) {
         width: 20%;
         height: 25%;
+
         font-size: 32px;
     }
 `;

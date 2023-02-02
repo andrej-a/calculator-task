@@ -18,3 +18,5 @@ export const ERROR_TITLE = 'Something went wrong!';
 export const SHOW_HISTORY = 'Show history';
 export const HIDE_HISTORY = 'Hide history';
 export const STOP_SCROLL = 'hiiden';
+export const NO_INDENT = '0';
+export const SET_INDENT = '-3600px';

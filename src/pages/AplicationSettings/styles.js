@@ -4,12 +4,14 @@ import { size } from '@/constants/sizes';
 
 export const SettingsWrapper = styled.div`
     position: relative;
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     height: auto;
     min-height: 100vh;
+
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
-    display: flex;
-    flex-direction: column;
 
     @media (max-width: ${size.mobileL}) {
         align-items: center;
@@ -47,18 +49,19 @@ export const LabelWrapper = styled.div`
 `;
 export const ClearHistoryButton = styled.button`
     position: absolute;
+    z-index: 0;
+
     width: 401px;
     height: 93px;
     margin-top: 342px;
     margin-left: 91px;
     padding-left: 27px;
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
     border: 2px solid ${props => props.theme.SECOND_BORDER_COLOR};
     border-radius: 8px;
+
+    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
     cursor: pointer;
     transition: all 0.3s ease;
-
-    z-index: 0;
     text-align: left;
     font-size: 32px;
     letter-spacing: 0px;
@@ -79,8 +82,8 @@ export const ClearHistoryButton = styled.button`
     }
 
     @media (max-width: ${size.mobileL}) {
+        width: 80%;
         margin-left: 20px;
         padding-left: 10px;
-        width: 80%;
     }
 `;
