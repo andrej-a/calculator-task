@@ -17,3 +17,4 @@ export const UNCORRECT_DOT_INPUT = 'Error: a dot can`t be after a dot';
 export const ERROR_TITLE = 'Something went wrong!';
 export const SHOW_HISTORY = 'Show history';
 export const HIDE_HISTORY = 'Hide history';
+export const STOP_SCROLL = 'hiiden';

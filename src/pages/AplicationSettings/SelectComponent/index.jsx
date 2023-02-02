@@ -15,17 +15,19 @@ const SelectComponent = () => {
         setIsOpen(!isOpen);
     };
 
+    const componentController = (value) => () => {
+        const theme = value === DEFAULT_THEME_VALUE ? LightTheme : DarkTheme;
+        dispatch(changeTheme(theme));
+        dispatch(changeThemeValue(value));
+        onSetIsOpen();
+    }
+
     const options = fakeThemeData.map(data => {
         const { id, value } = data;
         return (
           <Options
             data-test={value}
-            onClick={() => {
-                    const theme = value === DEFAULT_THEME_VALUE ? LightTheme : DarkTheme;
-                    dispatch(changeTheme(theme));
-                    dispatch(changeThemeValue(value));
-                    onSetIsOpen();
-                }}
+            onClick={componentController(value)}
             key={id}>
             {value}
           </Options>

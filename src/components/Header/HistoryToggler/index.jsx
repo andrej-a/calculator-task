@@ -6,12 +6,15 @@ import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
 import { ShowHistory } from './styles';
 
 const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory }) => {
+
+    const togglerManager = () => {
+        onSetShowMenu();
+        onSetShowHistory();
+    }
+
     return (
       <ShowHistory
-        onClick={() => {
-                onSetShowMenu(!showMenu);
-                onSetShowHistory();
-            }}>
+        onClick={togglerManager}>
         {showHistory ? HIDE_HISTORY : SHOW_HISTORY}
       </ShowHistory>
     );

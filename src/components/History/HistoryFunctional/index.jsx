@@ -24,7 +24,7 @@ const History = ({ showHistory }) => {
         <Border />
         <HistoryWrapper showHistory={showHistory}>
           <TitleWrapper>
-            <Title>{historyItems ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
+            <Title>{historyItems.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
           </TitleWrapper>
 
           <ItemsWrapper>{historyItems}</ItemsWrapper>

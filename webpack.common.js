@@ -22,7 +22,7 @@ module.exports = {
       systemvars: true,
     }),
     new HtmlWebpackPlugin({
-      title: 'React Project Template',
+      title: 'Calculator',
       template: './public/index.html',
     }),
   ],

@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
         gap: 10px;
         padding: 0;
         padding-left: 5%;
+        margin-bottom: 5%;
     }
 
     @media (max-width: ${size.tablet}) {
@@ -24,8 +25,7 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: ${size.mobileL}) {
-        padding: 0;
-        padding-top: 20px;
+        padding: 0 20px 0 20px;
         gap: 0;
         align-items: center;
     }
@@ -51,6 +51,10 @@ export const Key = styled.button`
     @media (max-width: ${size.desktop}) {
         width: 18%;
         border-radius: 0;
+    }
+
+    @media (max-width: ${size.tablet}) {
+        font: normal normal normal 64px/109px Helvetica Neue;
     }
 
     @media (max-width: ${size.mobileL}) {

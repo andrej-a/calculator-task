@@ -35,6 +35,10 @@ export const Title = styled.h1`
     font-size: 32px;
     letter-spacing: 0px;
     color: ${props => props.theme.SECOND_FONT_COLOR};
+
+    @media (max-width: ${size.mobileM}) {
+        font-size: 28px;
+    }
 `;
 export const LinksWrapper = styled.div`
     width: auto;

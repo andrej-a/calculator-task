@@ -4,17 +4,20 @@ import { size } from '@/constants/sizes';
 
 export const HistoryWrapper = styled.div`
     width: 20%;
-    max-height: inherit;
+    max-height: 1150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: ${size.desktop}) {
+        max-height: 980px;
+    }
 
     @media (max-width: ${size.tablet}) {
         position: absolute;
         z-index: 2;
         width: 100%;
-        min-height: 100vh;
-        height: auto;
+        height: 100vh;
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
         left: ${props => props.showHistory ? '0' : '-3600px'};
     }

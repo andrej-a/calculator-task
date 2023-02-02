@@ -6,15 +6,16 @@ import { controller } from '@/utils/controller';
 import { Key, Wrapper } from '../KeypadFunctional/styles';
 
 class KeypadClasses extends React.PureComponent {
+    keypadManager = (value) => () => {
+        controller(value);
+    }
     render() {
         const keypad = buttonsObject.map(button => {
             const { value } = button;
             return (
               <Key
                 data-test={value.trim()}
-                onClick={() => {
-                        controller(value);
-                    }}
+                onClick={this.keypadManager(value)}
                 key={value}>
                 {value}
               </Key>

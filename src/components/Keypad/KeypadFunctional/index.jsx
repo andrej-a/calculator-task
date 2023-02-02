@@ -6,14 +6,15 @@ import { controller } from '@/utils/controller';
 import { Key, Wrapper } from './styles';
 
 const Keypad = React.memo(() => {
+    const keypadManager = (value) => () => {
+        controller(value);
+    }
     const keypad = buttonsObject.map(button => {
         const { value } = button;
         return (
           <Key
             data-test={value.trim()}
-            onClick={() => {
-                    controller(value);
-                }}
+            onClick={keypadManager(value)}
             key={value}>
             {value}
           </Key>

@@ -15,60 +15,7 @@ import {
 const INITIAL_STATE = {
     themeValue: DEFAULT_THEME_VALUE,
     theme: LightTheme,
-    history: [
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        },
-        {
-            id: v4(),
-            display: '9*9'
-        }
-    ],
+    history: [],
     display: DEFAULT_DISPLAY_VALUE,
     expression: ''
 };

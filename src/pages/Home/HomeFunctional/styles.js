@@ -5,8 +5,7 @@ import { size } from '@/constants/sizes';
 export const HomeWrapper = styled.div`
     width: 100%;
     height: auto;
-    max-height: calc(100vh + 300px);
-    overflow: hidden;
+    overflow: auto;
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
     display: flex;
 `;
@@ -17,5 +16,6 @@ export const DisplayKeypadWrapper = styled.div`
 
     @media (max-width: ${size.tablet}) {
         width: 100%;
+        height: 100%;
     }
 `;
