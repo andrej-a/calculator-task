@@ -14,8 +14,8 @@ class ExpressionComponent extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({ expression }) => ({
-    expression
+const mapStateToProps = ({ main }) => ({
+    expression: main.expression,
 });
 
 export default connect(mapStateToProps)(ExpressionComponent);

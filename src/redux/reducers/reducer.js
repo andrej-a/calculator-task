@@ -13,14 +13,17 @@ import {
 } from '@/redux/actions/actionTypes';
 
 const INITIAL_STATE = {
-    themeValue: DEFAULT_THEME_VALUE,
-    theme: LightTheme,
     history: [],
     display: DEFAULT_DISPLAY_VALUE,
     expression: ''
 };
 
-const reducer = (state = INITIAL_STATE, {type, payload}) => {
+const THEME_STATE = {
+    themeValue: DEFAULT_THEME_VALUE,
+    theme: LightTheme,
+}
+
+export const theme_reducer = (state = THEME_STATE, {type, payload}) => {
     switch (type) {
         case CHANGE_THEME_OBJECT:
             return {
@@ -34,6 +37,13 @@ const reducer = (state = INITIAL_STATE, {type, payload}) => {
                 themeValue: payload
             };
 
+        default:
+            return state;
+    }
+}
+
+const reducer = (state = INITIAL_STATE, {type, payload}) => {
+    switch (type) {
         case ADD_ITEM_TO_HISTORY:
             return {
                 ...state,

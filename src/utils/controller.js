@@ -37,8 +37,8 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = b
 );
 
 export const controller = value => {
-    const { display } = getState();
-    if (getState().expression) {
+    const { display } = getState().main;
+    if (getState().main.expression) {
         SET_EXTENSION('');
     }
     if (value.match(/[0123456789]/i)) {

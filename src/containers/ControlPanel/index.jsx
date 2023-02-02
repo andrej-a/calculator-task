@@ -12,7 +12,7 @@ const HomeClassComponent = lazy(() => import('@/pages/Home/HomeClasses'));
 const Home = lazy(() => import('@/pages/Home/HomeFunctional'));
 
 export const ControlPanel = () => {
-    const theme = useSelector(state => state.theme);
+    const {theme} = useSelector(state => state.theme);
     const [showMenu, setShowMenu] = useState(false);
     const [showHistory, setShowHistory] = useState(false);
     const [width, setWidth] = useState(0)

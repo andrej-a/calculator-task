@@ -6,7 +6,7 @@ import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 
 const History = ({ showHistory }) => {
-    const { history } = useSelector(state => state);
+    const { history } = useSelector(state => state.main);
 
     const historyItems = useMemo(() => {
         return history.map(item => {

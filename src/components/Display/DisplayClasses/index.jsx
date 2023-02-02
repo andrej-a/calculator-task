@@ -20,8 +20,10 @@ class DisplayClasses extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ({ display }) => ({
-    display
-});
+const mapStateToProps = ( { main } ) => {
+    return {
+        display: main.display
+    }
+};
 
 export default connect(mapStateToProps)(DisplayClasses);

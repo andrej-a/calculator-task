@@ -37,8 +37,10 @@ Settings.propTypes = {
     clearAllData: PropTypes.func
 };
 
-const mapStateToProps = ({ history }) => ({
-    history
-});
+const mapStateToProps = ({ main }) => {
+    return {
+        history: main.history
+    }
+};
 
 export default connect(mapStateToProps, actions)(Settings);

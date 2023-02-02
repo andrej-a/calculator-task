@@ -47,8 +47,8 @@ HistoryClasses.propTypes = {
     showHistory: PropTypes.bool
 };
 
-const mapStateToProps = ({ history }) => ({
-    history
+const mapStateToProps = ({ main }) => ({
+    history: main.history
 });
 
 export default connect(mapStateToProps)(HistoryClasses);

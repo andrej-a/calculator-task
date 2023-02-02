@@ -5,7 +5,7 @@ import ExpressionComponent from './Expression';
 import { Border, DisplayWrapper, Value, ValueWrapper } from './styles';
 
 const Display = React.memo(() => {
-    const { display, expression } = useSelector(state => state);
+    const { display, expression } = useSelector(state => state.main);
     return (
       <DisplayWrapper>
         <ExpressionComponent expression={expression} />

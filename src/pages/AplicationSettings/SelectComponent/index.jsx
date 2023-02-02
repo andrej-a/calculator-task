@@ -8,7 +8,7 @@ import { Options, OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles
 
 const SelectComponent = () => {
     const dispatch = useDispatch();
-    const { themeValue } = useSelector(state => state);
+    const { themeValue } = useSelector(state => state.theme);
     const [isOpen, setIsOpen] = useState(false);
 
     const onSetIsOpen = () => {
