@@ -14,7 +14,7 @@ import {
 
 const INITIAL_STATE = {
     history: [],
-    display: DEFAULT_DISPLAY_VALUE,
+    display: '8 * 96 / 230 * ( 45 - 78 + ^ ( 99 ) - √ ( 45 ) ) / 56 * ( 55 + 44 ) / 6 + ( 12 * 2 - √ ( 9 ) ) - 12',
     expression: ''
 };
 
