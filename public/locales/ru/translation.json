@@ -5,5 +5,11 @@
     "History": "История",
     "EmptyHistory": "История пуста",
     "LightTheme": "Светлая тема",
-    "DarkTheme": "Темная тема"
+    "DarkTheme": "Темная тема",
+    "SwitchTheme": "Сменить тему",
+    "SwitchLanguage": "Сменить язык",
+    "SettingsTitle": "Настройки",
+    "Russian": "Русский",
+    "English": "Английский",
+    "ClearHistory": "Очистить историю"
 }
