@@ -1,10 +1,10 @@
 export const fakeThemeData = [
     {
         id: 'light_theme',
-        value: 'Light theme'
+        value: 'LightTheme'
     },
     {
         id: 'dark_theme',
-        value: 'Dark theme'
+        value: 'DarkTheme'
     }
 ];

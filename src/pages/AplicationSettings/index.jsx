@@ -7,10 +7,11 @@ import * as actions from '@/redux/actions/actions';
 
 import SelectComponent from './SelectComponent';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
-
+import { Theme } from './SelectComponent/Theme';
+import { LanguagesSwitcher } from './SelectComponent/LanguagesSwitcher';
 class Settings extends React.Component {
     render() {
-        const { history, clearAllData } = this.props;
+        const { history, clearAllData, themeTitle } = this.props;
         return (
           <SettingsWrapper>
             <TitleWrapper>
@@ -20,9 +21,20 @@ class Settings extends React.Component {
             <LabelWrapper>
               <label htmlFor="theme">{LABEL_TITLE}</label>
             </LabelWrapper>
+            <SelectComponent
+                title={themeTitle}
+                render={(onSetIsOpen) => <Theme onSetIsOpen={onSetIsOpen} />}
+            />
 
-            <SelectComponent />
-            <ClearHistoryButton
+             <LabelWrapper>
+              <label htmlFor="language">Язык</label>
+            </LabelWrapper>
+            <SelectComponent
+                title={'Russian'}
+                render={(onSetIsOpen) => <LanguagesSwitcher onSetIsOpen={onSetIsOpen}/>}
+            />
+
+             <ClearHistoryButton
               data-test="clearHistory" disabled={!history.length}
               onClick={clearAllData}>
               {CLEAR_HISTORY_BUTTON}
@@ -34,12 +46,14 @@ class Settings extends React.Component {
 
 Settings.propTypes = {
     history: PropTypes.arrayOf(PropTypes.object),
-    clearAllData: PropTypes.func
+    clearAllData: PropTypes.func,
+    themeTitle: PropTypes.string
 };
 
-const mapStateToProps = ({ main }) => {
+const mapStateToProps = ({ main, theme }) => {
     return {
-        history: main.history
+        history: main.history,
+        themeTitle: theme.themeValue
     }
 };
 

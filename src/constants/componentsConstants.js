@@ -1,13 +1,13 @@
 export const HEADER_TITLE = 'Calculator App';
 export const HOME_LINK = 'Home';
-export const HOME_CLASS_LINK = 'Home Classes';
+export const HOME_CLASS_LINK = 'HomeClasses';
 export const SETTINGS_LINK = 'Settings';
 export const HISTORY_TITLE = 'History';
 export const SETTINGS_TITLE = 'Settings';
 export const LABEL_TITLE = 'Switch Theme';
 export const CLEAR_HISTORY_BUTTON = 'Clear All History';
-export const DEFAULT_THEME_VALUE = 'Light theme';
-export const EMPTY_HISTORY_TITLE = 'History is empty';
+export const DEFAULT_THEME_VALUE = 'LightTheme';
+export const EMPTY_HISTORY_TITLE = 'EmptyHistory';
 export const DEFAULT_DISPLAY_VALUE = '0';
 export const UNCORRECT_BRACKETS_MESSAGE = 'Error: check your brackets!';
 export const WARNING_MESSAGE_TIMEOUT = 2000;

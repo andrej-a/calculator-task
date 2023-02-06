@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { setOwnValue } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
-import { addition, division, modulo, multiplication, sqrt, subtraction, pow } from './calculations';
 import { checkPriority } from './checkPriority';
 import { doCorrectValue } from './doCorrectValue';
 import { execution } from './execution';
@@ -35,8 +34,8 @@ export const getResult = display => {
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const stacks = execution(previousOperator, {numberStack, operatorsStack});
             ownValue(Number(stacks.numberStack.at(-1)).toFixed(3))
-            console.log(numberStack, operatorsStack, 'STACKS');
-            i += 2;
+            console.log(stacks.numberStack, stacks.operatorsStack, 'STACKS');
+            i += 1;
             continue;
         }
 

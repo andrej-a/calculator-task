@@ -11,7 +11,7 @@ export const execution = (previousOperator, stacks) => {
     const previousOperand = +numberStack[numberStack.length - 2];
     const lastOperand = +numberStack[numberStack.length - 1];
 
-    switch (previousOperator.trim()) {
+    switch (previousOperator && previousOperator.trim()) {
         case '^':
             numberStack = numberStack.splice(0, numberStack.length - 1);
             operatorsStack = operatorsStack.splice(0, operatorsStack.length - 1);

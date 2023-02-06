@@ -20,6 +20,7 @@ export const SettingsWrapper = styled.div`
 export const TitleWrapper = styled.div`
     margin-top: 61px;
     margin-left: 84px;
+    margin-bottom: 36px;
 
     @media (max-width: ${size.mobileL}) {
         margin-left: 0;
@@ -33,7 +34,7 @@ export const Title = styled.h2`
     color: ${props => props.theme.FONT_COLOR};
 `;
 export const LabelWrapper = styled.div`
-    margin-top: 46px;
+    margin-top: 10px;
     margin-left: 94px;
 
     label {
@@ -53,7 +54,7 @@ export const ClearHistoryButton = styled.button`
 
     width: 401px;
     height: 93px;
-    margin-top: 342px;
+    margin-top: 475px;
     margin-left: 91px;
     padding-left: 27px;
     border: 2px solid ${props => props.theme.SECOND_BORDER_COLOR};

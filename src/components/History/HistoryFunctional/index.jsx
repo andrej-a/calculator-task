@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux';
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
+import { useTranslation } from 'react-i18next';
 
 const History = ({ showHistory }) => {
     const { history } = useSelector(state => state.main);
+    const { t } = useTranslation();
 
     const historyItems = useMemo(() => {
         return history.map(item => {
@@ -24,7 +26,7 @@ const History = ({ showHistory }) => {
         <Border />
         <HistoryWrapper showHistory={showHistory}>
           <TitleWrapper>
-            <Title>{historyItems.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
+            <Title>{historyItems.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
           </TitleWrapper>
 
           <ItemsWrapper>{historyItems}</ItemsWrapper>

@@ -6,9 +6,10 @@ import { HEADER_TITLE } from '@/constants/componentsConstants';
 import { activeStyle, nonActive } from '@/constants';
 import HistoryToggler from './HistoryToggler';
 import { Burger, BurgerWrapper, LinksWrapper, PageLink, Title, TitleWrapper, Wrapper } from './styles';
+import { useTranslation } from 'react-i18next';
 
 const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => {
-
+    const { t } = useTranslation();
     const menu = links.map(({ link, data_test, title }) => {
         return <NavLink
             key={title}
@@ -16,7 +17,7 @@ const Header = ({ showMenu, onSetShowMenu, onSetShowHistory, showHistory }) => {
             style={({ isActive }) => (isActive ? activeStyle : nonActive)}
             end
             onClick={onSetShowMenu}>
-            <PageLink data-test={data_test}>{title}</PageLink>
+            <PageLink data-test={data_test}>{t(title)}</PageLink>
         </NavLink>
     })
 
