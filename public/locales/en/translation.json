@@ -11,6 +11,8 @@
     "SettingsTitle": "Settings",
     "Russian": "Russian",
     "English": "English",
-    "ClearHistory": "Clear history"
+    "ClearHistory": "Clear history",
+    "ShowHistory": "Show history",
+    "HideHistory": "Hide history"
 
 }

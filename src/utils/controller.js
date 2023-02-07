@@ -11,8 +11,8 @@ import {
     addItemToHistory,
     changeDisplayValue,
     setDefaultValue,
-    setExtension,
-    setOwnValue
+    setOwnValue,
+    setExtension
 } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
@@ -25,13 +25,13 @@ import { warningMessage } from './warningMessage';
 
 const { dispatch, getState } = store;
 
-const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = bindActionCreators(
+const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = bindActionCreators(
     {
         changeDisplay: changeDisplayValue,
         ownValue: setOwnValue,
         setDefault: setDefaultValue,
         addHistoryItem: addItemToHistory,
-        SET_EXTENSION: setExtension
+        SET_EXPRESSION: setExtension
     },
     dispatch
 );
@@ -39,7 +39,7 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXTENSION } = b
 export const controller = value => {
     const { display } = getState().main;
     if (getState().main.expression) {
-        SET_EXTENSION('');
+        SET_EXPRESSION('');
     }
     if (value.match(/[0123456789]/i)) {
         if (display === DEFAULT_DISPLAY_VALUE) {
@@ -141,7 +141,7 @@ export const controller = value => {
 
     if (value.match(/c/i)) {
         setDefault();
-        SET_EXTENSION('');
+        SET_EXPRESSION('');
     }
 
     if (value.match(/ce/i)) {
@@ -160,7 +160,6 @@ export const controller = value => {
             id: uuidv4(),
             display
         });
-        SET_EXTENSION(display);
         getResult(display);
     }
 };

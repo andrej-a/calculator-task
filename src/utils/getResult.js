@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 
-import { setOwnValue } from '@/redux/actions/actions';
+import { setOwnValue, setExtension } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
 import { checkPriority } from './checkPriority';
@@ -9,9 +9,10 @@ import { execution } from './execution';
 
 const { dispatch } = store;
 
-const { ownValue } = bindActionCreators(
+const { ownValue, SET_EXPRESSION } = bindActionCreators(
     {
-        ownValue: setOwnValue
+        ownValue: setOwnValue,
+        SET_EXPRESSION: setExtension
     },
     dispatch
 );
@@ -33,7 +34,8 @@ export const getResult = display => {
             console.log(`LENGTH IS ${i}, HERE`);
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const stacks = execution(previousOperator, {numberStack, operatorsStack});
-            ownValue(Number(stacks.numberStack.at(-1)).toFixed(3))
+            ownValue(Number(stacks.numberStack.at(-1)).toFixed(3));
+            SET_EXPRESSION(Number(stacks.numberStack.at(-1)).toFixed(3));
             console.log(stacks.numberStack, stacks.operatorsStack, 'STACKS');
             i += 1;
             continue;

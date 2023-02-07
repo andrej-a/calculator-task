@@ -23,7 +23,7 @@ export const ControlPanel = () => {
         const currentWidth = document.documentElement.clientWidth;
         setWidth(currentWidth);
 
-        if (currentWidth > parseInt(size.tablet, 10)) {
+        if (currentWidth > parseInt(size.tablet, 10) && menu) {
             dispatch(switchMenu);
         }
     }
