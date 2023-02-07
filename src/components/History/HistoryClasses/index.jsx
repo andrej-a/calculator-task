@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
@@ -16,7 +17,7 @@ import {
 
 class HistoryClasses extends React.Component {
     render() {
-        const { history, showHistory } = this.props;
+        const { history, showHistory, t } = this.props;
 
         const historyItems = history.map(item => {
             const { display, id } = item;
@@ -32,7 +33,7 @@ class HistoryClasses extends React.Component {
             <Border />
             <HistoryWrapper showHistory={showHistory}>
               <TitleWrapper>
-                <Title>{history.length ? HISTORY_TITLE : EMPTY_HISTORY_TITLE}</Title>
+                <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
               </TitleWrapper>
 
               <ItemsWrapper>{historyItems}</ItemsWrapper>
@@ -48,7 +49,8 @@ HistoryClasses.propTypes = {
 };
 
 const mapStateToProps = ({ main }) => ({
-    history: main.history
+    history: main.history,
+    showHistory: main.showHistory
 });
 
-export default connect(mapStateToProps)(HistoryClasses);
+export default withTranslation()(connect(mapStateToProps)(HistoryClasses));

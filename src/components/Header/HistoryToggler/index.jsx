@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
-
+import { switchMenu, switchHistory } from '@/redux/actions/actions';
 import { ShowHistory } from './styles';
 
-const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory }) => {
+const HistoryToggler = () => {
+    const dispatch = useDispatch();
+    const {showHistory} = useSelector(state => state.main);
 
     const togglerManager = () => {
-        onSetShowMenu();
-        onSetShowHistory();
+        dispatch(switchMenu)
+        dispatch(switchHistory)
     }
 
     return (
@@ -21,10 +23,3 @@ const HistoryToggler = ({ onSetShowMenu, onSetShowHistory, showMenu, showHistory
 };
 
 export default HistoryToggler;
-
-HistoryToggler.propTypes = {
-    showMenu: PropTypes.bool,
-    onSetShowMenu: PropTypes.func,
-    onSetShowHistory: PropTypes.func,
-    showHistory: PropTypes.bool
-};

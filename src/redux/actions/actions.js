@@ -8,9 +8,19 @@ import {
     CLEAR_ALL_DATA,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
-    SET_OWN_VALUE
+    SET_OWN_VALUE,
+    MENU_SWITCHER,
+    HISTORY_SWITCHER
 } from './actionTypes';
 
+export const switchHistory = ({
+    type: HISTORY_SWITCHER
+})
+
+
+export const switchMenu = ({
+    type: MENU_SWITCHER
+})
 
 export const changeTheme = payload => ({
     type: CHANGE_THEME_OBJECT,

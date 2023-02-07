@@ -9,13 +9,17 @@ import {
     CLEAR_ALL_DATA,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
-    SET_OWN_VALUE
+    SET_OWN_VALUE,
+    MENU_SWITCHER,
+    HISTORY_SWITCHER
 } from '@/redux/actions/actionTypes';
 
 const INITIAL_STATE = {
     history: [],
     display: '8 * 96 / 230 * ( 45 - 78 + ^ ( 99 ) - √ ( 45 ) ) / 56 * ( 55 + 44 ) / 6 + ( 12 * 2 - √ ( 9 ) ) - 12',
-    expression: ''
+    expression: '',
+    menu: false,
+    showHistory: false
 };
 
 const THEME_STATE = {
@@ -44,6 +48,18 @@ export const theme_reducer = (state = THEME_STATE, {type, payload}) => {
 
 const reducer = (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {
+        case HISTORY_SWITCHER:
+            return {
+                ...state,
+                showHistory: !state.showHistory
+            };
+
+        case MENU_SWITCHER:
+            return {
+                ...state,
+                menu: !state.menu
+            };
+
         case ADD_ITEM_TO_HISTORY:
             return {
                 ...state,

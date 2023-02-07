@@ -82,15 +82,6 @@ export const LinksWrapper = styled.div`
         }
     }
 `;
-export const PageLink = styled.p`
-    font-size: 32px;
-    letter-spacing: 0px;
-    color: ${props => props.theme.SECOND_FONT_COLOR};
-
-    @media (max-width: ${size.tablet}) {
-        font-size: 44px;
-    }
-`;
 export const BurgerWrapper = styled.div`
     position: relative;
     z-index: 4;

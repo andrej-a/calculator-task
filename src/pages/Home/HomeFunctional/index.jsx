@@ -7,17 +7,13 @@ import Keypad from '@/components/Keypad/KeypadFunctional';
 
 import { DisplayKeypadWrapper, HomeWrapper } from './styles';
 
-const home = ({ showHistory }) => (
+const Home = () => (
   <HomeWrapper>
     <DisplayKeypadWrapper>
       <Display />
       <Keypad />
     </DisplayKeypadWrapper>
-    <History showHistory={showHistory} />
+    <History />
   </HomeWrapper>
 );
-
-home.propTypes = {
-    showHistory: PropTypes.bool
-};
-export default home;
+export default Home;

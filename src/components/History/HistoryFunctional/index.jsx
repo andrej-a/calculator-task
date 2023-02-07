@@ -6,8 +6,8 @@ import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 
-const History = ({ showHistory }) => {
-    const { history } = useSelector(state => state.main);
+const History = () => {
+    const { history, showHistory } = useSelector(state => state.main);
     const { t } = useTranslation();
 
     const historyItems = useMemo(() => {

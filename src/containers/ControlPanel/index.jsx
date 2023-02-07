@@ -1,34 +1,30 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { ThemeProvider } from 'styled-components';
 import links from '@/constants/links';
 import { size } from '@/constants/sizes';
 import { STOP_SCROLL } from '@/constants';
+import { switchHistory, switchMenu } from '@/redux/actions/actions';
 const Header = lazy(() => import('@/components/Header'));
 const Settings = lazy(() => import('@/pages/AplicationSettings'));
 const HomeClassComponent = lazy(() => import('@/pages/Home/HomeClasses'));
 const Home = lazy(() => import('@/pages/Home/HomeFunctional'));
+import { Navigation } from '@/components/Navigation';
 
 export const ControlPanel = () => {
     const {theme} = useSelector(state => state.theme);
-    const [showMenu, setShowMenu] = useState(false);
-    const [showHistory, setShowHistory] = useState(false);
+    const dispatch = useDispatch();
+    const { menu, showHistory} = useSelector(state => state.main)
     const [width, setWidth] = useState(0)
 
-    const onSetShowMenu = () => {
-        setShowMenu(!showMenu);
-    };
-    const onSetShowHistory = () => {
-        setShowHistory(!showHistory);
-    };
     const onSetWidth = () => {
         const currentWidth = document.documentElement.clientWidth;
         setWidth(currentWidth);
 
         if (currentWidth > parseInt(size.tablet, 10)) {
-            setShowMenu(false);
+            dispatch(switchMenu);
         }
     }
 
@@ -41,12 +37,12 @@ export const ControlPanel = () => {
 
     useEffect(() => {
         document.documentElement.style.overflow =
-            (showMenu && width < parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
-    }, [showMenu, width])
+            (menu && width < parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
+    }, [menu, width])
 
     const components = [
-        <Home showHistory={showHistory} />,
-        <HomeClassComponent showHistory={showHistory} />,
+        <Home />,
+        <HomeClassComponent />,
         <Settings />
     ]
 
@@ -58,12 +54,9 @@ export const ControlPanel = () => {
     return (
       <ThemeProvider theme={theme}>
         <Suspense fallback={<ClipLoader color={theme.MAIN_COLOR} />}>
-          <Header
-            showMenu={showMenu}
-            onSetShowMenu={onSetShowMenu}
-            onSetShowHistory={onSetShowHistory}
-            showHistory={showHistory}
-                />
+          <Header>
+                <Navigation />
+            </Header>
           <Routes>
             {pages}
           </Routes>

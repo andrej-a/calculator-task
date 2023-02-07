@@ -8,14 +8,13 @@ import { DisplayKeypadWrapper, HomeWrapper } from '../HomeFunctional/styles';
 
 class HomeClassComponent extends React.Component {
     render() {
-        const { showHistory } = this.props;
         return (
           <HomeWrapper>
             <DisplayKeypadWrapper>
               <DisplayClasses />
               <KeypadClasses />
             </DisplayKeypadWrapper>
-            <HistoryClasses showHistory={showHistory} />
+            <HistoryClasses />
           </HomeWrapper>
         );
     }
