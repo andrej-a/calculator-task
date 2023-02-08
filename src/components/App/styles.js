@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { size } from '@/constants/sizes';
+
+const { mobileL } = size;
 
 const ApplicationWrapper = styled.div`
     display: flex;

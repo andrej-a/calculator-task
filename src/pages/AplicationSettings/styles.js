@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import { size } from '@/constants/sizes';
 
+const { mobileL, mobileS, mobileM } = size;
+
 export const SettingsWrapper = styled.div`
     position: relative;
     display: flex;
@@ -9,22 +11,22 @@ export const SettingsWrapper = styled.div`
 
     width: 100%;
     height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
 
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
-
-    @media (max-width: ${size.mobileL}) {
-        align-items: center;
-    }
 `;
 export const TitleWrapper = styled.div`
     margin-top: 61px;
     margin-left: 84px;
     margin-bottom: 36px;
 
-    @media (max-width: ${size.mobileL}) {
+    @media (max-width: ${ mobileL }) {
         margin-left: 0;
+        margin-bottom: 18px;
+
+        text-align: center;
     }
+
 `;
 export const Title = styled.h2`
     font-size: 64px;
@@ -32,6 +34,10 @@ export const Title = styled.h2`
     letter-spacing: 0px;
     font-weight: 700;
     color: ${props => props.theme.FONT_COLOR};
+
+    @media (max-width: ${ mobileL }) {
+        font-size: 46px;
+    }
 `;
 export const LabelWrapper = styled.div`
     margin-top: 10px;
@@ -44,8 +50,8 @@ export const LabelWrapper = styled.div`
         color: ${props => props.theme.FONT_COLOR};
     }
 
-    @media (max-width: ${size.mobileL}) {
-        margin-left: 0;
+    @media (max-width: ${ mobileL }) {
+        margin-left: 20px;
     }
 `;
 export const ClearHistoryButton = styled.button`
@@ -82,9 +88,17 @@ export const ClearHistoryButton = styled.button`
         box-shadow: none;
     }
 
-    @media (max-width: ${size.mobileL}) {
-        width: 80%;
-        margin-left: 20px;
-        padding-left: 10px;
+    @media(max-width: ${ mobileL }) {
+        left: calc(50% - 125px);
+
+        margin-left: 0;
+        width: 250px;
+        height: 50px;
+        margin-left: 0px;
+        margin-top: 390px;
+        padding-left: 0;
+
+        font-size: 23px;
+        text-align: center;
     }
 `;
