@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import { controller } from '@/utils/controller';
 import Display from '@/components/Display/DisplayFunctional';
 import History from '@/components/History/HistoryFunctional';
 import Keypad from '@/components/Keypad/KeypadFunctional';
@@ -11,7 +11,7 @@ const Home = () => (
   <HomeWrapper>
     <DisplayKeypadWrapper>
       <Display />
-      <Keypad />
+      <Keypad controller={controller}/>
     </DisplayKeypadWrapper>
     <History />
   </HomeWrapper>

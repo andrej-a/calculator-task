@@ -1,13 +1,16 @@
 import React from 'react';
 
 import { buttonsObject } from '@/constants';
-import { controller } from '@/utils/controller';
 
 import { Key, Wrapper } from '../KeypadFunctional/styles';
 
 class KeypadClasses extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.controller = props.controller;
+    }
     keypadManager = (value) => () => {
-        controller(value);
+        this.controller(value);
     }
     render() {
         const keypad = buttonsObject.map(button => {
