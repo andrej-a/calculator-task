@@ -5,4 +5,4 @@ export const subtraction = (previousOperand, lastOperand) => previousOperand - l
 
 export const modulo = (previousOperand, lastOperand) => previousOperand % lastOperand;
 export const sqrt = lastOperand => Math.sqrt(lastOperand);
-export const pow = lastOperand => Math.pow(lastOperand, 2);
+export const pow = lastOperand => lastOperand ** 2;

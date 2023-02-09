@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 

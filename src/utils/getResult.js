@@ -1,11 +1,11 @@
 import { bindActionCreators } from 'redux';
 
-import { setOwnValue, setExtension } from '@/redux/actions/actions';
+import { setExtension,setOwnValue } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
-import { checkPriority } from './checkPriority';
-import { doCorrectValue } from './doCorrectValue';
-import { execution } from './execution';
+import checkPriority from './checkPriority';
+import doCorrectValue from './doCorrectValue';
+import execution from './execution';
 
 const { dispatch } = store;
 
@@ -16,12 +16,12 @@ const { ownValue, SET_EXPRESSION } = bindActionCreators(
     },
     dispatch
 );
-export const getResult = display => {
+const getResult = display => {
     let copyDisplay = display;
     if (copyDisplay.trim()[0] === '(') {
         copyDisplay = `1 * ${display}`;
     }
-    let expression = doCorrectValue(copyDisplay.split(' ')).filter(Boolean);
+    const expression = doCorrectValue(copyDisplay.split(' ')).filter(Boolean);
     let numberStack = [];
     let operatorsStack = [];
     for (let i = 0; i <= expression.length + 1;) {
@@ -56,7 +56,7 @@ export const getResult = display => {
         }
         if (item.match(/[)]/)) {
             const previousOperator = operatorsStack[operatorsStack.length - 1];
-            if (previousOperator.match(/[*-/+/%/\√\^]/)) {
+            if (previousOperator.match(/[*-/+/%/√^]/)) {
                 const stacks = execution(previousOperator, {numberStack, operatorsStack});
                 numberStack = stacks.numberStack;
                 operatorsStack = stacks.operatorsStack;
@@ -68,7 +68,7 @@ export const getResult = display => {
             }
         }
 
-        if (item.match(/[*-/+/%/√\^]/)) {
+        if (item.match(/[*-/+/%/√^]/)) {
             if (!operatorsStack.length) {
                 operatorsStack.push(item);
                 i++;
@@ -92,3 +92,5 @@ export const getResult = display => {
         }
     }
 };
+
+export default getResult;

@@ -7,12 +7,11 @@ import {
     CHANGE_THEME_OBJECT,
     CHANGE_THEME_VALUE,
     CLEAR_ALL_DATA,
+    HISTORY_SWITCHER,
+    MENU_SWITCHER,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
-    SET_OWN_VALUE,
-    MENU_SWITCHER,
-    HISTORY_SWITCHER
-} from '@/redux/actions/actionTypes';
+    SET_OWN_VALUE} from '@/redux/actions/actionTypes';
 
 const INITIAL_STATE = {
     history: [],
@@ -25,7 +24,7 @@ const INITIAL_STATE = {
 const THEME_STATE = {
     themeValue: DEFAULT_THEME_VALUE,
     theme: LightTheme,
-}
+};
 
 export const theme_reducer = (state = THEME_STATE, {type, payload}) => {
     switch (type) {
@@ -44,7 +43,7 @@ export const theme_reducer = (state = THEME_STATE, {type, payload}) => {
         default:
             return state;
     }
-}
+};
 
 const reducer = (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {

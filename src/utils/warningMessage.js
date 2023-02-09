@@ -13,10 +13,12 @@ const { ownValue } = bindActionCreators(
     dispatch
 );
 
-export const warningMessage = (display, message) => {
+const warningMessage = (display, message) => {
     ownValue(message);
 
     setTimeout(() => {
         ownValue(display);
     }, WARNING_MESSAGE_TIMEOUT);
 };
+
+export default warningMessage;

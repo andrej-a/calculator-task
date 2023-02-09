@@ -6,7 +6,7 @@ import { Border, DisplayWrapper, Value, ValueWrapper } from './styles';
 
 const Display = () => {
     const { display, expression } = useSelector(state => state.main);
-    const memoizeDisplay = useMemo(() => display, [display])
+    const memoizeDisplay = useMemo(() => display, [display]);
     return (
       <DisplayWrapper>
         <ExpressionComponent expression={expression} />

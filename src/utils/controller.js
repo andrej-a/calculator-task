@@ -11,17 +11,16 @@ import {
     addItemToHistory,
     changeDisplayValue,
     setDefaultValue,
-    setOwnValue,
-    setExtension
-} from '@/redux/actions/actions';
+    setExtension,
+    setOwnValue} from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
-import { checkCorrectBrakcets } from './checkCorrectBrakcets';
-import { checkCorrectOperators } from './checkCorrectOperators';
-import { deleteLastItem } from './deleteLastItem';
-import { getResult } from './getResult';
-import { replacePreviousOperator } from './replacePreviousOperator';
-import { warningMessage } from './warningMessage';
+import checkCorrectBrakcets from './checkCorrectBrakcets';
+import checkCorrectOperators from './checkCorrectOperators';
+import deleteLastItem from './deleteLastItem';
+import getResult from './getResult';
+import replacePreviousOperator from './replacePreviousOperator';
+import warningMessage from './warningMessage';
 
 const { dispatch, getState } = store;
 
@@ -36,7 +35,7 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
     dispatch
 );
 
-export const controller = value => {
+const controller = value => {
     const { display } = getState().main;
     if (getState().main.expression) {
         SET_EXPRESSION('');
@@ -50,21 +49,21 @@ export const controller = value => {
         return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
-    if (value.match(/[√\^]/)) {
+    if (value.match(/[√^]/)) {
         let copy = display;
         copy = copy.trim();
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/[0123456789]/i)) {
-            const copy = array.slice(0, array.length - 1);
+            copy = array.slice(0, array.length - 1);
             return ownValue(`${copy.join(' ')}${value}( ${array[array.length - 1]} )`);
         }
 
-        if (array[array.length - 1].match(/[*\-\/+%]/i)) {
+        if (array[array.length - 1].match(/[*\-/+%]/i)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
     }
 
-    if (value.match(/[*\/+%]/)) {
+    if (value.match(/[*/+%]/)) {
         let copy = display;
         copy = copy.trim();
 
@@ -81,7 +80,7 @@ export const controller = value => {
             : changeDisplay(value);
     }
 
-    if (value.match(/[\-]/)) {
+    if (value.match(/[-]/)) {
         let copy = display;
         copy = copy.trim();
         const array = copy.split(' ');
@@ -133,7 +132,7 @@ export const controller = value => {
         if (array[array.length - 1].match(/[0-9]/)) {
             return ownValue(`${display.trim()}${value}`);
         }
-        if (array[array.length - 1].match(/\-/) && array[array.length - 2].match(/\(/)) {
+        if (array[array.length - 1].match(/-/) && array[array.length - 2].match(/\(/)) {
             return ownValue(`${display.trim()}0${value}`);
         }
         return ownValue(`${display} 0${value}`);
@@ -163,3 +162,5 @@ export const controller = value => {
         getResult(display);
     }
 };
+
+export default controller;

@@ -1,4 +1,5 @@
-import { HOME_LINK, HOME_CLASS_LINK, SETTINGS_LINK } from "./componentsConstants";
+import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from "./componentsConstants";
+
 const links = [
     {
         link: '/',
@@ -15,6 +16,6 @@ const links = [
         data_test: 'settings',
         title: SETTINGS_LINK
     }
-]
+];
 
 export default links;

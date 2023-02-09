@@ -9,9 +9,11 @@ class KeypadClasses extends React.PureComponent {
         super(props);
         this.controller = props.controller;
     }
-    keypadManager = (value) => () => {
+
+    keypadManager = value => () => {
         this.controller(value);
     }
+
     render() {
         const keypad = buttonsObject.map(button => {
             const { value } = button;
@@ -28,5 +30,9 @@ class KeypadClasses extends React.PureComponent {
         return <Wrapper>{keypad}</Wrapper>;
     }
 }
+
+KeypadClasses.PropTypes = {
+    controller: PropTypes.func.isRequired
+};
 
 export default KeypadClasses;

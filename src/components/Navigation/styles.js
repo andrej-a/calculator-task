@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { size } from "@/constants/sizes";
 
 export const PageLink = styled.p`

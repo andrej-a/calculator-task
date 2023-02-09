@@ -1,12 +1,7 @@
-import { addition, division, modulo, multiplication, sqrt, subtraction, pow } from './calculations';
-import { bindActionCreators } from 'redux';
-import { setOwnValue } from '@/redux/actions/actions';
-import { store } from '@/redux/store';
-const { dispatch } = store;
 
-const { ownValue } = bindActionCreators( { ownValue: setOwnValue }, dispatch);
+import { addition, division, modulo, multiplication, pow,sqrt, subtraction } from './calculations';
 
-export const execution = (previousOperator, stacks) => {
+const execution = (previousOperator, stacks) => {
     let {numberStack, operatorsStack} = stacks;
     const previousOperand = +numberStack[numberStack.length - 2];
     const lastOperand = +numberStack[numberStack.length - 1];
@@ -52,4 +47,6 @@ export const execution = (previousOperator, stacks) => {
             break;
     }
     return {numberStack, operatorsStack};
-}
+};
+
+export default execution;

@@ -4,23 +4,25 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react';
+
 import Application from '@/components/App';
 import GlobalStyles from '@/globalStyles';
-import { store, persistor } from './redux/store';
+
+import { persistor,store } from './redux/store';
 import i18n from './settings/18n';
 
 ReactDOM.render(
-    <Suspense fallback={'Loading...'}>
+  <Suspense fallback="Loading...">
     <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-            <Application />
-            <GlobalStyles />
+          <Application />
+          <GlobalStyles />
         </BrowserRouter>
-        </PersistGate>
+      </PersistGate>
     </Provider>
-    </Suspense>,
+  </Suspense>,
     document.getElementById('root')
 );
 

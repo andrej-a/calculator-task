@@ -6,21 +6,20 @@ import {
     CHANGE_THEME_OBJECT,
     CHANGE_THEME_VALUE,
     CLEAR_ALL_DATA,
+    HISTORY_SWITCHER,
+    MENU_SWITCHER,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
-    SET_OWN_VALUE,
-    MENU_SWITCHER,
-    HISTORY_SWITCHER
-} from './actionTypes';
+    SET_OWN_VALUE} from './actionTypes';
 
 export const switchHistory = ({
     type: HISTORY_SWITCHER
-})
+});
 
 
 export const switchMenu = ({
     type: MENU_SWITCHER
-})
+});
 
 export const changeTheme = payload => ({
     type: CHANGE_THEME_OBJECT,

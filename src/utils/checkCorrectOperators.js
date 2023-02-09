@@ -1,4 +1,4 @@
-export const checkCorrectOperators = display => {
+const checkCorrectOperators = display => {
     const copy = display;
     const valuesArray = copy
         .trim()
@@ -6,3 +6,5 @@ export const checkCorrectOperators = display => {
         .filter(item => item);
     return valuesArray[valuesArray.length - 1].match(/[0-9 )]/);
 };
+
+export default checkCorrectOperators;

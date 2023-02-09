@@ -1,6 +1,6 @@
 import { buttonsObject } from '@/constants';
 
-export const checkPriority = (operator, previousOperator) => {
+const checkPriority = (operator, previousOperator) => {
     let operatorPriority = 0;
     let previousOperatorPriority = 0;
 
@@ -14,3 +14,5 @@ export const checkPriority = (operator, previousOperator) => {
     });
     return operatorPriority <= previousOperatorPriority;
 };
+
+export default checkPriority;

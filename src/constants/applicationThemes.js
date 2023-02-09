@@ -24,7 +24,7 @@ export const LightTheme = {
 
 export const activeStyle = {
     borderBottom: `2px solid #fefefe`
-}
+};
 export const nonActive = {
     opacity: '0.7'
-}
+};

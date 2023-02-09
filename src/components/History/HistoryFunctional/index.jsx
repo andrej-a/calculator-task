@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
-import { useTranslation } from 'react-i18next';
 
 const History = () => {
     const { history, showHistory } = useSelector(state => state.main);

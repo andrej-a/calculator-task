@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
 import { NO_INDENT, SET_INDENT } from '@/constants';
+import { size } from '@/constants/sizes';
+
 const { desktop, tablet } = size;
 
 export const HistoryWrapper = styled.div`
