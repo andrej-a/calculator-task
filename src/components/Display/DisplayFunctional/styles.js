@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-const { laptop, mobileL, mobileM, tablet} = size;
+const { laptop, tablet} = size;
 
 export const DisplayWrapper = styled.div`
     display: flex;

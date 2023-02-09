@@ -17,9 +17,10 @@ import {
 
 class HistoryClasses extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {}
+        super(props);
+        this.state = {};
     }
+
     render() {
         const { history, showHistory, t } = this.props;
 

@@ -13,6 +13,10 @@ import Theme from './SelectComponent/Theme';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
 
 class Settings extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state  = {};
+    }
     render() {
         const { history, clearAllData, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE ? "Russian" : "English";

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-export const ShowHistory = styled.p`
+const ShowHistory = styled.p`
     display: none;
 
     font-size: 32px;
@@ -14,3 +14,4 @@ export const ShowHistory = styled.p`
         display: block;
     }
 `;
+export default ShowHistory;
