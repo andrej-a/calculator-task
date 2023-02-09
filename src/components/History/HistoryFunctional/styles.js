@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { size } from '@/constants/sizes';
 import { NO_INDENT, SET_INDENT } from '@/constants';
+const { desktop, tablet } = size;
 
 export const HistoryWrapper = styled.div`
     display: flex;
@@ -11,18 +12,18 @@ export const HistoryWrapper = styled.div`
     width: 20%;
     max-height: 1150px;
 
-    @media (max-width: ${size.desktop}) {
+    @media (max-width: ${ desktop }) {
         max-height: 980px;
     }
 
-    @media (max-width: ${size.tablet}) {
+    @media (max-width: ${ tablet }) {
         position: absolute;
         z-index: 2;
         left: ${props => props.showHistory ? NO_INDENT : SET_INDENT};
 
         width: 100%;
-        height: 100%;
-
+        max-height: 1500px;
+        height: 1500px;
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
     }
 `;
@@ -70,7 +71,7 @@ export const Border = styled.div`
 
     background: ${props => props.theme.BORDER_COLOR};
 
-    @media (max-width: ${size.tablet}) {
+    @media (max-width: ${ tablet }) {
         display: none;
     }
 `;

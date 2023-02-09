@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { size } from '@/constants/sizes';
 
+const { mobileL } = size;
+
 export const Options = styled.div`
     width: 100%;
     height: 80px;
@@ -22,7 +24,7 @@ export const Options = styled.div`
         color: #fff;
     }
 
-    @media (max-width: ${size.mobileL}) {
+    @media (max-width: ${ mobileL }) {
         width: 100%;
     }
 `;

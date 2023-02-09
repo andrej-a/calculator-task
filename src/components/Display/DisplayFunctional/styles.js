@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import { size } from '@/constants/sizes';
 
+const { laptop, mobileL, mobileM, tablet} = size;
+
 export const DisplayWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,8 +26,12 @@ export const ValueWrapper = styled.div`
     overflow-x: auto;
     overflow-y: auto;
 
-    @media (max-width: ${size.laptop}) {
+    @media (max-width: ${ laptop }) {
         padding: 10px;
+    }
+
+    @media (max-width: ${ tablet }) {
+        max-height: 125px;
     }
 `;
 
@@ -39,19 +45,31 @@ export const Value = styled.p`
     letter-spacing: 0px;
     color: ${props => props.theme.FONT_COLOR};
 
-    @media (max-width: ${size.mobileL}) {
-        font-size: 36px;
+    @media (max-width: ${ tablet }) {
+        font-size: 34px;
+        letter-spacing: -2px;
+        line-height: 40px;
     }
 `;
 export const ExpressionWrapper = styled(ValueWrapper)`
     min-height: 80px;
     padding-top: 0;
     padding-bottom: 0;
+
+    @media (max-width: ${ tablet }) {
+        height: 50px;;
+    }
 `;
 
 export const Expression = styled(Value)`
     font-size: 35px;
     opacity: 0.3;
+
+    @media (max-width: ${ tablet }) {
+        font-size: 35px;
+        overflow-y: hidden;
+    }
+
 `;
 
 export const Border = styled.div`
@@ -61,7 +79,7 @@ export const Border = styled.div`
     margin-right: 25px;
     margin-left: 25px;
 
-    @media (max-width: ${size.tablet}) {
+    @media (max-width: ${ tablet }) {
         margin: 0;
         width: 100%;
     }
