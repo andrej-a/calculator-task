@@ -1,4 +1,4 @@
-export const fakeLanguagesData = [
+const fakeLanguagesData = [
     {
         id: 'russian',
         value: 'ru',
@@ -10,3 +10,5 @@ export const fakeLanguagesData = [
         title: "English"
     }
 ];
+
+export default fakeLanguagesData;

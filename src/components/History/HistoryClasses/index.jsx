@@ -16,6 +16,10 @@ import {
 } from '../HistoryFunctional/styles';
 
 class HistoryClasses extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
     render() {
         const { history, showHistory, t } = this.props;
 
@@ -44,8 +48,8 @@ class HistoryClasses extends React.Component {
 }
 
 HistoryClasses.propTypes = {
-    history: PropTypes.arrayOf(PropTypes.object),
-    showHistory: PropTypes.bool
+    history: PropTypes.arrayOf().isRequired,
+    showHistory: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({ main }) => ({

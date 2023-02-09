@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import triangle from '@/assets/image/play.png';
-import { DarkTheme, DEFAULT_THEME_VALUE, fakeThemeData , LightTheme } from '@/constants';
-import { changeTheme, changeThemeValue } from '@/redux/actions/actions';
 
-import { Options, OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles';
-import { Theme } from './Theme';
+import { OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles';
 
 const SelectComponent = props => {
     const {title, render} = props;

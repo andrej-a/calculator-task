@@ -1,4 +1,4 @@
-export const buttonsObject = [
+const buttonsObject = [
     {
         value: 'C'
     },
@@ -76,3 +76,5 @@ export const buttonsObject = [
         priority: 3
     }
 ];
+
+export default buttonsObject;

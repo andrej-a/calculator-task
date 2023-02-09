@@ -1,1 +1,3 @@
-export const ACTION_PREFIX = '@/template';
+const ACTION_PREFIX = '@/template';
+
+export default ACTION_PREFIX;

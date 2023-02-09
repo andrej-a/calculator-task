@@ -8,15 +8,16 @@ import { CLEAR_HISTORY_BUTTON, DEFAULT_APPLICATION_LANGUAGE,LABEL_TITLE, SETTING
 import * as actions from '@/redux/actions/actions';
 
 import SelectComponent from './SelectComponent';
-import { LanguagesSwitcher } from './SelectComponent/LanguagesSwitcher';
-import { Theme } from './SelectComponent/Theme';
+import LanguagesSwitcher from './SelectComponent/LanguagesSwitcher';
+import Theme from './SelectComponent/Theme';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
 
 class Settings extends React.Component {
     render() {
         const { history, clearAllData, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE ? "Russian" : "English";
-        const THEME_SELECTOR_TITLE = themeTitle === "Light theme" || themeTitle === "Светлая тема" ? "LightTheme" : "DarkTheme";
+        const THEME_SELECTOR_TITLE = themeTitle === "Light theme" || themeTitle === "Светлая тема"
+            ? "LightTheme" : "DarkTheme";
 
         return (
           <SettingsWrapper>
@@ -51,9 +52,9 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
-    history: PropTypes.arrayOf(PropTypes.object),
-    clearAllData: PropTypes.func,
-    themeTitle: PropTypes.string
+    history: PropTypes.arrayOf().isRequired,
+    clearAllData: PropTypes.func.isRequired,
+    themeTitle: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ main, theme }) => {

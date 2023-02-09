@@ -1,4 +1,4 @@
-export const fakeThemeData = [
+const fakeThemeData = [
     {
         id: 'light_theme',
         value: 'LightTheme'
@@ -8,3 +8,5 @@ export const fakeThemeData = [
         value: 'DarkTheme'
     }
 ];
+
+export default fakeThemeData;

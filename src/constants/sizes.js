@@ -1,4 +1,4 @@
-export const size = {
+const size = {
     mobileS: '320px',
     mobileM: '375px',
     mobileL: '426px',
@@ -7,3 +7,5 @@ export const size = {
     laptopL: '1440px',
     desktop: '1920px'
 };
+
+export default size;

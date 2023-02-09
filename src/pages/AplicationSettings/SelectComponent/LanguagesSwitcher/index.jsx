@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { fakeLanguagesData } from '@/constants/fakeLanguagesData';
-import { changeThemeValue } from '@/redux/actions/actions';
+import fakeLanguagesData from '@/constants/fakeLanguagesData';
 
-import { Options } from '../Theme/styles';
+import Options from '../Theme/styles';
 
-export const LanguagesSwitcher = props => {
+const LanguagesSwitcher = props => {
     const { t, i18n } = useTranslation();
     const { onSetIsOpen } = props;
 
@@ -35,3 +33,5 @@ export const LanguagesSwitcher = props => {
       </React.Fragment>
     );
 };
+
+export default LanguagesSwitcher;

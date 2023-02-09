@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 import { DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE, LightTheme } from '@/constants';
 import {
     ADD_ITEM_TO_HISTORY,
@@ -26,7 +24,7 @@ const THEME_STATE = {
     theme: LightTheme,
 };
 
-export const theme_reducer = (state = THEME_STATE, {type, payload}) => {
+export const themeReducer = (state = THEME_STATE, {type, payload}) => {
     switch (type) {
         case CHANGE_THEME_OBJECT:
             return {

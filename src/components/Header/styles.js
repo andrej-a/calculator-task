@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import size from '@/constants/sizes';
 
 export const Wrapper = styled.div`
     display: flex;

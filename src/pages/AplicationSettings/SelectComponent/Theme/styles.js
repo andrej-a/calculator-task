@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import size from '@/constants/sizes';
 
 const { mobileL } = size;
 
-export const Options = styled.div`
+const Options = styled.div`
     width: 100%;
     height: 80px;
     border: 2px solid #707070;
@@ -29,3 +29,5 @@ export const Options = styled.div`
         width: 100%;
     }
 `;
+
+export default Options;

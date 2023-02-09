@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
-import { DarkTheme, DEFAULT_THEME_VALUE, fakeThemeData,LightTheme } from '@/constants';
+import fakeThemeData from '@/constants/fakeThemeData';
+import { DarkTheme, DEFAULT_THEME_VALUE, LightTheme } from '@/constants';
 import { changeTheme, changeThemeValue } from '@/redux/actions/actions';
 
-import { Options } from './styles';
+import Options from './styles';
 
-export const Theme = props => {
+const Theme = props => {
     const dispatch = useDispatch();
     const {onSetIsOpen} = props;
     const { t } = useTranslation();
@@ -38,3 +39,5 @@ export const Theme = props => {
       </React.Fragment>
     );
 };
+
+export default Theme;

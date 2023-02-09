@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { size } from "@/constants/sizes";
+import size from "@/constants/sizes";
 
-export const PageLink = styled.p`
+const PageLink = styled.p`
     font-size: 32px;
     letter-spacing: 0px;
     color: ${props => props.theme.SECOND_FONT_COLOR};
@@ -11,3 +11,4 @@ export const PageLink = styled.p`
         font-size: 44px;
     }
 `;
+export default PageLink;

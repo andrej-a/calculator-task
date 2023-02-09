@@ -1,4 +1,4 @@
-import { DarkTheme, DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE, LightTheme } from '@/constants';
+import { DEFAULT_DISPLAY_VALUE } from '@/constants';
 
 import {
     ADD_ITEM_TO_HISTORY,

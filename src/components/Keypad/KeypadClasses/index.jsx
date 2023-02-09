@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { buttonsObject } from '@/constants';
+import buttonsObject from '@/constants/buttons';
 
 import { Key, Wrapper } from '../KeypadFunctional/styles';
 
@@ -31,7 +31,7 @@ class KeypadClasses extends React.PureComponent {
     }
 }
 
-KeypadClasses.PropTypes = {
+KeypadClasses.propTypes = {
     controller: PropTypes.func.isRequired
 };
 

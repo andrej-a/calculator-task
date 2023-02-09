@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from "react-redux";
@@ -7,9 +8,9 @@ import { activeStyle, nonActive } from "@/constants";
 import links from "@/constants/links";
 import { switchMenu } from "@/redux/actions/actions";
 
-import { PageLink } from "./styles";
+import PageLink from "./styles";
 
-export const Navigation = () => {
+const Navigation = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ export const Navigation = () => {
         dispatch(switchMenu);
     };
 
-    const navigation = links.map(({ link, data_test, title }) => {
+    const navigation = links.map(({ link, dataTest, title }) => {
         return (
           <NavLink
             key={title}
@@ -25,10 +26,12 @@ export const Navigation = () => {
             style={({ isActive }) => (isActive ? activeStyle : nonActive)}
             end
             onClick={onHandleMenu}>
-            <PageLink data-test={data_test}>{t(title)}</PageLink>
+            <PageLink data-test={dataTest}>{t(title)}</PageLink>
           </NavLink>
 );
     });
 
     return navigation;
 };
+
+export default Navigation;

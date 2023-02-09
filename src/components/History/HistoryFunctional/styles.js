@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { NO_INDENT, SET_INDENT } from '@/constants';
-import { size } from '@/constants/sizes';
+import size from '@/constants/sizes';
 
 const { desktop, tablet } = size;
 

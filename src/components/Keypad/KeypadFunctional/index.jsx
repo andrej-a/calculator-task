@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { buttonsObject } from '@/constants';
+import buttonsObject from '@/constants/buttons';
 
 import { Key, Wrapper } from './styles';
 
@@ -23,7 +23,7 @@ const Keypad = React.memo(({ controller }) => {
     return <Wrapper>{keypad}</Wrapper>;
 });
 
-Keypad.PropTypes = {
+Keypad.propTypes = {
     controller: PropTypes.func.isRequired
 };
 

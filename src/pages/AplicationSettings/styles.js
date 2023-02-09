@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { size } from '@/constants/sizes';
+import size from '@/constants/sizes';
 
-const { mobileL, mobileS, mobileM } = size;
+const { mobileL } = size;
 
 export const SettingsWrapper = styled.div`
     position: relative;

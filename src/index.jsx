@@ -9,7 +9,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Application from '@/components/App';
 import GlobalStyles from '@/globalStyles';
 
-import { persistor,store } from './redux/store';
+import { persistor, store } from './redux/store';
 import i18n from './settings/18n';
 
 ReactDOM.render(

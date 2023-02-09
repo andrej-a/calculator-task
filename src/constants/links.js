@@ -3,17 +3,17 @@ import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from "./componentsConstants
 const links = [
     {
         link: '/',
-        data_test: 'home',
+        dataTest: 'home',
         title: HOME_LINK,
     },
     {
         link: '/homeclass',
-        data_test: 'homeclass',
+        dataTest: 'homeclass',
         title: HOME_CLASS_LINK
     },
     {
         link: '/settings',
-        data_test: 'settings',
+        dataTest: 'settings',
         title: SETTINGS_LINK
     }
 ];

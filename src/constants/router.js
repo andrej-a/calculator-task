@@ -1,1 +1,3 @@
-export const HOME_PAGE_ROUTE = '/';
+const HOME_PAGE_ROUTE = '/';
+
+export default HOME_PAGE_ROUTE;
