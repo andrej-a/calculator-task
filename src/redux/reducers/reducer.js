@@ -13,7 +13,7 @@ import {
 
 const INITIAL_STATE = {
     history: [],
-    display: '8 * 96 / 230 * ( 45 - 78 + ^ ( 99 ) - √ ( 45 ) ) / 56 * ( 55 + 44 ) / 6 + ( 12 * 2 - √ ( 9 ) ) - 12',
+    display: '5 * √ ( 5 )',
     expression: '',
     menu: false,
     showHistory: false

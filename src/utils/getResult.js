@@ -4,6 +4,7 @@ import { setExtension,setOwnValue } from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
 import checkPriority from './checkPriority';
+import cutZeros from './cutZeros';
 import doCorrectValue from './doCorrectValue';
 import execution from './execution';
 
@@ -34,8 +35,10 @@ const getResult = display => {
             console.log(`LENGTH IS ${i}, HERE`);
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const stacks = execution(previousOperator, {numberStack, operatorsStack});
-            ownValue(Number(stacks.numberStack.at(-1)).toFixed(3));
-            SET_EXPRESSION(Number(stacks.numberStack.at(-1)).toFixed(3));
+            numberStack = stacks.numberStack;
+            operatorsStack = stacks.operatorsStack;
+            ownValue(cutZeros(Number(stacks.numberStack.at(-1)).toFixed(3)));
+            SET_EXPRESSION(display);
             console.log(stacks.numberStack, stacks.operatorsStack, 'STACKS');
             i += 1;
             continue;

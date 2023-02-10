@@ -39,7 +39,7 @@ const ControlPanel = () => {
     }, [dispatch, menu]);
 
     useEffect(() => {
-        document.documentElement.style.overflow = (menu && width <= parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
+        // document.documentElement.style.overflow = (menu && width <= parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
     }, [menu, width]);
 
     const components = [

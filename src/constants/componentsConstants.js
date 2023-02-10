@@ -21,3 +21,6 @@ export const STOP_SCROLL = 'hidden';
 export const NO_INDENT = '0';
 export const SET_INDENT = '-3600px';
 export const DEFAULT_APPLICATION_LANGUAGE = 'ru';
+export const RUSSIAN_LANGUAGE = "Russian";
+export const ENGLISH_LANGUAGE = "English";
+export const SWITCH_LANGUAGE = "SwitchLanguage";

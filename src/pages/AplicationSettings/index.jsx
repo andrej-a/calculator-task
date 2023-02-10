@@ -1,10 +1,18 @@
 import i18next from 'i18next';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import { CLEAR_HISTORY_BUTTON, DEFAULT_APPLICATION_LANGUAGE,LABEL_TITLE, SETTINGS_TITLE } from '@/constants';
+import {
+    CLEAR_HISTORY_BUTTON,
+    DEFAULT_APPLICATION_LANGUAGE,
+    ENGLISH_LANGUAGE,
+    LABEL_TITLE,
+    RUSSIAN_LANGUAGE,
+    SETTINGS_TITLE,
+    SWITCH_LANGUAGE
+} from '@/constants';
 import * as actions from '@/redux/actions/actions';
 
 import SelectComponent from './SelectComponent';
@@ -20,7 +28,8 @@ class Settings extends React.Component {
 
     render() {
         const { history, clearAllData, themeTitle, t } = this.props;
-        const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE ? "Russian" : "English";
+        const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE
+            ? RUSSIAN_LANGUAGE : ENGLISH_LANGUAGE;
         const THEME_SELECTOR_TITLE = themeTitle === "Light theme" || themeTitle === "Светлая тема"
             ? "LightTheme" : "DarkTheme";
 
@@ -39,7 +48,7 @@ class Settings extends React.Component {
             />
 
             <LabelWrapper>
-              <label htmlFor="language">{t("SwitchLanguage")}</label>
+              <label htmlFor="language">{t(SWITCH_LANGUAGE)}</label>
             </LabelWrapper>
             <SelectComponent
               title={t(LANGUAGE_SELECTOR_TITLE)}
@@ -57,7 +66,7 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
-    history: PropTypes.arrayOf().isRequired,
+    history: PropTypes.arrayOf(PropTypes.shape).isRequired,
     clearAllData: PropTypes.func.isRequired,
     themeTitle: PropTypes.string.isRequired
 };
