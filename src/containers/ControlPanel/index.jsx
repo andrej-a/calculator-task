@@ -36,7 +36,7 @@ const ControlPanel = () => {
         return () => {
             window.removeEventListener('resize', onSetWidth);
         };
-    }, [menu]);
+    }, [dispatch, menu]);
 
     useEffect(() => {
         document.documentElement.style.overflow = (menu && width <= parseInt(size.tablet, 10)) ? STOP_SCROLL : '';

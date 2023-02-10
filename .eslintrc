@@ -21,7 +21,9 @@
         "import/no-duplicates": "error",
         "arrow-parens": ["error", "as-needed"],
         "semi": "error",
-        "prefer-destructuring": "error",
+        "prefer-destructuring": "off",
+        "react/destructuring-assignment": "off",
+        "no-underscore-dangle": "off",
         "max-len": [
             "warn",
             {
@@ -35,6 +37,8 @@
         "react-hooks/rules-of-hooks": "error",
         "react/jsx-closing-tag-location": 2,
         "react/jsx-closing-bracket-location": "off",
+        "import/prefer-default-export": "off",
+        "consistent-return": "off",
         "react/jsx-max-props-per-line": [
             2,
             {
@@ -52,6 +56,16 @@
         "react/prop-types": "off",
         "react/no-unused-prop-types": "off",
         "react/jsx-fragments": [1, "element"]
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@", "./src"]
+                 ],
+                "extensions": [".js", ".jsx", ".json"]
+            }
+        }
     },
     "overrides": [{
         "files": ["src/index.js"],

@@ -22,6 +22,8 @@
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "express": "^4.17.1",
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
