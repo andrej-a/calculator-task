@@ -9,9 +9,11 @@ import {
     DEFAULT_APPLICATION_LANGUAGE,
     ENGLISH_LANGUAGE,
     LABEL_TITLE,
+    LIGHT_THEME_TITLE_EN,
+    LIGHT_THEME_TITLE_RU,
     RUSSIAN_LANGUAGE,
     SETTINGS_TITLE,
-    SWITCH_LANGUAGE
+    SWITCH_LANGUAGE,
 } from '@/constants';
 import * as actions from '@/redux/actions/actions';
 
@@ -30,7 +32,7 @@ class Settings extends React.Component {
         const { history, clearAllData, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE
             ? RUSSIAN_LANGUAGE : ENGLISH_LANGUAGE;
-        const THEME_SELECTOR_TITLE = themeTitle === "Light theme" || themeTitle === "Светлая тема"
+        const THEME_SELECTOR_TITLE = themeTitle === LIGHT_THEME_TITLE_EN || themeTitle === LIGHT_THEME_TITLE_RU
             ? "LightTheme" : "DarkTheme";
 
         return (
@@ -44,6 +46,7 @@ class Settings extends React.Component {
             </LabelWrapper>
             <SelectComponent
               title={t(THEME_SELECTOR_TITLE)}
+              dataTest="theme_button"
               render={onSetIsOpen => <Theme onSetIsOpen={onSetIsOpen} />}
             />
 

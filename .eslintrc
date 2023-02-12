@@ -23,7 +23,17 @@
         "semi": "error",
         "prefer-destructuring": "off",
         "react/destructuring-assignment": "off",
+        "array-callback-return": "off",
         "no-underscore-dangle": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+              "devDependencies": [
+                "webpack.common.js",
+                "webpack.prod.js"
+              ]
+            }
+          ],
         "max-len": [
             "warn",
             {

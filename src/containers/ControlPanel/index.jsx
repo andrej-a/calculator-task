@@ -20,14 +20,14 @@ const ControlPanel = () => {
     const dispatch = useDispatch();
     const { menu } = useSelector(state => state.main);
     const [width, setWidth] = useState(0);
-
+    const {tablet} = size;
 
     useEffect(() => {
         const onSetWidth = () => {
             const currentWidth = document.documentElement.clientWidth;
             setWidth(currentWidth);
 
-            if (currentWidth > parseInt(size.tablet, 10) && menu) {
+            if (currentWidth > parseInt(tablet, 10) && menu) {
                 dispatch(switchMenu);
             }
         };
@@ -36,11 +36,11 @@ const ControlPanel = () => {
         return () => {
             window.removeEventListener('resize', onSetWidth);
         };
-    }, [dispatch, menu]);
+    }, [dispatch, menu, tablet]);
 
     useEffect(() => {
-        // document.documentElement.style.overflow = (menu && width <= parseInt(size.tablet, 10)) ? STOP_SCROLL : '';
-    }, [menu, width]);
+        document.documentElement.style.overflow = (menu && width <= parseInt(tablet, 10)) ? STOP_SCROLL : '';
+    }, [menu, tablet, width]);
 
     const components = [
       <Home />,

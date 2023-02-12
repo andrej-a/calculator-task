@@ -24,3 +24,7 @@ export const DEFAULT_APPLICATION_LANGUAGE = 'ru';
 export const RUSSIAN_LANGUAGE = "Russian";
 export const ENGLISH_LANGUAGE = "English";
 export const SWITCH_LANGUAGE = "SwitchLanguage";
+export const LIGHT_THEME_TITLE_EN = 'Light theme';
+export const LIGHT_THEME_TITLE_RU = 'Светлая тема';
+export const DARK_THEME_TITLE_EN = 'Dark theme';
+export const DARK_THEME_TITLE_RU = 'Темная тема';

@@ -59,7 +59,7 @@ export const clearAllData = () => ({
     }
 });
 
-export const setExtension = payload => ({
+export const setExpression = payload => ({
     type: SET_EXTENSION,
     payload
 });

@@ -13,7 +13,7 @@ import {
 
 const INITIAL_STATE = {
     history: [],
-    display: '5 * √ ( 5 )',
+    display: '0',
     expression: '',
     menu: false,
     showHistory: false

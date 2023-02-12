@@ -5,7 +5,7 @@ import triangle from '@/assets/image/play.png';
 import { OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles';
 
 const SelectComponent = props => {
-    const {title, render} = props;
+    const {title, render, dataTest} = props;
     const [isOpen, setIsOpen] = useState(false);
 
     const onSetIsOpen = () => {
@@ -14,7 +14,7 @@ const SelectComponent = props => {
     return (
       <SelectWrapper>
         <SelectTitleBox
-          data-test="select"
+          data-test={dataTest}
           onClick={onSetIsOpen}>
           {title}
           <img src={triangle} alt='button' />

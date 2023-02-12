@@ -21,10 +21,10 @@ const Theme = props => {
     };
 
     const options = fakeThemeData.map(data => {
-        const { id, value } = data;
+        const { id, value, testValue } = data;
         return (
           <Options
-            data-test={value}
+            data-test={testValue}
             onClick={componentController(value)}
             key={id}>
             {t(value)}

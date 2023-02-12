@@ -1,11 +1,13 @@
 const fakeThemeData = [
     {
         id: 'light_theme',
-        value: 'LightTheme'
+        value: 'LightTheme',
+        testValue: 'Light theme'
     },
     {
         id: 'dark_theme',
-        value: 'DarkTheme'
+        value: 'DarkTheme',
+        testValue: 'Dark theme'
     }
 ];
 

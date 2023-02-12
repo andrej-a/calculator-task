@@ -1,15 +1,14 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { shallowEqual,useSelector } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 
 const History = () => {
-    const { history, showHistory } = useSelector(state => state.main);
+    const { history, showHistory } = useSelector(state => state.main, shallowEqual);
     const { t } = useTranslation();
-
     const historyItems = useMemo(() => {
         return history.map(item => {
             const { display, id } = item;

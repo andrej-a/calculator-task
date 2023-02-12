@@ -11,7 +11,7 @@ import {
     addItemToHistory,
     changeDisplayValue,
     setDefaultValue,
-    setExtension,
+    setExpression,
     setOwnValue} from '@/redux/actions/actions';
 import { store } from '@/redux/store';
 
@@ -30,7 +30,7 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
         ownValue: setOwnValue,
         setDefault: setDefaultValue,
         addHistoryItem: addItemToHistory,
-        SET_EXPRESSION: setExtension
+        SET_EXPRESSION: setExpression
     },
     dispatch
 );
