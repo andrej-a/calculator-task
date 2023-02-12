@@ -1,17 +1,17 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import ExpressionComponent from './Expression';
 import { Border, DisplayWrapper, Value, ValueWrapper } from './styles';
 
 const Display = () => {
-    const { display, expression } = useSelector(state => state.main);
-    const memoizeDisplay = useMemo(() => display, [display]);
+    const display = useSelector(state => state.main.display);
+    const expression = useSelector(state => state.main.expression);
     return (
       <DisplayWrapper>
         <ExpressionComponent expression={expression} />
         <ValueWrapper>
-          <Value data-test="display">{memoizeDisplay}</Value>
+          <Value data-test="display">{display}</Value>
         </ValueWrapper>
         <Border />
       </DisplayWrapper>

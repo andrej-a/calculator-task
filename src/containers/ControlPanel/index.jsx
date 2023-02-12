@@ -1,14 +1,11 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { ThemeProvider } from 'styled-components';
 
 import Navigation from '@/components/Navigation';
-import { STOP_SCROLL } from '@/constants';
 import links from '@/constants/links';
-import size from '@/constants/sizes';
-import { switchMenu } from '@/redux/actions/actions';
 
 const Header = lazy(() => import('@/components/Header'));
 const Settings = lazy(() => import('@/pages/AplicationSettings'));
@@ -17,30 +14,6 @@ const Home = lazy(() => import('@/pages/Home/HomeFunctional'));
 
 const ControlPanel = () => {
     const {theme} = useSelector(state => state.theme);
-    const dispatch = useDispatch();
-    const { menu } = useSelector(state => state.main);
-    const [width, setWidth] = useState(0);
-    const {tablet} = size;
-
-    useEffect(() => {
-        const onSetWidth = () => {
-            const currentWidth = document.documentElement.clientWidth;
-            setWidth(currentWidth);
-
-            if (currentWidth > parseInt(tablet, 10) && menu) {
-                dispatch(switchMenu);
-            }
-        };
-
-        window.addEventListener('resize', onSetWidth);
-        return () => {
-            window.removeEventListener('resize', onSetWidth);
-        };
-    }, [dispatch, menu, tablet]);
-
-    useEffect(() => {
-        document.documentElement.style.overflow = (menu && width <= parseInt(tablet, 10)) ? STOP_SCROLL : '';
-    }, [menu, tablet, width]);
 
     const components = [
       <Home />,

@@ -1,24 +1,24 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallowEqual,useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 
 const History = () => {
-    const { history, showHistory } = useSelector(state => state.main, shallowEqual);
+    const history = useSelector(state => state.main.history);
+    const showHistory = useSelector(state => state.main.showHistory);
     const { t } = useTranslation();
-    const historyItems = useMemo(() => {
-        return history.map(item => {
-            const { display, id } = item;
-            return (
-              <HistoryItemWrapper key={id}>
-                <HistoryItem>{display}</HistoryItem>
-              </HistoryItemWrapper>
-            );
-        });
-    }, [history]);
+
+    const historyItems = history.map(item => {
+        const { display, id } = item;
+        return (
+          <HistoryItemWrapper key={id}>
+            <HistoryItem>{display}</HistoryItem>
+          </HistoryItemWrapper>
+        );
+    });
 
     return (
       <React.Fragment>
