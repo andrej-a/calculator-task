@@ -37,6 +37,8 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
 
 const controller = value => {
     const { display } = getState().main;
+    let copy = display;
+    copy = copy.trim();
     if (getState().main.expression) {
         SET_EXPRESSION('');
     }
@@ -44,14 +46,20 @@ const controller = value => {
         if (display === DEFAULT_DISPLAY_VALUE) {
             return ownValue(value);
         }
-        let copy = display;
-        copy = copy.trim();
         return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
+    if (value.match(/ \+- /)) {
+        const array = copy.split(' ').filter(item => item);
+        if (array.at(-1).match(/[0123456789]/gi)) {
+            copy = array.slice(0, array.length - 1);
+            const number = array.at(-1).match(/-/gi) ?  Math.abs(+array.at(-1)) : `-${array.at(-1)}`;
+            return ownValue(`${copy.join(' ')} ${number}`);
+        }
+        return;
+    }
+
     if (value.match(/[√^]/)) {
-        let copy = display;
-        copy = copy.trim();
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/[0123456789]/i)) {
             copy = array.slice(0, array.length - 1);
@@ -63,10 +71,7 @@ const controller = value => {
         }
     }
 
-    if (value.match(/[*/+%]/)) {
-        let copy = display;
-        copy = copy.trim();
-
+    if (value.match(/[*/+%-]/)) {
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/\(/)) {
             return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
@@ -80,22 +85,7 @@ const controller = value => {
             : changeDisplay(value);
     }
 
-    if (value.match(/[-]/)) {
-        let copy = display;
-        copy = copy.trim();
-        const array = copy.split(' ');
-
-        if (array[array.length - 1].match(/\(/)) {
-            return changeDisplay(value.trim());
-        }
-        return copy[copy.length - 1].match(/[*-/+/.%]/)
-            ? replacePreviousOperator(display, value)
-            : changeDisplay(value);
-    }
-
     if (value.match(/\(/)) {
-        let copy = display;
-        copy = copy.trim();
         if (copy[copy.length - 1].match(/\./)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
@@ -109,9 +99,6 @@ const controller = value => {
     }
 
     if (value.match(/\)/)) {
-        let copy = display;
-        copy = copy.trim();
-
         if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
@@ -119,9 +106,6 @@ const controller = value => {
     }
 
     if (value.match(/\./)) {
-        let copy = display;
-        copy = copy.trim();
-
         const array = copy.split(' ');
         if (array[array.length - 1].match(/\./)) {
             return;

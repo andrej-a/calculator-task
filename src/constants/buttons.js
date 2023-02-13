@@ -74,7 +74,11 @@ const buttonsObject = [
     {
         value: ' ^ ',
         priority: 3
-    }
+    },
+    {
+        value: ' +- ',
+        priority: 0
+    },
 ];
 
 export default buttonsObject;
