@@ -1,18 +1,18 @@
-import {
-  buttonsObject,
-} from "@/constants"
+import buttonsObject from "@/constants/buttons";
 
-export const checkPriority = (operator, previousOperator) => {
-  let operatorPriority = 0
-  let previousOperatorPriority = 0
+const checkPriority = (operator, previousOperator) => {
+    let operatorPriority = 0;
+    let previousOperatorPriority = 0;
 
-  buttonsObject.forEach(obj => {
-    if (obj.value.trim() === operator.trim()) {
-      operatorPriority = obj.priority
-    }
-    if (obj.value.trim() === previousOperator.trim()) {
-      previousOperatorPriority = obj.priority
-    }
-  })
-  return operatorPriority <= previousOperatorPriority
-}
+    buttonsObject.forEach(obj => {
+        if (obj.value.trim() === operator.trim()) {
+            operatorPriority = obj.priority;
+        }
+        if (obj.value.trim() === previousOperator.trim()) {
+            previousOperatorPriority = obj.priority;
+        }
+    });
+    return operatorPriority <= previousOperatorPriority;
+};
+
+export default checkPriority;

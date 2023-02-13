@@ -1,4 +1,0 @@
-export {
-  Header,
-}
-from './Header'

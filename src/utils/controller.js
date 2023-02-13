@@ -1,148 +1,166 @@
-import {
-  store,
-} from "@/store"
+import { bindActionCreators } from 'redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
-  bindActionCreators,
-} from "redux"
-
-/* ACTIONS */
+    DEFAULT_DISPLAY_VALUE,
+    UNCORRECT_BRACKETS_MESSAGE,
+    UNCORRECT_INPUT_MESSAGE,
+    UNCORRECT_OPERATOR_MESSAGE
+} from '@/constants';
 import {
-  changeDisplayValue,
-  setOwnValue,
-  setDefaultValue,
-} from "@/actions/actions"
-/* CONSTANTS */
-import {
-  DEFAULT_DISPLAY_VALUE,
-  UNCORRECT_BRACKETS_MESSAGE,
-  UNCORRECT_OPERATOR_MESSAGE,
-  UNCORRECT_INPUT_MESSAGE,
-  UNCORRECT_DOT_INPUT,
-} from "@/constants"
-/* UTILS */
-import {
-  replacePreviousOperator,
-} from "./replacePreviousOperator"
-import {
-  deleteLastItem,
-} from './deleteLastItem'
-import {
-  checkCorrectBrakcets,
-} from "./checkCorrectBrakcets"
-import {
-  warningMessage,
-} from "./warningMessage"
-import {
-  getResult,
-} from "./getResult"
-import {
-  checkCorrectOperators,
-} from "./checkCorrectOperators"
-/* VARYABLES */
-const {
-  dispatch,
-} = store
+    addItemToHistory,
+    changeDisplayValue,
+    setDefaultValue,
+    setExpression,
+    setOwnValue} from '@/redux/actions/actions';
+import { store } from '@/redux/store';
 
-const {
-  changeDisplay,
-  ownValue,
-  setDefault,
-} = bindActionCreators({
-  changeDisplay: changeDisplayValue,
-  ownValue: setOwnValue,
-  setDefault: setDefaultValue,
-}, dispatch)
+import checkCorrectBrakcets from './checkCorrectBrakcets';
+import checkCorrectOperators from './checkCorrectOperators';
+import deleteLastItem from './deleteLastItem';
+import getResult from './getResult';
+import replacePreviousOperator from './replacePreviousOperator';
+import warningMessage from './warningMessage';
 
+const { dispatch, getState } = store;
 
+const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = bindActionCreators(
+    {
+        changeDisplay: changeDisplayValue,
+        ownValue: setOwnValue,
+        setDefault: setDefaultValue,
+        addHistoryItem: addItemToHistory,
+        SET_EXPRESSION: setExpression
+    },
+    dispatch
+);
 
-export const controller = ({
-  value,
-}, display) => {
-
-  if (value.match(/[0123456789]/i)) {
-
-    if (display === DEFAULT_DISPLAY_VALUE) {
-      return ownValue(value)
-    } else {
-      let copy = display
-      copy = copy.trim()
-      return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value)
+const controller = value => {
+    const { display } = getState().main;
+    if (getState().main.expression) {
+        SET_EXPRESSION('');
+    }
+    if (value.match(/[0123456789]/i)) {
+        if (display === DEFAULT_DISPLAY_VALUE) {
+            return ownValue(value);
+        }
+        let copy = display;
+        copy = copy.trim();
+        return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
-  }
+    if (value.match(/[√^]/)) {
+        let copy = display;
+        copy = copy.trim();
+        const array = copy.split(' ').filter(item => item);
+        if (array[array.length - 1].match(/[0123456789]/i)) {
+            copy = array.slice(0, array.length - 1);
+            return ownValue(`${copy.join(' ')}${value}( ${array[array.length - 1]} )`);
+        }
 
-  if (value.match(/[*\-/+%]/)) {
-    let copy = display
-    copy = copy.trim()
-
-    const array = copy.split(' ')
-    if (array[array.length - 1].match(/\(/)) {
-      return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE)
-    }
-    return copy[copy.length - 1].match(/[*-/+/.%]/) ? replacePreviousOperator(display, value) : changeDisplay(value)
-  }
-
-  if (value.match(/\(/)) {
-    let copy = display
-    copy = copy.trim()
-
-    if (copy[copy.length - 1].match(/\./)) {
-      return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
-    }
-    if (copy[copy.length - 1].match(/[0-9]/)) {
-      return ownValue(`${display} * ${value}`)
-    }
-    if (copy[copy.length - 1].match(/[*-/+/(%]/))
-      return changeDisplay(value)
-
-  }
-
-  if (value.match(/\)/)) {
-    let copy = display
-    copy = copy.trim()
-
-    if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
-      return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
-    }
-    return changeDisplay(value)
-  }
-
-  if (value.match(/\./)) {
-    let copy = display
-    copy = copy.trim()
-
-    const array = copy.split(' ')
-    if (array[array.length - 1].match(/\./)) {
-      return warningMessage(display, UNCORRECT_DOT_INPUT)
-    }
-    if (array[array.length - 1].match(/\)/)) {
-      return ownValue(`${display} * 0${value}`)
-    }
-    if (array[array.length - 1].match(/[0-9]/)) {
-      return ownValue(`${display.trim()}${value}`)
-    }
-    return ownValue(`${display} 0${value}`)
-  }
-
-  if (value.match(/c/i)) {
-    setDefault()
-  }
-
-  if (value.match(/ce/i)) {
-    ownValue(deleteLastItem(display))
-  }
-
-  if (value.match(/=/)) {
-    if (!checkCorrectBrakcets(display)) {
-      return warningMessage(display, UNCORRECT_BRACKETS_MESSAGE)
+        if (array[array.length - 1].match(/[*\-/+%]/i)) {
+            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
     }
 
-    if (!checkCorrectOperators(display)) {
-      return warningMessage(display, UNCORRECT_INPUT_MESSAGE)
+    if (value.match(/[*/+%]/)) {
+        let copy = display;
+        copy = copy.trim();
+
+        const array = copy.split(' ').filter(item => item);
+        if (array[array.length - 1].match(/\(/)) {
+            return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
+        }
+        if (array[array.length - 1].trim() === '-' && array[array.length - 2].match(/\(/)) {
+            replacePreviousOperator(display, '');
+            return;
+        }
+        return copy[copy.length - 1].match(/[*-/+/.%]/)
+            ? replacePreviousOperator(display, value)
+            : changeDisplay(value);
     }
 
-    getResult(display)
-  }
+    if (value.match(/[-]/)) {
+        let copy = display;
+        copy = copy.trim();
+        const array = copy.split(' ');
 
-}
+        if (array[array.length - 1].match(/\(/)) {
+            return changeDisplay(value.trim());
+        }
+        return copy[copy.length - 1].match(/[*-/+/.%]/)
+            ? replacePreviousOperator(display, value)
+            : changeDisplay(value);
+    }
+
+    if (value.match(/\(/)) {
+        let copy = display;
+        copy = copy.trim();
+        if (copy[copy.length - 1].match(/\./)) {
+            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
+        if (copy.length >= 1 && !copy.match(/[*-/+/(%]/gi)) {
+            return ownValue(value);
+        }
+        if (copy[copy.length - 1].match(/[0-9]/) && copy.length > 1) {
+            return ownValue(`${display} * ${value}`);
+        }
+        if (copy[copy.length - 1].match(/[*-/+/(%]/)) return changeDisplay(value);
+    }
+
+    if (value.match(/\)/)) {
+        let copy = display;
+        copy = copy.trim();
+
+        if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
+            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
+        return changeDisplay(value);
+    }
+
+    if (value.match(/\./)) {
+        let copy = display;
+        copy = copy.trim();
+
+        const array = copy.split(' ');
+        if (array[array.length - 1].match(/\./)) {
+            return;
+        }
+        if (array[array.length - 1].match(/\)/)) {
+            return ownValue(`${display} * 0${value}`);
+        }
+        if (array[array.length - 1].match(/[0-9]/)) {
+            return ownValue(`${display.trim()}${value}`);
+        }
+        if (array[array.length - 1].match(/-/) && array[array.length - 2].match(/\(/)) {
+            return ownValue(`${display.trim()}0${value}`);
+        }
+        return ownValue(`${display} 0${value}`);
+    }
+
+    if (value.match(/c/i)) {
+        setDefault();
+        SET_EXPRESSION('');
+    }
+
+    if (value.match(/ce/i)) {
+        ownValue(deleteLastItem(display));
+    }
+
+    if (value.match(/=/)) {
+        if (!checkCorrectBrakcets(display)) {
+            return warningMessage(display, UNCORRECT_BRACKETS_MESSAGE);
+        }
+
+        if (!checkCorrectOperators(display)) {
+            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
+        addHistoryItem({
+            id: uuidv4(),
+            display
+        });
+        getResult(display);
+    }
+};
+
+export default controller;

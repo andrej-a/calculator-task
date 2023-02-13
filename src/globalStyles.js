@@ -1,20 +1,13 @@
-import {
-  createGlobalStyle,
-} from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle `
-
-  @font-face {
-    font-family: 'HelveticaNeue Regular';
-    src: url("./src/assets/fonts/HelveticaNeueRegular.ttf");
-  }
+export default createGlobalStyle`
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'HelveticaNeue Regular';
+    font-family: 'Helvetica Neue' 700;
   }
 
   html, body {
@@ -64,4 +57,4 @@ export default createGlobalStyle `
   background-color: #434343;
   border-radius: 8px;
 }
-`
+`;

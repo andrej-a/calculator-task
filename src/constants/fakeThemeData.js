@@ -1,7 +1,14 @@
-export const fakeThemeData = [{
-  id: '12345',
-  value: 'Light theme',
-}, {
-  id: '54321',
-  value: 'Dark theme',
-}]
+const fakeThemeData = [
+    {
+        id: 'light_theme',
+        value: 'LightTheme',
+        testValue: 'Light theme'
+    },
+    {
+        id: 'dark_theme',
+        value: 'DarkTheme',
+        testValue: 'Dark theme'
+    }
+];
+
+export default fakeThemeData;
