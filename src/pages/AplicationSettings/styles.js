@@ -2,18 +2,24 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-const { mobileL } = size;
+const { tablet, mobileL } = size;
 
 export const SettingsWrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    width: ${props => props.theme.widthOptions.width};
+    max-width: ${props => props.theme.widthOptions.maxWidth};
     height: auto;
-    min-height: calc(100vh - 80px);
+    min-height: 960px;
 
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+
+    @media (max-width: ${tablet}) {
+        min-height: none;
+        height: 100vh;
+    }
 `;
 export const TitleWrapper = styled.div`
     margin-top: 61px;
@@ -58,11 +64,11 @@ export const ClearHistoryButton = styled.button`
     position: absolute;
     z-index: 0;
 
-    width: 401px;
+    width: ${props => props.theme.widthOptions.clearHistoryButton};
     height: 93px;
     margin-top: 475px;
     margin-left: 91px;
-    padding-left: 27px;
+    padding-left: 20px;
     border: 2px solid ${props => props.theme.SECOND_BORDER_COLOR};
     border-radius: 8px;
 
@@ -91,7 +97,6 @@ export const ClearHistoryButton = styled.button`
     @media(max-width: ${ mobileL }) {
         left: calc(50% - 125px);
 
-        margin-left: 0;
         width: 250px;
         height: 50px;
         margin-left: 0px;

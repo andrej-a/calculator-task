@@ -1,4 +1,4 @@
-import { DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE, LightTheme } from '@/constants';
+import { DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE } from '@/constants';
 import {
     ADD_ITEM_TO_HISTORY,
     CHANGE_DISPLAY_VALUE,
@@ -10,6 +10,7 @@ import {
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
     SET_OWN_VALUE} from '@/redux/actions/actionTypes';
+import { themeOptions } from '@/styles';
 
 const INITIAL_STATE = {
     history: [],
@@ -21,7 +22,7 @@ const INITIAL_STATE = {
 
 const THEME_STATE = {
     themeValue: DEFAULT_THEME_VALUE,
-    theme: LightTheme,
+    theme: themeOptions.lightTheme,
 };
 
 export const themeReducer = (state = THEME_STATE, {type, payload}) => {

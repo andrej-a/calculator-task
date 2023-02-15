@@ -5,7 +5,7 @@ import { HEADER_TITLE } from '@/constants/componentsConstants';
 import { switchMenu } from '@/redux/actions/actions';
 
 import HistoryToggler from './HistoryToggler';
-import { Burger, BurgerWrapper, LinksWrapper, Title, TitleWrapper, Wrapper } from './styles';
+import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper } from './styles';
 
 const Header = props => {
     const { children } = props;
@@ -17,7 +17,7 @@ const Header = props => {
     };
 
     return (
-      <Wrapper>
+      <HeaderWrapper>
         <TitleWrapper>
           <Title>{HEADER_TITLE}</Title>
         </TitleWrapper>
@@ -30,7 +30,7 @@ const Header = props => {
           {children}
           <HistoryToggler />
         </LinksWrapper>
-      </Wrapper>
+      </HeaderWrapper>
     );
 };
 

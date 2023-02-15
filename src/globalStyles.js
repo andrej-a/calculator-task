@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+    @import url("https://fonts.cdnfonts.com/css/helvetica-neue-9");
 
   * {
     margin: 0;

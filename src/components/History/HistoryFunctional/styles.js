@@ -11,20 +11,15 @@ export const HistoryWrapper = styled.div`
     align-items: center;
 
     width: 20%;
-    max-height: 1150px;
-
-    @media (max-width: ${ desktop }) {
-        max-height: 980px;
-    }
+    max-height: 960px;
 
     @media (max-width: ${ tablet }) {
         position: absolute;
         z-index: 2;
         left: ${props => props.showHistory ? NO_INDENT : SET_INDENT};
 
-        width: 100%;
-        max-height: 1500px;
-        height: 1500px;
+        width: ${props => props.theme.widthOptions.width};
+        height: 100vh;
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
     }
 `;

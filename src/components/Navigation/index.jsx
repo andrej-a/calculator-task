@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
-import { activeStyle, nonActive } from "@/constants";
 import links from "@/constants/links";
 import { switchMenu } from "@/redux/actions/actions";
+import { activeStyle, nonActive } from "@/styles";
 
 import PageLink from "./styles";
 

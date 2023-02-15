@@ -2,38 +2,30 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-export const Wrapper = styled.div`
+export const HeaderWrapper = styled.div `
     display: flex;
     justify-content: space-between;
 
-    width: 100vw;
-    max-width: ${size.desktop};
-    height: auto;
-    min-height: 120px;
+    width: ${props => props.theme.widthOptions.width};
+    max-width: ${props => props.theme.widthOptions.maxWidth};
+    min-height: auto;
+    height: 80px;
     border: 1px solid ${props => props.theme.BORDER_COLOR};
 
     background: ${props => props.theme.MAIN_COLOR};
-
-    @media (max-width: ${size.laptop}) {
-        min-height: auto;
-        height: 80px;
-    }
 `;
-export const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div `
     width: auto;
     height: auto;
-    margin-top: 42px;
+    margin-top: 22px;
     margin-left: 32px;
 
     @media (max-width: ${size.laptop}) {
         z-index: 4;
-
-        margin-top: 22px;
-        margin-left: 32px;
         position: relative;
     }
 `;
-export const Title = styled.h1`
+export const Title = styled.h1 `
     font-size: 32px;
     letter-spacing: 0px;
     color: ${props => props.theme.SECOND_FONT_COLOR};
@@ -42,13 +34,13 @@ export const Title = styled.h1`
         font-size: 28px;
     }
 `;
-export const LinksWrapper = styled.div`
+export const LinksWrapper = styled.div `
     display: flex;
     gap: 32px;
 
     width: auto;
     height: auto;
-    margin-top: 42px;
+    margin-top: 22px;
     margin-right: 32px;
     transition: all 0.3s ease;
 
@@ -56,11 +48,6 @@ export const LinksWrapper = styled.div`
         height: 45px;
 
         text-decoration: none;
-    }
-
-    @media (max-width: ${size.laptop}) {
-        margin-top: 22px;
-        margin-right: 32px;
     }
 
     @media (max-width: ${size.tablet}) {
@@ -82,7 +69,8 @@ export const LinksWrapper = styled.div`
         }
     }
 `;
-export const BurgerWrapper = styled.div`
+
+export const BurgerWrapper = styled.div `
     position: relative;
     z-index: 4;
     flex-direction: column;
@@ -100,7 +88,7 @@ export const BurgerWrapper = styled.div`
         display: flex;
     }
 `;
-export const Burger = styled.div`
+export const Burger = styled.div `
     width: 50px;
     height: 2px;
 

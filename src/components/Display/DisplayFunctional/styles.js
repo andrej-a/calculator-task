@@ -9,10 +9,9 @@ export const DisplayWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
 
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
+    width: ${props => props.theme.widthOptions.width};
     overflow-y: auto;
+
 `;
 
 export const ValueWrapper = styled.div`
@@ -31,6 +30,8 @@ export const ValueWrapper = styled.div`
     }
 
     @media (max-width: ${ tablet }) {
+        padding: 0;
+        padding-right: 20px;
         max-height: 125px;
     }
 `;
@@ -57,7 +58,9 @@ export const ExpressionWrapper = styled(ValueWrapper)`
     padding-bottom: 0;
 
     @media (max-width: ${ tablet }) {
-        height: 50px;;
+        padding-right: 20px;
+        min-height: auto;
+        height: 40px;
     }
 `;
 
