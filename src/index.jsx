@@ -10,7 +10,6 @@ import Application from '@/components/App';
 import GlobalStyles from '@/globalStyles';
 
 import { persistor, store } from './redux/store';
-/* eslint no-unused-vars: "off" */
 import i18n from './settings/18n';
 
 ReactDOM.render(

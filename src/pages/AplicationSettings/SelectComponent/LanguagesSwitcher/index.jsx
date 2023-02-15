@@ -5,17 +5,15 @@ import fakeLanguagesData from '@/constants/fakeLanguagesData';
 
 import Options from '../Theme/styles';
 
-const LanguagesSwitcher = props => {
+const LanguagesSwitcher = ({ onSetIsOpen }) => {
     const { t, i18n } = useTranslation();
-    const { onSetIsOpen } = props;
 
     const languageManager = language => () => {
         i18n.changeLanguage(language);
         onSetIsOpen();
     };
 
-    const options = fakeLanguagesData.map(data => {
-        const { id, value, title } = data;
+    const options = fakeLanguagesData.map(({ id, value, title }) => {
         return (
           <Options
             data-test={value}

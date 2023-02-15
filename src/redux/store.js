@@ -2,16 +2,18 @@ import { combineReducers,createStore } from 'redux';
 import { persistReducer,persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import historyReducer from './reducers/history';
 import reducer, { themeReducer } from './reducers/reducer';
 
 const rootReducer = combineReducers({
     main: reducer,
     theme: themeReducer,
+    historyStore: historyReducer,
 });
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['main']
+    blacklist: ['main', 'historyStore']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

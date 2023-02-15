@@ -6,13 +6,17 @@ import {
     CHANGE_THEME_OBJECT,
     CHANGE_THEME_VALUE,
     CLEAR_ALL_DATA,
-    HISTORY_SWITCHER,
+    CLEAR_HISTORY,    HISTORY_SWITCHER,
     MENU_SWITCHER,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
     SET_OWN_VALUE} from './actionTypes';
 
-export const switchHistory = ({
+export const clearHistory = () => ({
+    type: CLEAR_HISTORY
+});
+
+export const switchHistory = () => ({
     type: HISTORY_SWITCHER
 });
 
@@ -54,8 +58,7 @@ export const clearAllData = () => ({
     type: CLEAR_ALL_DATA,
     payload: {
         display: DEFAULT_DISPLAY_VALUE,
-        expression: '',
-        history: []
+        expression: ''
     }
 });
 

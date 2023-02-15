@@ -8,11 +8,6 @@ import controller from '@/utils/controller';
 import { DisplayKeypadWrapper, HomeWrapper } from '../HomeFunctional/styles';
 
 class HomeClassComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
           <HomeWrapper>

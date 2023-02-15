@@ -7,8 +7,7 @@ import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 
 const History = () => {
-    const history = useSelector(state => state.main.history);
-    const showHistory = useSelector(state => state.main.showHistory);
+    const {history, showHistory} = useSelector(state => state.historyStore);
     const { t } = useTranslation();
 
     const historyItems = history.map(item => {

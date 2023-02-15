@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
+import Calculator from '@/components/Calculator';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import ControlPanel from '@/containers/ControlPanel';
 
 import ApplicationWrapper from './styles';
 
@@ -16,7 +16,7 @@ const Application = () => {
       <ErrorBoundary>
         <ThemeProvider theme={theme}>
           <ApplicationWrapper>
-            <ControlPanel theme={theme} />
+            <Calculator theme={theme} />
           </ApplicationWrapper>
         </ThemeProvider>
       </ErrorBoundary>

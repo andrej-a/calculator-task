@@ -1,11 +1,9 @@
 import { DEFAULT_DISPLAY_VALUE, DEFAULT_THEME_VALUE } from '@/constants';
 import {
-    ADD_ITEM_TO_HISTORY,
     CHANGE_DISPLAY_VALUE,
     CHANGE_THEME_OBJECT,
     CHANGE_THEME_VALUE,
     CLEAR_ALL_DATA,
-    HISTORY_SWITCHER,
     MENU_SWITCHER,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
@@ -13,11 +11,9 @@ import {
 import { themeOptions } from '@/styles';
 
 const INITIAL_STATE = {
-    history: [],
     display: '5 + 5',
     expression: '',
     menu: false,
-    showHistory: false
 };
 
 const THEME_STATE = {
@@ -46,24 +42,11 @@ export const themeReducer = (state = THEME_STATE, {type, payload}) => {
 
 const reducer = (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {
-        case HISTORY_SWITCHER:
-            return {
-                ...state,
-                showHistory: !state.showHistory
-            };
-
         case MENU_SWITCHER:
             return {
                 ...state,
                 menu: !state.menu
             };
-
-        case ADD_ITEM_TO_HISTORY:
-            return {
-                ...state,
-                history: [payload, ...state.history]
-            };
-
         case CHANGE_DISPLAY_VALUE:
             return {
                 ...state,

@@ -24,6 +24,8 @@
         "prefer-destructuring": "off",
         "react/destructuring-assignment": "off",
         "array-callback-return": "off",
+        "react/jsx-filename-extension": "off",
+        "react/prefer-stateless-function": "off",
         "no-underscore-dangle": "off",
         "import/no-extraneous-dependencies": [
             "error",

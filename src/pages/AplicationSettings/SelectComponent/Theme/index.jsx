@@ -9,9 +9,8 @@ import { themeOptions } from '@/styles';
 
 import Options from './styles';
 
-const Theme = props => {
+const Theme = ({ onSetIsOpen }) => {
     const dispatch = useDispatch();
-    const { onSetIsOpen } = props;
     const { t } = useTranslation();
     const {darkTheme, lightTheme} = themeOptions;
 
@@ -22,8 +21,7 @@ const Theme = props => {
         onSetIsOpen();
     };
 
-    const options = fakeThemeData.map(data => {
-        const { id, value, testValue } = data;
+    const options = fakeThemeData.map(({ id, value, testValue }) => {
         return (
           <Options
             data-test={testValue}

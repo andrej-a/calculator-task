@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NO_INDENT, SET_INDENT } from '@/constants';
 import size from '@/constants/sizes';
 
-const { desktop, tablet } = size;
+const { tablet } = size;
 
 export const HistoryWrapper = styled.div`
     display: flex;

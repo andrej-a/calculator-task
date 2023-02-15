@@ -23,17 +23,17 @@ import Theme from './SelectComponent/Theme';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
 
 class Settings extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state  = {};
-    }
-
     render() {
-        const { history, clearAllData, themeTitle, t } = this.props;
+        const { history, clearAllData, clearHistory, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE
             ? RUSSIAN_LANGUAGE : ENGLISH_LANGUAGE;
         const THEME_SELECTOR_TITLE = themeTitle === LIGHT_THEME_TITLE_EN || themeTitle === LIGHT_THEME_TITLE_RU
             ? "LightTheme" : "DarkTheme";
+
+        const infoManager = () => {
+            clearAllData();
+            clearHistory();
+        };
 
         return (
           <SettingsWrapper>
@@ -60,7 +60,7 @@ class Settings extends React.Component {
 
             <ClearHistoryButton
               data-test="clearHistory" disabled={!history.length}
-              onClick={clearAllData}>
+              onClick={infoManager}>
               {t(CLEAR_HISTORY_BUTTON)}
             </ClearHistoryButton>
           </SettingsWrapper>
@@ -74,9 +74,9 @@ Settings.propTypes = {
     themeTitle: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({ main, theme }) => {
+const mapStateToProps = ({ historyStore, theme }) => {
     return {
-        history: main.history,
+        history: historyStore.history,
         themeTitle: theme.themeValue
     };
 };
