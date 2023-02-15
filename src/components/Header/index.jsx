@@ -10,7 +10,7 @@ import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper 
 const Header = props => {
     const { children } = props;
     const dispatch = useDispatch();
-    const menu = useSelector(state => state.main.menu);
+    const menu = useSelector(state => state.expression.menu);
 
     const onHandleMenu = () => {
         dispatch(switchMenu);

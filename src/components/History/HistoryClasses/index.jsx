@@ -53,9 +53,9 @@ HistoryClasses.propTypes = {
     showHistory: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = ({ main }) => ({
-    history: main.history,
-    showHistory: main.showHistory
+const mapStateToProps = ({ historyStore }) => ({
+    history: historyStore.history,
+    showHistory: historyStore.showHistory
 });
 
 export default withTranslation()(connect(mapStateToProps)(HistoryClasses));

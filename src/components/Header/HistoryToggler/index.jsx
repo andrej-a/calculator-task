@@ -10,7 +10,7 @@ import ShowHistory from './styles';
 const HistoryToggler = () => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
-    const showHistory = useSelector(state => state.main.showHistory);
+    const showHistory = useSelector(state => state.historyStore.showHistory);
 
     const togglerManager = () => {
         dispatch(switchMenu);

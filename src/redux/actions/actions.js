@@ -16,7 +16,7 @@ export const clearHistory = () => ({
     type: CLEAR_HISTORY
 });
 
-export const switchHistory = () => ({
+export const switchHistory = ({
     type: HISTORY_SWITCHER
 });
 

@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';

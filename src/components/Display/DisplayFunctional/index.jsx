@@ -5,8 +5,7 @@ import ExpressionComponent from './Expression';
 import { Border, DisplayWrapper, Value, ValueWrapper } from './styles';
 
 const Display = () => {
-    const display = useSelector(state => state.main.display);
-    const expression = useSelector(state => state.main.expression);
+    const {display, expression} = useSelector(state => state.expression);
     return (
       <DisplayWrapper>
         <ExpressionComponent expression={expression} />

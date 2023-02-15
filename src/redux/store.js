@@ -3,17 +3,19 @@ import { persistReducer,persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import historyReducer from './reducers/history';
-import reducer, { themeReducer } from './reducers/reducer';
+import reducer from './reducers/reducer';
+import themeReducer from './reducers/theme';
 
 const rootReducer = combineReducers({
-    main: reducer,
+    expression: reducer,
     theme: themeReducer,
     historyStore: historyReducer,
 });
+
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['main', 'historyStore']
+    blacklist: ['expression', 'historyStore']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

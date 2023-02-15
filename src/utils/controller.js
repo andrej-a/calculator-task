@@ -36,10 +36,10 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
 );
 
 const controller = value => {
-    const { display } = getState().main;
+    const { display } = getState().expression;
     let copy = display;
     copy = copy.trim();
-    if (getState().main.expression) {
+    if (getState().expression.expression) {
         SET_EXPRESSION('');
     }
     if (value.match(/[0123456789]/i)) {
