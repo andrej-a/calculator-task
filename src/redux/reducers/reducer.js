@@ -8,7 +8,7 @@ import {
     SET_OWN_VALUE} from '@/redux/actions/actionTypes';
 
 const INITIAL_STATE = {
-    display: '5 + 5',
+    display: '5 + √ ( 100 )',
     expression: '',
     menu: false,
 };

@@ -9,7 +9,6 @@ import ApplicationWrapper from './styles';
 
 const Application = () => {
     const { theme } = useSelector(state => {
-        console.log(state);
         return state.theme;
     });
     return (

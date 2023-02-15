@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { HEADER_TITLE } from '@/constants/componentsConstants';
-import { switchMenu } from '@/redux/actions/actions';
+import { switchMenu } from '@/redux/actions';
 
 import HistoryToggler from './HistoryToggler';
 import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper } from './styles';

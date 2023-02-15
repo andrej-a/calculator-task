@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
-import { switchHistory,switchMenu } from '@/redux/actions/actions';
+import { switchHistory,switchMenu } from '@/redux/actions';
 
 import ShowHistory from './styles';
 

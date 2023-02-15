@@ -12,7 +12,7 @@ import {
     changeDisplayValue,
     setDefaultValue,
     setExpression,
-    setOwnValue} from '@/redux/actions/actions';
+    setOwnValue} from '@/redux/actions';
 import { store } from '@/redux/store';
 
 import checkCorrectBrakcets from './checkCorrectBrakcets';

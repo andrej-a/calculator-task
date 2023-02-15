@@ -15,7 +15,7 @@ import {
     SETTINGS_TITLE,
     SWITCH_LANGUAGE,
 } from '@/constants';
-import * as actions from '@/redux/actions/actions';
+import * as actions from '@/redux/actions';
 
 import SelectComponent from './SelectComponent';
 import LanguagesSwitcher from './SelectComponent/LanguagesSwitcher';

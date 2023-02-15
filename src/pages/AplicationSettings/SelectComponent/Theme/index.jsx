@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { DEFAULT_THEME_VALUE } from '@/constants';
 import fakeThemeData from '@/constants/fakeThemeData';
-import { changeTheme, changeThemeValue } from '@/redux/actions/actions';
+import { changeTheme, changeThemeValue } from '@/redux/actions';
 import { themeOptions } from '@/styles';
 
 import Options from './styles';

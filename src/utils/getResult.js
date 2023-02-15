@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 
-import { setExpression,setOwnValue } from '@/redux/actions/actions';
+import { setExpression,setOwnValue } from '@/redux/actions';
 import { store } from '@/redux/store';
 
 import checkPriority from './checkPriority';

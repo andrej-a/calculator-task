@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 
-import { setOwnValue } from '@/redux/actions/actions';
+import { setOwnValue } from '@/redux/actions';
 import { store } from '@/redux/store';
 
 const { dispatch } = store;

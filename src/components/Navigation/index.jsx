@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
 import links from "@/constants/links";
-import { switchMenu } from "@/redux/actions/actions";
+import { switchMenu } from "@/redux/actions";
 import { activeStyle, nonActive } from "@/styles";
 
 import PageLink from "./styles";

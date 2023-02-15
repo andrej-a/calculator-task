@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-const { tablet, mobileL } = size;
+const {
+    tablet,
+    mobileL
+} = size;
 
-export const SettingsWrapper = styled.div`
+export const SettingsWrapper = styled.div `
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,20 +24,20 @@ export const SettingsWrapper = styled.div`
         height: 100vh;
     }
 `;
-export const TitleWrapper = styled.div`
-    margin-top: 61px;
-    margin-left: 84px;
-    margin-bottom: 36px;
+export const TitleWrapper = styled.div `
+
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: ${ mobileL }) {
-        margin-left: 0;
-        margin-bottom: 18px;
-
-        text-align: center;
+        width: 100%;
     }
 
 `;
-export const Title = styled.h2`
+export const Title = styled.h2 `
     font-size: 64px;
     line-height: 77px;
     letter-spacing: 0px;
@@ -45,9 +48,12 @@ export const Title = styled.h2`
         font-size: 46px;
     }
 `;
-export const LabelWrapper = styled.div`
-    margin-top: 10px;
-    margin-left: 94px;
+export const LabelWrapper = styled.div `
+    width: 355px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     label {
         font-size: 24px;
@@ -57,10 +63,11 @@ export const LabelWrapper = styled.div`
     }
 
     @media (max-width: ${ mobileL }) {
-        margin-left: 20px;
+        padding-left: 30px;
+        justify-content: flex-start;
     }
 `;
-export const ClearHistoryButton = styled.button`
+export const ClearHistoryButton = styled.button `
     position: absolute;
     z-index: 0;
 
