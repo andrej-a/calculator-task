@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import buttonsObject from '@/constants/buttons';
+import ControlPanel from '@/containers/ControlPanel';
 
 import { Key, Wrapper } from './styles';
 
 const Keypad = React.memo(({ controller }) => {
+    const { isKeypadBlocked } = useSelector(state => state.expression);
     const keypadManager = value => () => {
         controller(value);
     };
@@ -13,6 +16,7 @@ const Keypad = React.memo(({ controller }) => {
         const { value } = button;
         return (
           <Key
+            disabled={isKeypadBlocked}
             data-test={value.trim()}
             onClick={keypadManager(value)}
             key={value}>
@@ -20,7 +24,12 @@ const Keypad = React.memo(({ controller }) => {
           </Key>
         );
     });
-    return <Wrapper>{keypad}</Wrapper>;
+    return (
+      <Wrapper>
+        {keypad}
+        <ControlPanel />
+      </Wrapper>
+);
 });
 
 Keypad.propTypes = {

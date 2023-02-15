@@ -11,3 +11,4 @@ export const SET_DEFAULT_VALUE = 'reducer/set default value';
 export const CLEAR_ALL_DATA = 'reducer/clear all data';
 export const SET_EXTENSION = 'reducer/set expression';
 export const MENU_SWITCHER = 'reducer/menu switcher';
+export const IS_KEYPAD_BLOCKED = 'reducer/is keypad blocked';

@@ -17,7 +17,7 @@ export const HomeWrapper = styled.div`
 export const DisplayKeypadWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
 
     @media (max-width: ${tablet}) {
         width: 100%;

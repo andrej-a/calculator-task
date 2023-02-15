@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import buttonsObject from '@/constants/buttons';
+import ControlPanel from '@/containers/ControlPanel';
 
 import { Key, Wrapper } from '../KeypadFunctional/styles';
 
@@ -16,10 +18,12 @@ class KeypadClasses extends React.PureComponent {
     }
 
     render() {
+        const { isKeypadBlocked } = this.props;
         const keypad = buttonsObject.map(button => {
             const { value } = button;
             return (
               <Key
+                disabled={isKeypadBlocked}
                 data-test={value.trim()}
                 onClick={this.keypadManager(value)}
                 key={value}>
@@ -28,7 +32,12 @@ class KeypadClasses extends React.PureComponent {
             );
         });
 
-        return <Wrapper>{keypad}</Wrapper>;
+        return (
+          <Wrapper>
+            {keypad}
+            <ControlPanel />
+          </Wrapper>
+        );
     }
 }
 
@@ -36,4 +45,8 @@ KeypadClasses.propTypes = {
     controller: PropTypes.func.isRequired
 };
 
-export default KeypadClasses;
+const mapStateToProps = ({expression}) => ({
+    isKeypadBlocked: expression.isKeypadBlocked
+});
+
+export default connect(mapStateToProps)(KeypadClasses);

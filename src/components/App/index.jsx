@@ -8,9 +8,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import ApplicationWrapper from './styles';
 
 const Application = () => {
-    const { theme } = useSelector(state => {
-        return state.theme;
-    });
+    const { theme } = useSelector(state => state.theme);
     return (
       <ErrorBoundary>
         <ThemeProvider theme={theme}>

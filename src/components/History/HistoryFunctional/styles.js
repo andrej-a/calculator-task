@@ -6,7 +6,7 @@ import size from '@/constants/sizes';
 const { tablet } = size;
 
 export const HistoryWrapper = styled.div`
-    display: flex;
+    display: ${props => props.showHistory ? 'flex' : 'none'};;
     flex-direction: column;
     align-items: center;
 

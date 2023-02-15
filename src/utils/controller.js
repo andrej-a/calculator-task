@@ -17,6 +17,7 @@ import { store } from '@/redux/store';
 
 import checkCorrectBrakcets from './checkCorrectBrakcets';
 import checkCorrectOperators from './checkCorrectOperators';
+import checkIfValueIsExpression from './checkIfValueIsExpression';
 import deleteLastItem from './deleteLastItem';
 import getResult from './getResult';
 import replacePreviousOperator from './replacePreviousOperator';
@@ -138,6 +139,11 @@ const controller = value => {
 
         if (!checkCorrectOperators(display)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+        }
+        console.log(display.replace(/[()]/g, '').split(' ').filter(Boolean), 'DISPLAY');
+
+        if (!checkIfValueIsExpression(display)) {
+            return;
         }
         addHistoryItem({
             id: uuidv4(),

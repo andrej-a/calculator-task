@@ -7,11 +7,14 @@ import {
     CHANGE_THEME_VALUE,
     CLEAR_ALL_DATA,
     CLEAR_HISTORY,    HISTORY_SWITCHER,
-    MENU_SWITCHER,
+    IS_KEYPAD_BLOCKED,    MENU_SWITCHER,
     SET_DEFAULT_VALUE,
     SET_EXTENSION,
     SET_OWN_VALUE} from './actionTypes';
 
+export const isKeypadBlocked = () => ({
+    type: IS_KEYPAD_BLOCKED
+});
 export const clearHistory = () => ({
     type: CLEAR_HISTORY
 });
