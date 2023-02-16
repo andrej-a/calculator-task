@@ -8,7 +8,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Helvetica Neue' 700;
+    font-family: 'Helvetica Neue';
   }
 
   html, body {

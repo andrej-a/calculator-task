@@ -6,8 +6,8 @@ export const HeaderWrapper = styled.div `
     display: flex;
     justify-content: space-between;
 
-    width: ${props => props.theme.widthOptions.width};
-    max-width: ${props => props.theme.widthOptions.maxWidth};
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-width: ${props => props.theme.widthOptions.desktop};
     min-height: auto;
     height: 80px;
     border: 1px solid ${props => props.theme.BORDER_COLOR};

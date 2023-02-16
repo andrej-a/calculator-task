@@ -40,7 +40,7 @@ class Settings extends React.Component {
 
             {selects.map(({labelHtmlFor, labelTitle, dataTestValue, renderProps}) => {
                 return (
-                  <React.Fragment>
+                  <React.Fragment key={labelTitle}>
                     <LabelWrapper>
                       <label htmlFor={labelHtmlFor}>{t(labelTitle)}</label>
                     </LabelWrapper>

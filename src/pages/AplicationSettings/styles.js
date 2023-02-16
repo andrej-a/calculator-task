@@ -5,88 +5,87 @@ import size from '@/constants/sizes';
 const { tablet, mobileL } = size;
 
 export const SettingsWrapper = styled.div `
-    position: relative;
+    position: ${props => props.theme.position.relative};
+
     display: flex;
     flex-direction: column;
-
-    width: ${props => props.theme.widthOptions.width};
-    max-width: ${props => props.theme.widthOptions.maxWidth};
-    height: auto;
-    min-height: 960px;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-width: ${props => props.theme.widthOptions.desktop};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    min-height: ${props => props.theme.heightOptions.laptop};
 
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 
     @media (max-width: ${tablet}) {
-        min-height: 0;
-        height: 840px;
+        min-height: ${props => props.theme.heightOptions.minHeightTurnOff};
+        height: ${props => props.theme.heightOptions.settingsTablet};
     }
 
     @media (max-width: ${mobileL}) {
-        height: 670px;
+        height: ${props => props.theme.heightOptions.settingsMobileL};
     }
 `;
 export const TitleWrapper = styled.div `
 
-    width: 500px;
-    height: 100px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: ${props => props.theme.widthOptions.settingsTitle};
+    height: ${props => props.theme.heightOptions.settingsTitle};
+
+    align-items: ${props => props.theme.aligntItems.center};
 
     @media (max-width: ${ mobileL }) {
-        width: 100%;
+        width: ${props => props.theme.widthOptions.fullScreen};
     }
 
 `;
 export const Title = styled.h2 `
-    font-size: 64px;
-    line-height: 77px;
-    letter-spacing: 0px;
-    font-weight: 700;
+
+    font-size: ${props => props.theme.fontSize.desktop};
     color: ${props => props.theme.FONT_COLOR};
 
     @media (max-width: ${ mobileL }) {
-        font-size: 46px;
+        font-size: ${props => props.theme.fontSize.mobileL};
     }
 `;
 export const LabelWrapper = styled.div `
-    width: 355px;
-    height: 55px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: ${props => props.theme.aligntItems.center};
+    width: ${props => props.theme.widthOptions.settingsLabel};
+    height: ${props => props.theme.heightOptions.settingsLabel};
 
     label {
-        font-size: 24px;
-        line-height: 29px;
-        font-weight: 700;
+        font-size: ${props => props.theme.fontSize.label};
+        font-weight: ${props => props.theme.fontWeight.default};
         color: ${props => props.theme.FONT_COLOR};
     }
 
     @media (max-width: ${ mobileL }) {
-        padding-left: 30px;
+        padding-left: ${props => props.theme.padding.labelLeft};
+
         justify-content: flex-start;
     }
 `;
+
 export const ClearHistoryButton = styled.button `
-    position: absolute;
-    z-index: 0;
+    position: ${props => props.theme.position.absolute};
+    z-index: ${props => props.theme.zIndex.minimal};
 
     width: ${props => props.theme.widthOptions.clearHistoryButton};
-    height: 93px;
-    margin-top: 475px;
-    margin-left: 91px;
-    padding-left: 20px;
-    border: 2px solid ${props => props.theme.SECOND_BORDER_COLOR};
-    border-radius: 8px;
+    height: ${props => props.theme.heightOptions.clearHistoryButton};
+    margin-top: ${props => props.theme.margin.clearHistoryButtonTop};
+    margin-left: ${props => props.theme.margin.clearHistoryButtonLeft};
+    padding-left: ${props => props.theme.padding.clearHistoryButtonLeft};
 
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: left;
-    font-size: 32px;
-    letter-spacing: 0px;
-    font-weight: 700;
+    border: ${props => `${props.theme.border.clearHistoryButton} ${props.theme.SECOND_BORDER_COLOR}`};
+    border-radius: ${props => props.theme.borderRadius.clearHistoryButton};
+
+    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
+    cursor: ${props => props.theme.cursor.pointer};
+    text-align:  ${props => props.theme.textAlign.left};
+    font-size: ${props => props.theme.fontSize.clearHistoryButton};
+    font-weight: ${props => props.theme.fontWeight.default};
     color: ${props => props.theme.CLEAR_HISTORY_BUTTON_COLOR};
 
     &:hover {
@@ -96,22 +95,22 @@ export const ClearHistoryButton = styled.button `
     }
 
     &:disabled {
-        cursor: not-allowed;
+        cursor: ${props => props.theme.cursor.noToday};
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
     }
 
     @media(max-width: ${ mobileL }) {
-        left: calc(50% - 125px);
+        left: ${props => props.theme.left.clearHistoryButton};
 
-        width: 250px;
-        height: 50px;
-        margin-left: 0px;
-        margin-top: 390px;
-        padding-left: 0;
+        width: ${props => props.theme.widthOptions.clearHistoryButtonMobile};
+        height: ${props => props.theme.heightOptions.clearHistoryButtonMobile};
+        margin-left: ${props => props.theme.margin.noLeft};
+        margin-top: ${props => props.theme.margin.clearHistoryButtonTopMobile};
+        padding-left: ${props => props.theme.padding.noLeft};
 
-        font-size: 23px;
-        text-align: center;
+        font-size: ${props => props.theme.fontSize.label};
+        text-align: ${props => props.theme.textAlign.center};
     }
 `;

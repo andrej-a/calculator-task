@@ -6,10 +6,10 @@ const ApplicationWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: ${props => props.theme.widthOptions.width};
-    max-width: ${props => props.theme.widthOptions.maxWidth};
-    height: ${props => props.theme.widthOptions.autoHeight};
-    max-height: ${props => props.theme.widthOptions.fullScreenHeight};
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-width: ${props => props.theme.widthOptions.desktop};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    max-height: ${props => props.theme.heightOptions.maxApplicationHeight};
 `;
 
 export default ApplicationWrapper;

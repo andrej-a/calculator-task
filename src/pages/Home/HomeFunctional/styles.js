@@ -6,21 +6,23 @@ const {tablet} = size;
 
 export const HomeWrapper = styled.div`
     display: flex;
-    width: ${props => props.theme.widthOptions.width};
-    max-width: ${props => props.theme.widthOptions.maxWidth};
-    height: auto;
-    max-height: 960px;
-    overflow: auto;
+
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-width: ${props => props.theme.widthOptions.desktop};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    max-height: ${props => props.theme.heightOptions.laptop};
+
+    overflow: ${props => props.theme.overflowOptions.autoOverflow};
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 `;
 
 export const DisplayKeypadWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+
+    width: ${props => props.theme.widthOptions.fullScreen};
 
     @media (max-width: ${tablet}) {
-        width: 100%;
-        height: 100%;
+        height: ${props => props.theme.heightOptions.fullScreen};
     }
 `;
