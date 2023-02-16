@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { HIDE_HISTORY,SHOW_HISTORY } from "@/constants";
 import { switchHistory } from "@/redux/actions";
+import historySelector from "@/redux/selectors/historySelector";
 
 import { ControlPanelWrapper, ToggleHistoryButton } from "./styles";
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
-    const { showHistory } = useSelector(state => state.historyStore);
+    const { showHistory } = useSelector(historySelector);
     const { t } = useTranslation();
 
     const toggleManager = () => {

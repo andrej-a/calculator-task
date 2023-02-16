@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { HEADER_TITLE } from '@/constants/componentsConstants';
 import { switchMenu } from '@/redux/actions';
+import expressionSelector from '@/redux/selectors/expressionSelector';
 
 import HistoryToggler from './HistoryToggler';
 import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper } from './styles';
@@ -10,7 +11,7 @@ import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper 
 const Header = props => {
     const { children } = props;
     const dispatch = useDispatch();
-    const { menu } = useSelector(state => state.expression);
+    const { menu } = useSelector(expressionSelector);
 
     const onHandleMenu = () => {
         dispatch(switchMenu);

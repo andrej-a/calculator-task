@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { HIDE_HISTORY, SHOW_HISTORY } from '@/constants';
 import { switchHistory,switchMenu } from '@/redux/actions';
+import historySelector from '@/redux/selectors/historySelector';
 
 import ShowHistory from './styles';
 
 const HistoryToggler = () => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
-    const { showHistory } = useSelector(state => state.historyStore);
+    const { showHistory } = useSelector(historySelector);
 
     const togglerManager = () => {
         dispatch(switchMenu);

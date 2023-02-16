@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux';
 
 import buttonsObject from '@/constants/buttons';
 import ControlPanel from '@/containers/ControlPanel';
+import expressionSelector from '@/redux/selectors/expressionSelector';
 
 import { Key, Wrapper } from './styles';
 
 const Keypad = React.memo(({ controller }) => {
-    const { isKeypadBlocked } = useSelector(state => state.expression);
+    const { isKeypadBlocked } = useSelector(expressionSelector);
     const keypadManager = value => () => {
         controller(value);
     };

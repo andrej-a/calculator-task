@@ -140,7 +140,6 @@ const controller = value => {
         if (!checkCorrectOperators(display)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
-        console.log(display.replace(/[()]/g, '').split(' ').filter(Boolean), 'DISPLAY');
 
         if (!checkIfValueIsExpression(display)) {
             return;

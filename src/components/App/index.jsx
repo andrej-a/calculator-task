@@ -4,11 +4,12 @@ import { ThemeProvider } from 'styled-components';
 
 import Calculator from '@/components/Calculator';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import themeSelector from '@/redux/selectors/themeSelector';
 
 import ApplicationWrapper from './styles';
 
 const Application = () => {
-    const { theme } = useSelector(state => state.theme);
+    const { theme } = useSelector(themeSelector);
     return (
       <ThemeProvider theme={theme}>
         <ErrorBoundary>
