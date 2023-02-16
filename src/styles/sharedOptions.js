@@ -86,8 +86,10 @@ const sharedOptions = {
     },
     background: {
         white: '#fff',
+        darkGrey: '#707070'
     },
     color: {
+        white: '#fff',
         black: '#000',
     }
 };

@@ -5,28 +5,25 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 const Options = styled.div`
-    width: 100%;
-    height: 80px;
-    border: 2px solid #707070;
-    padding-top: 15px;
-    padding-left: 27px;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    height: ${props => props.theme.heightOptions.settingsPageElements};
+    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
+    padding-top: ${props => props.theme.padding.settingsPageElementsTop};
+    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
 
-    letter-spacing: 0px;
-    font-weight: 900;
-
-    background: #ffffff 0% 0% no-repeat padding-box;
-    font-size: 32px;
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    background: ${props => props.theme.background.white};
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
+    font-weight: ${props => props.theme.fontWeight.default};
+    color: ${props => props.theme.color.black};
+    cursor: ${props => props.theme.cursor.pointer};
 
     &:hover {
-        background: #707070;
-        color: #fff;
+        background: ${props => props.theme.background.darkGrey};
+        color: ${props => props.theme.color.white};
     }
 
     @media (max-width: ${ mobileL }) {
-        width: 100%;
+        width: ${props => props.theme.widthOptions.fullScreen};
     }
 `;
 
