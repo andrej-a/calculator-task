@@ -28,11 +28,13 @@ const sharedOptions = {
         settingsTitle: '500px',
         settingsLabel: '355px',
         selectTitleMobileL: '90%',
+        borderWidth: '90%',
     },
     heightOptions: {
         autoHeight: 'auto',
         fullScreen: '100%',
         maxApplicationHeight: '1080px',
+        maxValueHeight: '250px',
         laptop: '960px',
         minHeightTurnOff: '0',
         settingsTablet: '840px',
@@ -41,12 +43,20 @@ const sharedOptions = {
         settingsLabel: '55px',
         settingsPageElements: '90px',
         settingsPageElementsMobile: '50px',
+        displayValueTabletMax: '50%',
+        displayValueMin: '49%',
+        displayMinHeight: '158px',
+        displayMinHeightTablet: '80px',
+        expressionMinHeight: '40px',
+        borderHeight: '2px'
     },
     margin: {
+        noMargin: '0',
         noLeft: '0px',
         clearHistoryButtonTop: '475px',
         clearHistoryButtonTopMobile: '390px',
         settingsPageElements: '90px',
+        center: '0 auto'
     },
     padding: {
         noLeft: '0px',
@@ -54,6 +64,10 @@ const sharedOptions = {
         settingsPageElementsLeft: '20px',
         settingsPageElementsTop: '25px',
         selectComponentTopMobileL: '5px',
+        toggleHistoryButton: '10px',
+        displayPadding: '0px 110px 0px 60px',
+        displayLaptopPadding: '0px 50px',
+        displayTabletPadding: '0px 30px',
     },
     overflowOptions: {
         autoOverflow: 'auto',
@@ -66,6 +80,7 @@ const sharedOptions = {
         mobileL: '46px',
         settingsPageElements: '32px',
         label: '24px',
+        mainPageElements: '32px',
     },
     fontWeight: {
         default: '700',
@@ -74,7 +89,7 @@ const sharedOptions = {
         settingsPageElements: '2px solid'
     },
     borderRadius: {
-        settingsPageElements: '8px',
+        settingsPageElements: '10px',
     },
     cursor: {
         pointer: 'pointer',
@@ -91,6 +106,15 @@ const sharedOptions = {
     color: {
         white: '#fff',
         black: '#000',
+    },
+    transition: {
+        default: 'all .3s ease-out',
+    },
+    lineHeight: {
+        displayLineHeight: '40px',
+    },
+    opacity: {
+        default: '0.3'
     }
 };
 

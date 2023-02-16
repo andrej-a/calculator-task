@@ -22,8 +22,7 @@ const getResult = display => {
     const expression = doCorrectValue(copyDisplay.split(' ')).filter(Boolean);
     let numberStack = [];
     let operatorsStack = [];
-    for (let i = 0; i <= expression.length + 1;) {
-
+    for (let i = 0; i <= expression.length + 2;) {
         if (i >= expression.length) {
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             const stacks = execution(previousOperator, {numberStack, operatorsStack});

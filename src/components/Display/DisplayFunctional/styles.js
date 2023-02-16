@@ -9,81 +9,77 @@ export const DisplayWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
 
-    width: ${props => props.theme.widthOptions.width};
+    width: ${props => props.theme.widthOptions.fullScreen};
+    min-height: ${props => props.theme.heightOptions.displayMinHeight};
+
     overflow-y: auto;
 
+    @media (max-width: ${ tablet }) {
+        min-height: ${props => props.theme.heightOptions.displayMinHeightTablet};
+    }
 `;
 
 export const ValueWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    width: 100%;
-    max-height: 250px;
-    padding: 0px 106px 10px 64px;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-height: ${props => props.theme.heightOptions.maxValueHeight};
+    padding: ${props => props.theme.padding.displayPadding};
 
     overflow-x: auto;
     overflow-y: auto;
+    min-height: ${props => props.theme.heightOptions.displayValueMin};
 
     @media (max-width: ${ laptop }) {
-        padding: 10px;
+        padding: ${props => props.theme.padding.displayLaptopPadding};
     }
 
     @media (max-width: ${ tablet }) {
-        padding: 0;
-        padding-right: 20px;
-        max-height: 125px;
+        padding: ${props => props.theme.padding.displayTabletPadding};
+        max-height: ${props => props.theme.heightOptions.displayValueTabletMax};
     }
 `;
 
 export const Value = styled.p`
-    width: 100%;
-    height: auto;
+    width: ${props => props.theme.widthOptions.autoWidth};
+    height: ${props => props.theme.heightOptions.autoHeight};
 
-    text-align: right;
-    font: normal normal normal 64px/77px Helvetica Neue;
-    font-weight: 600;
-    letter-spacing: 0px;
+    font-size: ${props => props.theme.fontSize.desktop};
+    font-weight: ${props => props.theme.fontWeight.default};
     color: ${props => props.theme.FONT_COLOR};
 
     @media (max-width: ${ tablet }) {
-        font-size: 34px;
-        letter-spacing: -2px;
-        line-height: 40px;
+        font-size: ${props => props.theme.fontSize.settingsPageElements};
+        line-height: ${props => props.theme.lineHeight.displayLineHeight};
     }
 `;
 export const ExpressionWrapper = styled(ValueWrapper)`
-    min-height: 80px;
-    padding-top: 0;
-    padding-bottom: 0;
-
     @media (max-width: ${ tablet }) {
-        padding-right: 20px;
-        min-height: auto;
-        height: 40px;
+        min-height: ${props => props.theme.heightOptions.expressionMinHeight}
     }
 `;
 
 export const Expression = styled(Value)`
-    font-size: 35px;
-    opacity: 0.3;
+    font-size: ${props => props.theme.fontSize.desktop};
+    font-weight: ${props => props.theme.fontWeight.default};
+    opacity: ${props => props.theme.opacity.default};
 
     @media (max-width: ${ tablet }) {
-        font-size: 35px;
+        font-size: ${props => props.theme.fontSize.settingsPageElements};
         overflow-y: hidden;
     }
 
 `;
 
 export const Border = styled.div`
-    width: 95%;
-    height: 2px;
+    width: ${props => props.theme.widthOptions.borderWidth};
+    height: ${props => props.theme.heightOptions.borderHeight};
     background: ${props => props.theme.BORDER_COLOR};
-    margin-right: 25px;
-    margin-left: 25px;
+    margin: ${props => props.theme.margin.center};
 
     @media (max-width: ${ tablet }) {
-        margin: 0;
-        width: 100%;
+        margin: ${props => props.theme.margin.noMargin};
+        width: ${props => props.theme.widthOptions.fullScreen};
     }
 `;
