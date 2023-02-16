@@ -10,42 +10,41 @@ export const HistoryWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    width: 20%;
-    max-height: 960px;
+    width: ${props => props.theme.widthOptions.history};
+    max-height: ${props => props.theme.heightOptions.laptop};
 
     @media (max-width: ${ tablet }) {
-        position: absolute;
-        z-index: 2;
+        position: ${props => props.theme.position.absolute};
+        z-index: ${props => props.theme.zIndex.stronger};
         left: ${props => props.showHistory ? NO_INDENT : SET_INDENT};
 
-        width: ${props => props.theme.widthOptions.width};
-        height: 800px;
+        width: ${props => props.theme.widthOptions.fullScreen};
+        height: ${props => props.theme.heightOptions.historyTablet};
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
     }
 
     @media (max-width: ${ mobileL }) {
-        height: 665px;
+        height: ${props => props.theme.heightOptions.historyMobileL};
     }
 `;
 
 
 export const TitleWrapper = styled.div`
-    width: auto;
-    height: auto;
-    margin: 32px 32px;
+    width: ${props => props.theme.widthOptions.autoWidth};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    margin: ${props => props.theme.margin.historyTitle};
 `;
 
 export const Title = styled.h2`
     color: ${props => props.theme.FONT_COLOR};
-    letter-spacing: 0px;
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
+    font-weight: ${props => props.theme.fontWeight.default};
+    text-align: ${props => props.theme.textAlign.center};
 `;
 
 export const ItemsWrapper = styled.div`
-    width: 100%;
-    max-height: inherit;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-height: ${props => props.theme.heightOptions.ihnerit};
     overflow-y: scroll;
     overflow-x: auto;
 
@@ -53,21 +52,19 @@ export const ItemsWrapper = styled.div`
     flex-direction: column;
 `;
 export const HistoryItemWrapper = styled.div`
-    margin-left: 32px;
+    margin-left: ${props => props.theme.margin.historyItemsLeft};
 `;
 export const HistoryItem = styled.p`
-    margin-bottom: 32px;
+    margin-bottom: ${props => props.theme.margin.historyItemBottom};
 
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 0px;
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
+    font-weight: ${props => props.theme.fontWeight.default};
     color: ${props => props.theme.FONT_COLOR};
 `;
 export const Border = styled.div`
-    width: 2px;
-    min-height: 910px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    width: ${props => props.theme.heightOptions.borderHeight};
+    min-height: ${props => props.theme.heightOptions.historyBorder};
+    margin: ${props => props.theme.margin.historyBorder};
 
     background: ${props => props.theme.BORDER_COLOR};
 

@@ -22,6 +22,8 @@ const sharedOptions = {
     },
     gap: {
         navigation: '32px',
+        keypad: '15px',
+        keypadMobileL: '0'
     },
     widthOptions: {
         noMaxWidth: 'none',
@@ -35,8 +37,14 @@ const sharedOptions = {
         selectTitleMobileL: '90%',
         borderWidth: '90%',
         burger: '50px',
+        history: '20%',
+        key: '18%',
+        keyLaptop: '17%',
+        keyTablet: '16%',
+        keyMobileL: '20%'
     },
     heightOptions: {
+        ihnerit: 'ihnerit',
         autoHeight: 'auto',
         fullScreen: '100%',
         maxApplicationHeight: '1080px',
@@ -61,6 +69,12 @@ const sharedOptions = {
         calculatorTabletHeight: '900px',
         calculatorMobileHeight: '730px',
         burger: '30px',
+        historyTablet: '800px',
+        historyMobileL: '670px',
+        historyBorder: '910px',
+        key: '125px',
+        keyMobileL: '110px'
+
     },
     margin: {
         noMargin: '0',
@@ -71,7 +85,13 @@ const sharedOptions = {
         center: '0 auto',
         header: '20px 0px 0px 30px',
         navigation: '20px 30px 0px 0px',
-        burger: '30px 30px 0px 0px'
+        burger: '30px 30px 0px 0px',
+        historyTitle: '32px',
+        historyItemsLeft: '32px',
+        historyItemBottom: '32px',
+        historyBorder: '25px 0px 25px 0px',
+        keypadTop: '20px',
+        keypadBottomMobileL: '10px',
     },
     padding: {
         noLeft: '0px',
@@ -83,7 +103,10 @@ const sharedOptions = {
         displayPadding: '0px 110px 0px 60px',
         displayLaptopPadding: '0px 50px',
         displayTabletPadding: '0px 30px',
-        errorTitle: '10px'
+        errorTitle: '10px',
+        keypadLeft: '5%',
+        keypad: '0px 20px 20px 20px',
+        keypadMobileL: '0px 20px 0px 20px'
     },
     overflowOptions: {
         autoOverflow: 'auto',
@@ -107,6 +130,7 @@ const sharedOptions = {
     },
     borderRadius: {
         settingsPageElements: '10px',
+        key: '0'
     },
     cursor: {
         pointer: 'pointer',

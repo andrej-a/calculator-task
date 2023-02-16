@@ -7,56 +7,65 @@ export const Wrapper = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
 
-    width: ${props => props.theme.widthOptions.width};
-    height: auto;
-    max-height: inherit;
-    gap: 15px;
-    padding-left: 5%;
-    margin-top: 20px;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    max-height: ${props => props.theme.heightOptions.ihnerit};
+    gap: ${props => props.theme.gap.keypad};
+    padding-left: ${props => props.theme.padding.keypadLeft};
+    margin-top: ${props => props.theme.margin.keypadTop};
 
     @media (max-width: ${size.tablet}) {
-        padding: 20px;
-        padding-top: 0px;
+        padding: ${props => props.theme.padding.keypad};
     }
 
     @media (max-width: ${size.mobileL}) {
-        gap: 0;
-        padding: 0 20px 0 20px;
         align-items: center;
-        margin-bottom: 10px;
+
+        gap: ${props => props.theme.gap.keypadMobileL};
+        padding: ${props => props.theme.padding.keypadMobileL};
+        margin-bottom: ${props => props.theme.margin.keypadBottomMobileL};
     }
 `;
 export const Key = styled.button`
-    width: 18%;
-    height: 125px;
-    border-radius: 0;
+    width: ${props => props.theme.widthOptions.key};
+    height: ${props => props.theme.heightOptions.key};
+    border-radius: ${props => props.theme.borderRadius.key};
 
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR} 0% 0% no-repeat padding-box;
-    cursor: pointer;
-    font: normal normal normal 64px/77px Helvetica Neue;
-    letter-spacing: 0px;
+    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
+    cursor: ${props => props.theme.cursor.pointer};
+    font-size: ${props => props.theme.fontSize.desktop};
     color: ${props => props.theme.BUTTON_COLOR};
-    transition: all 0.3s ease;
+    transition: ${props => props.theme.transition.default};
 
     &:hover {
+        background: ${props => props.theme.background.darkGrey};
+        color: ${props => props.theme.color.white};
         -webkit-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
         -moz-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
         box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
     }
 
+    &:disabled {
+        background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
+        color: ${props => props.theme.BUTTON_COLOR};
+        cursor: ${props => props.theme.cursor.noToday};
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
     @media (max-width: ${size.laptop}) {
-        width: 17%;
+        width: ${props => props.theme.widthOptions.keyLaptop};
     }
 
     @media (max-width: ${size.tablet}) {
-        width: 16%;
-        font: normal normal normal 64px/109px Helvetica Neue;
+        width: ${props => props.theme.widthOptions.keyTablet};
+        font-size: ${props => props.theme.fontSize.mobileL};
     }
 
     @media (max-width: ${size.mobileL}) {
-        width: 20%;
-        height: 20%;
-
-        font-size: 32px;
+        width: ${props => props.theme.widthOptions.keyMobileL};
+        height: ${props => props.theme.heightOptions.keyMobileL};
+        font-size: ${props => props.theme.fontSize.settingsPageElements};
     }
 `;
