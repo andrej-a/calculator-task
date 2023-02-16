@@ -17,6 +17,11 @@ const sharedOptions = {
     zIndex: {
         minimal: '0',
         stronger: '2',
+        almostPower: '3',
+        power: '4',
+    },
+    gap: {
+        navigation: '32px',
     },
     widthOptions: {
         noMaxWidth: 'none',
@@ -29,6 +34,7 @@ const sharedOptions = {
         settingsLabel: '355px',
         selectTitleMobileL: '90%',
         borderWidth: '90%',
+        burger: '50px',
     },
     heightOptions: {
         autoHeight: 'auto',
@@ -48,7 +54,13 @@ const sharedOptions = {
         displayMinHeight: '158px',
         displayMinHeightTablet: '80px',
         expressionMinHeight: '40px',
-        borderHeight: '2px'
+        borderHeight: '2px',
+        headerHeight: '80px',
+        linksHeight: '45px',
+        linksTabletHeight: '60px',
+        calculatorTabletHeight: '900px',
+        calculatorMobileHeight: '730px',
+        burger: '30px',
     },
     margin: {
         noMargin: '0',
@@ -56,7 +68,10 @@ const sharedOptions = {
         clearHistoryButtonTop: '475px',
         clearHistoryButtonTopMobile: '390px',
         settingsPageElements: '90px',
-        center: '0 auto'
+        center: '0 auto',
+        header: '20px 0px 0px 30px',
+        navigation: '20px 30px 0px 0px',
+        burger: '30px 30px 0px 0px'
     },
     padding: {
         noLeft: '0px',
@@ -68,6 +83,7 @@ const sharedOptions = {
         displayPadding: '0px 110px 0px 60px',
         displayLaptopPadding: '0px 50px',
         displayTabletPadding: '0px 30px',
+        errorTitle: '10px'
     },
     overflowOptions: {
         autoOverflow: 'auto',
@@ -81,6 +97,7 @@ const sharedOptions = {
         settingsPageElements: '32px',
         label: '24px',
         mainPageElements: '32px',
+        headerMobileM: '28px'
     },
     fontWeight: {
         default: '700',

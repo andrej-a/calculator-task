@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const ErrorTitleWrapper = styled.div`
-    padding: 10px;
+    padding: ${props => props.theme.padding.errorTitle};
 `;
 export const ErrorTitle = styled.h2`
-    font-size: 56px;
-    text-align: center;
+    font-size: ${props => props.theme.fontSize.desktop};
+    text-align: ${props => props.theme.textAlign.center};
 `;

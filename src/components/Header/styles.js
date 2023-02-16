@@ -8,45 +8,39 @@ export const HeaderWrapper = styled.div `
 
     width: ${props => props.theme.widthOptions.fullScreen};
     max-width: ${props => props.theme.widthOptions.desktop};
-    min-height: auto;
-    height: 80px;
-    border: 1px solid ${props => props.theme.BORDER_COLOR};
+    height: ${props => props.theme.heightOptions.headerHeight};
+    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
 
     background: ${props => props.theme.MAIN_COLOR};
 `;
 export const TitleWrapper = styled.div `
-    width: auto;
-    height: auto;
-    margin-top: 22px;
-    margin-left: 32px;
+    width: ${props => props.theme.widthOptions.autoWidth};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    margin: ${props => props.theme.margin.header};
 
     @media (max-width: ${size.laptop}) {
-        z-index: 4;
-        position: relative;
+        z-index: ${props => props.theme.zIndex.power};
+        position: ${props => props.theme.position.relative};
     }
 `;
 export const Title = styled.h1 `
-    font-size: 32px;
-    letter-spacing: 0px;
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
     color: ${props => props.theme.SECOND_FONT_COLOR};
 
     @media (max-width: ${size.mobileM}) {
-        font-size: 28px;
+        font-size: ${props => props.theme.fontSize.headerMobileM};
     }
 `;
 export const LinksWrapper = styled.div `
     display: flex;
-    gap: 32px;
+    gap: ${props => props.theme.gap.navigation};
 
-    width: auto;
-    height: auto;
-    margin-top: 22px;
-    margin-right: 32px;
-    transition: all 0.3s ease;
+    width: ${props => props.theme.widthOptions.autoWidth};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    margin: ${props => props.theme.margin.navigation};
 
     a {
-        height: 45px;
-
+        height: ${props => props.theme.heightOptions.linksHeight};
         text-decoration: none;
     }
 
@@ -55,70 +49,71 @@ export const LinksWrapper = styled.div `
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        z-index: 3;
+
+        position: ${props => props.theme.position.absolute};
+        z-index: ${props => props.theme.zIndex.almostPower};
         left: ${props => props.showMenu ? '0' : "-3600px"};
 
-        width: 100vw;
-        height: 900px;
-
+        width: ${props => props.theme.widthOptions.fullScreen};
+        height: ${props => props.theme.heightOptions.calculatorTabletHeight};
+        transition: ${props => props.theme.transition.default};
         background: ${props => props.theme.MAIN_COLOR};
 
         a {
-            height: 60px;
+            height: ${props => props.theme.heightOptions.linksTabletHeight};
         }
     }
 
     @media (max-width: ${size.mobileL}) {
-        height: 730px;
+        height: ${props => props.theme.heightOptions.calculatorMobileHeight};
     }
 `;
 
 export const BurgerWrapper = styled.div `
-    position: relative;
-    z-index: 4;
+    position: ${props => props.theme.position.relative};
+    z-index: ${props => props.theme.zIndex.power};
+
     flex-direction: column;
     justify-content: center;
     display: none;
 
-    width: auto;
-    max-width: 50px;
-    height: 30px;
-    margin-top: 28px;
-    margin-right: 32px;
-    cursor: pointer;
+    width: ${props => props.theme.widthOptions.autoWidth};
+    max-width: ${props => props.theme.widthOptions.burger};
+    height: ${props => props.theme.heightOptions.burger};
+    margin: ${props => props.theme.margin.burger};
+    cursor: ${props => props.theme.cursor.pointer};
 
     @media (max-width: ${size.tablet}) {
         display: flex;
     }
 `;
 export const Burger = styled.div `
-    width: 50px;
-    height: 2px;
+    width: ${props => props.theme.widthOptions.burger};
+    height: ${props => props.theme.heightOptions.borderHeight};
 
-    background: #fff;
+    background: ${props => props.theme.background.white};
 
     &:before {
-        content: ' ';
-        display: block;
-        position: relative;
+        position: ${props => props.theme.position.relative};
         top: -15px;
 
-        width: 50px;
-        height: 2px;
+        display: block;
+        width: ${props => props.theme.widthOptions.burger};
+        height: ${props => props.theme.heightOptions.borderHeight};
 
-        background: #fff;
+        content: ' ';
+        background: ${props => props.theme.background.white};
     }
 
     &:after {
-        content: ' ';
-        display: block;
-        position: relative;
+        position: ${props => props.theme.position.relative};
         top: 15px;
 
-        width: 50px;
-        height: 2px;
+        display: block;
+        width: ${props => props.theme.widthOptions.burger};
+        height: ${props => props.theme.heightOptions.borderHeight};
 
-        background: #fff;
+        content: ' ';
+        background: ${props => props.theme.background.white};
     }
 `;
