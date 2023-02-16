@@ -3,19 +3,31 @@ const sharedOptions = {
         relative: 'relative',
         absolute: 'absolute'
     },
+    top: {
+        IMGTop: '30px',
+        IMGTopMobile: '10px',
+        optionsTop: '50px',
+    },
+    right: {
+        IMGRight: '40px',
+    },
     left: {
         clearHistoryButton: 'calc(50% - 125px)',
     },
     zIndex: {
-        minimal: '0'
+        minimal: '0',
+        stronger: '2',
     },
     widthOptions: {
+        noMaxWidth: 'none',
+        autoWidth: 'auto',
         fullScreen: '100%',
         desktop: '1920px',
-        clearHistoryButton: '400px',
+        settingsPageElements: '400px',
         clearHistoryButtonMobile: '250px',
         settingsTitle: '500px',
         settingsLabel: '355px',
+        selectTitleMobileL: '90%',
     },
     heightOptions: {
         autoHeight: 'auto',
@@ -27,19 +39,21 @@ const sharedOptions = {
         settingsMobileL: '670px',
         settingsTitle: '100px',
         settingsLabel: '55px',
-        clearHistoryButton: '93px',
-        clearHistoryButtonMobile: '50px',
+        settingsPageElements: '90px',
+        settingsPageElementsMobile: '50px',
     },
     margin: {
         noLeft: '0px',
         clearHistoryButtonTop: '475px',
         clearHistoryButtonTopMobile: '390px',
-        clearHistoryButtonLeft: '90px',
+        settingsPageElements: '90px',
     },
     padding: {
         noLeft: '0px',
         labelLeft: '30px',
-        clearHistoryButtonLeft: '20px',
+        settingsPageElementsLeft: '20px',
+        settingsPageElementsTop: '25px',
+        selectComponentTopMobileL: '5px',
     },
     overflowOptions: {
         autoOverflow: 'auto',
@@ -50,17 +64,17 @@ const sharedOptions = {
     fontSize: {
         desktop: '64px',
         mobileL: '46px',
-        clearHistoryButton: '32px',
+        settingsPageElements: '32px',
         label: '24px',
     },
     fontWeight: {
         default: '700',
     },
     border: {
-        clearHistoryButton: '2px solid'
+        settingsPageElements: '2px solid'
     },
     borderRadius: {
-        clearHistoryButton: '8px',
+        settingsPageElements: '8px',
     },
     cursor: {
         pointer: 'pointer',
@@ -69,6 +83,12 @@ const sharedOptions = {
     textAlign: {
         left: 'left',
         center: 'center'
+    },
+    background: {
+        white: '#fff',
+    },
+    color: {
+        black: '#000',
     }
 };
 

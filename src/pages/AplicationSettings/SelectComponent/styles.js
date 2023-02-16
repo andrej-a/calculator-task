@@ -5,55 +5,48 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 export const SelectWrapper = styled.div`
-position: relative;
-    width: auto;
-    height: auto;
-    margin-top: 7px;
-    margin-left: 91px;
+    position: ${props => props.theme.position.relative};
+    width: ${props => props.theme.widthOptions.autoWidth};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    margin-left: ${props => props.theme.margin.settingsPageElements};
 
     @media (max-width: ${ mobileL }) {
         display: flex;
         flex-direction: column;
 
-        width: 100%;
-        margin-left: 0px;
+        width: ${props => props.theme.widthOptions.fullScreen};
+        margin-left: ${props => props.theme.margin.noLeft};
 
-        align-items: center;
+        align-items: ${props => props.theme.aligntItems.center};
     }
 `;
 export const SelectTitleBox = styled.div`
-    position: relative;
+    position: ${props => props.theme.position.relative};
 
-    width: 100%;
-    max-width: 401px;
-    height: 93px;
-    padding-left: 27px;
-    padding-top: 28px;
-    border: 2px solid #434343;
-    border-radius: 8px;
+    width: ${props => props.theme.widthOptions.fullScreen};
+    max-width: ${props => props.theme.widthOptions.settingsPageElements};
+    height: ${props => props.theme.heightOptions.settingsPageElements};
+    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
+    padding-top: ${props => props.theme.padding.settingsPageElementsTop};
+    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
+    border-radius: ${props => props.theme.borderRadius.settingsPageElements};
 
-    background: #ffffff 0% 0% no-repeat padding-box;
-    opacity: 1;
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: 0px;
+    background: ${props => props.theme.background.white};
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
+    font-weight: ${props => props.theme.fontWeight.default};
 
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: ${props => props.theme.color.black};
+    cursor: ${props => props.theme.cursor.pointer};
 
     img {
-        position: absolute;
-        right: 25px;
-        top: 38px;
+        position: ${props => props.theme.position.absolute};
+        right: ${props => props.theme.right.IMGRight};
+        top: ${props => props.theme.top.IMGTop};
 
-        width: 0;
-        height: 0;
-        border: 15px solid transparent;
-        border-top: 15px solid #707070;
+        transform: rotate(90deg);
 
         @media (max-width: ${ mobileL }) {
-            top: 15px;
+            top: ${props => props.theme.top.IMGTopMobile};
         }
 
     }
@@ -65,29 +58,29 @@ export const SelectTitleBox = styled.div`
     }
 
     @media (max-width: ${ mobileL }) {
-        max-width: none;
-        width: 90%;
-        height: 50px;
-        padding-top: 5px;
+        max-width: ${props => props.theme.widthOptions.noMaxWidth};
+        width: ${props => props.theme.widthOptions.selectTitleMobileL};
+        height: ${props => props.theme.heightOptions.settingsPageElementsMobile};
+        padding-top: ${props => props.theme.padding.selectComponentTopMobileL};
 
-        font-size: 30px;
+        font-size: ${props => props.theme.fontSize.settingsPageElements};
     }
 `;
 export const OptionsWrapper = styled.div`
-    position: absolute;
-    z-index: 2;
+    position: ${props => props.theme.position.absolute};
+    z-index: ${props => props.theme.zIndex.stronger};
 
-    width: 401px;
-    height: auto;
-    border: 2px solid #707070;
+    width: ${props => props.theme.widthOptions.settingsPageElements};
+    height: ${props => props.theme.heightOptions.autoHeight};
+    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
 
     @media (max-width: ${ mobileL }) {
-        top: 50px;
+        top: ${props => props.theme.top.optionsTop};
 
         display: flex;
         flex-direction: column;
+        width: ${props => props.theme.widthOptions.selectTitleMobileL};
 
-        width: 90%;
-        align-items: center;
+        align-items: ${props => props.theme.aligntItems.center};
     }
 `;

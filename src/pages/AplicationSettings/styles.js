@@ -72,19 +72,19 @@ export const ClearHistoryButton = styled.button `
     position: ${props => props.theme.position.absolute};
     z-index: ${props => props.theme.zIndex.minimal};
 
-    width: ${props => props.theme.widthOptions.clearHistoryButton};
-    height: ${props => props.theme.heightOptions.clearHistoryButton};
+    width: ${props => props.theme.widthOptions.settingsPageElements};
+    height: ${props => props.theme.heightOptions.settingsPageElements};
     margin-top: ${props => props.theme.margin.clearHistoryButtonTop};
-    margin-left: ${props => props.theme.margin.clearHistoryButtonLeft};
-    padding-left: ${props => props.theme.padding.clearHistoryButtonLeft};
+    margin-left: ${props => props.theme.margin.settingsPageElements};
+    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
 
-    border: ${props => `${props.theme.border.clearHistoryButton} ${props.theme.SECOND_BORDER_COLOR}`};
-    border-radius: ${props => props.theme.borderRadius.clearHistoryButton};
+    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
+    border-radius: ${props => props.theme.borderRadius.settingsPageElements};
 
     background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
     cursor: ${props => props.theme.cursor.pointer};
     text-align:  ${props => props.theme.textAlign.left};
-    font-size: ${props => props.theme.fontSize.clearHistoryButton};
+    font-size: ${props => props.theme.fontSize.settingsPageElements};
     font-weight: ${props => props.theme.fontWeight.default};
     color: ${props => props.theme.CLEAR_HISTORY_BUTTON_COLOR};
 
@@ -105,7 +105,7 @@ export const ClearHistoryButton = styled.button `
         left: ${props => props.theme.left.clearHistoryButton};
 
         width: ${props => props.theme.widthOptions.clearHistoryButtonMobile};
-        height: ${props => props.theme.heightOptions.clearHistoryButtonMobile};
+        height: ${props => props.theme.heightOptions.settingsPageElementsMobile};
         margin-left: ${props => props.theme.margin.noLeft};
         margin-top: ${props => props.theme.margin.clearHistoryButtonTopMobile};
         padding-left: ${props => props.theme.padding.noLeft};
