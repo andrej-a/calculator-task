@@ -60,13 +60,17 @@ export const LinksWrapper = styled.div `
         left: ${props => props.showMenu ? '0' : "-3600px"};
 
         width: 100vw;
-        height: 100vh;
+        height: 900px;
 
         background: ${props => props.theme.MAIN_COLOR};
 
         a {
             height: 60px;
         }
+    }
+
+    @media (max-width: ${size.mobileL}) {
+        height: 730px;
     }
 `;
 

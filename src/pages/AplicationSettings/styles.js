@@ -2,10 +2,7 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-const {
-    tablet,
-    mobileL
-} = size;
+const { tablet, mobileL } = size;
 
 export const SettingsWrapper = styled.div `
     position: relative;
@@ -20,8 +17,12 @@ export const SettingsWrapper = styled.div `
     background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
 
     @media (max-width: ${tablet}) {
-        min-height: none;
-        height: 100vh;
+        min-height: 0;
+        height: 840px;
+    }
+
+    @media (max-width: ${mobileL}) {
+        height: 670px;
     }
 `;
 export const TitleWrapper = styled.div `

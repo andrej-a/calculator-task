@@ -19,8 +19,7 @@ class KeypadClasses extends React.PureComponent {
 
     render() {
         const { isKeypadBlocked } = this.props;
-        const keypad = buttonsObject.map(button => {
-            const { value } = button;
+        const keypad = buttonsObject.map(({ value }) => {
             return (
               <Key
                 disabled={isKeypadBlocked}

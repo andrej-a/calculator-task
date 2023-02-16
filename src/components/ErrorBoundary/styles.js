@@ -5,4 +5,5 @@ export const ErrorTitleWrapper = styled.div`
 `;
 export const ErrorTitle = styled.h2`
     font-size: 56px;
+    text-align: center;
 `;

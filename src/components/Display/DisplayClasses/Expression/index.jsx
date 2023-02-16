@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Expression, ExpressionWrapper } from '@/components/Display/DisplayFunctional/styles';
 
-class ExpressionComponent extends React.PureComponent {
+class ExpressionComponent extends React.Component {
     render() {
         const { expression } = this.props;
         return (

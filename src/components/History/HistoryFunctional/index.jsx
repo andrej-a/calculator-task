@@ -10,8 +10,7 @@ const History = () => {
     const {history, showHistory} = useSelector(state => state.historyStore);
     const { t } = useTranslation();
 
-    const historyItems = history.map(item => {
-        const { display, id } = item;
+    const historyItems = history.map(({ display, id }) => {
         return (
           <HistoryItemWrapper key={id}>
             <HistoryItem>{display}</HistoryItem>

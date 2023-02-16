@@ -24,8 +24,7 @@ class HistoryClasses extends React.Component {
     render() {
         const { history, showHistory, t } = this.props;
 
-        const historyItems = history.map(item => {
-            const { display, id } = item;
+        const historyItems = history.map(({ display, id }) => {
             return (
               <HistoryItemWrapper key={id}>
                 <HistoryItem>{display}</HistoryItem>

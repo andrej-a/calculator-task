@@ -12,8 +12,7 @@ const Keypad = React.memo(({ controller }) => {
     const keypadManager = value => () => {
         controller(value);
     };
-    const keypad = buttonsObject.map(button => {
-        const { value } = button;
+    const keypad = buttonsObject.map(({ value }) => {
         return (
           <Key
             disabled={isKeypadBlocked}

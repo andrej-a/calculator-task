@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NO_INDENT, SET_INDENT } from '@/constants';
 import size from '@/constants/sizes';
 
-const { tablet } = size;
+const { tablet, mobileL } = size;
 
 export const HistoryWrapper = styled.div`
     display: ${props => props.showHistory ? 'flex' : 'none'};;
@@ -19,8 +19,12 @@ export const HistoryWrapper = styled.div`
         left: ${props => props.showHistory ? NO_INDENT : SET_INDENT};
 
         width: ${props => props.theme.widthOptions.width};
-        height: 100vh;
+        height: 800px;
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+    }
+
+    @media (max-width: ${ mobileL }) {
+        height: 665px;
     }
 `;
 
