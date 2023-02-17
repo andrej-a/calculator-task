@@ -10,7 +10,7 @@ import {
 } from '@/redux/actions/actionTypes';
 
 const INITIAL_STATE = {
-    display: '5 + √ ( 100 )',
+    display: DEFAULT_DISPLAY_VALUE,
     expression: '',
     menu: false,
     isKeypadBlocked: false,
