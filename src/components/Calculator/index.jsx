@@ -2,10 +2,10 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
+import pages from '@/components/App/config/pages';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import links from '@/constants/links';
-import pages from '@/constants/pages';
 
 const Calculator = ({ theme }) => {
 

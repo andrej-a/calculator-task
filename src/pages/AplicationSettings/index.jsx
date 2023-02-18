@@ -45,7 +45,7 @@ class Settings extends React.Component {
                     </LabelWrapper>
                     <SelectComponent
                       title={t(labelHtmlFor === 'theme' ? THEME_SELECTOR_TITLE : LANGUAGE_SELECTOR_TITLE)}
-                      dataTest={dataTestValue}
+                      data-test={dataTestValue}
                       render={renderProps}
                     />
                   </React.Fragment>

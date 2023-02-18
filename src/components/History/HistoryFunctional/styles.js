@@ -13,6 +13,8 @@ export const HistoryWrapper = styled.div`
     width: ${props => props.theme.widthOptions.history};
     max-height: ${props => props.theme.heightOptions.laptop};
 
+    border-left: ${props => props.theme.border.wrappers};
+
     @media (max-width: ${ tablet }) {
         position: ${props => props.theme.position.absolute};
         z-index: ${props => props.theme.zIndex.stronger};
@@ -21,6 +23,7 @@ export const HistoryWrapper = styled.div`
         width: ${props => props.theme.widthOptions.fullScreen};
         height: ${props => props.theme.heightOptions.historyTablet};
         background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+        border-left: ${props => props.theme.border.noBorder};
     }
 
     @media (max-width: ${ mobileL }) {
@@ -60,15 +63,4 @@ export const HistoryItem = styled.p`
     font-size: ${props => props.theme.fontSize.settingsPageElements};
     font-weight: ${props => props.theme.fontWeight.default};
     color: ${props => props.theme.FONT_COLOR};
-`;
-export const Border = styled.div`
-    width: ${props => props.theme.heightOptions.borderHeight};
-    min-height: ${props => props.theme.heightOptions.historyBorder};
-    margin: ${props => props.theme.margin.historyBorder};
-
-    background: ${props => props.theme.BORDER_COLOR};
-
-    @media (max-width: ${ tablet }) {
-        display: none;
-    }
 `;

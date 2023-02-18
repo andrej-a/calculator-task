@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import {
-    Border,
     HistoryItem,
     HistoryItemWrapper,
     HistoryWrapper,
@@ -26,7 +25,6 @@ class HistoryClasses extends React.Component {
 
         return (
           <React.Fragment>
-            <Border />
             <HistoryWrapper showHistory={showHistory}>
               <TitleWrapper>
                 <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>

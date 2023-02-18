@@ -6,7 +6,7 @@ import { initReactI18next } from "react-i18next";
 import { DEFAULT_APPLICATION_LANGUAGE } from "@/constants";
 
 i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init({
-    lng: DEFAULT_APPLICATION_LANGUAGE,
+    lng: localStorage.getItem('i18nextLng') || DEFAULT_APPLICATION_LANGUAGE,
     fallbackLng: DEFAULT_APPLICATION_LANGUAGE,
     debug: true,
     interpolation: {

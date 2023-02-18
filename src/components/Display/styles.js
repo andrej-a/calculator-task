@@ -14,6 +14,8 @@ export const DisplayWrapper = styled.div`
 
     overflow-y: auto;
 
+    border-bottom: ${props => props.theme.border.wrappers};
+
     @media (max-width: ${ tablet }) {
         min-height: ${props => props.theme.heightOptions.displayMinHeightTablet};
     }
@@ -70,16 +72,4 @@ export const Expression = styled(Value)`
         overflow-y: hidden;
     }
 
-`;
-
-export const Border = styled.div`
-    width: ${props => props.theme.widthOptions.borderWidth};
-    height: ${props => props.theme.heightOptions.borderHeight};
-    background: ${props => props.theme.BORDER_COLOR};
-    margin: ${props => props.theme.margin.center};
-
-    @media (max-width: ${ tablet }) {
-        margin: ${props => props.theme.margin.noMargin};
-        width: ${props => props.theme.widthOptions.fullScreen};
-    }
 `;

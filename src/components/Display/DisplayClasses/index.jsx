@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Border, DisplayWrapper, Expression,ExpressionWrapper,Value, ValueWrapper  } from '@/components/Display/styles';
+import { DisplayWrapper, Expression,ExpressionWrapper,Value, ValueWrapper  } from '@/components/Display/styles';
 
 class DisplayClasses extends React.PureComponent {
     render() {
@@ -14,7 +14,6 @@ class DisplayClasses extends React.PureComponent {
             <ValueWrapper>
               <Value data-test="display">{display}</Value>
             </ValueWrapper>
-            <Border />
           </DisplayWrapper>
         );
     }

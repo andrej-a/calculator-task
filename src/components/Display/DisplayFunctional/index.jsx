@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import expressionSelector from '@/redux/selectors/expressionSelector';
 
-import { Border, DisplayWrapper, Expression,ExpressionWrapper , Value, ValueWrapper } from '../styles';
+import { DisplayWrapper, Expression,ExpressionWrapper , Value, ValueWrapper } from '../styles';
 
 const Display = () => {
     const { display, expression } = useSelector(expressionSelector);
@@ -15,7 +15,6 @@ const Display = () => {
         <ValueWrapper>
           <Value data-test="display">{display}</Value>
         </ValueWrapper>
-        <Border />
       </DisplayWrapper>
     );
 };

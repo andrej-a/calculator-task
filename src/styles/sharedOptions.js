@@ -71,7 +71,6 @@ const sharedOptions = {
         burger: '30px',
         historyTablet: '800px',
         historyMobileL: '670px',
-        historyBorder: '910px',
         key: '125px',
         keyMobileL: '110px'
 
@@ -89,7 +88,6 @@ const sharedOptions = {
         historyTitle: '32px',
         historyItemsLeft: '32px',
         historyItemBottom: '32px',
-        historyBorder: '25px 0px 25px 0px',
         keypadTop: '20px',
         keypadBottomMobileL: '10px',
     },
@@ -126,7 +124,9 @@ const sharedOptions = {
         default: '700',
     },
     border: {
-        settingsPageElements: '2px solid'
+        noBorder: '0',
+        settingsPageElements: '2px solid',
+        wrappers: '1px solid #000',
     },
     borderRadius: {
         settingsPageElements: '10px',

@@ -3,5 +3,4 @@ export * from './componentsConstants';
 export * from './fakeLanguagesData';
 export * from './fakeThemeData';
 export * from './links';
-export * from './pages';
 export * from './sizes';
