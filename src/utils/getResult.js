@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { setExpression,setOwnValue } from '@/redux/actions';
 import { store } from '@/redux/store';
 
-import checkPriority from './checkPriority';
-import cutZeros from './cutZeros';
-import doCorrectValue from './doCorrectValue';
 import execution from './execution';
+import checkPriority from './helpers/checkPriority';
+import cutZeros from './helpers/cutZeros';
+import doCorrectValue from './helpers/doCorrectValue';
 
 const { dispatch } = store;
 

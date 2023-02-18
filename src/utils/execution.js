@@ -1,6 +1,6 @@
 import { addition, division, modulo, multiplication, pow,sqrt, subtraction } from './calculations';
-import removeItemFromNumberStack from './removeItemFromNumberStack';
-import removeItemFromOperatorStack from './removeItemFromOperatorStack';
+import removeItemFromNumberStack from './helpers/removeItemFromNumberStack';
+import removeItemFromOperatorStack from './helpers/removeItemFromOperatorStack';
 
 const execution = (previousOperator, stacks) => {
     let {numberStack, operatorsStack} = stacks;

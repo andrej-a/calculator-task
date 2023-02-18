@@ -37,7 +37,7 @@ const sharedOptions = {
         selectTitleMobileL: '90%',
         borderWidth: '90%',
         burger: '50px',
-        history: '20%',
+        history: '40%',
         key: '18%',
         keyLaptop: '17%',
         keyTablet: '16%',

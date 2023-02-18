@@ -4,25 +4,27 @@ import { bindActionCreators } from 'redux';
 
 import {
     DEFAULT_DISPLAY_VALUE,
+    MAX_LENGTH_EXPRESSION,
+    TOO_LONG_EXPRESSION,
     UNCORRECT_BRACKETS_MESSAGE,
     UNCORRECT_INPUT_MESSAGE,
-    UNCORRECT_OPERATOR_MESSAGE
-} from '@/constants';
+    UNCORRECT_OPERATOR_MESSAGE} from '@/constants';
 import {
     changeDisplayValue,
     setDefaultValue,
     setExpression,
-    setOwnValue} from '@/redux/actions';
+    setOwnValue
+} from '@/redux/actions';
 import { addItemToHistory } from '@/redux/actions/history';
 import { store } from '@/redux/store';
 
-import checkCorrectBrakcets from './checkCorrectBrakcets';
-import checkCorrectOperators from './checkCorrectOperators';
-import checkIfValueIsExpression from './checkIfValueIsExpression';
-import deleteLastItem from './deleteLastItem';
 import getResult from './getResult';
-import replacePreviousOperator from './replacePreviousOperator';
-import warningMessage from './warningMessage';
+import checkCorrectBrakcets from './helpers/checkCorrectBrakcets';
+import checkCorrectOperators from './helpers/checkCorrectOperators';
+import checkIfValueIsExpression from './helpers/checkIfValueIsExpression';
+import deleteLastItem from './helpers/deleteLastItem';
+import replacePreviousOperator from './helpers/replacePreviousOperator';
+import warningMessage from './helpers/warningMessage';
 
 const { dispatch, getState } = store;
 
@@ -43,6 +45,9 @@ const controller = value => {
     copy = copy.trim();
     if (getState().expression.expression) {
         SET_EXPRESSION('');
+    }
+    if (!value.match(/[=ce]/gi) && display.length >= MAX_LENGTH_EXPRESSION) {
+        return warningMessage(display, `${TOO_LONG_EXPRESSION} ${MAX_LENGTH_EXPRESSION}`);
     }
     if (value.match(/[0123456789]/i)) {
         if (display === DEFAULT_DISPLAY_VALUE) {
