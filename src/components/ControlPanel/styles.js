@@ -8,8 +8,9 @@ export const Wrapper = styled.div `
     justify-content: center;
     align-items: center;
 
-    width: ${props => props.theme.widthOptions.fullScreen};
-    height: ${props => props.theme.heightOptions.autoHeight};
+    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
+    height: ${({ theme: { heightOptions }}) => heightOptions.autoHeight};
+    margin-bottom: ${({ theme: { margin }}) => margin.keypadBottomMobileL};;
 
     @media(max-width: ${tablet}) {
         display: none;
@@ -17,18 +18,18 @@ export const Wrapper = styled.div `
 `;
 
 export const ToggleHistoryButton = styled.button`
-    padding: ${props => props.theme.padding.toggleHistoryButton};
+    padding: ${({ theme: { padding }}) => padding.toggleHistoryButton};
 
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
-    cursor: ${props => props.theme.cursor.pointer};
-    font-size: ${props => props.theme.fontSize.mainPageElements};
-    font-weight: ${props => props.theme.fontWeight.default};
-    color: ${props => props.theme.BUTTON_COLOR};
-    transition: ${props => props.theme.transition.default};
+    background: ${({ theme: { BUTTON_BACKGROUND_COLOR }}) => BUTTON_BACKGROUND_COLOR};
+    cursor: ${({ theme: { cursor }}) => cursor.pointer};
+    font-size: ${({ theme: { fontSize }}) => fontSize.mainPageElements};
+    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
+    color: ${({ theme: { BUTTON_COLOR }}) => BUTTON_COLOR};
+    transition: ${({ theme: { transition }}) => transition.default};
 
     &:hover {
-        background: ${props => props.theme.background.darkGrey};
-        color: ${props => props.theme.color.white};
+        background: ${({ theme: { background }}) => background.darkGrey};
+        color: ${({ theme: { color }}) => color.white};
         -webkit-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
         -moz-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
         box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);

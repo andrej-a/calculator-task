@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ControlPanel from '@/components/ControlPanel';
 import buttons from '@/constants/buttons';
 
-import { Key, Wrapper } from '../KeypadFunctional/styles';
+import { Key, Wrapper } from '../styles';
 
 class KeypadClasses extends React.PureComponent {
     constructor(props) {

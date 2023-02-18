@@ -12,7 +12,7 @@ import {
     ItemsWrapper,
     Title,
     TitleWrapper
-} from '../HistoryFunctional/styles';
+} from '../styles';
 
 class HistoryClasses extends React.Component {
     constructor(props) {

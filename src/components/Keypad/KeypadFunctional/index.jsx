@@ -6,7 +6,7 @@ import ControlPanel from '@/components/ControlPanel';
 import buttons from '@/constants/buttons';
 import expressionSelector from '@/redux/selectors/expressionSelector';
 
-import { Key, Wrapper } from './styles';
+import { Key, Wrapper } from '../styles';
 
 const Keypad = React.memo(({ controller }) => {
     const { isKeypadBlocked } = useSelector(expressionSelector);

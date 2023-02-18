@@ -9,15 +9,15 @@ export const DisplayWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
 
-    width: ${props => props.theme.widthOptions.fullScreen};
-    min-height: ${props => props.theme.heightOptions.displayMinHeight};
+    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
+    min-height: ${({ theme: { heightOptions }}) => heightOptions.displayMinHeight};
 
     overflow-y: auto;
 
-    border-bottom: ${props => props.theme.border.wrappers};
+    border-bottom: ${({ theme: { border }}) => border.wrappers};
 
     @media (max-width: ${ tablet }) {
-        min-height: ${props => props.theme.heightOptions.displayMinHeightTablet};
+        min-height: ${({ theme: { heightOptions }}) => heightOptions.displayMinHeightTablet};
     }
 `;
 
@@ -25,51 +25,50 @@ export const ValueWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    width: ${props => props.theme.widthOptions.fullScreen};
-    max-height: ${props => props.theme.heightOptions.maxValueHeight};
-    padding: ${props => props.theme.padding.displayPadding};
+    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
+    max-height: ${({ theme: { heightOptions }}) => heightOptions.maxValueHeight};
+    padding: ${({ theme: { padding }}) => padding.displayPadding};
 
     overflow-x: auto;
     overflow-y: auto;
-    min-height: ${props => props.theme.heightOptions.displayValueMin};
+    min-height: ${({ theme: { heightOptions }}) => heightOptions.displayValueMin};
 
     @media (max-width: ${ laptop }) {
-        padding: ${props => props.theme.padding.displayLaptopPadding};
+        padding: ${({ theme: { padding }}) => padding.displayLaptopPadding};
     }
 
     @media (max-width: ${ tablet }) {
-        padding: ${props => props.theme.padding.displayTabletPadding};
-        max-height: ${props => props.theme.heightOptions.displayValueTabletMax};
+        padding: ${({ theme: { padding }}) => padding.displayTabletPadding};
+        max-height: ${({ theme: { heightOptions }}) => heightOptions.displayValueTabletMax};
     }
 `;
 
 export const Value = styled.p`
-    width: ${props => props.theme.widthOptions.autoWidth};
-    height: ${props => props.theme.heightOptions.autoHeight};
+    width: ${({ theme: { widthOptions }}) => widthOptions.autoWidth};
+    height: ${({ theme: { heightOptions }}) => heightOptions.autoHeight};
 
-    font-size: ${props => props.theme.fontSize.desktop};
-    font-weight: ${props => props.theme.fontWeight.default};
-    color: ${props => props.theme.FONT_COLOR};
+    font-size: ${({ theme: { fontSize }}) => fontSize.desktop};
+    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
+    color: ${({ theme: { FONT_COLOR }}) => FONT_COLOR};
 
     @media (max-width: ${ tablet }) {
-        font-size: ${props => props.theme.fontSize.settingsPageElements};
-        line-height: ${props => props.theme.lineHeight.displayLineHeight};
+        font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
+        line-height: ${({ theme: { lineHeight }}) => lineHeight.displayLineHeight};
     }
 `;
 export const ExpressionWrapper = styled(ValueWrapper)`
     @media (max-width: ${ tablet }) {
-        min-height: ${props => props.theme.heightOptions.expressionMinHeight}
+        min-height: ${({ theme: { heightOptions }}) => heightOptions.expressionMinHeight}
     }
 `;
 
 export const Expression = styled(Value)`
-    font-size: ${props => props.theme.fontSize.desktop};
-    font-weight: ${props => props.theme.fontWeight.default};
-    opacity: ${props => props.theme.opacity.default};
+    font-size: ${({ theme: { fontSize }}) => fontSize.desktop};
+    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
+    opacity: ${({ theme: { opacity }}) => opacity.default};
 
     @media (max-width: ${ tablet }) {
-        font-size: ${props => props.theme.fontSize.settingsPageElements};
+        font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
         overflow-y: hidden;
     }
-
 `;
