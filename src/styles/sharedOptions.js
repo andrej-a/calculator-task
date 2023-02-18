@@ -126,7 +126,7 @@ const sharedOptions = {
     border: {
         noBorder: '0',
         settingsPageElements: '2px solid',
-        wrappers: '1px solid #000',
+        wrappers: '2px solid',
     },
     borderRadius: {
         settingsPageElements: '10px',

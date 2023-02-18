@@ -5,25 +5,25 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 const Options = styled.div`
-    width: ${props => props.theme.widthOptions.fullScreen};
-    height: ${props => props.theme.heightOptions.settingsPageElements};
-    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
-    padding-top: ${props => props.theme.padding.settingsPageElementsTop};
-    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
+    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
+    height: ${({ theme: { heightOptions }}) => heightOptions.settingsPageElements};
+    border: ${({ theme: { border, SECOND_BORDER_COLOR }}) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
+    padding-top: ${({ theme: { padding }}) => padding.settingsPageElementsTop};
+    padding-left: ${({ theme: { padding }}) => padding.settingsPageElementsLeft};
 
-    background: ${props => props.theme.background.white};
-    font-size: ${props => props.theme.fontSize.settingsPageElements};
-    font-weight: ${props => props.theme.fontWeight.default};
-    color: ${props => props.theme.color.black};
-    cursor: ${props => props.theme.cursor.pointer};
+    background: ${({ theme: { background }}) => background.white};
+    font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
+    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
+    color: ${({ theme: { color }}) => color.black};
+    cursor: ${({ theme: { cursor }}) => cursor.pointer};
 
     &:hover {
-        background: ${props => props.theme.background.darkGrey};
-        color: ${props => props.theme.color.white};
+        background: ${({ theme: { background }}) => background.darkGrey};
+        color: ${({ theme: { color }}) => color.white};
     }
 
     @media (max-width: ${ mobileL }) {
-        width: ${props => props.theme.widthOptions.fullScreen};
+        width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
     }
 `;
 

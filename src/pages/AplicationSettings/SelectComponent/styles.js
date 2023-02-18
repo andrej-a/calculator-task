@@ -5,48 +5,48 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 export const SelectWrapper = styled.div`
-    position: ${props => props.theme.position.relative};
-    width: ${props => props.theme.widthOptions.autoWidth};
-    height: ${props => props.theme.heightOptions.autoHeight};
-    margin-left: ${props => props.theme.margin.settingsPageElements};
+    position: ${({ theme: { position } }) => position.relative};
+    width: ${({ theme: { widthOptions } }) => widthOptions.autoWidth};
+    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
+    margin-left: ${({ theme: { margin } }) => margin.settingsPageElements};
 
     @media (max-width: ${ mobileL }) {
         display: flex;
         flex-direction: column;
 
-        width: ${props => props.theme.widthOptions.fullScreen};
-        margin-left: ${props => props.theme.margin.noLeft};
+        width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
+        margin-left: ${({ theme: { margin } }) => margin.noLeft};
 
-        align-items: ${props => props.theme.aligntItems.center};
+        align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
     }
 `;
 export const SelectTitleBox = styled.div`
-    position: ${props => props.theme.position.relative};
+    position: ${({ theme: { position } }) => position.relative};
 
-    width: ${props => props.theme.widthOptions.fullScreen};
-    max-width: ${props => props.theme.widthOptions.settingsPageElements};
-    height: ${props => props.theme.heightOptions.settingsPageElements};
-    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
-    padding-top: ${props => props.theme.padding.settingsPageElementsTop};
-    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
-    border-radius: ${props => props.theme.borderRadius.settingsPageElements};
+    width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
+    max-width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
+    height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElements};
+    padding-left: ${({ theme: { padding } }) => padding.settingsPageElementsLeft};
+    padding-top: ${({ theme: { padding } }) => padding.settingsPageElementsTop};
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.settingsPageElements};
 
-    background: ${props => props.theme.background.white};
-    font-size: ${props => props.theme.fontSize.settingsPageElements};
-    font-weight: ${props => props.theme.fontWeight.default};
+    background: ${({ theme: { background } }) => background.white};
+    font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
 
-    color: ${props => props.theme.color.black};
-    cursor: ${props => props.theme.cursor.pointer};
+    color: ${({ theme: { color } }) => color.black};
+    cursor: ${({ theme: { cursor } }) => cursor.pointer};
 
     img {
-        position: ${props => props.theme.position.absolute};
-        right: ${props => props.theme.right.IMGRight};
-        top: ${props => props.theme.top.IMGTop};
+        position: ${({ theme: { position } }) => position.absolute};
+        right: ${({ theme: { right } }) => right.IMGRight};
+        top: ${({ theme: { top } }) => top.IMGTop};
 
         transform: rotate(90deg);
 
         @media (max-width: ${ mobileL }) {
-            top: ${props => props.theme.top.IMGTopMobile};
+            top: ${({ theme: { top } }) => top.IMGTopMobile};
         }
 
     }
@@ -58,29 +58,29 @@ export const SelectTitleBox = styled.div`
     }
 
     @media (max-width: ${ mobileL }) {
-        max-width: ${props => props.theme.widthOptions.noMaxWidth};
-        width: ${props => props.theme.widthOptions.selectTitleMobileL};
-        height: ${props => props.theme.heightOptions.settingsPageElementsMobile};
-        padding-top: ${props => props.theme.padding.selectComponentTopMobileL};
+        max-width: ${({ theme: { widthOptions } }) => widthOptions.noMaxWidth};
+        width: ${({ theme: { widthOptions } }) => widthOptions.selectTitleMobileL};
+        height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElementsMobile};
+        padding-top: ${({ theme: { padding } }) => padding.selectComponentTopMobileL};
 
-        font-size: ${props => props.theme.fontSize.settingsPageElements};
+        font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
     }
 `;
 export const OptionsWrapper = styled.div`
-    position: ${props => props.theme.position.absolute};
-    z-index: ${props => props.theme.zIndex.stronger};
+    position: ${({ theme: { position } }) => position.absolute};
+    z-index: ${({ theme: { zIndex } }) => zIndex.stronger};
 
-    width: ${props => props.theme.widthOptions.settingsPageElements};
-    height: ${props => props.theme.heightOptions.autoHeight};
-    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
+    width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
+    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.settingsPageElements} ${ SECOND_BORDER_COLOR }`};
 
     @media (max-width: ${ mobileL }) {
-        top: ${props => props.theme.top.optionsTop};
+        top: ${({ theme: { top } }) => top.optionsTop};
 
         display: flex;
         flex-direction: column;
-        width: ${props => props.theme.widthOptions.selectTitleMobileL};
+        width: ${({ theme: { widthOptions } }) => widthOptions.selectTitleMobileL};
 
-        align-items: ${props => props.theme.aligntItems.center};
+        align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
     }
 `;

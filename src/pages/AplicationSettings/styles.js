@@ -5,88 +5,88 @@ import size from '@/constants/sizes';
 const { tablet, mobileL } = size;
 
 export const SettingsWrapper = styled.div `
-    position: ${props => props.theme.position.relative};
+    position: ${({ theme: { position } }) => position.relative};
 
     display: flex;
     flex-direction: column;
-    width: ${props => props.theme.widthOptions.fullScreen};
-    max-width: ${props => props.theme.widthOptions.desktop};
-    height: ${props => props.theme.heightOptions.autoHeight};
-    min-height: ${props => props.theme.heightOptions.laptop};
+    width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
+    max-width: ${({ theme: { widthOptions } }) => widthOptions.desktop};
+    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
+    min-height: ${({ theme: { heightOptions } }) => heightOptions.laptop};
 
-    background: ${props => props.theme.MAIN_BACKGROUND_COLOR};
+    background: ${({ theme: { MAIN_BACKGROUND_COLOR } }) => MAIN_BACKGROUND_COLOR};
 
     @media (max-width: ${tablet}) {
-        min-height: ${props => props.theme.heightOptions.minHeightTurnOff};
-        height: ${props => props.theme.heightOptions.settingsTablet};
+        min-height: ${({ theme: { heightOptions } }) => heightOptions.minHeightTurnOff};
+        height: ${({ theme: { heightOptions } }) => heightOptions.settingsTablet};
     }
 
     @media (max-width: ${mobileL}) {
-        height: ${props => props.theme.heightOptions.settingsMobileL};
+        height: ${({ theme: { heightOptions } }) => heightOptions.settingsMobileL};
     }
 `;
 export const TitleWrapper = styled.div `
 
     display: flex;
     justify-content: center;
-    width: ${props => props.theme.widthOptions.settingsTitle};
-    height: ${props => props.theme.heightOptions.settingsTitle};
+    width: ${({ theme: { widthOptions } }) => widthOptions.settingsTitle};
+    height: ${({ theme: { heightOptions } }) => heightOptions.settingsTitle};
 
-    align-items: ${props => props.theme.aligntItems.center};
+    align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
 
     @media (max-width: ${ mobileL }) {
-        width: ${props => props.theme.widthOptions.fullScreen};
+        width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
     }
 
 `;
 export const Title = styled.h2 `
 
-    font-size: ${props => props.theme.fontSize.desktop};
-    color: ${props => props.theme.FONT_COLOR};
+    font-size: ${({ theme: { fontSize } }) => fontSize.desktop};
+    color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
 
     @media (max-width: ${ mobileL }) {
-        font-size: ${props => props.theme.fontSize.mobileL};
+        font-size: ${({ theme: { fontSize } }) => fontSize.mobileL};
     }
 `;
 export const LabelWrapper = styled.div `
     display: flex;
     justify-content: center;
-    align-items: ${props => props.theme.aligntItems.center};
-    width: ${props => props.theme.widthOptions.settingsLabel};
-    height: ${props => props.theme.heightOptions.settingsLabel};
+    align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
+    width: ${({ theme: { widthOptions } }) => widthOptions.settingsLabel};
+    height: ${({ theme: { heightOptions } }) => heightOptions.settingsLabel};
 
     label {
-        font-size: ${props => props.theme.fontSize.label};
-        font-weight: ${props => props.theme.fontWeight.default};
-        color: ${props => props.theme.FONT_COLOR};
+        font-size: ${({ theme: { fontSize } }) => fontSize.label};
+        font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
+        color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
     }
 
     @media (max-width: ${ mobileL }) {
-        padding-left: ${props => props.theme.padding.labelLeft};
+        padding-left: ${({ theme: { padding } }) => padding.labelLeft};
 
         justify-content: flex-start;
     }
 `;
 
 export const ClearHistoryButton = styled.button `
-    position: ${props => props.theme.position.absolute};
-    z-index: ${props => props.theme.zIndex.minimal};
+    position: ${({ theme: { position } }) => position.absolute};
+    z-index: ${({ theme: { zIndex } }) => zIndex.minimal};
 
-    width: ${props => props.theme.widthOptions.settingsPageElements};
-    height: ${props => props.theme.heightOptions.settingsPageElements};
-    margin-top: ${props => props.theme.margin.clearHistoryButtonTop};
-    margin-left: ${props => props.theme.margin.settingsPageElements};
-    padding-left: ${props => props.theme.padding.settingsPageElementsLeft};
+    width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
+    height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElements};
+    margin-top: ${({ theme: { margin } }) => margin.clearHistoryButtonTop};
+    margin-left: ${({ theme: { margin } }) => margin.settingsPageElements};
+    padding-left: ${({ theme: { padding } }) => padding.settingsPageElementsLeft};
 
-    border: ${props => `${props.theme.border.settingsPageElements} ${props.theme.SECOND_BORDER_COLOR}`};
-    border-radius: ${props => props.theme.borderRadius.settingsPageElements};
+    border: ${({ theme: { border, SECOND_BORDER_COLOR }}) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.settingsPageElements};
 
-    background: ${props => props.theme.BUTTON_BACKGROUND_COLOR};
-    cursor: ${props => props.theme.cursor.pointer};
-    text-align:  ${props => props.theme.textAlign.left};
-    font-size: ${props => props.theme.fontSize.settingsPageElements};
-    font-weight: ${props => props.theme.fontWeight.default};
-    color: ${props => props.theme.CLEAR_HISTORY_BUTTON_COLOR};
+    background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
+    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    text-align:  ${({ theme: { textAlign } }) => textAlign.left};
+    font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
+    color: ${({ theme: { CLEAR_HISTORY_BUTTON_COLOR } }) => CLEAR_HISTORY_BUTTON_COLOR};
 
     &:hover {
         -webkit-box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
@@ -95,22 +95,22 @@ export const ClearHistoryButton = styled.button `
     }
 
     &:disabled {
-        cursor: ${props => props.theme.cursor.noToday};
+        cursor: ${({ theme: { cursor } }) => cursor.noToday};
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
     }
 
     @media(max-width: ${ mobileL }) {
-        left: ${props => props.theme.left.clearHistoryButton};
+        left: ${({ theme: { left } }) => left.clearHistoryButton};
 
-        width: ${props => props.theme.widthOptions.clearHistoryButtonMobile};
-        height: ${props => props.theme.heightOptions.settingsPageElementsMobile};
-        margin-left: ${props => props.theme.margin.noLeft};
-        margin-top: ${props => props.theme.margin.clearHistoryButtonTopMobile};
-        padding-left: ${props => props.theme.padding.noLeft};
+        width: ${({ theme: { widthOptions } }) => widthOptions.clearHistoryButtonMobile};
+        height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElementsMobile};
+        margin-left: ${({ theme: { margin } }) => margin.noLeft};
+        margin-top: ${({ theme: { margin } }) => margin.clearHistoryButtonTopMobile};
+        padding-left: ${({ theme: { padding } }) => padding.noLeft};
 
-        font-size: ${props => props.theme.fontSize.label};
-        text-align: ${props => props.theme.textAlign.center};
+        font-size: ${({ theme: { fontSize } }) => fontSize.label};
+        text-align: ${({ theme: { textAlign } }) => textAlign.center};
     }
 `;
