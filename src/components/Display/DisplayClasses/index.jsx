@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Border, DisplayWrapper, Value, ValueWrapper } from '@/components/Display/DisplayFunctional/styles';
-
-import ExpressionComponent from './Expression';
+import { Border, DisplayWrapper, Expression,ExpressionWrapper,Value, ValueWrapper  } from '@/components/Display/styles';
 
 class DisplayClasses extends React.PureComponent {
     render() {
-        const { display } = this.props;
+        const { display, expression } = this.props;
         return (
           <DisplayWrapper>
-            <ExpressionComponent />
+            <ExpressionWrapper>
+              <Expression>{expression}</Expression>
+            </ExpressionWrapper>
             <ValueWrapper>
               <Value data-test="display">{display}</Value>
             </ValueWrapper>
@@ -20,9 +20,10 @@ class DisplayClasses extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ( { expression } ) => {
+const mapStateToProps = ({ expression }) => {
     return {
-        display: expression.display
+        display: expression.display,
+        expression: expression.expression
     };
 };
 

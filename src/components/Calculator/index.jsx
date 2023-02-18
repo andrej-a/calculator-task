@@ -9,21 +9,19 @@ import pages from '@/constants/pages';
 
 const Calculator = ({ theme }) => {
 
-    const components = links.map(({link}, index) => {
-        return (
-          <Route
-            key={link} path={link}
-            element={pages[index]} />
-);
-    });
-
     return (
       <Suspense fallback={<ClipLoader color={theme.MAIN_COLOR} />}>
         <Header>
           <Navigation />
         </Header>
         <Routes>
-          {components}
+          {links.map(({ link }, index) => {
+                    return (
+                      <Route
+                        key={link} path={link}
+                        element={pages[index]} />
+                    );
+                })}
         </Routes>
       </Suspense>
     );

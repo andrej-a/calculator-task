@@ -13,7 +13,9 @@ const LanguagesSwitcher = ({ onSetIsOpen }) => {
         onSetIsOpen();
     };
 
-    const options = fakeLanguagesData.map(({ id, value, title }) => {
+    return (
+      <React.Fragment>
+        {fakeLanguagesData.map(({ id, value, title }) => {
         return (
           <Options
             data-test={value}
@@ -23,11 +25,7 @@ const LanguagesSwitcher = ({ onSetIsOpen }) => {
             {t(title)}
           </Options>
         );
-    });
-
-    return (
-      <React.Fragment>
-        {options}
+    })}
       </React.Fragment>
     );
 };

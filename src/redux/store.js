@@ -2,8 +2,8 @@ import { combineReducers,createStore } from 'redux';
 import { persistReducer,persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import reducer from './reducers';
 import historyReducer from './reducers/history';
-import reducer from './reducers/reducer';
 import themeReducer from './reducers/theme';
 
 const rootReducer = combineReducers({
@@ -14,8 +14,7 @@ const rootReducer = combineReducers({
 
 const persistConfig = {
     key: 'root',
-    storage,
-    blacklist: ['expression', 'historyStore']
+    storage
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

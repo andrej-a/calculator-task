@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ErrorTitleWrapper = styled.div`
+export const Wrapper = styled.div`
     padding: ${props => props.theme.padding.errorTitle};
 `;
 export const ErrorTitle = styled.h2`

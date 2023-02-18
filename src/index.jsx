@@ -1,14 +1,14 @@
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
 import { PersistGate } from 'redux-persist/integration/react';
 
 import Application from '@/components/App';
 import GlobalStyles from '@/globalStyles';
 
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { persistor, store } from './redux/store';
 import i18n from './settings/18n';
 

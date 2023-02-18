@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
@@ -24,14 +24,6 @@ class HistoryClasses extends React.Component {
     render() {
         const { history, showHistory, t } = this.props;
 
-        const historyItems = history.map(({ display, id }) => {
-            return (
-              <HistoryItemWrapper key={id}>
-                <HistoryItem>{display}</HistoryItem>
-              </HistoryItemWrapper>
-            );
-        });
-
         return (
           <React.Fragment>
             <Border />
@@ -40,7 +32,17 @@ class HistoryClasses extends React.Component {
                 <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
               </TitleWrapper>
 
-              <ItemsWrapper>{historyItems}</ItemsWrapper>
+              <ItemsWrapper>
+                {
+                    history.map(({ display, id }) => {
+                        return (
+                          <HistoryItemWrapper key={id}>
+                            <HistoryItem>{display}</HistoryItem>
+                          </HistoryItemWrapper>
+                        );
+                    })
+                }
+              </ItemsWrapper>
             </HistoryWrapper>
           </React.Fragment>
         );

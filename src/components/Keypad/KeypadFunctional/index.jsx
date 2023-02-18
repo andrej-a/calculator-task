@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import buttonsObject from '@/constants/buttons';
-import ControlPanel from '@/containers/ControlPanel';
+import ControlPanel from '@/components/ControlPanel';
+import buttons from '@/constants/buttons';
 import expressionSelector from '@/redux/selectors/expressionSelector';
 
 import { Key, Wrapper } from './styles';
@@ -13,23 +13,23 @@ const Keypad = React.memo(({ controller }) => {
     const keypadManager = value => () => {
         controller(value);
     };
-    const keypad = buttonsObject.map(({ value }) => {
-        return (
-          <Key
-            disabled={isKeypadBlocked}
-            data-test={value.trim()}
-            onClick={keypadManager(value)}
-            key={value}>
-            {value}
-          </Key>
-        );
-    });
+
     return (
       <Wrapper>
-        {keypad}
+        {buttons.map(({ value }) => {
+                return (
+                  <Key
+                    disabled={isKeypadBlocked}
+                    data-test={value.trim()}
+                    onClick={keypadManager(value)}
+                    key={value}>
+                    {value}
+                  </Key>
+                );
+            })}
         <ControlPanel />
       </Wrapper>
-);
+    );
 });
 
 Keypad.propTypes = {

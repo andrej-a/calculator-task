@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import triangle from '@/assets/image/play.png';
+import triangle from '@/assets/image/open_selector.png';
 
 import { OptionsWrapper, SelectTitleBox, SelectWrapper } from './styles';
 

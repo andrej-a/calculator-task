@@ -1,4 +1,4 @@
-const buttonsObject = [
+const buttons = [
     {
         value: 'C'
     },
@@ -81,4 +81,4 @@ const buttonsObject = [
     },
 ];
 
-export default buttonsObject;
+export default buttons;

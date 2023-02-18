@@ -8,26 +8,28 @@ import historySelector from '@/redux/selectors/historySelector';
 import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
 
 const History = () => {
-    const {history, showHistory} = useSelector(historySelector);
+    const { history, showHistory } = useSelector(historySelector);
     const { t } = useTranslation();
-
-    const historyItems = history.map(({ display, id }) => {
-        return (
-          <HistoryItemWrapper key={id}>
-            <HistoryItem>{display}</HistoryItem>
-          </HistoryItemWrapper>
-        );
-    });
 
     return (
       <React.Fragment>
         <Border />
         <HistoryWrapper showHistory={showHistory}>
           <TitleWrapper>
-            <Title>{historyItems.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
+            <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
           </TitleWrapper>
 
-          <ItemsWrapper>{historyItems}</ItemsWrapper>
+          <ItemsWrapper>
+            {
+                    history.map(({ display, id }) => {
+                        return (
+                          <HistoryItemWrapper key={id}>
+                            <HistoryItem>{display}</HistoryItem>
+                          </HistoryItemWrapper>
+                        );
+                    })
+                }
+          </ItemsWrapper>
         </HistoryWrapper>
       </React.Fragment>
     );

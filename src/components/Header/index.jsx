@@ -8,8 +8,7 @@ import expressionSelector from '@/redux/selectors/expressionSelector';
 import HistoryToggler from './HistoryToggler';
 import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper } from './styles';
 
-const Header = props => {
-    const { children } = props;
+const Header = ({ children }) => {
     const dispatch = useDispatch();
     const { menu } = useSelector(expressionSelector);
 

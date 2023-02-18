@@ -1,6 +1,6 @@
+import React from 'react';
 import i18next from 'i18next';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
@@ -8,27 +8,26 @@ import {
     CLEAR_HISTORY_BUTTON,
     DEFAULT_APPLICATION_LANGUAGE,
     ENGLISH_LANGUAGE,
-    LIGHT_THEME_TITLE_EN,
     LIGHT_THEME_TITLE_RU,
     RUSSIAN_LANGUAGE,
     SETTINGS_TITLE,
 } from '@/constants';
 import selects from '@/constants/selects';
-import * as actions from '@/redux/actions';
+import * as historyActions  from '@/redux/actions/history';
 
 import SelectComponent from './SelectComponent';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
 
 class Settings extends React.Component {
     render() {
-        const { history, clearAllData, clearHistory, themeTitle, t } = this.props;
+        const { history, clearHistory, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE
-            ? RUSSIAN_LANGUAGE : ENGLISH_LANGUAGE;
-        const THEME_SELECTOR_TITLE = themeTitle === LIGHT_THEME_TITLE_EN || themeTitle === LIGHT_THEME_TITLE_RU
+            ? ENGLISH_LANGUAGE : RUSSIAN_LANGUAGE;
+
+        const THEME_SELECTOR_TITLE = (themeTitle === "LightTheme" || themeTitle === LIGHT_THEME_TITLE_RU)
             ? "LightTheme" : "DarkTheme";
 
-        const infoManager = () => {
-            clearAllData();
+        const settingsManager = () => {
             clearHistory();
         };
 
@@ -55,7 +54,7 @@ class Settings extends React.Component {
 
             <ClearHistoryButton
               data-test="clearHistory" disabled={!history.length}
-              onClick={infoManager}>
+              onClick={settingsManager}>
               {t(CLEAR_HISTORY_BUTTON)}
             </ClearHistoryButton>
           </SettingsWrapper>
@@ -64,8 +63,7 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
-    history: PropTypes.arrayOf(PropTypes.shape).isRequired,
-    clearAllData: PropTypes.func.isRequired,
+    history: PropTypes.arrayOf().isRequired,
     themeTitle: PropTypes.string.isRequired
 };
 
@@ -76,4 +74,4 @@ const mapStateToProps = ({ historyStore, theme }) => {
     };
 };
 
-export default withTranslation()(connect(mapStateToProps, actions)(Settings));
+export default withTranslation()(connect(mapStateToProps, historyActions)(Settings));

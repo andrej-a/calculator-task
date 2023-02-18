@@ -1,5 +1,6 @@
-import { bindActionCreators } from 'redux';
 import { v4 as uuidv4 } from 'uuid';
+
+import { bindActionCreators } from 'redux';
 
 import {
     DEFAULT_DISPLAY_VALUE,
@@ -8,11 +9,11 @@ import {
     UNCORRECT_OPERATOR_MESSAGE
 } from '@/constants';
 import {
-    addItemToHistory,
     changeDisplayValue,
     setDefaultValue,
     setExpression,
     setOwnValue} from '@/redux/actions';
+import { addItemToHistory } from '@/redux/actions/history';
 import { store } from '@/redux/store';
 
 import checkCorrectBrakcets from './checkCorrectBrakcets';
