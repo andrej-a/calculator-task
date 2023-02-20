@@ -5,8 +5,8 @@ import { HEADER_TITLE } from '@/constants/componentsConstants';
 import { switchMenu } from '@/redux/actions';
 import expressionSelector from '@/redux/selectors/expressionSelector';
 
-import HistoryToggler from './HistoryToggler';
-import { Burger, BurgerWrapper, HeaderWrapper,LinksWrapper, Title, TitleWrapper } from './styles';
+import HistorySwitcher from './HistorySwitcher';
+import { Burger, BurgerWrapper, HeaderWrapper, LinksWrapper, Title, TitleWrapper } from './styles';
 
 const Header = ({ children }) => {
     const dispatch = useDispatch();
@@ -17,20 +17,20 @@ const Header = ({ children }) => {
     };
 
     return (
-      <HeaderWrapper>
-        <TitleWrapper>
-          <Title>{HEADER_TITLE}</Title>
-        </TitleWrapper>
+        <HeaderWrapper>
+            <TitleWrapper>
+                <Title>{HEADER_TITLE}</Title>
+            </TitleWrapper>
 
-        <BurgerWrapper onClick={onHandleMenu}>
-          <Burger />
-        </BurgerWrapper>
+            <BurgerWrapper onClick={onHandleMenu}>
+                <Burger />
+            </BurgerWrapper>
 
-        <LinksWrapper showMenu={menu}>
-          {children}
-          <HistoryToggler />
-        </LinksWrapper>
-      </HeaderWrapper>
+            <LinksWrapper showMenu={menu}>
+                {children}
+                <HistorySwitcher />
+            </LinksWrapper>
+        </HeaderWrapper>
     );
 };
 

@@ -10,20 +10,20 @@ import links from '@/constants/links';
 const Calculator = ({ theme }) => {
 
     return (
-      <Suspense fallback={<ClipLoader color={theme.MAIN_COLOR} />}>
-        <Header>
-          <Navigation />
-        </Header>
-        <Routes>
-          {links.map(({ link }, index) => {
+        <Suspense fallback={<ClipLoader color={theme.MAIN_COLOR} />}>
+            <Header>
+                <Navigation />
+            </Header>
+            <Routes>
+                {links.map(({ link }, index) => {
                     return (
-                      <Route
-                        key={link} path={link}
-                        element={pages[index]} />
+                        <Route
+                          key={link} path={link}
+                          element={pages[index]} />
                     );
                 })}
-        </Routes>
-      </Suspense>
+            </Routes>
+        </Suspense>
     );
 };
 

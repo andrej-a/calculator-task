@@ -10,13 +10,13 @@ import { DisplayKeypadWrapper, HomeWrapper } from '../HomeFunctional/styles';
 class HomeClassComponent extends React.Component {
     render() {
         return (
-          <HomeWrapper>
-            <DisplayKeypadWrapper>
-              <DisplayClasses />
-              <KeypadClasses controller={controller} />
-            </DisplayKeypadWrapper>
-            <HistoryClasses />
-          </HomeWrapper>
+            <HomeWrapper>
+                <DisplayKeypadWrapper>
+                    <DisplayClasses />
+                    <KeypadClasses controller={controller} />
+                </DisplayKeypadWrapper>
+                <HistoryClasses />
+            </HomeWrapper>
         );
     }
 }

@@ -8,7 +8,8 @@ import {
     TOO_LONG_EXPRESSION,
     UNCORRECT_BRACKETS_MESSAGE,
     UNCORRECT_INPUT_MESSAGE,
-    UNCORRECT_OPERATOR_MESSAGE} from '@/constants';
+    UNCORRECT_OPERATOR_MESSAGE
+} from '@/constants';
 import {
     changeDisplayValue,
     setDefaultValue,

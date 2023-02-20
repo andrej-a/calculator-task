@@ -19,15 +19,15 @@ const Navigation = () => {
 
     const navigation = links.map(({ link, dataTest, title }) => {
         return (
-          <NavLink
-            key={title}
-            to={link}
-            style={({ isActive }) => (isActive ? activeStyle : nonActive)}
-            end
-            onClick={onHandleMenu}>
-            <PageLink data-test={dataTest}>{t(title)}</PageLink>
-          </NavLink>
-);
+            <NavLink
+              key={title}
+              to={link}
+              style={({ isActive }) => (isActive ? activeStyle : nonActive)}
+              end
+              onClick={onHandleMenu}>
+                <PageLink data-test={dataTest}>{t(title)}</PageLink>
+            </NavLink>
+        );
     });
 
     return navigation;

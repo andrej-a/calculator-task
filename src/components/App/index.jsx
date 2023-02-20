@@ -11,13 +11,13 @@ import ApplicationWrapper from './styles';
 const Application = () => {
     const { theme } = useSelector(themeSelector);
     return (
-      <ThemeProvider theme={theme}>
-        <ErrorBoundary>
-          <ApplicationWrapper>
-            <Calculator theme={theme} />
-          </ApplicationWrapper>
-        </ErrorBoundary>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+            <ErrorBoundary>
+                <ApplicationWrapper>
+                    <Calculator theme={theme} />
+                </ApplicationWrapper>
+            </ErrorBoundary>
+        </ThemeProvider>
     );
 };
 

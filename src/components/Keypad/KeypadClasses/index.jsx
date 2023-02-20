@@ -21,22 +21,22 @@ class KeypadClasses extends React.PureComponent {
         const { isKeypadBlocked } = this.props;
 
         return (
-          <Wrapper>
-            {
-            buttons.map(({ value }) => {
-            return (
-              <Key
-                disabled={isKeypadBlocked}
-                data-test={value.trim()}
-                onClick={this.keypadManager(value)}
-                key={value}>
-                {value}
-              </Key>
-            );
-        })
-}
-            <ControlPanel />
-          </Wrapper>
+            <Wrapper>
+                {
+                    buttons.map(({ value }) => {
+                        return (
+                            <Key
+                              disabled={isKeypadBlocked}
+                              data-test={value.trim()}
+                              onClick={this.keypadManager(value)}
+                              key={value}>
+                                {value}
+                            </Key>
+                        );
+                    })
+                }
+                <ControlPanel />
+            </Wrapper>
         );
     }
 }
@@ -45,7 +45,7 @@ KeypadClasses.propTypes = {
     controller: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({expression}) => ({
+const mapStateToProps = ({ expression }) => ({
     isKeypadBlocked: expression.isKeypadBlocked
 });
 

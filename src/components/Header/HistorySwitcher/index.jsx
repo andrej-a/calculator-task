@@ -9,22 +9,22 @@ import historySelector from '@/redux/selectors/historySelector';
 
 import ShowHistory from './styles';
 
-const HistoryToggler = () => {
+const HistorySwitcher = () => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
     const { showHistory } = useSelector(historySelector);
 
-    const togglerManager = () => {
+    const switchManager = () => {
         dispatch(switchMenu);
         dispatch(switchHistory);
     };
 
     return (
-      <ShowHistory
-        onClick={togglerManager}>
-        {showHistory ? t(HIDE_HISTORY) : t(SHOW_HISTORY)}
-      </ShowHistory>
+        <ShowHistory
+          onClick={switchManager}>
+            {showHistory ? t(HIDE_HISTORY) : t(SHOW_HISTORY)}
+        </ShowHistory>
     );
 };
 
-export default HistoryToggler;
+export default HistorySwitcher;

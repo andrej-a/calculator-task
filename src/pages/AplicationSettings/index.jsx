@@ -13,7 +13,7 @@ import {
     SETTINGS_TITLE,
 } from '@/constants';
 import selects from '@/constants/selects';
-import * as historyActions  from '@/redux/actions/history';
+import * as historyActions from '@/redux/actions/history';
 
 import SelectComponent from './SelectComponent';
 import { ClearHistoryButton, LabelWrapper, SettingsWrapper, Title, TitleWrapper } from './styles';
@@ -32,38 +32,41 @@ class Settings extends React.Component {
         };
 
         return (
-          <SettingsWrapper>
-            <TitleWrapper>
-              <Title>{t(SETTINGS_TITLE)}</Title>
-            </TitleWrapper>
+            <SettingsWrapper>
+                <TitleWrapper>
+                    <Title>{t(SETTINGS_TITLE)}</Title>
+                </TitleWrapper>
 
-            {selects.map(({labelHtmlFor, labelTitle, dataTestValue, renderProps}) => {
-                return (
-                  <React.Fragment key={labelTitle}>
-                    <LabelWrapper>
-                      <label htmlFor={labelHtmlFor}>{t(labelTitle)}</label>
-                    </LabelWrapper>
-                    <SelectComponent
-                      title={t(labelHtmlFor === 'theme' ? THEME_SELECTOR_TITLE : LANGUAGE_SELECTOR_TITLE)}
-                      data-test={dataTestValue}
-                      render={renderProps}
-                    />
-                  </React.Fragment>
-                );
-            })}
+                {selects.map(({ labelHtmlFor, labelTitle, dataTestValue, renderProps }) => {
+                    return (
+                        <React.Fragment key={labelTitle}>
+                            <LabelWrapper>
+                                <label htmlFor={labelHtmlFor}>{t(labelTitle)}</label>
+                            </LabelWrapper>
+                            <SelectComponent
+                              title={t(labelHtmlFor === 'theme' ? THEME_SELECTOR_TITLE : LANGUAGE_SELECTOR_TITLE)}
+                              data-test={dataTestValue}
+                              render={renderProps}
+                            />
+                        </React.Fragment>
+                    );
+                })}
 
-            <ClearHistoryButton
-              data-test="clearHistory" disabled={!history.length}
-              onClick={settingsManager}>
-              {t(CLEAR_HISTORY_BUTTON)}
-            </ClearHistoryButton>
-          </SettingsWrapper>
+                <ClearHistoryButton
+                  data-test="clearHistory" disabled={!history.length}
+                  onClick={settingsManager}>
+                    {t(CLEAR_HISTORY_BUTTON)}
+                </ClearHistoryButton>
+            </SettingsWrapper>
         );
     }
 }
 
 Settings.propTypes = {
-    history: PropTypes.arrayOf().isRequired,
+    history: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        display: PropTypes.string.isRequired
+    }).isRequired).isRequired,
     themeTitle: PropTypes.string.isRequired
 };
 

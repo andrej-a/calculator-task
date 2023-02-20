@@ -12,15 +12,15 @@ const SelectComponent = props => {
         setIsOpen(!isOpen);
     };
     return (
-      <SelectWrapper>
-        <SelectTitleBox
-          data-test={dataTest}
-          onClick={onSetIsOpen}>
-          {title}
-          <img src={triangle} alt='button' />
-        </SelectTitleBox>
-        {isOpen && <OptionsWrapper>{render(onSetIsOpen)}</OptionsWrapper>}
-      </SelectWrapper>
+        <SelectWrapper>
+            <SelectTitleBox
+              data-test={dataTest}
+              onClick={onSetIsOpen}>
+                {title}
+                <img src={triangle} alt='button' />
+            </SelectTitleBox>
+            {isOpen && <OptionsWrapper>{render(onSetIsOpen)}</OptionsWrapper>}
+        </SelectWrapper>
     );
 };
 

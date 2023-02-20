@@ -1,4 +1,4 @@
-import { addition, division, modulo, multiplication, pow,sqrt, subtraction } from './calculations';
+import { addition, division, modulo, multiplication, pow, sqrt, subtraction } from './calculations';
 import removeItemFromNumberStack from './helpers/removeItemFromNumberStack';
 import removeItemFromOperatorStack from './helpers/removeItemFromOperatorStack';
 

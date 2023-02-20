@@ -22,9 +22,9 @@ class ErrorBoundary extends React.Component {
         const { hasError } = this.state;
         if (hasError) {
             return (
-              <Wrapper>
-                <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
-              </Wrapper>
+                <Wrapper>
+                    <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
+                </Wrapper>
             );
         }
 

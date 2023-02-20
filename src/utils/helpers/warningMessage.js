@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 
 import { WARNING_MESSAGE_TIMEOUT } from '@/constants';
-import { isKeypadBlocked,setOwnValue } from '@/redux/actions';
+import { isKeypadBlocked, setOwnValue } from '@/redux/actions';
 import { store } from '@/redux/store';
 
 const { dispatch } = store;

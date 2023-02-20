@@ -12,25 +12,25 @@ const History = () => {
     const { t } = useTranslation();
 
     return (
-      <React.Fragment>
-        <HistoryWrapper showHistory={showHistory}>
-          <TitleWrapper>
-            <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
-          </TitleWrapper>
+        <React.Fragment>
+            <HistoryWrapper showHistory={showHistory}>
+                <TitleWrapper>
+                    <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
+                </TitleWrapper>
 
-          <ItemsWrapper>
-            {
-                    history.map(({ display, id }) => {
-                        return (
-                          <HistoryItemWrapper key={id}>
-                            <HistoryItem>{display}</HistoryItem>
-                          </HistoryItemWrapper>
-                        );
-                    })
-                }
-          </ItemsWrapper>
-        </HistoryWrapper>
-      </React.Fragment>
+                <ItemsWrapper>
+                    {
+                        history.map(({ display, id }) => {
+                            return (
+                                <HistoryItemWrapper key={id}>
+                                    <HistoryItem>{display}</HistoryItem>
+                                </HistoryItemWrapper>
+                            );
+                        })
+                    }
+                </ItemsWrapper>
+            </HistoryWrapper>
+        </React.Fragment>
     );
 };
 

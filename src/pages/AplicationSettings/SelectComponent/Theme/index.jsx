@@ -12,7 +12,7 @@ import Options from './styles';
 const Theme = ({ onSetIsOpen }) => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
-    const {darkTheme, lightTheme} = themeOptions;
+    const { darkTheme, lightTheme } = themeOptions;
     const componentController = value => () => {
         const theme = value === DEFAULT_THEME_VALUE ? lightTheme : darkTheme;
         dispatch(changeTheme(theme));
@@ -21,18 +21,18 @@ const Theme = ({ onSetIsOpen }) => {
     };
 
     return (
-      <React.Fragment>
-        {fakeThemeData.map(({ id, value, testValue }) => {
-        return (
-          <Options
-            data-test={testValue}
-            onClick={componentController(value)}
-            key={id}>
-            {t(value)}
-          </Options>
-        );
-    })}
-      </React.Fragment>
+        <React.Fragment>
+            {fakeThemeData.map(({ id, value, testValue }) => {
+                return (
+                    <Options
+                      data-test={testValue}
+                      onClick={componentController(value)}
+                      key={id}>
+                        {t(value)}
+                    </Options>
+                );
+            })}
+        </React.Fragment>
     );
 };
 

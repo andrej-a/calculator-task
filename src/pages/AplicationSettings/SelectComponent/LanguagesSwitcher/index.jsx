@@ -14,19 +14,19 @@ const LanguagesSwitcher = ({ onSetIsOpen }) => {
     };
 
     return (
-      <React.Fragment>
-        {fakeLanguagesData.map(({ id, value, title }) => {
-        return (
-          <Options
-            data-test={value}
-            key={id}
-            onClick={languageManager(value)}
-            >
-            {t(title)}
-          </Options>
-        );
-    })}
-      </React.Fragment>
+        <React.Fragment>
+            {fakeLanguagesData.map(({ id, value, title }) => {
+                return (
+                    <Options
+                      data-test={value}
+                      key={id}
+                      onClick={languageManager(value)}
+                    >
+                        {t(title)}
+                    </Options>
+                );
+            })}
+        </React.Fragment>
     );
 };
 

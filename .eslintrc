@@ -38,6 +38,7 @@
         "react/prefer-stateless-function": "off",
         "no-underscore-dangle": "off",
         "import/no-cycle": "off",
+        "react/jsx-indent" : ["error", 4],
         "import/no-extraneous-dependencies": [
             "error",
             {
