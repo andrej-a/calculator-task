@@ -5,50 +5,49 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 export const SelectWrapper = styled.div`
-    position: ${({ theme: { position } }) => position.relative};
-    width: ${({ theme: { widthOptions } }) => widthOptions.autoWidth};
-    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
-    margin-left: ${({ theme: { margin } }) => margin.settingsPageElements};
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-left: ${({ theme: { margin } }) => margin[90]}px;
 
-    @media (max-width: ${ mobileL }) {
+    @media (max-width: ${mobileL}) {
         display: flex;
         flex-direction: column;
 
-        width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
-        margin-left: ${({ theme: { margin } }) => margin.noLeft};
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+        margin-left: ${({ theme: { margin } }) => margin[0]};
 
-        align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
+        align-items: center;
     }
 `;
 export const SelectTitleBox = styled.div`
-    position: ${({ theme: { position } }) => position.relative};
+    position: relative;
 
-    width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
-    max-width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
-    height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElements};
-    padding-left: ${({ theme: { padding } }) => padding.settingsPageElementsLeft};
-    padding-top: ${({ theme: { padding } }) => padding.settingsPageElementsTop};
-    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
-    border-radius: ${({ theme: { borderRadius } }) => borderRadius.settingsPageElements};
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[400]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[90]}px;
+    padding-left: ${({ theme: { padding } }) => padding[20]}px;
+    padding-top: ${({ theme: { padding } }) => padding[25]}px;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.default};
 
     background: ${({ theme: { background } }) => background.white};
-    font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
-    font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
 
     color: ${({ theme: { color } }) => color.black};
     cursor: ${({ theme: { cursor } }) => cursor.pointer};
 
     img {
-        position: ${({ theme: { position } }) => position.absolute};
-        right: ${({ theme: { right } }) => right.IMGRight};
-        top: ${({ theme: { top } }) => top.IMGTop};
+        position: absolute;
+        right: ${({ theme: { right } }) => right[40]}px;
+        top: ${({ theme: { top } }) => top[30]}px;
 
         transform: rotate(90deg);
 
-        @media (max-width: ${ mobileL }) {
-            top: ${({ theme: { top } }) => top.IMGTopMobile};
+        @media (max-width: ${mobileL}) {
+            top: ${({ theme: { top } }) => top[10]}px;
         }
-
     }
 
     &:hover {
@@ -57,30 +56,30 @@ export const SelectTitleBox = styled.div`
         box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
     }
 
-    @media (max-width: ${ mobileL }) {
-        max-width: ${({ theme: { widthOptions } }) => widthOptions.noMaxWidth};
-        width: ${({ theme: { widthOptions } }) => widthOptions.selectTitleMobileL};
-        height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElementsMobile};
-        padding-top: ${({ theme: { padding } }) => padding.selectComponentTopMobileL};
+    @media (max-width: ${mobileL}) {
+        max-width: none;
+        width: ${({ theme: { widthOptions } }) => widthOptions[90]}%;
+        height: ${({ theme: { heightOptions } }) => heightOptions[50]}px;
+        padding-top: ${({ theme: { padding } }) => padding[5]}px;
 
-        font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
+        font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     }
 `;
 export const OptionsWrapper = styled.div`
-    position: ${({ theme: { position } }) => position.absolute};
-    z-index: ${({ theme: { zIndex } }) => zIndex.stronger};
+    position: absolute;
+    z-index: ${({ theme: { zIndex } }) => zIndex[2]};
 
-    width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
-    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
-    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.settingsPageElements} ${ SECOND_BORDER_COLOR }`};
+    width: ${({ theme: { widthOptions } }) => widthOptions[400]}px;
+    height: auto;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
 
-    @media (max-width: ${ mobileL }) {
-        top: ${({ theme: { top } }) => top.optionsTop};
+    @media (max-width: ${mobileL}) {
+        top: ${({ theme: { top } }) => top[50]}px;
 
         display: flex;
         flex-direction: column;
-        width: ${({ theme: { widthOptions } }) => widthOptions.selectTitleMobileL};
+        width: ${({ theme: { widthOptions } }) => widthOptions[90]}%;
 
-        align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
+        align-items: center;
     }
 `;

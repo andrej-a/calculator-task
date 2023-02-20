@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: ${({ theme: { padding }}) => padding.errorTitle};
+    padding: ${({ theme: { padding } }) => padding[10]}px;
 `;
 export const ErrorTitle = styled.h2`
-    font-size: ${({ theme: { fontSize }}) => fontSize.desktop};
-    text-align: ${({ theme: { textAlign }}) => textAlign.center};
+    font-size: ${({ theme: { fontSize } }) => fontSize.xxl}px;
+    text-align: ${({ theme: { textAlign } }) => textAlign.center};
 `;

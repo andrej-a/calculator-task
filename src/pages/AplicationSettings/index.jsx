@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import {
     CLEAR_HISTORY_BUTTON,
     DEFAULT_APPLICATION_LANGUAGE,
+    DEFAULT_THEME_VALUE,
     ENGLISH_LANGUAGE,
     LIGHT_THEME_TITLE_RU,
     RUSSIAN_LANGUAGE,
@@ -23,8 +24,7 @@ class Settings extends React.Component {
         const { history, clearHistory, themeTitle, t } = this.props;
         const LANGUAGE_SELECTOR_TITLE = i18next.language === DEFAULT_APPLICATION_LANGUAGE
             ? ENGLISH_LANGUAGE : RUSSIAN_LANGUAGE;
-
-        const THEME_SELECTOR_TITLE = (themeTitle === "LightTheme" || themeTitle === LIGHT_THEME_TITLE_RU)
+        const THEME_SELECTOR_TITLE = (themeTitle === "Light theme" || themeTitle === DEFAULT_THEME_VALUE || themeTitle === LIGHT_THEME_TITLE_RU)
             ? "LightTheme" : "DarkTheme";
 
         const settingsManager = () => {

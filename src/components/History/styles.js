@@ -6,48 +6,47 @@ import size from '@/constants/sizes';
 const { tablet, mobileL } = size;
 
 export const HistoryWrapper = styled.div`
-    display: ${({ showHistory }) => showHistory ? 'flex' : 'none'};
+    display: ${({ showHistory }) => (showHistory ? 'flex' : 'none')};
     flex-direction: column;
     align-items: center;
 
-    width: ${({ theme: { widthOptions }}) => widthOptions.history};
-    max-height: ${({ theme: { heightOptions }}) => heightOptions.laptop};
+    width: ${({ theme: { widthOptions } }) => widthOptions[40]}%;
+    max-height: ${({ theme: { heightOptions } }) => heightOptions[960]}px;
 
-    border-left: ${({ theme: { border }}) => border.wrappers};
+    border-left: ${({ theme: { border } }) => border.default};
 
-    @media (max-width: ${ tablet }) {
-        position: ${({ theme: { position }}) => position.absolute};
-        z-index: ${({ theme: { zIndex }}) => zIndex.stronger};
-        left: ${({ showHistory }) => showHistory ? NO_INDENT : SET_INDENT};
+    @media (max-width: ${tablet}) {
+        position: absolute;
+        z-index: ${({ theme: { zIndex } }) => zIndex[2]};
+        left: ${({ showHistory }) => (showHistory ? NO_INDENT : SET_INDENT)};
 
-        width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
-        height: ${({ theme: { heightOptions }}) => heightOptions.historyTablet};
-        background: ${({ theme: { MAIN_BACKGROUND_COLOR }}) => MAIN_BACKGROUND_COLOR};
-        border-left: ${({ theme: { border }}) => border.noBorder};
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+        height: ${({ theme: { heightOptions } }) => heightOptions[800]}px;
+        background: ${({ theme: { MAIN_BACKGROUND_COLOR } }) => MAIN_BACKGROUND_COLOR};
+        border-left: ${({ theme: { border } }) => border[0]};
     }
 
-    @media (max-width: ${ mobileL }) {
-        height: ${({ theme: { heightOptions }}) => heightOptions.historyMobileL};
+    @media (max-width: ${mobileL}) {
+        height: ${({ theme: { heightOptions } }) => heightOptions[670]}px;
     }
 `;
 
-
 export const TitleWrapper = styled.div`
-    width: ${({ theme: { widthOptions }}) => widthOptions.autoWidth};
-    height: ${({ theme: { heightOptions }}) => heightOptions.autoHeight};
-    margin: ${({ theme: { margin }}) => margin.historyTitle};
+    width: auto;
+    height: auto;
+    margin: ${({ theme: { margin } }) => margin[32]}px;
 `;
 
 export const Title = styled.h2`
-    color: ${({ theme: { FONT_COLOR }}) => FONT_COLOR};
-    font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
-    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
-    text-align: ${({ theme: { textAlign }}) => textAlign.center};
+    color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
+    text-align: ${({ theme: { textAlign } }) => textAlign.center};
 `;
 
 export const ItemsWrapper = styled.div`
-    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
-    max-height: ${({ theme: { heightOptions }}) => heightOptions.ihnerit};
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-height: inherit;
     overflow-y: scroll;
     overflow-x: auto;
 
@@ -55,12 +54,12 @@ export const ItemsWrapper = styled.div`
     flex-direction: column;
 `;
 export const HistoryItemWrapper = styled.div`
-    margin-left: ${({ theme: { margin }}) => margin.historyItemsLeft};
+    margin-left: ${({ theme: { margin } }) => margin[32]}px;
 `;
 export const HistoryItem = styled.p`
-    margin-bottom: ${({ theme: { margin }}) => margin.historyItemBottom};
+    margin-bottom: ${({ theme: { margin } }) => margin[32]}px;
 
-    font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
-    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
-    color: ${({ theme: { FONT_COLOR }}) => FONT_COLOR};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
+    color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
 `;

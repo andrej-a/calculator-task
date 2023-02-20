@@ -4,88 +4,85 @@ import size from '@/constants/sizes';
 
 const { tablet, mobileL } = size;
 
-export const SettingsWrapper = styled.div `
-    position: ${({ theme: { position } }) => position.relative};
+export const SettingsWrapper = styled.div`
+    position: relative;
 
     display: flex;
     flex-direction: column;
-    width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
-    max-width: ${({ theme: { widthOptions } }) => widthOptions.desktop};
-    height: ${({ theme: { heightOptions } }) => heightOptions.autoHeight};
-    min-height: ${({ theme: { heightOptions } }) => heightOptions.laptop};
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[1920]}px;
+    height: auto;
+    min-height: ${({ theme: { heightOptions } }) => heightOptions[960]}px;
 
     background: ${({ theme: { MAIN_BACKGROUND_COLOR } }) => MAIN_BACKGROUND_COLOR};
 
     @media (max-width: ${tablet}) {
-        min-height: ${({ theme: { heightOptions } }) => heightOptions.minHeightTurnOff};
-        height: ${({ theme: { heightOptions } }) => heightOptions.settingsTablet};
+        min-height: ${({ theme: { heightOptions } }) => heightOptions[0]}px;
+        height: ${({ theme: { heightOptions } }) => heightOptions[840]}px;
     }
 
     @media (max-width: ${mobileL}) {
-        height: ${({ theme: { heightOptions } }) => heightOptions.settingsMobileL};
+        height: ${({ theme: { heightOptions } }) => heightOptions[670]}px;
     }
 `;
-export const TitleWrapper = styled.div `
-
+export const TitleWrapper = styled.div`
     display: flex;
     justify-content: center;
-    width: ${({ theme: { widthOptions } }) => widthOptions.settingsTitle};
-    height: ${({ theme: { heightOptions } }) => heightOptions.settingsTitle};
+    width: ${({ theme: { widthOptions } }) => widthOptions[500]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[100]}px;
 
-    align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
+    align-items: center;
 
-    @media (max-width: ${ mobileL }) {
-        width: ${({ theme: { widthOptions } }) => widthOptions.fullScreen};
+    @media (max-width: ${mobileL}) {
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
     }
-
 `;
-export const Title = styled.h2 `
-
-    font-size: ${({ theme: { fontSize } }) => fontSize.desktop};
+export const Title = styled.h2`
+    font-size: ${({ theme: { fontSize } }) => fontSize.xxl}px;
     color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
 
-    @media (max-width: ${ mobileL }) {
-        font-size: ${({ theme: { fontSize } }) => fontSize.mobileL};
+    @media (max-width: ${mobileL}) {
+        font-size: ${({ theme: { fontSize } }) => fontSize.xl}px;
     }
 `;
-export const LabelWrapper = styled.div `
+export const LabelWrapper = styled.div`
     display: flex;
     justify-content: center;
-    align-items: ${({ theme: { aligntItems } }) => aligntItems.center};
-    width: ${({ theme: { widthOptions } }) => widthOptions.settingsLabel};
-    height: ${({ theme: { heightOptions } }) => heightOptions.settingsLabel};
+    align-items: center;
+    width: ${({ theme: { widthOptions } }) => widthOptions[355]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[55]}px;
 
     label {
-        font-size: ${({ theme: { fontSize } }) => fontSize.label};
-        font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
+        font-size: ${({ theme: { fontSize } }) => fontSize.s}px;
+        font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
         color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
     }
 
-    @media (max-width: ${ mobileL }) {
-        padding-left: ${({ theme: { padding } }) => padding.labelLeft};
+    @media (max-width: ${mobileL}) {
+        padding-left: ${({ theme: { padding } }) => padding[30]}px;
 
         justify-content: flex-start;
     }
 `;
 
-export const ClearHistoryButton = styled.button `
-    position: ${({ theme: { position } }) => position.absolute};
-    z-index: ${({ theme: { zIndex } }) => zIndex.minimal};
+export const ClearHistoryButton = styled.button`
+    position: absolute;
+    z-index: ${({ theme: { zIndex } }) => zIndex[0]};
 
-    width: ${({ theme: { widthOptions } }) => widthOptions.settingsPageElements};
-    height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElements};
-    margin-top: ${({ theme: { margin } }) => margin.clearHistoryButtonTop};
-    margin-left: ${({ theme: { margin } }) => margin.settingsPageElements};
-    padding-left: ${({ theme: { padding } }) => padding.settingsPageElementsLeft};
+    width: ${({ theme: { widthOptions } }) => widthOptions[400]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[90]}px;
+    margin-top: ${({ theme: { margin } }) => margin[475]}px;
+    margin-left: ${({ theme: { margin } }) => margin[90]}px;
+    padding-left: ${({ theme: { padding } }) => padding[20]}px;
 
-    border: ${({ theme: { border, SECOND_BORDER_COLOR }}) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
-    border-radius: ${({ theme: { borderRadius } }) => borderRadius.settingsPageElements};
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.default};
 
     background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
     cursor: ${({ theme: { cursor } }) => cursor.pointer};
-    text-align:  ${({ theme: { textAlign } }) => textAlign.left};
-    font-size: ${({ theme: { fontSize } }) => fontSize.settingsPageElements};
-    font-weight: ${({ theme: { fontWeight } }) => fontWeight.default};
+    text-align: ${({ theme: { textAlign } }) => textAlign.left};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
     color: ${({ theme: { CLEAR_HISTORY_BUTTON_COLOR } }) => CLEAR_HISTORY_BUTTON_COLOR};
 
     &:hover {
@@ -101,16 +98,16 @@ export const ClearHistoryButton = styled.button `
         box-shadow: none;
     }
 
-    @media(max-width: ${ mobileL }) {
+    @media (max-width: ${mobileL}) {
         left: ${({ theme: { left } }) => left.clearHistoryButton};
 
-        width: ${({ theme: { widthOptions } }) => widthOptions.clearHistoryButtonMobile};
-        height: ${({ theme: { heightOptions } }) => heightOptions.settingsPageElementsMobile};
-        margin-left: ${({ theme: { margin } }) => margin.noLeft};
-        margin-top: ${({ theme: { margin } }) => margin.clearHistoryButtonTopMobile};
-        padding-left: ${({ theme: { padding } }) => padding.noLeft};
+        width: ${({ theme: { widthOptions } }) => widthOptions[250]}px;
+        height: ${({ theme: { heightOptions } }) => heightOptions[50]}px;
+        margin-left: ${({ theme: { margin } }) => margin[0]};
+        margin-top: ${({ theme: { margin } }) => margin[390]}px;
+        padding-left: ${({ theme: { padding } }) => padding[0]};
 
-        font-size: ${({ theme: { fontSize } }) => fontSize.label};
+        font-size: ${({ theme: { fontSize } }) => fontSize.s}px;
         text-align: ${({ theme: { textAlign } }) => textAlign.center};
     }
 `;

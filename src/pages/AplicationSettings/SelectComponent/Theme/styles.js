@@ -5,25 +5,25 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 const Options = styled.div`
-    width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
-    height: ${({ theme: { heightOptions }}) => heightOptions.settingsPageElements};
-    border: ${({ theme: { border, SECOND_BORDER_COLOR }}) => `${ border.settingsPageElements } ${ SECOND_BORDER_COLOR }`};
-    padding-top: ${({ theme: { padding }}) => padding.settingsPageElementsTop};
-    padding-left: ${({ theme: { padding }}) => padding.settingsPageElementsLeft};
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    height: ${({ theme: { heightOptions } }) => heightOptions[90]}px;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
+    padding-top: ${({ theme: { padding } }) => padding[25]}px;
+    padding-left: ${({ theme: { padding } }) => padding[20]}px;
 
-    background: ${({ theme: { background }}) => background.white};
-    font-size: ${({ theme: { fontSize }}) => fontSize.settingsPageElements};
-    font-weight: ${({ theme: { fontWeight }}) => fontWeight.default};
-    color: ${({ theme: { color }}) => color.black};
-    cursor: ${({ theme: { cursor }}) => cursor.pointer};
+    background: ${({ theme: { background } }) => background.white};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
+    color: ${({ theme: { color } }) => color.black};
+    cursor: ${({ theme: { cursor } }) => cursor.pointer};
 
     &:hover {
-        background: ${({ theme: { background }}) => background.darkGrey};
-        color: ${({ theme: { color }}) => color.white};
+        background: ${({ theme: { background } }) => background.darkGrey};
+        color: ${({ theme: { color } }) => color.white};
     }
 
-    @media (max-width: ${ mobileL }) {
-        width: ${({ theme: { widthOptions }}) => widthOptions.fullScreen};
+    @media (max-width: ${mobileL}) {
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
     }
 `;
 
