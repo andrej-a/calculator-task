@@ -26,10 +26,10 @@ class KeypadClasses extends React.PureComponent {
                     buttons.map(({ value }) => {
                         return (
                             <Key
-                              disabled={isKeypadBlocked}
-                              data-test={value.trim()}
-                              onClick={this.keypadManager(value)}
-                              key={value}>
+                                disabled={isKeypadBlocked}
+                                data-test={value.trim()}
+                                onClick={this.keypadManager(value)}
+                                key={value}>
                                 {value}
                             </Key>
                         );

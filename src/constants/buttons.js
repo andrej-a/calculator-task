@@ -1,83 +1,83 @@
 const buttons = [
     {
-        value: 'C'
+        value: 'C',
     },
     {
-        value: '7'
+        value: '7',
     },
     {
-        value: '8'
+        value: '8',
     },
     {
-        value: '9'
+        value: '9',
     },
     {
         value: ' * ',
-        priority: 2
+        priority: 2,
     },
     {
         value: ' - ',
-        priority: 1
+        priority: 1,
     },
     {
-        value: '4'
+        value: '4',
     },
     {
-        value: '5'
+        value: '5',
     },
     {
-        value: '6'
+        value: '6',
     },
     {
         value: ' / ',
-        priority: 2
+        priority: 2,
     },
     {
         value: ' + ',
-        priority: 1
+        priority: 1,
     },
     {
-        value: '1'
+        value: '1',
     },
     {
-        value: '2'
+        value: '2',
     },
     {
-        value: '3'
+        value: '3',
     },
     {
-        value: '='
+        value: '=',
     },
     {
-        value: '.'
+        value: '.',
     },
     {
-        value: ' ( '
+        value: ' ( ',
     },
     {
-        value: '0'
+        value: '0',
     },
     {
-        value: ' ) '
+        value: ' ) ',
     },
     {
-        value: 'CE'
+        value: 'CE',
     },
     {
         value: ' % ',
-        priority: 2
+        priority: 2,
     },
     {
         value: ' √ ',
-        priority: 3
+        priority: 3,
     },
     {
         value: ' ^ ',
-        priority: 3
+        priority: 3,
     },
     {
         value: ' +- ',
-        priority: 0
+        priority: 0,
     },
 ];
 

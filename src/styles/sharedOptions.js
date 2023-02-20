@@ -1,7 +1,7 @@
 const sharedOptions = {
     position: {
         relative: 'relative',
-        absolute: 'absolute'
+        absolute: 'absolute',
     },
     top: {
         IMGTop: '30px',
@@ -23,7 +23,7 @@ const sharedOptions = {
     gap: {
         navigation: '32px',
         keypad: '15px',
-        keypadMobileL: '0'
+        keypadMobileL: '0',
     },
     widthOptions: {
         noMaxWidth: 'none',
@@ -41,7 +41,7 @@ const sharedOptions = {
         key: '18%',
         keyLaptop: '17%',
         keyTablet: '16%',
-        keyMobileL: '20%'
+        keyMobileL: '20%',
     },
     heightOptions: {
         ihnerit: 'ihnerit',
@@ -72,8 +72,7 @@ const sharedOptions = {
         historyTablet: '800px',
         historyMobileL: '670px',
         key: '125px',
-        keyMobileL: '110px'
-
+        keyMobileL: '110px',
     },
     margin: {
         noMargin: '0',
@@ -104,13 +103,13 @@ const sharedOptions = {
         errorTitle: '10px',
         keypadLeft: '5%',
         keypad: '0px 20px 20px 20px',
-        keypadMobileL: '0px 20px 0px 20px'
+        keypadMobileL: '0px 20px 0px 20px',
     },
     overflowOptions: {
         autoOverflow: 'auto',
     },
     aligntItems: {
-        center: 'center'
+        center: 'center',
     },
     fontSize: {
         desktop: '64px',
@@ -118,7 +117,7 @@ const sharedOptions = {
         settingsPageElements: '32px',
         label: '24px',
         mainPageElements: '32px',
-        headerMobileM: '28px'
+        headerMobileM: '28px',
     },
     fontWeight: {
         default: '700',
@@ -130,7 +129,7 @@ const sharedOptions = {
     },
     borderRadius: {
         settingsPageElements: '10px',
-        key: '0'
+        key: '0',
     },
     cursor: {
         pointer: 'pointer',
@@ -138,11 +137,11 @@ const sharedOptions = {
     },
     textAlign: {
         left: 'left',
-        center: 'center'
+        center: 'center',
     },
     background: {
         white: '#fff',
-        darkGrey: '#707070'
+        darkGrey: '#707070',
     },
     color: {
         white: '#fff',
@@ -155,8 +154,8 @@ const sharedOptions = {
         displayLineHeight: '40px',
     },
     opacity: {
-        default: '0.3'
-    }
+        default: '0.3',
+    },
 };
 
 export default sharedOptions;

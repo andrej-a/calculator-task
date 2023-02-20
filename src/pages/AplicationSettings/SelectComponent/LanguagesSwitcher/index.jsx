@@ -18,9 +18,9 @@ const LanguagesSwitcher = ({ onSetIsOpen }) => {
             {fakeLanguagesData.map(({ id, value, title }) => {
                 return (
                     <Options
-                      data-test={value}
-                      key={id}
-                      onClick={languageManager(value)}
+                        data-test={value}
+                        key={id}
+                        onClick={languageManager(value)}
                     >
                         {t(title)}
                     </Options>

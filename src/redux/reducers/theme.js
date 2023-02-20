@@ -8,18 +8,18 @@ const THEME_STATE = {
     theme: themeOptions.lightTheme,
 };
 
-const themeReducer = (state = THEME_STATE, {type, payload}) => {
+const themeReducer = (state = THEME_STATE, { type, payload }) => {
     switch (type) {
         case CHANGE_THEME_OBJECT:
             return {
                 ...state,
-                theme: payload
+                theme: payload,
             };
 
         case CHANGE_THEME_VALUE:
             return {
                 ...state,
-                themeValue: payload
+                themeValue: payload,
             };
 
         default:

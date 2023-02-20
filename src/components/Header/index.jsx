@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { HEADER_TITLE } from '@/constants/componentsConstants';
-import { switchMenu } from '@/redux/actions';
+import { switchMenu } from '@/redux/actions/expression';
 import expressionSelector from '@/redux/selectors/expressionSelector';
 
 import HistorySwitcher from './HistorySwitcher';

@@ -2,13 +2,13 @@ const fakeLanguagesData = [
     {
         id: 'russian',
         value: 'ru',
-        title: "Russian",
+        title: 'Russian',
     },
     {
         id: 'english',
         value: 'en',
-        title: "English"
-    }
+        title: 'English',
+    },
 ];
 
 export default fakeLanguagesData;

@@ -4,28 +4,22 @@ import { bindActionCreators } from 'redux';
 
 import {
     DEFAULT_DISPLAY_VALUE,
-    MAX_LENGTH_EXPRESSION,
-    TOO_LONG_EXPRESSION,
     UNCORRECT_BRACKETS_MESSAGE,
     UNCORRECT_INPUT_MESSAGE,
-    UNCORRECT_OPERATOR_MESSAGE
+    UNCORRECT_OPERATOR_MESSAGE,
 } from '@/constants';
-import {
-    changeDisplayValue,
-    setDefaultValue,
-    setExpression,
-    setOwnValue
-} from '@/redux/actions';
+import checkIsValueTooLong from '@/helpers/checkIsValueTooLong';
+import { changeDisplayValue, setDefaultValue, setExpression, setOwnValue } from '@/redux/actions/expression';
 import { addItemToHistory } from '@/redux/actions/history';
 import { store } from '@/redux/store';
 
+import checkCorrectBrakcets from '../helpers/checkCorrectBrakcets';
+import checkCorrectOperators from '../helpers/checkCorrectOperators';
+import checkIfValueIsExpression from '../helpers/checkIfValueIsExpression';
+import deleteLastItem from '../helpers/deleteLastItem';
+import replacePreviousOperator from '../helpers/replacePreviousOperator';
+import warningMessage from '../helpers/warningMessage';
 import getResult from './getResult';
-import checkCorrectBrakcets from './helpers/checkCorrectBrakcets';
-import checkCorrectOperators from './helpers/checkCorrectOperators';
-import checkIfValueIsExpression from './helpers/checkIfValueIsExpression';
-import deleteLastItem from './helpers/deleteLastItem';
-import replacePreviousOperator from './helpers/replacePreviousOperator';
-import warningMessage from './helpers/warningMessage';
 
 const { dispatch, getState } = store;
 
@@ -35,9 +29,9 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
         ownValue: setOwnValue,
         setDefault: setDefaultValue,
         addHistoryItem: addItemToHistory,
-        SET_EXPRESSION: setExpression
+        SET_EXPRESSION: setExpression,
     },
-    dispatch
+    dispatch,
 );
 
 const controller = value => {
@@ -47,10 +41,11 @@ const controller = value => {
     if (getState().expression.expression) {
         SET_EXPRESSION('');
     }
-    if (!value.match(/[=ce]/gi) && display.length >= MAX_LENGTH_EXPRESSION) {
-        return warningMessage(display, `${TOO_LONG_EXPRESSION} ${MAX_LENGTH_EXPRESSION}`);
-    }
+
     if (value.match(/[0123456789]/i)) {
+        if (checkIsValueTooLong(display)) {
+            return;
+        }
         if (display === DEFAULT_DISPLAY_VALUE) {
             return ownValue(value);
         }
@@ -61,7 +56,7 @@ const controller = value => {
         const array = copy.split(' ').filter(item => item);
         if (array.at(-1).match(/[0123456789]/gi)) {
             copy = array.slice(0, array.length - 1);
-            const number = array.at(-1).match(/-/gi) ?  Math.abs(+array.at(-1)) : `-${array.at(-1)}`;
+            const number = array.at(-1).match(/-/gi) ? Math.abs(+array.at(-1)) : `-${array.at(-1)}`;
             return ownValue(`${copy.join(' ')} ${number}`);
         }
         return;
@@ -153,7 +148,7 @@ const controller = value => {
         }
         addHistoryItem({
             id: uuidv4(),
-            display
+            display,
         });
         getResult(display);
     }

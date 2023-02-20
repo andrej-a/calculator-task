@@ -12,7 +12,7 @@ import {
     RUSSIAN_LANGUAGE,
     SETTINGS_TITLE,
 } from '@/constants';
-import selects from '@/constants/selects';
+import selectsData from '@/constants/selectsData';
 import * as historyActions from '@/redux/actions/history';
 
 import SelectComponent from './SelectComponent';
@@ -37,24 +37,24 @@ class Settings extends React.Component {
                     <Title>{t(SETTINGS_TITLE)}</Title>
                 </TitleWrapper>
 
-                {selects.map(({ labelHtmlFor, labelTitle, dataTestValue, renderProps }) => {
+                {selectsData.map(({ labelHtmlFor, labelTitle, dataTestValue, renderProps }) => {
                     return (
                         <React.Fragment key={labelTitle}>
                             <LabelWrapper>
                                 <label htmlFor={labelHtmlFor}>{t(labelTitle)}</label>
                             </LabelWrapper>
                             <SelectComponent
-                              title={t(labelHtmlFor === 'theme' ? THEME_SELECTOR_TITLE : LANGUAGE_SELECTOR_TITLE)}
-                              data-test={dataTestValue}
-                              render={renderProps}
+                                title={t(labelHtmlFor === 'theme' ? THEME_SELECTOR_TITLE : LANGUAGE_SELECTOR_TITLE)}
+                                data-test={dataTestValue}
+                                render={renderProps}
                             />
                         </React.Fragment>
                     );
                 })}
 
                 <ClearHistoryButton
-                  data-test="clearHistory" disabled={!history.length}
-                  onClick={settingsManager}>
+                    data-test="clearHistory" disabled={!history.length}
+                    onClick={settingsManager}>
                     {t(CLEAR_HISTORY_BUTTON)}
                 </ClearHistoryButton>
             </SettingsWrapper>

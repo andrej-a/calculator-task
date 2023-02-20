@@ -1,4 +1,4 @@
-import buttonsObject from "@/constants/buttons";
+import buttonsObject from '@/constants/buttons';
 
 const checkPriority = (operator, previousOperator) => {
     let operatorPriority = 0;

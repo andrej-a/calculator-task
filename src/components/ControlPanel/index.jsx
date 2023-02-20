@@ -19,7 +19,7 @@ const ControlPanel = () => {
     return (
         <Wrapper>
             <ToggleHistoryButton
-              onClick={toggleManager}>
+                onClick={toggleManager}>
                 {showHistory ? t(HIDE_HISTORY) : t(SHOW_HISTORY)}
             </ToggleHistoryButton>
         </Wrapper>

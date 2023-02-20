@@ -5,4 +5,4 @@ const deleteLastItem = display => {
     copy = copy.trim();
     return copy.length > 1 ? copy.slice(0, copy.length - 1) : DEFAULT_DISPLAY_VALUE;
 };
- export default deleteLastItem;
+export default deleteLastItem;

@@ -19,10 +19,10 @@ const Keypad = React.memo(({ controller }) => {
             {buttons.map(({ value }) => {
                 return (
                     <Key
-                      disabled={isKeypadBlocked}
-                      data-test={value.trim()}
-                      onClick={keypadManager(value)}
-                      key={value}>
+                        disabled={isKeypadBlocked}
+                        data-test={value.trim()}
+                        onClick={keypadManager(value)}
+                        key={value}>
                         {value}
                     </Key>
                 );

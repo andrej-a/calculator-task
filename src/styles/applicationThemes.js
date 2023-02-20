@@ -1,4 +1,4 @@
-import sharedOptions from "./sharedOptions";
+import sharedOptions from './sharedOptions';
 
 export const themeOptions = {
     darkTheme: {
@@ -11,7 +11,7 @@ export const themeOptions = {
         BUTTON_BACKGROUND_COLOR: '#F2F2F2',
         BUTTON_COLOR: '#000',
         CLEAR_HISTORY_BUTTON_COLOR: '#000',
-        ...sharedOptions
+        ...sharedOptions,
     },
 
     lightTheme: {
@@ -24,13 +24,13 @@ export const themeOptions = {
         BUTTON_BACKGROUND_COLOR: '#F2F2F2',
         BUTTON_COLOR: '#000',
         CLEAR_HISTORY_BUTTON_COLOR: '#000',
-        ...sharedOptions
-    }
+        ...sharedOptions,
+    },
 };
 
 export const activeStyle = {
-    borderBottom: `2px solid #fefefe`
+    borderBottom: `2px solid #fefefe`,
 };
 export const nonActive = {
-    opacity: '0.7'
+    opacity: '0.7',
 };

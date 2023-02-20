@@ -25,9 +25,9 @@ const Theme = ({ onSetIsOpen }) => {
             {fakeThemeData.map(({ id, value, testValue }) => {
                 return (
                     <Options
-                      data-test={testValue}
-                      onClick={componentController(value)}
-                      key={id}>
+                        data-test={testValue}
+                        onClick={componentController(value)}
+                        key={id}>
                         {t(value)}
                     </Options>
                 );

@@ -18,8 +18,8 @@ const Calculator = ({ theme }) => {
                 {links.map(({ link }, index) => {
                     return (
                         <Route
-                          key={link} path={link}
-                          element={pages[index]} />
+                            key={link} path={link}
+                            element={pages[index]} />
                     );
                 })}
             </Routes>
