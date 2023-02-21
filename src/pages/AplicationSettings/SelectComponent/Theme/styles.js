@@ -15,7 +15,7 @@ const Options = styled.div`
     font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
     color: ${({ theme: { color } }) => color.black};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    cursor: pointer;
 
     &:hover {
         background: ${({ theme: { background } }) => background.darkGrey};

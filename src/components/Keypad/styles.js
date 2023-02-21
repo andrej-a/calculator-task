@@ -32,7 +32,7 @@ export const Key = styled.button`
     border-radius: ${({ theme: { borderRadius } }) => borderRadius.default};
 
     background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    cursor: pointer;
     font-size: ${({ theme: { fontSize } }) => fontSize.xxl}px;
     color: ${({ theme: { BUTTON_COLOR } }) => BUTTON_COLOR};
     transition: ${({ theme: { transition } }) => transition.default};
@@ -48,7 +48,7 @@ export const Key = styled.button`
     &:disabled {
         background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
         color: ${({ theme: { BUTTON_COLOR } }) => BUTTON_COLOR};
-        cursor: ${({ theme: { cursor } }) => cursor.noToday};
+        cursor: not-allowed;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;

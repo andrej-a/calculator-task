@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
-import links from "@/constants/links";
+import links from "@/components/Navigation/config/links";
 import { switchMenu } from "@/redux/actions/expression";
-import { activeStyle, nonActive } from "@/styles";
 
 import PageLink from "./styles";
 
@@ -16,16 +15,18 @@ const Navigation = () => {
     const onHandleMenu = () => {
         dispatch(switchMenu);
     };
-
     const navigation = links.map(({ link, dataTest, title }) => {
         return (
             <NavLink
                 key={title}
                 to={link}
-                style={({ isActive }) => (isActive ? activeStyle : nonActive)}
                 end
                 onClick={onHandleMenu}>
-                <PageLink data-test={dataTest}>{t(title)}</PageLink>
+                {({ isActive }) => (
+                    <React.Fragment>
+                        <PageLink isActive={isActive} data-test={dataTest}>{t(title)}</PageLink>
+                    </React.Fragment>
+                )}
             </NavLink>
         );
     });

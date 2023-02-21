@@ -81,7 +81,7 @@ export const BurgerWrapper = styled.div`
     max-width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
     height: ${({ theme: { heightOptions } }) => heightOptions[30]}px;
     margin: ${({ theme: { margin } }) => margin.burger};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    cursor: pointer;
 
     @media (max-width: ${size.tablet}) {
         display: flex;
@@ -95,7 +95,7 @@ export const Burger = styled.div`
 
     &:before {
         position: relative;
-        top: -15px;
+        top: -${({ theme: { top } }) => top[15]}px;
 
         display: block;
         width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
@@ -107,7 +107,7 @@ export const Burger = styled.div`
 
     &:after {
         position: relative;
-        top: 15px;
+        top: ${({ theme: { top } }) => top[15]}px;
 
         display: block;
         width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;

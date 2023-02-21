@@ -21,7 +21,7 @@ export const ToggleHistoryButton = styled.button`
     padding: ${({ theme: { padding } }) => padding[10]}px;
 
     background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    cursor: pointer;
     font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
     color: ${({ theme: { BUTTON_COLOR } }) => BUTTON_COLOR};

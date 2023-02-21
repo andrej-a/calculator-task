@@ -41,7 +41,7 @@ export const Title = styled.h2`
     color: ${({ theme: { FONT_COLOR } }) => FONT_COLOR};
     font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
-    text-align: ${({ theme: { textAlign } }) => textAlign.center};
+    text-align: center;
 `;
 
 export const ItemsWrapper = styled.div`

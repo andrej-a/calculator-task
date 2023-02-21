@@ -5,7 +5,7 @@ import HistoryClasses from '@/components/History/HistoryClasses';
 import KeypadClasses from '@/components/Keypad/KeypadClasses';
 import controller from '@/utils/controller';
 
-import { DisplayKeypadWrapper, HomeWrapper } from '../HomeFunctional/styles';
+import { DisplayKeypadWrapper, HomeWrapper } from '../styles';
 
 class HomeClassComponent extends React.Component {
     render() {

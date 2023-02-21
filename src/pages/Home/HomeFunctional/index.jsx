@@ -5,7 +5,7 @@ import History from '@/components/History/HistoryFunctional';
 import Keypad from '@/components/Keypad/KeypadFunctional';
 import controller from '@/utils/controller';
 
-import { DisplayKeypadWrapper, HomeWrapper } from './styles';
+import { DisplayKeypadWrapper, HomeWrapper } from '../styles';
 
 const Home = () => (
     <HomeWrapper>

@@ -79,8 +79,8 @@ export const ClearHistoryButton = styled.button`
     border-radius: ${({ theme: { borderRadius } }) => borderRadius.default};
 
     background: ${({ theme: { BUTTON_BACKGROUND_COLOR } }) => BUTTON_BACKGROUND_COLOR};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
-    text-align: ${({ theme: { textAlign } }) => textAlign.left};
+    cursor: pointer;
+    text-align: left;
     font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
     color: ${({ theme: { CLEAR_HISTORY_BUTTON_COLOR } }) => CLEAR_HISTORY_BUTTON_COLOR};
@@ -92,7 +92,7 @@ export const ClearHistoryButton = styled.button`
     }
 
     &:disabled {
-        cursor: ${({ theme: { cursor } }) => cursor.noToday};
+        cursor: not-allowed;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -108,6 +108,6 @@ export const ClearHistoryButton = styled.button`
         padding-left: ${({ theme: { padding } }) => padding[0]};
 
         font-size: ${({ theme: { fontSize } }) => fontSize.s}px;
-        text-align: ${({ theme: { textAlign } }) => textAlign.center};
+        text-align: center;
     }
 `;

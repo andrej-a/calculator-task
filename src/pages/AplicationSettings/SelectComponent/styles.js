@@ -36,7 +36,7 @@ export const SelectTitleBox = styled.div`
     font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
 
     color: ${({ theme: { color } }) => color.black};
-    cursor: ${({ theme: { cursor } }) => cursor.pointer};
+    cursor: pointer;
 
     img {
         position: absolute;

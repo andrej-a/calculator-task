@@ -5,5 +5,5 @@ export const Wrapper = styled.div`
 `;
 export const ErrorTitle = styled.h2`
     font-size: ${({ theme: { fontSize } }) => fontSize.xxl}px;
-    text-align: ${({ theme: { textAlign } }) => textAlign.center};
+    text-align: center;
 `;

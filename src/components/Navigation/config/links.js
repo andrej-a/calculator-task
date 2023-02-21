@@ -1,4 +1,4 @@
-import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from './componentsConstants';
+import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from '../../../constants/componentsConstants';
 
 const links = [
     {
