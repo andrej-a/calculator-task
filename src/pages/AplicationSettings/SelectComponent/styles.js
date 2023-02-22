@@ -5,18 +5,17 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 export const SelectWrapper = styled.div`
-position: relative;
+    position: relative;
     width: auto;
     height: auto;
-    margin-top: 7px;
-    margin-left: 91px;
+    margin-left: ${({ theme: { margin } }) => margin[90]}px;
 
-    @media (max-width: ${ mobileL }) {
+    @media (max-width: ${mobileL}) {
         display: flex;
         flex-direction: column;
 
-        width: 100%;
-        margin-left: 0px;
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+        margin-left: ${({ theme: { margin } }) => margin[0]};
 
         align-items: center;
     }
@@ -24,38 +23,31 @@ position: relative;
 export const SelectTitleBox = styled.div`
     position: relative;
 
-    width: 100%;
-    max-width: 401px;
-    height: 93px;
-    padding-left: 27px;
-    padding-top: 28px;
-    border: 2px solid #434343;
-    border-radius: 8px;
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[400]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[90]}px;
+    padding-left: ${({ theme: { padding } }) => padding[20]}px;
+    padding-top: ${({ theme: { padding } }) => padding[25]}px;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius.default};
 
-    background: #ffffff 0% 0% no-repeat padding-box;
-    opacity: 1;
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: 0px;
+    background: ${({ theme: { background } }) => background.white};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
 
-    color: #000000;
+    color: ${({ theme: { color } }) => color.black};
     cursor: pointer;
-    transition: all 0.3s ease;
 
     img {
         position: absolute;
-        right: 25px;
-        top: 38px;
+        right: ${({ theme: { right } }) => right[40]}px;
+        top: ${({ theme: { top } }) => top[30]}px;
 
-        width: 0;
-        height: 0;
-        border: 15px solid transparent;
-        border-top: 15px solid #707070;
+        transform: rotate(90deg);
 
-        @media (max-width: ${ mobileL }) {
-            top: 15px;
+        @media (max-width: ${mobileL}) {
+            top: ${({ theme: { top } }) => top[10]}px;
         }
-
     }
 
     &:hover {
@@ -64,30 +56,30 @@ export const SelectTitleBox = styled.div`
         box-shadow: 15px 20px 31px -1px rgba(112, 112, 112, 1);
     }
 
-    @media (max-width: ${ mobileL }) {
+    @media (max-width: ${mobileL}) {
         max-width: none;
-        width: 90%;
-        height: 50px;
-        padding-top: 5px;
+        width: ${({ theme: { widthOptions } }) => widthOptions[90]}%;
+        height: ${({ theme: { heightOptions } }) => heightOptions[50]}px;
+        padding-top: ${({ theme: { padding } }) => padding[5]}px;
 
-        font-size: 30px;
+        font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
     }
 `;
 export const OptionsWrapper = styled.div`
     position: absolute;
-    z-index: 2;
+    z-index: ${({ theme: { zIndex } }) => zIndex[2]};
 
-    width: 401px;
+    width: ${({ theme: { widthOptions } }) => widthOptions[400]}px;
     height: auto;
-    border: 2px solid #707070;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
 
-    @media (max-width: ${ mobileL }) {
-        top: 50px;
+    @media (max-width: ${mobileL}) {
+        top: ${({ theme: { top } }) => top[50]}px;
 
         display: flex;
         flex-direction: column;
+        width: ${({ theme: { widthOptions } }) => widthOptions[90]}%;
 
-        width: 90%;
         align-items: center;
     }
 `;

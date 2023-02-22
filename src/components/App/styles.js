@@ -6,10 +6,10 @@ const ApplicationWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 100vw;
-    max-width: 1920px;
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[1920]}px;
     height: auto;
-    min-height: 100vh;
+    max-height: ${({ theme: { heightOptions } }) => heightOptions[1080]}px;
 `;
 
 export default ApplicationWrapper;

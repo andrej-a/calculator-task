@@ -1,11 +1,11 @@
 import { bindActionCreators } from 'redux';
 
-import { setExpression,setOwnValue } from '@/redux/actions/actions';
+import { setExpression, setOwnValue } from '@/redux/actions/expression';
 import { store } from '@/redux/store';
 
-import checkPriority from './checkPriority';
-import cutZeros from './cutZeros';
-import doCorrectValue from './doCorrectValue';
+import checkPriority from '../helpers/checkPriority';
+import cutZeros from '../helpers/cutZeros';
+import doCorrectValue from '../helpers/doCorrectValue';
 import execution from './execution';
 
 const { dispatch } = store;
@@ -13,20 +13,19 @@ const { dispatch } = store;
 const { ownValue, SET_EXPRESSION } = bindActionCreators(
     {
         ownValue: setOwnValue,
-        SET_EXPRESSION: setExpression
+        SET_EXPRESSION: setExpression,
     },
-    dispatch
+    dispatch,
 );
 const getResult = display => {
     const copyDisplay = display;
     const expression = doCorrectValue(copyDisplay.split(' ')).filter(Boolean);
     let numberStack = [];
     let operatorsStack = [];
-    for (let i = 0; i <= expression.length + 1;) {
-
+    for (let i = 0; i <= expression.length + 2; ) {
         if (i >= expression.length) {
             const previousOperator = operatorsStack[operatorsStack.length - 1];
-            const stacks = execution(previousOperator, {numberStack, operatorsStack});
+            const stacks = execution(previousOperator, { numberStack, operatorsStack });
             numberStack = stacks.numberStack;
             operatorsStack = stacks.operatorsStack;
             ownValue(cutZeros(Number(stacks.numberStack[numberStack.length - 1]).toFixed(3)));
@@ -51,7 +50,7 @@ const getResult = display => {
         if (current.match(/[)]/)) {
             const previousOperator = operatorsStack[operatorsStack.length - 1];
             if (previousOperator.match(/[*-/+/%/√^]/)) {
-                const stacks = execution(previousOperator, {numberStack, operatorsStack});
+                const stacks = execution(previousOperator, { numberStack, operatorsStack });
                 numberStack = stacks.numberStack;
                 operatorsStack = stacks.operatorsStack;
                 continue;
@@ -74,11 +73,11 @@ const getResult = display => {
                     continue;
                 }
                 if (checkPriority(current, previousOperator)) {
-                    const stacks = execution(previousOperator, {numberStack, operatorsStack});
+                    const stacks = execution(previousOperator, { numberStack, operatorsStack });
                     numberStack = stacks.numberStack;
                     operatorsStack = stacks.operatorsStack;
                     continue;
-                    } else {
+                } else {
                     operatorsStack.push(current);
                     i++;
                 }

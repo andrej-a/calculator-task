@@ -5,28 +5,25 @@ import size from '@/constants/sizes';
 const { mobileL } = size;
 
 const Options = styled.div`
-    width: 100%;
-    height: 80px;
-    border: 2px solid #707070;
-    padding-top: 15px;
-    padding-left: 27px;
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    height: ${({ theme: { heightOptions } }) => heightOptions[90]}px;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
+    padding-top: ${({ theme: { padding } }) => padding[25]}px;
+    padding-left: ${({ theme: { padding } }) => padding[20]}px;
 
-    letter-spacing: 0px;
-    font-weight: 900;
-
-    background: #ffffff 0% 0% no-repeat padding-box;
-    font-size: 32px;
-    color: #000000;
+    background: ${({ theme: { background } }) => background.white};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight[700]};
+    color: ${({ theme: { color } }) => color.black};
     cursor: pointer;
-    transition: all 0.3s ease;
 
     &:hover {
-        background: #707070;
-        color: #fff;
+        background: ${({ theme: { background } }) => background.darkGrey};
+        color: ${({ theme: { color } }) => color.white};
     }
 
-    @media (max-width: ${ mobileL }) {
-        width: 100%;
+    @media (max-width: ${mobileL}) {
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
     }
 `;
 

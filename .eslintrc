@@ -9,8 +9,18 @@
         "cypress/globals": true
     },
     "rules": {
-        "simple-import-sort/imports": "error",
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                    ["^react$", "^[a-z]"],
+                    ["^redux"],
+                    ["^@"]
+                ]
+            }
+        ],
         "import/extensions": 0,
+        "import/export": 0,
         "comma-dangle": 0,
         "no-plusplus": 0,
         "no-continue": 0,
@@ -24,16 +34,21 @@
         "prefer-destructuring": "off",
         "react/destructuring-assignment": "off",
         "array-callback-return": "off",
+        "react/jsx-filename-extension": "off",
+        "react/prefer-stateless-function": "off",
         "no-underscore-dangle": "off",
+        "import/no-cycle": "off",
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "import/no-extraneous-dependencies": [
             "error",
             {
-              "devDependencies": [
-                "webpack.common.js",
-                "webpack.prod.js"
-              ]
+                "devDependencies": [
+                    "webpack.common.js",
+                    "webpack.prod.js"
+                ]
             }
-          ],
+        ],
         "max-len": [
             "warn",
             {
@@ -59,7 +74,7 @@
         "prefer-const": [
             "error",
             {
-                "destructuring": "any",
+                "destructuring": "all",
                 "ignoreReadBeforeAssign": false
             }
         ],
@@ -72,7 +87,7 @@
             "alias": {
                 "map": [
                     ["@", "./src"]
-                 ],
+                ],
                 "extensions": [".js", ".jsx", ".json"]
             }
         }

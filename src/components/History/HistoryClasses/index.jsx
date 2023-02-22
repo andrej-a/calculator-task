@@ -1,19 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
 
 import {
-    Border,
     HistoryItem,
     HistoryItemWrapper,
     HistoryWrapper,
     ItemsWrapper,
     Title,
     TitleWrapper
-} from '../HistoryFunctional/styles';
+} from '../styles';
 
 class HistoryClasses extends React.Component {
     constructor(props) {
@@ -24,38 +23,41 @@ class HistoryClasses extends React.Component {
     render() {
         const { history, showHistory, t } = this.props;
 
-        const historyItems = history.map(item => {
-            const { display, id } = item;
-            return (
-              <HistoryItemWrapper key={id}>
-                <HistoryItem>{display}</HistoryItem>
-              </HistoryItemWrapper>
-            );
-        });
-
         return (
-          <React.Fragment>
-            <Border />
-            <HistoryWrapper showHistory={showHistory}>
-              <TitleWrapper>
-                <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
-              </TitleWrapper>
+            <React.Fragment>
+                <HistoryWrapper showHistory={showHistory}>
+                    <TitleWrapper>
+                        <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
+                    </TitleWrapper>
 
-              <ItemsWrapper>{historyItems}</ItemsWrapper>
-            </HistoryWrapper>
-          </React.Fragment>
+                    <ItemsWrapper>
+                        {
+                            history.map(({ display, id }) => {
+                                return (
+                                    <HistoryItemWrapper key={id}>
+                                        <HistoryItem>{display}</HistoryItem>
+                                    </HistoryItemWrapper>
+                                );
+                            })
+                        }
+                    </ItemsWrapper>
+                </HistoryWrapper>
+            </React.Fragment>
         );
     }
 }
 
 HistoryClasses.propTypes = {
-    history: PropTypes.arrayOf().isRequired,
+    history: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        display: PropTypes.string.isRequired
+    }).isRequired).isRequired,
     showHistory: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = ({ main }) => ({
-    history: main.history,
-    showHistory: main.showHistory
+const mapStateToProps = ({ historyStore }) => ({
+    history: historyStore.history,
+    showHistory: historyStore.showHistory
 });
 
 export default withTranslation()(connect(mapStateToProps)(HistoryClasses));

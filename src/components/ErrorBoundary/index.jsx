@@ -2,9 +2,9 @@ import React from 'react';
 
 import { ERROR_TITLE } from '@/constants';
 
-import { ErrorTitle, ErrorTitleWrapper } from './styles';
+import { ErrorTitle, Wrapper } from './styles';
 
-export class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
         this.state = { hasError: false };
@@ -22,12 +22,14 @@ export class ErrorBoundary extends React.Component {
         const { hasError } = this.state;
         if (hasError) {
             return (
-              <ErrorTitleWrapper>
-                <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
-              </ErrorTitleWrapper>
+                <Wrapper>
+                    <ErrorTitle>{ERROR_TITLE}</ErrorTitle>
+                </Wrapper>
             );
         }
 
         return this.props.children;
     }
 }
+
+export default ErrorBoundary;

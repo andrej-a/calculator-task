@@ -3,34 +3,34 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { EMPTY_HISTORY_TITLE, HISTORY_TITLE } from '@/constants';
+import historySelector from '@/redux/selectors/historySelector';
 
-import { Border, HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from './styles';
+import { HistoryItem, HistoryItemWrapper, HistoryWrapper, ItemsWrapper, Title, TitleWrapper } from '../styles';
 
 const History = () => {
-    const history = useSelector(state => state.main.history);
-    const showHistory = useSelector(state => state.main.showHistory);
+    const { history, showHistory } = useSelector(historySelector);
     const { t } = useTranslation();
 
-    const historyItems = history.map(item => {
-        const { display, id } = item;
-        return (
-          <HistoryItemWrapper key={id}>
-            <HistoryItem>{display}</HistoryItem>
-          </HistoryItemWrapper>
-        );
-    });
-
     return (
-      <React.Fragment>
-        <Border />
-        <HistoryWrapper showHistory={showHistory}>
-          <TitleWrapper>
-            <Title>{historyItems.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
-          </TitleWrapper>
+        <React.Fragment>
+            <HistoryWrapper showHistory={showHistory}>
+                <TitleWrapper>
+                    <Title>{history.length ? t(HISTORY_TITLE) : t(EMPTY_HISTORY_TITLE)}</Title>
+                </TitleWrapper>
 
-          <ItemsWrapper>{historyItems}</ItemsWrapper>
-        </HistoryWrapper>
-      </React.Fragment>
+                <ItemsWrapper>
+                    {
+                        history.map(({ display, id }) => {
+                            return (
+                                <HistoryItemWrapper key={id}>
+                                    <HistoryItem>{display}</HistoryItem>
+                                </HistoryItemWrapper>
+                            );
+                        })
+                    }
+                </ItemsWrapper>
+            </HistoryWrapper>
+        </React.Fragment>
     );
 };
 

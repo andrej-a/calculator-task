@@ -1,15 +1,15 @@
 import { bindActionCreators } from 'redux';
 
-import { setOwnValue } from '@/redux/actions/actions';
+import { setOwnValue } from '@/redux/actions/expression';
 import { store } from '@/redux/store';
 
 const { dispatch } = store;
 
 const { ownValue } = bindActionCreators(
     {
-        ownValue: setOwnValue
+        ownValue: setOwnValue,
     },
-    dispatch
+    dispatch,
 );
 
 const replacePreviousOperator = (display, value) => {

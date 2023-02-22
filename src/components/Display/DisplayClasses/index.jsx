@@ -1,28 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Border, DisplayWrapper, Value, ValueWrapper } from '@/components/Display/DisplayFunctional/styles';
-
-import ExpressionComponent from './Expression';
+import { DisplayWrapper, Expression, ExpressionWrapper, Value, ValueWrapper } from '@/components/Display/styles';
 
 class DisplayClasses extends React.PureComponent {
     render() {
-        const { display } = this.props;
+        const { display, expression } = this.props;
         return (
-          <DisplayWrapper>
-            <ExpressionComponent />
-            <ValueWrapper>
-              <Value data-test="display">{display}</Value>
-            </ValueWrapper>
-            <Border />
-          </DisplayWrapper>
+            <DisplayWrapper>
+                <ExpressionWrapper>
+                    <Expression>{expression}</Expression>
+                </ExpressionWrapper>
+                <ValueWrapper>
+                    <Value data-test="display">{display}</Value>
+                </ValueWrapper>
+            </DisplayWrapper>
         );
     }
 }
 
-const mapStateToProps = ( { main } ) => {
+const mapStateToProps = ({ expression }) => {
     return {
-        display: main.display
+        display: expression.display,
+        expression: expression.expression
     };
 };
 

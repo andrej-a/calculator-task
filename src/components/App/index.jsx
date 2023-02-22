@@ -1,14 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
-import {ErrorBoundary} from '@/components/ErrorBoundary';
-import ControlPanel from '@/containers/ControlPanel';
+import Calculator from '@/components/Calculator';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import themeSelector from '@/redux/selectors/themeSelector';
 
 import ApplicationWrapper from './styles';
 
-export default () => (
-  <ErrorBoundary>
-    <ApplicationWrapper>
-      <ControlPanel />
-    </ApplicationWrapper>
-  </ErrorBoundary>
-);
+const Application = () => {
+    const { theme } = useSelector(themeSelector);
+    return (
+        <ThemeProvider theme={theme}>
+            <ErrorBoundary>
+                <ApplicationWrapper>
+                    <Calculator theme={theme} />
+                </ApplicationWrapper>
+            </ErrorBoundary>
+        </ThemeProvider>
+    );
+};
+
+export default Application;

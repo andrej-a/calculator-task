@@ -1,4 +1,4 @@
-import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from "./componentsConstants";
+import { HOME_CLASS_LINK, HOME_LINK, SETTINGS_LINK } from '../../../constants/componentsConstants';
 
 const links = [
     {
@@ -9,13 +9,13 @@ const links = [
     {
         link: '/homeclass',
         dataTest: 'homeclass',
-        title: HOME_CLASS_LINK
+        title: HOME_CLASS_LINK,
     },
     {
         link: '/settings',
         dataTest: 'settings',
-        title: SETTINGS_LINK
-    }
+        title: SETTINGS_LINK,
+    },
 ];
 
 export default links;

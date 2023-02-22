@@ -1,26 +1,25 @@
-import { bindActionCreators } from 'redux';
 import { v4 as uuidv4 } from 'uuid';
+
+import { bindActionCreators } from 'redux';
 
 import {
     DEFAULT_DISPLAY_VALUE,
     UNCORRECT_BRACKETS_MESSAGE,
     UNCORRECT_INPUT_MESSAGE,
-    UNCORRECT_OPERATOR_MESSAGE
+    UNCORRECT_OPERATOR_MESSAGE,
 } from '@/constants';
-import {
-    addItemToHistory,
-    changeDisplayValue,
-    setDefaultValue,
-    setExpression,
-    setOwnValue} from '@/redux/actions/actions';
+import checkIsValueTooLong from '@/helpers/checkIsValueTooLong';
+import { changeDisplayValue, setDefaultValue, setExpression, setOwnValue } from '@/redux/actions/expression';
+import { addItemToHistory } from '@/redux/actions/history';
 import { store } from '@/redux/store';
 
-import checkCorrectBrakcets from './checkCorrectBrakcets';
-import checkCorrectOperators from './checkCorrectOperators';
-import deleteLastItem from './deleteLastItem';
+import checkCorrectBrakcets from '../helpers/checkCorrectBrakcets';
+import checkCorrectOperators from '../helpers/checkCorrectOperators';
+import checkIfValueIsExpression from '../helpers/checkIfValueIsExpression';
+import deleteLastItem from '../helpers/deleteLastItem';
+import replacePreviousOperator from '../helpers/replacePreviousOperator';
+import warningMessage from '../helpers/warningMessage';
 import getResult from './getResult';
-import replacePreviousOperator from './replacePreviousOperator';
-import warningMessage from './warningMessage';
 
 const { dispatch, getState } = store;
 
@@ -30,28 +29,40 @@ const { changeDisplay, ownValue, setDefault, addHistoryItem, SET_EXPRESSION } = 
         ownValue: setOwnValue,
         setDefault: setDefaultValue,
         addHistoryItem: addItemToHistory,
-        SET_EXPRESSION: setExpression
+        SET_EXPRESSION: setExpression,
     },
-    dispatch
+    dispatch,
 );
 
 const controller = value => {
-    const { display } = getState().main;
-    if (getState().main.expression) {
+    const { display } = getState().expression;
+    let copy = display;
+    copy = copy.trim();
+    if (getState().expression.expression) {
         SET_EXPRESSION('');
     }
+
     if (value.match(/[0123456789]/i)) {
+        if (checkIsValueTooLong(display)) {
+            return;
+        }
         if (display === DEFAULT_DISPLAY_VALUE) {
             return ownValue(value);
         }
-        let copy = display;
-        copy = copy.trim();
         return copy[copy.length - 1].match(/\)/) ? ownValue(`${display} * ${value}`) : changeDisplay(value);
     }
 
+    if (value.match(/ \+- /)) {
+        const array = copy.split(' ').filter(item => item);
+        if (array.at(-1).match(/[0123456789]/gi)) {
+            copy = array.slice(0, array.length - 1);
+            const number = array.at(-1).match(/-/gi) ? Math.abs(+array.at(-1)) : `-${array.at(-1)}`;
+            return ownValue(`${copy.join(' ')} ${number}`);
+        }
+        return;
+    }
+
     if (value.match(/[√^]/)) {
-        let copy = display;
-        copy = copy.trim();
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/[0123456789]/i)) {
             copy = array.slice(0, array.length - 1);
@@ -63,10 +74,7 @@ const controller = value => {
         }
     }
 
-    if (value.match(/[*/+%]/)) {
-        let copy = display;
-        copy = copy.trim();
-
+    if (value.match(/[*/+%-]/)) {
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/\(/)) {
             return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
@@ -80,22 +88,7 @@ const controller = value => {
             : changeDisplay(value);
     }
 
-    if (value.match(/[-]/)) {
-        let copy = display;
-        copy = copy.trim();
-        const array = copy.split(' ');
-
-        if (array[array.length - 1].match(/\(/)) {
-            return changeDisplay(value.trim());
-        }
-        return copy[copy.length - 1].match(/[*-/+/.%]/)
-            ? replacePreviousOperator(display, value)
-            : changeDisplay(value);
-    }
-
     if (value.match(/\(/)) {
-        let copy = display;
-        copy = copy.trim();
         if (copy[copy.length - 1].match(/\./)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
@@ -109,9 +102,6 @@ const controller = value => {
     }
 
     if (value.match(/\)/)) {
-        let copy = display;
-        copy = copy.trim();
-
         if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
@@ -119,9 +109,6 @@ const controller = value => {
     }
 
     if (value.match(/\./)) {
-        let copy = display;
-        copy = copy.trim();
-
         const array = copy.split(' ');
         if (array[array.length - 1].match(/\./)) {
             return;
@@ -155,9 +142,13 @@ const controller = value => {
         if (!checkCorrectOperators(display)) {
             return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
         }
+
+        if (!checkIfValueIsExpression(display)) {
+            return;
+        }
         addHistoryItem({
             id: uuidv4(),
-            display
+            display,
         });
         getResult(display);
     }

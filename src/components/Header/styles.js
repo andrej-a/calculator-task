@@ -2,65 +2,46 @@ import styled from 'styled-components';
 
 import size from '@/constants/sizes';
 
-export const Wrapper = styled.div`
+export const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
-    width: 100vw;
-    max-width: ${size.desktop};
-    height: auto;
-    min-height: 120px;
-    border: 1px solid ${props => props.theme.BORDER_COLOR};
+    width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[1920]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[80]}px;
+    border: ${({ theme: { border, SECOND_BORDER_COLOR } }) => `${border.default} ${SECOND_BORDER_COLOR}`};
 
-    background: ${props => props.theme.MAIN_COLOR};
-
-    @media (max-width: ${size.laptop}) {
-        min-height: auto;
-        height: 80px;
-    }
+    background: ${({ theme: { MAIN_COLOR } }) => MAIN_COLOR};
 `;
 export const TitleWrapper = styled.div`
     width: auto;
     height: auto;
-    margin-top: 42px;
-    margin-left: 32px;
+    margin: ${({ theme: { margin } }) => margin.header};
 
     @media (max-width: ${size.laptop}) {
-        z-index: 4;
-
-        margin-top: 22px;
-        margin-left: 32px;
+        z-index: ${({ theme: { zIndex } }) => zIndex[4]};
         position: relative;
     }
 `;
 export const Title = styled.h1`
-    font-size: 32px;
-    letter-spacing: 0px;
-    color: ${props => props.theme.SECOND_FONT_COLOR};
+    font-size: ${({ theme: { fontSize } }) => fontSize.l}px;
+    color: ${({ theme: { SECOND_FONT_COLOR } }) => SECOND_FONT_COLOR};
 
     @media (max-width: ${size.mobileM}) {
-        font-size: 28px;
+        font-size: ${({ theme: { fontSize } }) => fontSize.m}px;
     }
 `;
 export const LinksWrapper = styled.div`
     display: flex;
-    gap: 32px;
+    gap: ${({ theme: { gap } }) => gap[32]}px;
 
     width: auto;
     height: auto;
-    margin-top: 42px;
-    margin-right: 32px;
-    transition: all 0.3s ease;
+    margin: ${({ theme: { margin } }) => margin.navigation};
 
     a {
-        height: 45px;
-
+        height: ${({ theme: { heightOptions } }) => heightOptions[45]}px;
         text-decoration: none;
-    }
-
-    @media (max-width: ${size.laptop}) {
-        margin-top: 22px;
-        margin-right: 32px;
     }
 
     @media (max-width: ${size.tablet}) {
@@ -68,32 +49,38 @@ export const LinksWrapper = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         position: absolute;
-        z-index: 3;
-        left: ${props => props.showMenu ? '0' : "-3600px"};
+        z-index: ${({ theme: { zIndex } }) => zIndex[3]};
+        left: ${({ showMenu }) => (showMenu ? '0' : '-3600px')};
 
-        width: 100vw;
-        height: 100vh;
-
-        background: ${props => props.theme.MAIN_COLOR};
+        width: ${({ theme: { widthOptions } }) => widthOptions[100]}%;
+        height: ${({ theme: { heightOptions } }) => heightOptions[900]}px;
+        transition: ${({ theme: { transition } }) => transition.default};
+        background: ${({ theme: { MAIN_COLOR } }) => MAIN_COLOR};
 
         a {
-            height: 60px;
+            height: ${({ theme: { heightOptions } }) => heightOptions[60]}px;
         }
     }
+
+    @media (max-width: ${size.mobileL}) {
+        height: ${({ theme: { heightOptions } }) => heightOptions[730]}px;
+    }
 `;
+
 export const BurgerWrapper = styled.div`
     position: relative;
-    z-index: 4;
+    z-index: ${({ theme: { zIndex } }) => zIndex[4]};
+
     flex-direction: column;
     justify-content: center;
     display: none;
 
     width: auto;
-    max-width: 50px;
-    height: 30px;
-    margin-top: 28px;
-    margin-right: 32px;
+    max-width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[30]}px;
+    margin: ${({ theme: { margin } }) => margin.burger};
     cursor: pointer;
 
     @media (max-width: ${size.tablet}) {
@@ -101,32 +88,32 @@ export const BurgerWrapper = styled.div`
     }
 `;
 export const Burger = styled.div`
-    width: 50px;
-    height: 2px;
+    width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
+    height: ${({ theme: { heightOptions } }) => heightOptions[2]}px;
 
-    background: #fff;
+    background: ${({ theme: { background } }) => background.white};
 
     &:before {
-        content: ' ';
-        display: block;
         position: relative;
-        top: -15px;
+        top: -${({ theme: { top } }) => top[15]}px;
 
-        width: 50px;
-        height: 2px;
+        display: block;
+        width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
+        height: ${({ theme: { heightOptions } }) => heightOptions[2]}px;
 
-        background: #fff;
+        content: ' ';
+        background: ${({ theme: { background } }) => background.white};
     }
 
     &:after {
-        content: ' ';
-        display: block;
         position: relative;
-        top: 15px;
+        top: ${({ theme: { top } }) => top[15]}px;
 
-        width: 50px;
-        height: 2px;
+        display: block;
+        width: ${({ theme: { widthOptions } }) => widthOptions[50]}px;
+        height: ${({ theme: { heightOptions } }) => heightOptions[2]}px;
 
-        background: #fff;
+        content: ' ';
+        background: ${({ theme: { background } }) => background.white};
     }
 `;
