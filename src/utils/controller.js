@@ -1,3 +1,4 @@
+import { instance as alertor } from 'alertor-library';
 import { v4 as uuidv4 } from 'uuid';
 
 import { bindActionCreators } from 'redux';
@@ -8,6 +9,7 @@ import {
     UNCORRECT_INPUT_MESSAGE,
     UNCORRECT_OPERATOR_MESSAGE,
 } from '@/constants';
+import alertorSettings from '@/constants/alertor';
 import checkIsValueTooLong from '@/helpers/checkIsValueTooLong';
 import { changeDisplayValue, setDefaultValue, setExpression, setOwnValue } from '@/redux/actions/expression';
 import { addItemToHistory } from '@/redux/actions/history';
@@ -18,7 +20,6 @@ import checkCorrectOperators from '../helpers/checkCorrectOperators';
 import checkIfValueIsExpression from '../helpers/checkIfValueIsExpression';
 import deleteLastItem from '../helpers/deleteLastItem';
 import replacePreviousOperator from '../helpers/replacePreviousOperator';
-import warningMessage from '../helpers/warningMessage';
 import getResult from './getResult';
 
 const { dispatch, getState } = store;
@@ -70,14 +71,26 @@ const controller = value => {
         }
 
         if (array[array.length - 1].match(/[*\-/+%]/i)) {
-            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'warning',
+                title: UNCORRECT_INPUT_MESSAGE,
+                description: UNCORRECT_INPUT_MESSAGE,
+            });
+            return;
         }
     }
 
     if (value.match(/[*/+%-]/)) {
         const array = copy.split(' ').filter(item => item);
         if (array[array.length - 1].match(/\(/)) {
-            return warningMessage(display, UNCORRECT_OPERATOR_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'warning',
+                title: UNCORRECT_OPERATOR_MESSAGE,
+                description: UNCORRECT_OPERATOR_MESSAGE,
+            });
+            return;
         }
         if (array[array.length - 1].trim() === '-' && array[array.length - 2].match(/\(/)) {
             replacePreviousOperator(display, '');
@@ -90,7 +103,13 @@ const controller = value => {
 
     if (value.match(/\(/)) {
         if (copy[copy.length - 1].match(/\./)) {
-            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'warning',
+                title: UNCORRECT_INPUT_MESSAGE,
+                description: UNCORRECT_INPUT_MESSAGE,
+            });
+            return;
         }
         if (copy.length >= 1 && !copy.match(/[*-/+/(%]/gi)) {
             return ownValue(value);
@@ -103,7 +122,13 @@ const controller = value => {
 
     if (value.match(/\)/)) {
         if (copy[copy.length - 1].match(/[*-/+/(%]/)) {
-            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'warning',
+                title: UNCORRECT_INPUT_MESSAGE,
+                description: UNCORRECT_INPUT_MESSAGE,
+            });
+            return;
         }
         return changeDisplay(value);
     }
@@ -136,11 +161,23 @@ const controller = value => {
 
     if (value.match(/=/)) {
         if (!checkCorrectBrakcets(display)) {
-            return warningMessage(display, UNCORRECT_BRACKETS_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'error',
+                title: UNCORRECT_BRACKETS_MESSAGE,
+                description: UNCORRECT_BRACKETS_MESSAGE,
+            });
+            return;
         }
 
         if (!checkCorrectOperators(display)) {
-            return warningMessage(display, UNCORRECT_INPUT_MESSAGE);
+            alertor.addAlert({
+                ...alertorSettings,
+                type: 'warning',
+                title: UNCORRECT_INPUT_MESSAGE,
+                description: UNCORRECT_INPUT_MESSAGE,
+            });
+            return;
         }
 
         if (!checkIfValueIsExpression(display)) {

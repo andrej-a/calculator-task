@@ -1,6 +1,9 @@
 import React from 'react';
+import { instance as alertor } from 'alertor-library';
 import { useTranslation } from 'react-i18next';
 
+import alertorSettings from '@/constants/alertor';
+import { CHANGE_LANG_ALERT } from '@/constants/componentsConstants';
 import fakeLanguagesData from '@/constants/fakeLanguagesData';
 
 import Options from '../Theme/styles';
@@ -11,6 +14,12 @@ const LanguagesSwitcher = ({ onSetIsOpen }) => {
     const languageManager = language => () => {
         i18n.changeLanguage(language);
         onSetIsOpen();
+        alertor.addAlert({
+            ...alertorSettings,
+            type: 'alert',
+            title: `${t(CHANGE_LANG_ALERT)}`,
+            description: `${language === 'ru' ? 'Русский' : 'English'}`,
+        });
     };
 
     return (
