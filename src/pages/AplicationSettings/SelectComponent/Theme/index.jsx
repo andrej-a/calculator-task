@@ -1,8 +1,12 @@
 import React from 'react';
+import { instance as alertor } from 'alertor-library';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { DEFAULT_THEME_VALUE } from '@/constants';
+
+import alertorSettings from '@/constants/alertor';
+
 import fakeThemeData from '@/constants/fakeThemeData';
 import { changeTheme, changeThemeValue } from '@/redux/actions/theme';
 import { themeOptions } from '@/styles';
@@ -18,6 +22,12 @@ const Theme = ({ onSetIsOpen }) => {
         dispatch(changeTheme(theme));
         dispatch(changeThemeValue(t(value)));
         onSetIsOpen();
+        alertor.addAlert({
+            ...alertorSettings,
+            type: 'alert',
+            title: 'Theme was changed',
+            description: `${t(value)}`,
+        });
     };
 
     return (
