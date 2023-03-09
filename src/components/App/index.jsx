@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { AlertPortal } from 'alertor-library';
+
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
@@ -18,7 +20,9 @@ const Application = () => {
                 <ApplicationWrapper>
                     <Calculator theme={theme} />
                 </ApplicationWrapper>
+
                 <AlertPortal />
+
             </ErrorBoundary>
         </ThemeProvider>
     );

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { instance as alertor } from 'alertor-library';
+
 import i18next from 'i18next';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -14,7 +16,9 @@ import {
     RUSSIAN_LANGUAGE,
     SETTINGS_TITLE,
 } from '@/constants';
+
 import alertorSettings from '@/constants/alertor';
+
 import selectsData from '@/constants/selectsData';
 import * as historyActions from '@/redux/actions/history';
 
@@ -31,12 +35,14 @@ class Settings extends React.Component {
 
         const settingsManager = () => {
             clearHistory();
+
             alertor.addAlert({
                 ...alertorSettings,
                 type: 'alert',
                 title: 'History was cleaned',
                 description: ' ',
             });
+
         };
 
         return (

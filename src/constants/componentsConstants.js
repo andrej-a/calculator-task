@@ -12,6 +12,7 @@ export const DEFAULT_DISPLAY_VALUE = '0';
 export const UNCORRECT_BRACKETS_MESSAGE = 'Error: check your brackets!';
 export const WARNING_MESSAGE_TIMEOUT = 2000;
 export const UNCORRECT_OPERATOR_MESSAGE = 'Error: uncorrect operator';
+export const UNCORRECT_OPERATOR_MESSAGE = 'Error: operator can`t be after an open bracket';
 export const MAX_LENGTH_EXPRESSION = 14;
 export const TOO_LONG_EXPRESSION = 'Max espression length is: ';
 export const UNCORRECT_INPUT_MESSAGE = 'Error: uncorrect input!';

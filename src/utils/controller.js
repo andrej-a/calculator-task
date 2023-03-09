@@ -1,4 +1,6 @@
+
 import { instance as alertor } from 'alertor-library';
+
 import { v4 as uuidv4 } from 'uuid';
 
 import { bindActionCreators } from 'redux';
@@ -9,7 +11,9 @@ import {
     UNCORRECT_INPUT_MESSAGE,
     UNCORRECT_OPERATOR_MESSAGE,
 } from '@/constants';
+
 import alertorSettings from '@/constants/alertor';
+
 import checkIsValueTooLong from '@/helpers/checkIsValueTooLong';
 import { changeDisplayValue, setDefaultValue, setExpression, setOwnValue } from '@/redux/actions/expression';
 import { addItemToHistory } from '@/redux/actions/history';
@@ -20,6 +24,9 @@ import checkCorrectOperators from '../helpers/checkCorrectOperators';
 import checkIfValueIsExpression from '../helpers/checkIfValueIsExpression';
 import deleteLastItem from '../helpers/deleteLastItem';
 import replacePreviousOperator from '../helpers/replacePreviousOperator';
+
+import warningMessage from '../helpers/warningMessage';
+
 import getResult from './getResult';
 
 const { dispatch, getState } = store;
@@ -177,6 +184,10 @@ const controller = value => {
                 title: UNCORRECT_INPUT_MESSAGE,
                 description: UNCORRECT_INPUT_MESSAGE,
             });
+            return;
+        }
+
+        if (!checkIfValueIsExpression(display)) {
             return;
         }
 

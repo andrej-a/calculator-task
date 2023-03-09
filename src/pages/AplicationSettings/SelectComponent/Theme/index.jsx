@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { DEFAULT_THEME_VALUE } from '@/constants';
+
 import alertorSettings from '@/constants/alertor';
+
 import fakeThemeData from '@/constants/fakeThemeData';
 import { changeTheme, changeThemeValue } from '@/redux/actions/theme';
 import { themeOptions } from '@/styles';
